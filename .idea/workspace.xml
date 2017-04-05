@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09452106-0e6b-42cc-a4a4-d3b4196fb8ac" name="Default" comment="" />
+    <list default="true" id="09452106-0e6b-42cc-a4a4-d3b4196fb8ac" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
+    </list>
     <list id="d874e604-b592-48c7-a46f-f7b2a30b1134" name="ignore" comment="" />
     <ignored path="www.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/../apuntes.TXT">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <caret line="25" column="63" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -53,8 +55,18 @@
       <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.9066666">
-              <caret line="224" column="9" selection-start-line="224" selection-start-column="9" selection-end-line="224" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.48190477">
+              <caret line="235" column="66" selection-start-line="235" selection-start-column="66" selection-end-line="235" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../queplan/www/config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.8846154">
+              <caret line="117" column="4" selection-start-line="117" selection-start-column="4" selection-end-line="120" selection-end-column="102" />
               <folding />
             </state>
           </provider>
@@ -69,7 +81,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/main/layout.js" />
         <option value="&lt;eee0ec32-3b61-47bb-b9ae-4dc1c715a0e2&gt;/app/controllers/mobile_api_controller.rb" />
         <option value="$PROJECT_DIR$/../config.xml" />
         <option value="$PROJECT_DIR$/views/layout/footer.html" />
@@ -119,6 +130,7 @@
         <option value="$PROJECT_DIR$/js/main/tools.js" />
         <option value="$PROJECT_DIR$/views/tools/simulador2.html" />
         <option value="$PROJECT_DIR$/../apuntes.TXT" />
+        <option value="$PROJECT_DIR$/../../../queplan/www/config.xml" />
         <option value="$PROJECT_DIR$/config.xml" />
       </list>
     </option>
@@ -984,15 +996,23 @@
     <entry file="file://$PROJECT_DIR$/../apuntes.TXT">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <caret line="25" column="63" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../queplan/www/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="117" column="4" selection-start-line="117" selection-start-column="4" selection-end-line="120" selection-end-column="102" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.9066666">
-          <caret line="224" column="9" selection-start-line="224" selection-start-column="9" selection-end-line="224" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.48190477">
+          <caret line="235" column="66" selection-start-line="235" selection-start-column="66" selection-end-line="235" selection-end-column="66" />
           <folding />
         </state>
       </provider>
