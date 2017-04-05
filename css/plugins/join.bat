@@ -1,0 +1,1 @@
+uglifycss --ugly-comments jRating.jquery.css nestable.css bootstrap-datepicker3.min.css lobibox.css font-awesome.css ionicons.css summernote.css viewer.css bootstrap-tokenfield.css selectivity-full.css owl.carousel.css sweetalert.css slick.css > mix.css

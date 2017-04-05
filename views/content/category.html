@@ -1,0 +1,67 @@
+<div class="row" >
+    <div class="view-states">
+        <span class="item"><i class="fa fa-file-text-o"></i> <span data-query="html(category.category_pages_count + '')"></span></span>
+        <span class="item"><i class="fa fa-eye"></i> <span data-query="html(category.category_visits_count + '')"></span></span>
+        <span class="item"><i class="fa fa-tags"></i> <span data-query="html(category.category_follower_count + '')"></span></span>
+
+        <div class="pull-right" data-query="visible(permissions().can_subscribe)">
+            <a href="javascript:;" data-query="click(click_followed_category)">
+                <i class="fa fa-tag" ></i>
+                <span data-query="visible(!user_values().followed)">Suscribirse</span>
+                <span data-query="visible(user_values().followed)">Desuscribirse</span>
+            </a>
+        </div>
+    </div>
+    <div class="pt_header_categories" data-query="visible(children().length > 0)">
+        <h3><i class="fa fa-folder-open-o"></i> SUB CATEGORIAS</h3>
+        <div class="slider" data-query="each(children)">
+            <div class="slide">
+                <a href="#category/{{id}}" class="box_category">
+                    <i class="fa fa-folder-o"></i>
+                    <span class="title">{{name}}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="pt_header_posts">
+        <h3><i class="fa fa-list"></i> CONTENIDO
+            <div class="box_orders pull-right">
+                <div class="custom-select">
+                    <select name="sort_by"  data-query="change(change_order).val(sort_by)">
+                        <option value="">Ordenar</option>
+                        <option value="title">Titulo</option>
+                        <option value="created_at">Fecha de creación</option>
+                        <option value="updated_at">Fecha de actualización</option>
+                        <option value="is_important">Prioridad</option>
+                        <option value="page_visits_count">Popularidad</option>
+                    </select>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+                <div class="custom-select" style="width: 60px">
+                    <select  name="order_by"  data-query="change(change_order).val(order_by)">
+                        <option value="desc">DESC</option>
+                        <option value="asc">ASC</option>
+                    </select>
+                    <i class="fa fa-chevron-down"></i>
+                </div>
+            </div>
+        </h3>
+    </div>
+
+
+    <div class="content_posts col-md-12">
+        <div class="row" data-query="visible(posts().length > 0)">
+            <div class="col-md-6 hidden-xs hidden-sm">
+                <div data-query="template('template_post_preview', post_first)"></div>
+            </div>
+            <div class="col-md-6" data-query="template('template_post').each(posts)"></div>
+        </div>
+
+        <div class="row" data-query="visible(posts().length == 0)">
+            <div class="col-md-12">
+                <div class="alert alert-warning"><i class="fa fa-warning fa-lg"></i> No existe contenido a mostrar</div>
+            </div>
+        </div>
+    </div>
+</div>

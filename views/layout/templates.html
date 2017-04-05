@@ -1,0 +1,201 @@
+<!-- POST SECTION DATE -->
+<script id="template_post_dates" type="text/blocks-template">
+    <div class="box_post_dates">
+        <ul data-query="visible(options().show_promotion)">
+            <li><span>Vigente desde:</span> <strong data-query="html(format_date(options().start_promo) || '')"></strong></li>
+            <li><span>Expira el:</span> <strong data-query="html(format_date(options().end_promo) || '')"></strong></li>
+            <li><span>Actualizado el:</span> <strong data-query="html(format_date(updated_at) || '')"></strong></li>
+        </ul>
+        <ul data-query="visible(options().show_service)">
+            <li><span>Vigente desde:</span> <strong data-query="html(format_date(created_at)|| '')"></strong></li>
+            <li><span>Actualizado el:</span> <strong data-query="html(format_date(updated_at)|| '')"></strong></li>
+            <li data-query="visible(options().end_valid != '')"><span>Suspendido en:</span> <strong data-query="html(format_date(options().end_valid)|| '')"></strong></li>
+        </ul>
+        <ul data-query="visible(options().show_default)">
+            <li><span>Actualizado el:</span> <strong data-query="html(format_date(updated_at)|| '')"></strong></li>
+            <li data-query="visible(date_expiration)"><span>Expira el:</span> <strong data-query="html(format_date(date_expiration)|| '')"></strong></li>
+        </ul>
+    </div>
+</script>
+
+<!-- POST VIEW IN LIST -->
+<script id="template_post" type="text/blocks-template">
+    <div class="box-post">
+        <div class="box-post-content">
+            <a class="link" href="#page/{{parseInt(section_of) ? section_of + '/' + id : id}}" >
+                <img class="thumb" src="{{fix_url(thumbnail)}}" alt="{{title}}"/>
+                <div class="content">
+                    <h4>{{title || ''}}</h4>
+                    <div data-query="visible(is_important)" style="margin-bottom: 6px;  margin-top: -8px;"><span class="label label-primary bg-purple">DESTACADO</span></div>
+                    <div data-query="template('template_post_dates')"></div>
+                </div>
+                <a class="btn_options collapsed"  href="#page/{{parseInt(section_of) ? section_of + '/' + id : id}}" >
+                    <i class="fa fa-plus-circle plus"></i>
+                </a>
+                <div class="box_label">
+                    <span class="label label-{{label().class}}">{{label().title}}</span> &nbsp;
+                </div>
+            </a>
+        </div>
+    </div>
+</script>
+
+<script id="template_post_search" type="text/blocks-template">
+    <div class="box-post">
+        <div class="box_post_header">
+            {{post_type_title}}
+            <span class="search_number">{{parseInt($index) + 1}}</span>
+        </div>
+        <div class="box-post-content">
+
+            <a class="link" href="#page/{{parseInt(section_of) ? section_of + '/' + id : id}}" >
+                <img class="thumb lazy" data-original="{{fix_url(thumbnail)}}" alt="{{title}}"/>
+                <div class="content">
+                    <h4>{{title || ''}}</h4>
+                    <p data-query="html(content)"></p>
+                    <div data-query="template('template_post_dates')"></div>
+                </div>
+                <a class="btn_options collapsed"  href="#page/{{parseInt(section_of) ? section_of + '/' + id : id}}" >
+                    <i class="fa fa-plus-circle plus"></i>
+                </a>
+                <div class="box_label"><span class="label label-{{label().class}}">{{label().title}}</span></div>
+            </a>
+        </div>
+    </div>
+</script>
+
+<!-- POST PREVIEW IN LIST -->
+<script id="template_post_preview" type="text/blocks-template">
+    <div class="">
+        <div class="box-post-preview">
+            <div class="row">
+                <div class="col-sm-12">
+                    <img class="thumb lazy" data-original="{{fix_url(thumbnail)}}" alt="{{title}}"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="content">
+                    <div class="col-sm-4 dates">
+                        <div data-query="template('template_post_dates')"></div>
+                    </div>
+                    <div class="col-sm-8">
+                        <a href="#page/{{id}}" >
+                            <h4>{{title}}</h4>
+                        </a>
+                        <div class="summary" data-query="html(summary)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="template_search_adv" type="text/blocks-template">
+    <form id="form_search_advanced" class="form form_search_advanced" onsubmit="return">
+        <input  type="hidden" name="text"  value="{{search_text_root}}"/>
+
+        <div >
+            <div class="form-group">
+                <select name="category" id="search_category" class="form-control"></select>
+            </div>
+            <div class="row form-group" id="date-picker-range">
+                <div class="col-xs-6 cale">
+                    <input type="text" class="datepicker form-control"  name="date_start" placeholder="DD/MM/YY" />
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <div class="col-xs-6 cale">
+                    <input type="text" class="datepicker form-control" name="date_end" placeholder="DD/MM/YY" />
+                    <i class="fa fa-calendar"></i>
+                </div>
+            </div>
+
+            <div class="row box_filter_groups">
+
+                <div class="col-md-12  range-time-radios">
+                    <strong>Rango de Fechas</strong>
+                    <div class="input-group my_radio range_time">
+                        <input type="radio" value="d" name="search[r]" id="d_{{get_date_int()}}" class=""><label for="d_{{get_date_int()}}"><span></span> Hoy</label> &nbsp;  &nbsp;
+                        <input type="radio" value="d7" name="search[r]" id="d7_{{get_date_int()}}" class=""><label for="d7_{{get_date_int()}}"><span></span> Ultimos 7 Días</label> &nbsp;  &nbsp;
+                        <input type="radio" value="last-m" name="search[r]" id="last_{{get_date_int()}}" class=""><label for="last_{{get_date_int()}}"><span></span> Ultimos 30 Días</label> &nbsp;  &nbsp;
+                        <input type="radio" value="m3" name="search[r]" id="m3_{{get_date_int()}}" class=""><label for="m3_{{get_date_int()}}"><span></span> Ultimos 3 Meses</label> &nbsp;  &nbsp; <br>
+                        <input type="radio" value="m6" name="search[r]" id="m6_{{get_date_int()}}" class=""><label for="m6_{{get_date_int()}}"><span></span> Ultimos 6 Meses</label> &nbsp;  &nbsp;
+                        <input type="radio" value="all" name="search[r]" id="all_{{get_date_int()}}" class="all_dates" checked="checked"><label for="all_{{get_date_int()}}"><span></span> Todo</label> &nbsp;  &nbsp;
+                    </div>
+                </div>
+            </div>
+
+            <div class="row box_filter_groups">
+                <div class="col-xs-6">
+                    <strong>Grupos</strong>
+                    <div data-query="each(search_post_types)">
+                        <div class="my_checkbox">
+                            <input id="post_types_{{key}}_{{get_date_int()}}" type="checkbox" name="post_types[]" value="{{key}}" checked /> <label for="post_types_{{key}}_{{get_date_int()}}">{{title}}</label>
+                        </div>
+                        <div class="my_radio sub" data-query="each($this.options)">
+                            <input id="options_{{$parent.key}}_{{$this.key}}_{{get_date_int()}}" type="radio" name="options[{{$parent.key}}]" value="{{$this.key}}" data-query="checked($index == 0)" /> <label for="options_{{$parent.key}}_{{$this.key}}_{{get_date_int()}}">{{$this.label}}</label> <br/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <strong>Buscar en</strong>
+                    <div class="form-group my_radio ">
+                        <input type="radio" id="search_in_all_{{get_date_int()}}" name="search_in" value="all" checked />
+                        <label for="search_in_all_{{get_date_int()}}">  Todo </label> <br/>
+                        <input type="radio" id="search_in_title_{{get_date_int()}}" name="search_in" value="title" />
+                        <label for="search_in_title_{{get_date_int()}}">  Titulos </label> <br/>
+                        <input type="radio" id="search_in_content_{{get_date_int()}}" name="search_in" value="content" />
+                        <label for="search_in_content_{{get_date_int()}}">  Contenido </label> <br/>
+                        <input type="radio" id="search_in_keywords_{{get_date_int()}}" name="search_in" value="keywords" />
+                        <label  for="search_in_keywords_{{get_date_int()}}">  Palabra Clave </label>
+
+                    </div>
+
+                    <strong>Rating</strong>
+                    <div class="row form-group">
+                        <div class="col-sm-7">
+                            <select name="rating_eval" class="form-control">
+                                <option value="" style="opacity: 0.8">Selecionar</option> <option value="=">Igual a</option><option value=">">Mayor a</option><option value="<">Menor a</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-5">
+                            <select name="rating_value" class="form-control">
+                                <option value="">Valor</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <strong>Visitas</strong>
+                    <div class="row form-group">
+                        <div class="col-sm-7">
+                            <select name="visit_eval" class="form-control" >
+                                <option value=""  style="opacity: 0.8">Seleccionar</option><option value="=">Igual a</option><option value=">">Mayor a</option><option value="<">Menor a</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="text" name="visit_value" class="form-control" placeholder="Valor" />
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <label class="control-label">Buscar tambien en</label><br/>
+                <div class="my_checkbox">
+                    <input id="in_adj_{{get_date_int()}}" type="checkbox" name="in_adj" value="1" /> <label for="in_adj_{{get_date_int()}}">Archivos adjuntos</label>
+                </div>
+                <div class="my_checkbox">
+                    <input id="in_cat_{{get_date_int()}}" type="checkbox" name="in_cat" value="1" /> <label for="in_cat_{{get_date_int()}}">Categorias</label>
+                </div>
+            </div>
+            <hr/>
+            <div class="clear text-center btn_submits">
+                <button class="btn btn-green" data-query="click(click_search)" type="button">BUSCAR</button>
+                <button class="btn btn-default" data-query="click(App.Header.reset_form)" type="button">LIMPIAR</button>
+            </div>
+        </div>
+
+    </form>
+</script>

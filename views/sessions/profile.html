@@ -1,0 +1,98 @@
+<form enctype="multipart/form-data" id="user_form" method="post">
+    <div class="control-group">
+        <label class="control-label">1º Nombre <em>*</em></label>
+        <div class="controls">
+            <input class="required form-control" name="name" type="text" value="">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">2º Nombre</label>
+        <div class="controls">
+            <input class="form-control" name="name2" type="text" value="">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">1º Apellido <em>*</em></label>
+        <div class="controls">
+            <input class="required form-control" name="lastname" type="text" value="">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">2º Apellido</label>
+        <div class="controls">
+            <input class="form-control" name="lastname2" type="text" value="">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">C.I. <em>*</em></label>
+        <div class="controls">
+            <input class="required number form-control" name="ci" type="text" value="">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">C.I. Ext<em>*</em></label>
+        <div class="controls">
+            <select name="ci_ext" class="form-control required">
+                <option value="CB">CB</option>
+                <option value="LP">LP</option>
+                <option value="SC">SC</option>
+                <option value="TJ">TJ</option>
+                <option value="BN">BN</option>
+                <option value="PD">PD</option>
+                <option value="PT">PT</option>
+                <option value="OR">OR</option>
+                <option value="CH">CH</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Telefono fijo</label>
+        <div class="controls">
+            <input class="number form-control" name="phone" type="text" value="">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Celular</label>
+        <div class="controls">
+            <input class="number form-control" name="mobile" type="text" value="">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Correo electronico <em>*</em></label>
+        <div class="controls">
+            <input class="required email form-control" name="email" type="text" value="">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Nombre de usuario</label>
+        <div class="controls">
+            <input name="username" disabled="" class="form-control required" type="text" value="">
+        </div>
+    </div>
+    <div id="panel_pass">
+        <div class="control-group">
+            <label class="control-label" >Contraseña</label>
+            <div class="controls">
+                <input id="admin_user_password" name="password" class="form-control" type="text">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" >Repetir Contraseña</label>
+            <div class="controls">
+                <input name="password_confirmation" class="form-control" type="text">
+            </div>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Foto</label>
+        <div class="controls">
+            <input type="file" class="form-control" name="avatar" accept="image/*">
+        </div>
+    </div>
+    <br>
+    <div class="control-group">
+        <button class="btn btn-purple" name="button" type="submit"><i class="icon-ok bigger-110"></i>Actualizar Usuario</button>
+        <button type="button" onclick="$(this).closest('.modal').find('button.close').click(); return false;" name="button" class="button btn"><i class="icon-undo bigger-110"></i>Cancelar</button>
+    </div>
+</form>

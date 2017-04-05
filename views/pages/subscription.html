@@ -1,0 +1,31 @@
+<h4>Reciba las ultimas novedades</h4>
+<p>
+    Recibir una notificación cuando se agregan y actualizan articulos al Sistema de Conocimiento
+</p>
+
+<div class="alert alert-info" data-query="visible(!subscribed())">
+    Si quiere recibir notificaciones envie su información en el siguiente formulario:
+</div>
+
+<div data-query="visible(!subscribed())">
+    <div class="form-group closest_name hidden">
+        <input type="text" class="form-control required" name="name" title="Ingrese su nombre Completo" placeholder="Nombre Completo" data-query="val(name)" >
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control required email" name="email" title="Ingrese su correo electrónico" placeholder="Correo Electrónico" data-query="val(email)">
+    </div>
+    <div class="text-center">
+        <button class="btn btn-purple" type="button" data-query="click(click_subscribe)">Listo</button>
+    </div>
+
+</div>
+
+<div class="alert alert-info" data-query="visible(subscribed())">
+    Usted ya esta suscrito al sistema, si ya no quiere recibir notificaciones presione el siguiente boton:
+</div>
+
+
+
+<div data-query="visible(subscribed())" class="text-center">
+    <button class="btn btn-danger" type="button" data-query="click(click_un_subscribe)">Cancelar suscripción</button>
+</div>

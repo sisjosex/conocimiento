@@ -1,0 +1,106 @@
+<div class="box_header div_expand_row">
+
+    <div class="my_breadcrumb">
+        <ul data-query="each(breadcrumb)">
+            <li>
+                <a href="{{url}}" data-query="visible(url != '')">{{title}}</a>
+                <span data-query="visible(url == '')">{{title}}</span>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+    <div class="tabbable div_expand_row banners">
+        <ul class="nav nav-tabs " data-query="each(sliders)" >
+
+            <li class="" data-query="setClass('active', $index == 0)">
+                <a href="#item-tab-{{key}}" data-toggle="tab">
+                    <span class="text">{{title}}</span>
+                </a>
+            </li>
+
+        </ul>
+        <div class="tab-content" data-query="each(sliders)" style="padding: 0; background: transparent">
+
+            <div class="tab-pane fade " data-query="setClass('active in', $index == 0)" id="item-tab-{{key}}">
+                <div class="owl-carousel owl-theme-1 owl-carousel-one owl-relative" data-query="each(slides)">
+                    <div class="item">
+                        <img src="{{fix_url(image)}}" alt="{{title}}" class="lazyOwl" />
+                        <div class="item_content">
+                            <h4>{{title}}</h4>
+                            <p>{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <form class="box_filter" onsubmit="return false;" style="margin-top: 36px">
+        <div class="form-group">
+            <label for="">Tipo de Registro</label>
+            <div id="manual_select_type_registers"></div>
+            <!--select class="form-control" data-query="val(value_type_registers).each(type_registers)">
+                <option value="{{id}}" >{{title}}</option>
+            </select-->
+        </div>
+        <div class="form-group">
+            <label for="">Area del Problema</label>
+            <div id="manual_select_areas"></div>
+            <!--select  id="fix_select_area" class="form-control"  data-query="val(value_areas).each(areas.view)">
+                <option value="{{id}}" >{{title}}</option>
+            </select-->
+        </div>
+        <div class="form-group">
+            <label for="">Motivo del Problema</label>
+            <div id="manual_select_motive"></div>
+            <!--select id="fix_select_value" class="form-control"  data-query="val(value_motive).each(motives_select.view)">
+                <option value="{{id}}" >{{title}}</option>
+            </select-->
+        </div>
+        <div class="form-group">
+            <label for="">Aplica para</label>
+            <input type="text" class="form-control"  data-query="val(text_search)"/>
+        </div>
+        <div class="text-center">
+            <button data-query="click(event_search)" class="btn btn-green">Buscar</button>
+            <button type="reset" data-query="click(event_reset)" class="btn btn-purple">Borrar Filtro</button>
+        </div>
+    </form>
+
+
+    <div >
+        <h3 class="overflow title_reclamo"><strong class="item_left">Motivo del Reclamo</strong><strong class="item_right">Area del Problema</strong></h3>
+        <div data-query="each(motives.view)">
+            <div class="box_reclamo">
+                <a class="btn-block overflow links" role="button" data-toggle="collapse" href="#motive_up_{{id}}" aria-expanded="false" aria-controls="motive_up_{{id}}">
+                    <span class="item_left">{{title}}</span>
+                    <span class="item_right">{{group.title}}</span>
+                </a>
+                <div class="collapse content_reclamo" id="motive_up_{{id}}">
+                    <div class="table-responsive" data-query="html(content)"></div>
+                    <div style="padding: 16px">
+                        <div class="btn-group btn-group-justified" role="group">
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-block btn-green" role="button" data-toggle="collapse" href="#motive_detail_{{id}}" aria-expanded="false" aria-controls="motive_detail_{{id}}">
+                                    DETALLE BOLETA
+                                </a>
+                            </div>
+                            <!--div class="btn-group" role="group">
+                                <a class="btn btn-block btn-purple" role="button" data-toggle="collapse" href="#motive_detail_{{id}}" aria-expanded="false" aria-controls="motive_detail_{{id}}">
+                                    ABRIR EN GRANDE
+                                </a>
+                            </div--->
+                        </div>
+                        <div class="collapse" id="motive_detail_{{id}}" style="padding-top: 16px">
+                            <div class="table-responsive" data-query="html(content_d)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-warning" data-query="visible(motives().length == 0)">No se encontro ningun resultado</div>
+    </div>

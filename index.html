@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="portrait">
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport"
+		  content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' * data: gap: https://ssl.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://conocimiento.nuevatel.com; style-src 'self' 'unsafe-inline'; media-src *">-->
+	<meta http-equiv="Content-Security-Policy"
+		  content="default-src 'self' * data: gap: https://ssl.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline'; media-src *">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Viva Mobile</title>
+
+
+	<link href="simulador_assets/css/bootstrap.min.css" media="all" rel="stylesheet"/>
+	<link href="simulador_assets/css/font-awesome.css" media="all" rel="stylesheet"/>
+	<link href="simulador_assets/css/style.css" media="all" rel="stylesheet"/>
+	<link href="simulador_assets/css/all_files.css" media="all" rel="stylesheet"/>
+	<link href="simulador_assets/css/simulador.css" media="all" rel="stylesheet"/>
+
+
+	<link href="css/plugins/bootstrap.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+
+
+	<script type="text/javascript" charset="utf-8">
+		var API_URL = 'http://10.0.0.160:3000/';
+	</script>
+
+</head>
+<body id="top" class="">
+<!-- TEMPLATES -->
+<div id="templates"></div>
+<div class="test"></div>
+
+<div class="bg app_bg"></div>
+<!-- PAGES SESSIONS -->
+<div id="view_login" class="none style_view_login" data-query="view(Login)"></div>
+<div id="view_forgot" class="none style_view_login" data-query="view(Forgot)"></div>
+<div id="view_error_500" class="none" data-query="view(Error500)"></div>
+
+<div id="view_message" class="none " data-query="view(Message)"></div>
+
+<div id="view_presentation" class="none" data-query="view(Presentation)"></div>
+
+<div id="box-content">
+	<!-- HEADER -->
+	<header class="header" data-query="view(Header)"></header>
+	<!-- MENU NAV LEFT -->
+	<section id="nav_left" data-query="view(NavLeft)"></section>
+
+	<div class="container-fluid page-container">
+
+		<div class="page" id="view_home" data-query="view(Home)"></div>
+		<!-- CONTENTS -->
+		<div class="page" id="view_page" data-query="view(Page)"></div>
+		<div id="view_category" data-query="view(Category)" class="viewer_posts page"></div>
+		<div id="view_post_type" data-query="view(PostType)" class="viewer_posts page"></div>
+		<div class="page" id="view_search" data-query="view(Search)"></div>
+
+		<!-- TOOLS -->
+		<div class="page" id="view_tools_odeco" data-query="view(ToolsOdeco)"></div>
+		<div class="page" id="view_tools_manual" data-query="view(ToolsManual)"></div>
+		<div class="page" id="view_tools_ldi" data-query="view(ToolsLdi)"></div>
+		<div class="page" id="view_tools_simulador" data-query="view(ToolsSimulador)"></div>
+
+		<!-- PAGES -->
+		<div class="page" id="view_faqs" data-query="view(FAQs)"></div>
+		<div class="page" id="view_bookmarks" data-query="view(Bookmarks)"></div>
+		<div class="page" id="view_navigation" data-query="view(Navigation)"></div>
+		<div class="page" id="view_subscription" data-query="view(Subscription)"></div>
+		<div class="page" id="view_share_email" data-query="view(ShareEmail)"></div>
+
+	</div>
+
+	<footer id="main_footer" class="footer" data-query="view(Footer)"></footer>
+
+	<div id="pre_load" class="pre_load animated"></div>
+</div>
+
+<div class="pre_load_init bg animated">
+	<div class="pre_load_content text-center ">
+		<img src="img/logo_01.png" class="img_preload"/>
+		<div class="p_loading">
+			<div class="p_loading_color" style="width: 0%"></div>
+		</div>
+	</div>
+</div>
+
+<div class="pre_load_scroll"></div>
+<div class="pre_load3"></div>
+
+<script src="js/plugins/blocks.js"></script>
+
+<script src="cordova.js"></script>
+
+<!--<script src="js/plugins/angular.min.js"></script>-->
+
+<!--script src="js/plugins/mix.js"></script-->
+
+<script src="js/plugins/jquery.min.js"></script>
+<script src="js/plugins/bootstrap.min.js"></script>
+<script src="js/plugins/moment.min.js"></script>
+<script src="js/plugins/underscore-min.js"></script>
+<script src="js/plugins/underscore.string.min.js"></script>
+<script src="js/plugins/bootstrap-datepicker.min.js"></script>
+<script src="js/plugins/notifications.js"></script>
+<script src="js/plugins/jquery-ui.min.js"></script>
+<script src="js/plugins/jquery.ui.touch-punch.js"></script>
+<script src="js/plugins/typeahead.bundle.js"></script>
+<script src="js/plugins/jRating.jquery.js"></script>
+<script src="js/plugins/jquery.infinite-scroll-helper.js"></script>
+<script src="js/plugins/modernizr.custom.js"></script>
+<script src="js/plugins/jquery.mjs.nestedSortable.js"></script>
+<script src="js/plugins/jquery-scrolltofixed.js"></script>
+<script src="js/plugins/owl.carousel.js"></script>
+<script src="js/plugins/masonry.pkgd.min.js"></script>
+<script src="js/plugins/sweetalert.min.js"></script>
+<script src="js/plugins/summernote.js"></script>
+<script src="js/plugins/viewer.js"></script>
+<script src="js/plugins/bootstrap-tokenfield.js"></script>
+<script src="js/plugins/selectivity-full.min.js"></script>
+<script src="js/plugins/slick.js"></script>
+<script src="js/plugins/jquery.mobile-events.min.js"></script>
+
+<script src="js/plugins/plugins.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/main.js"></script>
+<script src="js/main/layout.js"></script>
+<script src="js/main/home.js"></script>
+<script src="js/main/content.js"></script>
+<script src="js/main/sessions.js"></script>
+<script src="js/main/pages.js"></script>
+<script src="js/main/tools.js"></script>
+
+<script src="js/jquery.ajax.submit.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/fastclick.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+
+<div class="content_panels_footer">
+    <div class="panel_scroll">
+        <div role="tabpanel" class="panel_page fade" id="notif">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-bell-o"></i> Notificaciones</h3>
+                    <a href="javascript:" class="close_panel"><i class="ion-ios-close-outline"></i></a>
+                </div>
+                <div class="panel-body">
+
+
+                    <div class="row notifications_view" >
+                        <div data-query="each(post_types)">
+                            <a class="btn btn-block btns" role="button" data-toggle="collapse" href="#notif_{{key}}" aria-expanded="false" aria-controls="notif_{{key}}">
+                                {{title}} <strong>{{counter}}</strong>
+                            </a>
+                            <div class="collapse" id="notif_{{key}}" data-key="{{key}}" data-count="{{counter}}">
+                                <div class="col-md-12 well">
+                                    <div data-query="each(content || [])">
+                                        <h5>{{title}}</h5>
+                                        <ul data-query="each(posts)">
+                                            <li><a href="#page/{{id}}" data-query="visible(viewed).click(App.Footer.notifications_read, key)" class="btn_link" >{{title}}</a><span data-query="visible(!viewed)" class="btn_link disabled">{{title}}</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box_comments_notif" data-query="visible(comments().length > 0)">
+                            <a class="btn btn-block btns"  role="button" data-toggle="collapse" href="#notif_comments" aria-expanded="false" aria-controls="notif_comments">
+                                Comentarios <strong data-query="html(comments().length)"></strong>
+                            </a>
+                            <div class="collapse" id="notif_comments" data-key="comments" data-count="{{comments().length}}">
+                                <div class="col-md-12 well">
+                                    <ul data-query="each(comments)">
+                                        <li>
+                                            <a href="#page/{{page_id}}" class="btn_link" data-query="click(App.Footer.notifications_read, key)" > {{s.stripTags(comment)}}</a>
+                                            <div data-query="each(answers)">
+                                                <div data-query="html($this)" style="padding: 10px"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box_comments_notif" data-query="visible(specialist_pages().length > 0)">
+                            <a class="btn btn-block btns"  role="button" data-toggle="collapse" href="#notif_specialist_pages" aria-expanded="false" aria-controls="notif_specialist_pages">
+                                Especialista en <strong data-query="html(specialist_pages().length)"></strong>
+                            </a>
+                            <div class="collapse" id="notif_specialist_pages" data-key="specialist" data-count="{{specialist_pages().length}}">
+                                <div class="col-md-12 well">
+                                    <ul data-query="each(specialist_pages)">
+                                        <li>
+                                            <a href="#page/{{id}}" class="btn_link" data-query="click(App.Footer.notifications_read, key)" > {{title}}</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box_comments_notif" data-query="visible(faqs().length > 0)">
+                            <a class="btn btn-block btns"  role="button" data-toggle="collapse" href="#notif_faqs" aria-expanded="false" aria-controls="notif_specialist_pages">
+                                Preguntas nuevas <strong data-query="html(faqs().length)"></strong>
+                            </a>
+                            <div class="collapse" id="notif_faqs" data-key="faqs" data-count="{{faqs().length}}">
+                                <div class="col-md-12 well">
+                                    <ul data-query="each(faqs)">
+                                        <li>
+                                            <a href="#faqs/{{id}}" class="btn_link" data-query="click(App.Footer.notifications_read, key)" > {{title}}</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div data-query="visible(counter() == 0)" style="padding-top: 16px;">
+                            <div class="col-md-12">
+                                <div class="alert alert-warning"><i class="fa fa-warning fa-lg"></i> No existe contenido a mostrar</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div role="tabpanel" class="panel_page fade" id="set_sites">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="ion-monitor"></i> Sites</h3>
+                    <a href="javascript:" class="close_panel"><i class="ion-ios-close-outline"></i></a>
+                </div>
+                <div class="panel-body">
+                    <div class="row notifications_view" data-query="each(sites)">
+                        <a class="btn btn-block btns"  href="javascript:;" data-query="click($parent.set_site, $this).setClass('current_site', current_site().key == site.key)">
+                            {{site.title}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group" data-query="visible(is_visible)">
+    <a href="#notif" role="tab" data-toggle="tab" class="btn btn-link" ><i class="fa fa-bell-o"></i> <small>Notificaciones</small> <span class="counter" data-query="html(counter_notifications + '')"></span></a>
+    <a href="#bookmarks" class="btn btn-link" role="button"><i class="fa fa-bookmark-o"></i> <small>Marcadores</small></a>
+    <a href="#faqs" class="btn btn-link" role="button"><i class="ion-ios-help-outline"></i> <small>Preguntas</small></a>
+    <a href="#set_sites"  role="tab" data-toggle="tab" data-query="visible(App.Footer.sites().length > 1)" class="btn btn-link" ><i class="ion-monitor"></i> <small>Sitios</small></a>
+</div>

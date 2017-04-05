@@ -1,0 +1,42 @@
+<div class="row" >
+    <div class="col-md-12">
+        <div class="box_search">
+            <label>Buscar</label>
+
+            <div class="input-group">
+                <input id="search_in_faq" type="text" class="form-control" placeholder="Buscar en las preguntas"/>
+                  <span class="input-group-btn">
+                    <button class="btn btn-purple" type="button" data-query="click(change_input)"><i class="fa fa-search"></i></button>
+                  </span>
+            </div>
+
+
+        </div>
+        <div data-query="each(groups)" class="row masonry_content">
+            <div class="col-sm-6 col-lg-4">
+                <div class="panel my-panel3 ">
+                    <div class="panel-heading">
+                        <span class="txt_searchable">{{group.title}}</span>
+                        <a class="collapsed col_group" role="button" data-toggle="collapse" href="#faq_group_{{group.id}}" aria-expanded="false" aria-controls="faq_group_{{group.id}}">
+                            <i class="fa fa-plus-circle icon_plus"></i> <i class="fa fa-minus-circle icon_minus"></i>
+                        </a>
+                    </div>
+                    <div id="faq_group_{{group.id}}" class="panel-body collapse" data-query="each(questions)">
+                        <a class="collapsed title" role="button" data-toggle="collapse" href="#col_{{question.id}}" aria-expanded="false" aria-controls="col_{{question.id}}">
+                            <i class="fa fa-plus-square icon_plus"></i> <i class="fa fa-minus-square icon_minus"></i> <span class="txt_searchable">{{question.question}}</span>
+                        </a>
+                        <div class="collapse collapse_content" id="col_{{$this.question.id}}" >
+                            <div class="table-responsive txt_searchable"  data-query="html(question.response)"></div>
+
+                            <div data-query="each(pages)">
+                                <a href="#page/{{id}}" class="btn btn-sm btn-default "> {{title}}</a>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

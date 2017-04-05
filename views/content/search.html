@@ -1,0 +1,40 @@
+<div class="row" style="margin-top: 58px;">
+    <div class="col-md-12">
+        <h4 class="text_search_view">(<span data-query="html(total_search)"></span>) Resultado de busqueda <strong>"<span data-query="html(search_text)"></span>"</strong> <br> <small>Tiempo de respuesta: <span data-query="html(search_time)"></span> segundos</small></h4>
+    </div>
+</div>
+<div class="row" >
+    <div class="col-md-12">
+
+        <div data-query="setClass('tabbable', show_tabs)">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist" data-query="visible(show_tabs)">
+                <li role="presentation" class="active"><a href="#search_content" aria-controls="search_content" role="tab" data-toggle="tab">Articulos</a></li>
+                <li role="presentation" data-query="visible(in_adj)"><a href="#search_archives" aria-controls="search_archives" role="tab" data-toggle="tab">Archivos ({{attached_files().length}})</a></li>
+                <li role="presentation" data-query="visible(in_cat)"><a href="#search_categories" aria-controls="search_categories" role="tab" data-toggle="tab">Categorias ({{categories().length}})</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="search_content">
+                    <div data-query="template('template_post_search').each(posts)"></div>
+                    <div class="alert alert-warning" data-query="visible(posts().length == 0)"><i class="fa fa-warning fa-lg"></i> No existe contenido a mostrar</div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="search_archives">
+                    <ul class="list_adj" data-query="each(attached_files)">
+                        <li><a href="javascript:;"  onclick="download_file('{{file}}','{{filename}}')"><i class="fa fa-{{icon}}"></i>  {{filename}}</a></li>
+                    </ul>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="search_categories">
+                    <ul class="list_adj" data-query="each(categories)">
+                        <li><a href="#category/{{id}}"><i class="fa fa-folder"></i>  {{name}}</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

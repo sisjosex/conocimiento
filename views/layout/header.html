@@ -1,0 +1,27 @@
+<div class="logo">
+    <a href="index.html"><img src="img/logo_header.png" data-query="visible(!show_title())"/></a>
+</div>
+<h2 class="title truncate" data-query="visible(show_title()).html(title)" ></h2>
+
+<div class="pull-left">
+    <a href="javascript:;" data-query="click(click_show_nav_left)"  class="menu_trigger"><i class="fa fa-bars" id="menu_trigger"></i></a>
+    <a href="javascript:;" data-query="visible(show_back()).click(click_back)"  class="menu_trigger menu_back"><i class="fa fa-chevron-left" id=""></i></a>
+</div>
+<div class="pull-right"><a href="javascript:;" class="btn_search" data-query="click(toogle_show_search)"><i class="fa fa-search"></i></a></div>
+<div class="box-search" data-query="visible(show_search())">
+    <input id="search_top"  type="text" class="form-control" data-query="val(search_text_root).keyup(keypress_input)" placeholder="Empiece a buscar">
+    <a href="javascript:;" class="clear_search_input" data-query="click(clear_input)" >&times;</a>
+    <a href="javascript:;" class="btn_search_header" data-query="click(submit_search)"><i class="fa fa-search"></i></a>
+
+    <button type="button" class="btn btn-default btn_search_adv " aria-haspopup="true" aria-expanded="false" data-query="visible(!show_adv()).click(click_show_adv)">
+        <i class="fa fa-chevron-down"></i>
+    </button>
+    <button type="button" class="btn btn-warning btn_search_adv_close " aria-haspopup="true" aria-expanded="false" data-query="visible(show_adv()).click(set_hide_adv)">
+        <i class="fa fa-times-circle"></i>
+    </button>
+
+    <div class="box_advanced search_adv_top" data-query="visible(show_adv).template('template_search_adv')">
+
+    </div>
+</div>
+

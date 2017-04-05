@@ -1,0 +1,38 @@
+<script id="template_items_navigations" type="text/blocks-template">
+    <li id="navigation_{{id}}" class="dd-item dd3-item" data-query="setClass(icon)">
+        <button data-query="visible( icon == 'folder' ).click(on_click)" type="button" data-toggle="collapse" data-target="#collapse_navigation_{{id}}" aria-expanded="false" class="down_up collapseded collapsed">
+            <i class="fa fa-plus-square down"></i><i class="fa fa-minus-square up"></i>
+        </button>
+        <div class="dd-handle dd3-handle"></div>
+        <div class="dd3-content truncate">
+            <a href="{{nav_get_url()}}" class="text">{{label}}</a>
+        </div>
+        <ol class="dd-list collapse" id="collapse_navigation_{{id}}"  style="height: 0" aria-expanded="false" data-query="template('template_items_navigations').each(icon == 'folder' && typeof branch !== 'undefined' ? branch : []).view"></ol>
+        <div class="clear"></div>
+    </li>
+</script>
+
+<div class="row" id="navigation_panel_view">
+    <div class="col-md-12">
+        <div class="text-right">
+            <div class="btn-group">
+                <button class='btn btn-default pull-left' id="zoom_width1"><i class='fa fa-plus'></i></button>
+                <button class='btn btn-default pull-left' id="zoom_width_less1"><i class='fa fa-minus'></i></button>
+            </div>
+        </div>
+        <br><br>
+        <div class="nestable_bookmarks" id="nestable_navigation">
+            <ol class="dd-list" >
+                <li id="navigation_root" class="dd-item dd3-item root folder">
+                    <button type="button" data-toggle="collapse" data-target="#collapse_navigation_root" aria-expanded="true" class="down_up">
+                        <i class="fa fa-plus-square down"></i><i class="fa fa-minus-square up"></i>
+                    </button>
+                    <div class="icon_home"></div>
+                    <div class="dd3-content"><a href="#home" class="text">Inicio</a></div>
+                    <ol id="collapse_navigation_root"  aria-expanded="true" class="in dd-list collapse"  data-query="template('template_items_navigations').each(items)"></ol>
+                    <div class="clear"></div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

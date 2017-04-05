@@ -1,0 +1,85 @@
+<script id="template_items_bookmarks" type="text/blocks-template">
+    <li id="bookmark_{{id}}" class="dd-item dd3-item" data-query="setClass(icon).setClass('active', App.Bookmarks.active_folder() == id)">
+        <button data-query="visible( icon == 'folder' && branch.length > 0)" type="button" data-toggle="collapse" data-target="#collapse_bookmark_{{id}}" aria-expanded="false" class="down_up collapseded collapsed">
+            <i class="fa fa-plus-square down"></i><i class="fa fa-minus-square up"></i>
+        </button>
+        <button type="button" class="settings btn_assign" data-query="click(App.Bookmarks.click_assign, $this)">
+            <i class="fa fa-check-circle"></i>
+        </button>
+        <button type="button" data-toggle="collapse" data-target="#collapse_bookmark_setting_{{id}}" aria-expanded="false" class="settings collapsed btn_options">
+            <i class="fa fa-cogs"></i>
+        </button>
+        <div id="collapse_bookmark_setting_{{id}}" class="collapse box_setting">
+            <input type="text" value="{{label}}" class="form-control"/>
+            <div class="opts btn-group btn-group-justified">
+                <a href="javascript:;" class="btn"  data-query="click(App.Bookmarks.click_save, $this)"><i class="fa fa-save"></i> <small>Guardar</small></a>
+                <a href="javascript:;" class="btn " data-query="click(App.Bookmarks.click_delete, $this)"><i class="fa fa-times"></i> <small>Borrar</small></a>
+                <a href="javascript:;" class="btn " data-query="visible(icon == 'folder').click(App.Bookmarks.click_add_folder, $this)"><i class="fa fa-plus"></i> <small>Agregar Carpeta</small></a>
+            </div>
+        </div>
+
+        <div class="dd-handle dd3-handle">
+            <i class="fa fa-folder-o"></i>
+        </div>
+        <div class="dd3-content truncate">
+            <a href="{{ icon == 'file' ? ('#page/' + page_id) : 'javascript:;' }}" class="text">{{label}}</a>
+        </div>
+        <ol class="dd-list collapse" id="collapse_bookmark_{{id}}"  style="height: 0" aria-expanded="false" data-query="setClass('show_blank', icon == 'folder' && branch.length == 1).template('template_items_bookmarks').each(icon == 'folder' ? branch : []).view"></ol>
+        <div class="clear"></div>
+    </li>
+</script>
+
+<div class="row" data-query="setClass('show_files', show_only_files).setClass('assign_folder', assign_folder)">
+
+    <div class="col-md-12 check_sortable">
+        <div class="pull-left btn-group">
+            <button class='btn btn-default pull-left' id="zoom_width"><i class='fa fa-plus'></i></button>
+            <button class='btn btn-default pull-left' id="zoom_width_less"><i class='fa fa-minus'></i></button>
+        </div>
+        <label for="check_sortable_input"> Activar arrastrar y soltar</label>
+        <input type="checkbox" id="check_sortable_input" name="check_sortable_input" />
+    </div>
+
+    <div class="col-md-12">
+
+        <div class="form_title_page" data-query="visible(assign_folder)">
+            <div class="alert alert-info">Por favor seleccione la carpeta y haga click en el icono de <i class="fa fa-check-circle" data-id="672"></i></div>
+            <label>Titulo:</label>
+            <input id="bookmark_page_title" type="text" class="form-control" data-query="val(title_page)"/>
+        </div>
+
+        <form class="form-inline">
+            <label for="bookmark_input_search">Buscar</label>
+            <div class="form-group">
+                <input id="bookmark_input_search" class="form-control" type="text" data-query="val(input_search)"/>
+            </div>
+            <div class="btns btn-group btn-group-justified">
+                <a href="javascript:;" class="btn btn-default" data-query="click(search_prev).visible(array_index() > 0)"><i class="fa fa-chevron-left"></i></a>
+                <a href="javascript:;" class="btn btn-default" data-query="click(search_next).visible(array_index() < array_search().length - 1)"><i class="fa fa-chevron-right"></i></a>
+            </div>
+        </form>
+
+        <div class="nestable_bookmarks style_bookmark" id="nestable3">
+            <ol class="dd-list" data-query="each(bookmarks).view">
+                <li id="bookmark_root" class="dd-item dd3-item root folder">
+                    <button type="button" data-toggle="collapse" data-target="#collapse_bookmark_{{id}}" aria-expanded="true" class="down_up">
+                        <i class="fa fa-plus-square down"></i><i class="fa fa-minus-square up"></i>
+                    </button>
+                    <button type="button" class="settings btn_options" data-query="click(App.Bookmarks.click_add_folder, {id: 'root'})">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <div class="icon_home">
+                        <i class="fa fa-folder-o"></i>
+                    </div>
+                    <div class="dd3-content"><span class="text">{{label}}</span></div>
+                    <ol id="collapse_bookmark_{{id}}"  aria-expanded="true" class="in dd-list collapse"  data-query="template('template_items_bookmarks').each(icon == 'folder' ? branch : []).view"></ol>
+                    <div class="clear"></div>
+                </li>
+            </ol>
+        </div>
+
+        <div class="text-center" style="padding-top: 10px">
+            <a href="javascript:;" class="btn btn-default btn-sm" data-query="click(reload)"> <i class="fa fa-refresh"></i> Refrescar </a>
+        </div>
+    </div>
+</div>

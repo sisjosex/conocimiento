@@ -1,0 +1,64 @@
+<div class="box_header div_expand_row">
+    <div class="my_breadcrumb">
+        <ul data-query="each(breadcrumb)">
+            <li>
+                <a href="{{url}}" data-query="visible(url != '')">{{title}}</a>
+                <span data-query="visible(url == '')">{{title}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="box_filter tabbable ">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#tab_by_country_city" aria-controls="tab_by_country_city" role="tab" data-toggle="tab">Por País y Ciudad</a></li>
+            <li role="presentation"><a href="#tab_by_phone" aria-controls="tab_by_phone" role="tab" data-toggle="tab">Por Número Telefónico</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="tab_by_country_city">
+                <div class="form-group">
+                    <label for="">Pais:</label>
+                    <div id="ldi_select_country"></div>
+                    <!--select id="ldi_select_country" name="country" data-query="val(value_country).each(countries)" class="form-control">
+                        <option value="{{country}}" >{{country}}</option>
+                    </select-->
+                </div>
+                <div class="form-group">
+                    <label for="">Ciudad:</label>
+                    <div id="ldi_select_city"></div>
+                    <!--select id="ldi_select_city" name="city" data-query="val(value_city).each(cities.view)" class="form-control">
+                        <option value="{{value}}" >{{city}}</option>
+                    </select-->
+                </div>
+                <div class="text-center">
+                    <button data-query="click(event_filter)" class="btn btn-green" >Buscar</button>
+                    <button data-query="click(reset_form)" class="btn btn-purple" >Borrar Filtro</button>
+                </div>
+
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab_by_phone">
+                <div id="filter_tools_ldi_range">
+                    <div class="form-group">
+                        <label for="">Numero telefónico:</label>
+                        <input type="text" data-query="val(value_phone)" class="form-control" placeholder="Buscar Teléfono ..."/>
+                    </div>
+                    <div class="form-group my_radio" style="padding-top: 8px">
+                        <input id="ldi_value_nac_1" type="radio" name="value_nac" value="1" checked/><label for="ldi_value_nac_1">Rangos Nacionales</label> <br>
+                        <input id="ldi_value_nac_0" type="radio" name="value_nac" value="0"/><label for="ldi_value_nac_0" >Rangos Internacionales</label>
+                    </div>
+                    <div class="text-center">
+                        <button data-query="click(event_filter_phone)" class="btn btn-green" >Buscar</button>
+                        <button data-query="click(reset_form2)" class="btn btn-purple" >Borrar Filtro</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    <div data-query="html(html_table)" class="content_table"></div>

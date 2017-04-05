@@ -1,0 +1,39 @@
+
+
+<div class="row" >
+    <div class="col-md-12 ">
+        <div class="article_content">
+            <h4><span class="text_green">De</span> {{current_user().fullname}}</h4>
+            <div class="tabbable">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#tab_share_email_users" role="tab" data-toggle="tab">Usuarios</a></li>
+                    <li role="presentation"><a href="#tab_share_email_emails" role="tab" data-toggle="tab">Emails</a></li>
+                </ul>
+                <div class="tab-content bg_purple">
+                    <strong class="txt_to">Para</strong>
+                    <div role="tabpanel" class="tab-pane active " id="tab_share_email_users">
+                        <select id="select_users" name="select_users" multiple="multiple" class="" data-query="each(users)">
+                            <option value="{{id}}">{{name}}</option>
+                        </select>
+                    </div>
+                    <div role="tabpanel" class="tab-pane " id="tab_share_email_emails">
+                        <input type="text" class="form-control tokenfield"  />
+                    </div>
+                </div>
+            </div>
+
+            <textarea class="form-control" rows="10" ></textarea>
+
+            <div class="alert alert-warning list_upload_files" data-query="visible(attachs().length > 0)">
+                <h4>Archivos adjuntos</h4>
+                <ul data-query="each(attachs)">
+                    <li>{{filename}}</li>
+                </ul>
+            </div>
+            <div style="padding: 4px 16px; text-align: center">
+                <button class="btn btn-green btn-lg" data-query="click(click_send)">ENVIAR</button>
+            </div>
+
+        </div>
+    </div>
+</div>

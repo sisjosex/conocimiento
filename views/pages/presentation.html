@@ -1,0 +1,27 @@
+<div class="box_gallery" data-query="visible(!is_last())">
+    <div class="owl-carousel owl-theme-1 owl-carousel-one" data-query="setClass('first_item',is_first).setClass('last_item',is_last).each(images)">
+        <div class="item">
+            <img src="{{$this.img}}" class="lazyOwl"/>
+            <div class="item_descr">
+                <div class="item_descr_inner"><div>{{$this.descr}}</div></div>
+                <a class="btn btn-purple btn-sm"><i class="fa fa-arrow-down"></i></a>
+            </div>
+        </div>
+    </div>
+    <a href="javascript:;" class="btn_back" data-query="click(run_back)"> <i class="fa fa-times-circle-o"></i> </a>
+</div>
+<div class="item_description" data-query="visible(is_last())">
+    <div class="logo1">
+        <img src="img/logo_03.png" alt="">
+    </div>
+    <h4 style="margin-top: 48px">Si deseas conocer más ventajas acerca de la aplicación movil</h4>
+    <h4 style="margin-top: 24px">Presiona sobre la <br>siguiente opción</h4>
+    <br/>
+    <a href="javascript:;" data-query="click(reload)" class="btn btn-green  btn-lg">Guia de usuario</a>
+    <br/>
+    <br/>
+    <a href="#home" class="btn btn-purple btn-lg">Ingresar Aplicación</a>
+    <div class="logo2">
+        <img src="img/logo_04.png" alt="">
+    </div>
+</div>

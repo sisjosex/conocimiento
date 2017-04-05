@@ -1,0 +1,27 @@
+<div class="content">
+    <figure><img class="login_logo" src="img/logo_02.png" alt=""/></figure>
+    <div class="panel panel-default" >
+        <form name="form" id="form-login" class="form-horizontal" data-query="submit(submit_form)" onsubmit="return false;">
+            <div class="panel-body" >
+                <div class="input-groups">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input type="text" class="form-control" name="username" data-query="val(username).click(scroll_to_login)" autocomplete="off"  placeholder="Nombre de Usuario">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="password" class="form-control" name="password" data-query="val(password)" autocomplete="off" placeholder="Contraseña">
+                    </div>
+                 </div>
+            </div>
+            <div class="input-group check_ad">
+                <input type="checkbox" id="login_ad" name="login_ad" />
+                <label for="login_ad"> Usuario Externo</label>
+            </div>
+            <div class="panel-footer" >
+                <button type="submit" class="btn btn-lg btn-block">INGRESAR</button>
+                <a class="btn btn-block btn-link" href="#forgot"> Olvidaste tu Contraseña? </a>
+            </div>
+        </form>
+    </div>
+</div>

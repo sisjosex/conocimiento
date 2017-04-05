@@ -1,0 +1,47 @@
+<!-- NAV MENU ITEM -->
+<script id="template_nav_menu_item" type="text/blocks-template" >
+    <li>
+        <a href="{{get_content_route($this)}}"> <i class="fa fa-{{icon}} fa-lg"></i> {{title}}</a>
+        <a href="javascript:;" data-toggle="collapse" data-target="#nav_{{type}}_{{id}}_{{level}}" class="collapsed nav_collapse" data-query="visible(children.length > 0)">
+            <span class="arrow fa fa-chevron-down"></span>
+            <span class="arrow fa fa-chevron-up"></span>
+        </a>
+        <ul id="nav_{{type}}_{{id}}_{{level}}" class="sub-menu collapse" data-query="visible(children.length > 0).template('template_nav_menu_item').each(children)"></ul>
+    </li>
+</script>
+<div class="back_bg" data-query="click(hide).visible(is_visible)"></div>
+<a href="javascript:;" class="btn_close" data-query="click(hide)"><i class="fa fa-times"></i></a>
+<div class="content_scroll fix_zindex">
+    <div class="box_user">
+        <img class="thumb_user lazy" data-original="{{user_avatar}}" alt="{{user_fullname}}"/>
+        <p class="text">
+            <strong>{{user_fullname}}</strong> <br/>
+            <small>Bienvenido</small>
+        </p>
+        <a class="btn_profile btn_logout" href="javascript:;" data-query="click(edit_profile)">
+            <i class="fa fa-user"></i>
+        </a>
+        <a class="btn_logout" href="javascript:;" data-query="click(logout)">
+            <i class="ion-log-out"></i>
+        </a>
+    </div>
+
+    <div class="btn-group btn-group-justified" role="group">
+        <a href="#subscription" class="btn btn-link" role="button"><i class="fa fa-newspaper-o"></i> <small>Suscripción</small></a>
+        <a href="#navigation" class="btn btn-link" role="button"><i class="fa fa-briefcase"></i> <small>Navegación</small></a>
+        <a href="#presentation" class="btn btn-link" role="button"><i class="fa fa-info-circle"></i> <small>Manual de<br>Bienvenida</small></a>
+    </div>
+
+    <div class="nav-side-menu">
+        <div class="menu-list">
+            <ul class="menu-content" data-query="template('template_nav_menu_item').each(nav_menu)"></ul>
+        </div>
+    </div>
+
+    <div class="btn-group btn-group-justified group_tools" role="group">
+        <a href="#tools/ldi" class="btn btn-link" role="button"><i class="fa fa-phone-square"></i> <small>Larga Distancia</small></a>
+        <a href="#tools/odeco" class="btn btn-link" role="button"><i class="fa fa-calculator"></i> <small>Calculadora Odeco</small></a>
+        <a href="#tools/manual" class="btn btn-link" role="button"><i class="fa fa-book"></i> <small>Reclamos</small></a>
+        <a href="#tools/simulador" class="btn btn-link" role="button"><i class="fa fa-gears"></i> <small>Simulador</small></a>
+    </div>
+</div>

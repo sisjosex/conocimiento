@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="eee0ec32-3b61-47bb-b9ae-4dc1c715a0e2" name="viva" url="http://10.40.20.102">
+        <fileTransfer host="10.40.20.102" port="22" rootFolder="/var/www/siscon" accessType="SFTP" password="dfe4dfdfdfcfdfdcdfcbdfdedfcfdfc6df98df9adf9bdf9edfebdfeb" username="ptaprod">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

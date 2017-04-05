@@ -1,0 +1,316 @@
+<div class="box_header div_expand_row">
+    <!-- BREADCRUMB -->
+    <div class="my_breadcrumb">
+        <ul data-query="each(breadcrumb)">
+            <li>
+                <a href="{{get_content_route($this)}}" data-query="visible(type != '')">{{title}}</a>
+                <span data-query="visible(type == '')">{{title}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="">
+        <div class="box_actions">
+            <div class="box_bookmark" data-query="" >
+                <a href="#bookmarks/{{post.id}}" data-query="click(click_bookmark_page)"><i class="fa fa-save"></i> </a>
+            </div>
+            <div class="box_liked" data-query="visible(permissions().can_like)" >
+                <a href="javascript:;" data-query="click(click_liked_page)"><i class="fa fa-thumbs-o-up" data-query="visible(!user_values().liked)"></i> <i class="fa fa-thumbs-up" data-query="visible(user_values().liked)"></i> </a>
+            </div>
+            <div class="box_followed" data-query="visible(permissions().can_subscribe)">
+                <a href="javascript:;" data-query="click(click_followed_page)"><i class="fa fa-map-signs" ></i>  </a>
+            </div>
+            <div class="box_followed" data-query="visible(permissions().can_email)">
+                <a href="#share_email/{{post.id}}"><i class="fa fa-envelope-o" ></i>  </a>
+            </div>
+            <div class="box_followed" >
+                <a href="javascript:;" data-query="click($view.reload)"><i class="fa fa-refresh" ></i>  </a>
+            </div>
+            <div class="pull-right" >
+                <a href="javascript:;" data-query="visible(permissions().can_pdf).click(click_export, 'pdf')"><i class="fa fa-file-pdf-o" ></i>  </a>
+                <a href="javascript:;" data-query="visible(permissions().can_word).click(click_export, 'word')"><i class="fa fa-file-word-o" ></i>  </a>
+                <a href="javascript:;" data-query="visible(permissions().can_excel).click(click_export, 'excel')"><i class="fa fa-file-excel-o" ></i>  </a>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<!-- COUNTER ROLES -->
+
+<div class="view_dates_exp">
+    <div class="content_exp row" data-query="visible(post.options().show_new)">
+        <div class="item_exp col-sm-6"><span>Vigente desde:</span> <strong data-query="html(format_date(post.options().start_promo) || '')"></strong></div>
+        <div class="item_exp col-sm-6" data-query="visible(post.options().end_promo != '')"><span>Suspendido el:</span> <strong data-query="html(format_date(post.options().end_promo) || '')"></strong></div>
+    </div>
+    <div class="content_exp row" data-query="visible(post.options().show_promotion)">
+        <div class="item_exp col-sm-6"><span>Vigente desde:</span> <strong data-query="html(format_date(post.options().start_promo) || '')"></strong></div>
+        <div class="item_exp col-sm-6" data-query="visible(post.options().end_promo != '')"><span>Expira el:</span> <strong data-query="html(format_date(post.options().end_promo) || '')"></strong></div>
+    </div>
+    <div class="content_exp row" data-query="visible(post.options().show_service)">
+        <div class="item_exp col-sm-6"><span>Vigente desde:</span> <strong data-query="html(format_date(post.created_at)|| '')"></strong></div>
+        <div class="item_exp col-sm-6" data-query="visible(post.options().end_valid != '')"><span>Suspendido en:</span> <strong data-query="html(format_date(post.options().end_valid)|| '')"></strong></div>
+    </div>
+    <div class="content_exp row" data-query="visible(post.options().show_default)">
+        <div class="item_exp col-sm-6" data-query="visible(post.date_expiration)"><span>Expira el:</span> <strong data-query="html(format_date(post.date_expiration)|| '')"></strong></div>
+    </div>
+</div>
+
+<!-- COUNTERS -->
+
+<div class="row view_dates_upd">
+    <div class="col-xs-7 list_date_post">
+        <ul>
+            <li><span>Creado:</span> <strong data-query="html(format_date(post.created_at)|| '')"></strong></li>
+            <li><span>Actualizado:</span> <strong data-query="html(format_date(post.updated_at)|| '')"></strong></li>
+            <li><span>N&deg; Articulo:</span> <strong data-query="text('' + post.id)"></strong></li>
+        </ul>
+    </div>
+    <div class="col-xs-5 rating_view_post"  data-query="visible(permissions().can_rating)">
+        <p>Puntuación ({{post.page_ratings_counter}} Votos)</p>
+        <div class="box_rating">
+            <div class="basic" data-average="{{post.page_ratings_count}}"></div>
+        </div>
+    </div>
+</div>
+
+<!-- CONTENT PAGE -->
+
+<div class="show_full_screen">
+    <div class="text-right">
+        <button id="btn-page-collapse" class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapse_page_{{post.id}}" aria-expanded="false">
+            <i class="fa fa-caret-down"></i>
+            <i class="fa fa-caret-up"></i>
+        </button>
+    </div>
+    <!-- THUMBNAIL -->
+    <div id="collapse_page_{{post.id}}" class="collapse in">
+        <div class="thumbnail_page" data-query="visible(permissions().use_thumbnail)">
+            <img data-original="{{fix_url(post.thumbnail)}}" class="lazy" alt="{{post.title}}"/>
+        </div>
+
+        <div class="scroll_x post_content" data-query="html(post.content)"></div>
+    </div>
+
+    <!-- SECTIONS -->
+    <div class="sections" data-query="each(sections)">
+        <div class="panel my-panel3 ">
+            <div class="panel-heading">
+
+                <a id="page_section_{{id}}" class="panel_title" role="button" data-toggle="collapse" href="#section_collapse_{{id}}" aria-expanded="false">
+                    {{title}}
+                    <i class="fa fa-plus-circle icon_plus pull-right"></i> <i class="fa fa-minus-circle icon_minus pull-right"></i>
+                </a>
+            </div>
+            <div id="section_collapse_{{id}}" class="panel-body collapse in" >
+                <div class="box_actions_sections">
+                    <div class="pull-right" >
+                        <a href="#share_email/{{$parent.post.id}}/{{id}}" data-query="visible($parent.permissions().can_email && can_share_email == 1)"><i class="fa fa-envelope-o" ></i>  </a>
+                        <a href="javascript:;" data-query="visible($parent.permissions().can_pdf).click($parent.click_export, 'pdf-' + id)"><i class="fa fa-file-pdf-o" ></i>  </a>
+                        <a href="javascript:;" data-query="visible($parent.permissions().can_word).click($parent.click_export, 'word-' + id)"><i class="fa fa-file-word-o" ></i>  </a>
+                        <a href="javascript:;" data-query="visible($parent.permissions().can_excel).click($parent.click_export, 'excel-' + id)"><i class="fa fa-file-excel-o" ></i>  </a>
+                    </div>
+                </div>
+                <div class="content_section" data-query="html(content)" style=" word-wrap: break-word;">
+
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQS -->
+    <div id="accordion_questions" class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" class="post collapsed" data-parent="#" href="#accordion_faqs">
+                    Preguntas Clave
+                </a>
+            </h4>
+        </div>
+        <div id="accordion_faqs" class="panel-collapse collapse">
+            <div class="panel-body clean_accordion">
+                <div class="panel-group clean_accordion" id="accordion_inner_faqs">
+                    <div data-query="each(faqs)">
+                        <div id="accordeon_article_{{id}}" class="panel panel-default">
+                            <div class="panel-heading">
+                                <a data-toggle="collapse" class="collapsed" data-parent="#accordion_inner_faqs" href="#faq_{{id}}"><i class="fa toggle_default"></i> {{question}}</a>
+                            </div>
+                            <div id="faq_{{id}}" class="panel-collapse collapse">
+                                <div class="panel-body" data-query="html(response)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- COMMENT PAGE -->
+
+<div id="post_comments" class="box_comments" data-query="visible(permissions().can_comments)">
+    <h3 id="comment_title" >Comentarios (<span data-query="text('' + comments().length)"></span>) <i class="fa fa-caret-down pull-right"></i> <i class="fa fa-caret-up pull-right"></i></h3>
+    <div id="comment_content" style="display: none" >
+        <ul class="box_list_comments" data-query="each(comments)">
+            <li>
+                <div class="comment_header">
+                    <img class="avatar" src="{{user.avatar}}" width="64" />
+                    <strong>{{user.fullname}}</strong>
+                    <span>{{format_datetime(created_at)}}</span>
+                    <div class="comment_content table-responsive" data-query="html(content)"></div>
+                </div>
+
+                <ul class="answers" data-query="each(answers)">
+                    <div class="comment_header">
+                        <img class="avatar" src="{{user.avatar}}" width="64" />
+                        <strong>{{user.fullname}}</strong>
+                        <span>{{format_datetime(created_at)}}</span>
+                        <div class="comment_content table-responsive"  data-query="html(content)"></div>
+                    </div>
+                </ul>
+            </li>
+        </ul>
+
+        <form onsubmit="return false;">
+            <div class="form-group">
+                <textarea class="form-control" data-query="val(textarea_comment)"></textarea>
+            </div>
+            <div class="form-group  " data-query="visible(attachs().length > 0)">
+                <strong>Archivos adjuntos</strong>
+                <ul data-query="each(attachs)" style=" padding-left: 18px; max-width:480px;">
+                    <li style="padding: 6px 0; clear: both; border-bottom: 1px solid #eee;" ><span data-query="text(filename)"></span> <a href="javascript:;" data-query="click($parent.delete_comment_attach, $index)" class="btn btn-danger btn-xs pull-right"> <i class="fa fa-times"></i> </a> </li>
+                </ul>
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-purple" data-query="click(event_send_comment)">Comentar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- FOOTER PAGE -->
+
+<div class="content_panels_footer">
+    <div class="panel_scroll">
+        <!-- PANEL SECTIONS -->
+        <div role="tabpanel" class="panel_page fade" id="page_index">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-file-text-o"></i> Secciones</h3>
+                    <a href="javascript:" class="close_panel"><i class="ion-ios-close-outline"></i></a>
+                </div>
+                <div class="panel-body">
+                    <ul data-query="each(sections)">
+                        <li><a href="javascript:;" data-target="page_section_{{id}}"> &raquo; {{title}}</a></li>
+                    </ul>
+                    <ul>
+                        <li data-query="visible(permissions().can_comments)"><a href="javascript:;" data-target="post_comments"> &raquo; Comentarios</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- PANEL ATTACHMENTS -->
+        <div role="tabpanel" class="panel_page fade" id="page_attach">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-paperclip"></i> Adjuntos</h3>
+                    <a href="javascript:" class="close_panel"><i class="ion-ios-close-outline"></i></a>
+                </div>
+                <div class="panel-body">
+                    <ul data-query="each(download_files)">
+                        <li><a href="javascript:;" onclick="download_file('{{fix_url(file)}}', '{{filename}}');" class="icon_right">  &raquo; {{filename}} <i class="fa fa-download i_right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- PANEL STATS -->
+        <div role="tabpanel" class="panel_page fade" id="page_stat">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-pie-chart"></i> Estadísticas</h3>
+                    <a href="javascript:" class="close_panel"><i class="ion-ios-close-outline"></i></a>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="row panel_stat">
+                                <div class="col-xs-6" data-query="visible(permissions().can_like)">
+                                    <i class="fa fa-thumbs-o-up"></i> <span data-query="text(post.page_likes_count.toString())"></span>
+                                    <p>Likes</p>
+                                </div>
+                                <div class="col-xs-6" data-query="visible(permissions().can_comments)">
+                                    <i class="fa fa-comments-o"></i> <span data-query="text(comments().length.toString())"></span>
+                                    <p>Comentarios</p>
+                                </div>
+                                <div class="col-xs-6">
+                                    <i class="fa fa-eye"></i> <span data-query="text(post.page_visits_count.toString())"></span>
+                                    <p>Visitas</p>
+                                </div>
+                                <div class="col-xs-6" data-query="visible(permissions().can_subscribe)">
+                                    <i class="fa fa-map-signs"></i> <span data-query="text(post.page_follows_count.toString())"></span>
+                                    <p>Personas Siguiendo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- PANEL ARTICLES RELATED -->
+        <div role="tabpanel" class="panel_page fade" id="page_related">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="ion-clipboard"></i> Artículos Relacionados</h3>
+                    <a href="javascript:" class="close_panel"><i class="ion-ios-close-outline"></i></a>
+                </div>
+                <div class="panel-body">
+                    <ul data-query="each(related_articles)">
+                        <li><a href="#/page/{{id}}">  &raquo; {{title}} </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER PAGE BUTTONS -->
+
+<div class="row footer footer_page">
+    <div class="btn-group btn-group-justified" role="group" aria-label="Justified button group" >
+        <a href="#page_index" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-link" role="button"><i class="fa fa-file-text-o"></i> <small>Secciones</small></a>
+        <a href="#page_attach" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-link" role="button" data-query="visible(permissions().can_download_files)"><i class="fa fa-paperclip"></i> <small>Adjuntos</small></a>
+        <a href="#page_stat" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-link" role="button"><i class="fa fa-pie-chart"></i> <small>Estadísticas</small></a>
+        <a href="#page_related" aria-controls="home" role="tab" data-toggle="tab" class="btn btn-link" role="button" data-query="visible(related_articles().length > 0)"><i class="ion-clipboard"></i> <small>Relacionados</small></a>
+    </div>
+</div>
+
+<!-- POPUP RATING -->
+
+<div class="popup_rate" data-query="visible(visible_popup_rate())">
+    <div class="popup_rate_content">
+        <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-exclamation-triangle"></i> Califica este articulo</h3>
+            <a class="close_panel" href="javascript:;"  data-query="click(hidden_popup_rate)" ><i class="ion-ios-close-outline"></i></a>
+        </div>
+        <div class="panel-body">
+            <div class="box_rating">
+                <div class="popup_rating jstar_bg2" data-average="0"></div>
+            </div>
+            <h3 class="title_liked" data-query="visible(permissions().can_like)">¿Te fué útil este artículo?</h3>
+
+            <div class="input-group check2" data-query="visible(permissions().can_like)" style="margin: 0 auto;">
+                <label for="">NO</label>
+                <input type="checkbox"  name="liked_check" data-query="checked(user_values().liked)"/>
+                <label for="">SI</label>
+            </div>
+            <br>
+            <a href="javascript:;"  data-query="click(hidden_popup_rate)" class="btn btn-green">CERRAR</a>
+        </div>
+    </div>
+</div>

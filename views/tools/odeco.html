@@ -1,0 +1,66 @@
+<div class="box_header div_expand_row">
+
+    <div class="my_breadcrumb">
+        <ul data-query="each(breadcrumb)">
+            <li>
+                <a href="{{url}}" data-query="visible(url != '')">{{title}}</a>
+                <span data-query="visible(url == '')">{{title}}</span>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+<div class="row" style="padding-top: 10px" >
+    <div class="col-md-12">
+
+        <div class="my-panel4 panel panel-default">
+            <div class="panel-heading">
+                <a class="collapsed panel_title" role="button" data-toggle="collapse" href="#fechas_nac" aria-expanded="false">
+                    Feriados Nacionales
+                    <i class="fa fa-plus-circle icon_plus pull-right"></i> <i class="fa fa-minus-circle icon_minus pull-right"></i>
+                </a>
+
+            </div>
+            <div id="fechas_nac" class="collapse"  style="max-height: 210px; overflow-y: auto" >
+                <table class="my-table2" >
+                    <thead><tr><th style="width: 90px;" class="text-center">Fecha</th><th>Recordatorio</th></tr></thead>
+                    <tbody data-query="each(holidays)">
+                    <tr><td  class="text-center">{{fecha}}</td><td data-query="html(s.stripTags(recordatorio))"> </td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="my-panel3 panel panel-default">
+            <div class="panel-heading text-center">
+                HERRAMIENTA ODECO
+            </div>
+            <div class="panel-body" >
+                <h3>Fecha de Ingreso</h3>
+
+                <div class="row box_calendar">
+                    <div class="col-xs-1">
+                    </div>
+                    <div class="col-xs-3 txt_day">
+                        {{text_day}}
+                    </div>
+                    <div class="col-xs-6 ">
+                        <span id="tools-odeco-datepicker-span" class="text_input" data-query="html(date)"></span>
+                    </div>
+                    <div class="col-xs-12 ">
+                        <div id="tools-odeco-datepicker" data-date="{{date}}" class="text-center"></div>
+                    </div>
+
+                </div>
+                <h3>Fecha de Resolución</h3>
+                <div class="box_date" data-query="html(text_res)"></div>
+                <h3>Plazo Máximo</h3>
+                <div class="box_date box_date2" data-query="html(text_max)"></div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
