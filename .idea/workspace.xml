@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09452106-0e6b-42cc-a4a4-d3b4196fb8ac" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/css/style.css" afterPath="$PROJECT_DIR$/simulador_assets/css/style.css" />
     </list>
     <list id="d874e604-b592-48c7-a46f-f7b2a30b1134" name="ignore" comment="" />
     <ignored path="www.iws" />
@@ -36,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/../accesos.TXT">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -46,18 +46,55 @@
         <entry file="file://$PROJECT_DIR$/../apuntes.TXT">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="63" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="63" />
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48190477">
-              <caret line="235" column="66" selection-start-line="235" selection-start-column="66" selection-end-line="235" selection-end-column="66" />
+            <state vertical-scroll-proportion="-13.346154">
+              <caret line="50" column="58" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.40190476">
+              <caret line="7118" column="35" selection-start-line="7118" selection-start-column="35" selection-end-line="7118" selection-end-column="35" />
+              <folding>
+                <element signature="e#11168#11831#2" expanded="true" />
+                <element signature="e#15350#16013#2" expanded="true" />
+                <element signature="e#17342#18005#2" expanded="true" />
+                <element signature="e#20004#20667#2" expanded="true" />
+                <element signature="e#22702#23365#2" expanded="true" />
+                <element signature="e#34889#35552#2" expanded="true" />
+                <element signature="e#36651#37314#2" expanded="true" />
+                <element signature="e#39308#39971#2" expanded="true" />
+                <element signature="e#41315#41978#2" expanded="true" />
+                <element signature="e#43025#43688#2" expanded="true" />
+                <element signature="e#50909#51572#2" expanded="true" />
+                <element signature="e#53103#53766#2" expanded="true" />
+                <element signature="e#54943#55606#2" expanded="true" />
+                <element signature="e#68906#69569#2" expanded="true" />
+                <element signature="e#70835#71498#2" expanded="true" />
+                <element signature="e#72587#73250#2" expanded="true" />
+                <element signature="e#74402#75065#2" expanded="true" />
+                <element signature="e#81489#82152#2" expanded="true" />
+                <element signature="e#83534#84197#2" expanded="true" />
+                <element signature="e#91908#92571#2" expanded="true" />
+                <element signature="e#129407#130070#2" expanded="true" />
+                <element signature="e#131592#132255#2" expanded="true" />
+                <element signature="e#212641#213304#2" expanded="true" />
+                <element signature="e#215013#215676#2" expanded="true" />
+                <element signature="e#221737#222400#2" expanded="true" />
+                <element signature="e#223451#224114#2" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,7 +159,6 @@
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/requisitos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/css/all_files.css" />
         <option value="$PROJECT_DIR$/simulador_assets/css/simulador.css" />
-        <option value="$PROJECT_DIR$/simulador_assets/css/style.css" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" />
@@ -132,6 +168,7 @@
         <option value="$PROJECT_DIR$/../apuntes.TXT" />
         <option value="$PROJECT_DIR$/../../../queplan/www/config.xml" />
         <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/simulador_assets/css/style.css" />
       </list>
     </option>
   </component>
@@ -691,7 +728,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15522175" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -835,41 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.884615">
-          <caret line="7524" column="23" selection-start-line="7524" selection-start-column="23" selection-end-line="7524" selection-end-column="23" />
-          <folding>
-            <element signature="e#11168#11831#2" expanded="true" />
-            <element signature="e#15350#16013#2" expanded="true" />
-            <element signature="e#17342#18005#2" expanded="true" />
-            <element signature="e#20004#20667#2" expanded="true" />
-            <element signature="e#22702#23365#2" expanded="true" />
-            <element signature="e#34889#35552#2" expanded="true" />
-            <element signature="e#36651#37314#2" expanded="true" />
-            <element signature="e#39308#39971#2" expanded="true" />
-            <element signature="e#41315#41978#2" expanded="true" />
-            <element signature="e#43025#43688#2" expanded="true" />
-            <element signature="e#50909#51572#2" expanded="true" />
-            <element signature="e#53103#53766#2" expanded="true" />
-            <element signature="e#54943#55606#2" expanded="true" />
-            <element signature="e#68906#69569#2" expanded="true" />
-            <element signature="e#70835#71498#2" expanded="true" />
-            <element signature="e#72587#73250#2" expanded="true" />
-            <element signature="e#74402#75065#2" expanded="true" />
-            <element signature="e#81489#82152#2" expanded="true" />
-            <element signature="e#83534#84197#2" expanded="true" />
-            <element signature="e#91908#92571#2" expanded="true" />
-            <element signature="e#129407#130070#2" expanded="true" />
-            <element signature="e#131592#132255#2" expanded="true" />
-            <element signature="e#212641#213304#2" expanded="true" />
-            <element signature="e#215013#215676#2" expanded="true" />
-            <element signature="e#221737#222400#2" expanded="true" />
-            <element signature="e#223451#224114#2" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/layout/nav_left.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-28.76923">
@@ -985,22 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../accesos.TXT">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../apuntes.TXT">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="63" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../queplan/www/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.8846154">
@@ -1009,11 +995,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../accesos.TXT">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../apuntes.TXT">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48190477">
-          <caret line="235" column="66" selection-start-line="235" selection-start-column="66" selection-end-line="235" selection-end-column="66" />
+        <state vertical-scroll-proportion="-13.346154">
+          <caret line="50" column="58" selection-start-line="50" selection-start-column="58" selection-end-line="50" selection-end-column="58" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40190476">
+          <caret line="7118" column="35" selection-start-line="7118" selection-start-column="35" selection-end-line="7118" selection-end-column="35" />
+          <folding>
+            <element signature="e#11168#11831#2" expanded="true" />
+            <element signature="e#15350#16013#2" expanded="true" />
+            <element signature="e#17342#18005#2" expanded="true" />
+            <element signature="e#20004#20667#2" expanded="true" />
+            <element signature="e#22702#23365#2" expanded="true" />
+            <element signature="e#34889#35552#2" expanded="true" />
+            <element signature="e#36651#37314#2" expanded="true" />
+            <element signature="e#39308#39971#2" expanded="true" />
+            <element signature="e#41315#41978#2" expanded="true" />
+            <element signature="e#43025#43688#2" expanded="true" />
+            <element signature="e#50909#51572#2" expanded="true" />
+            <element signature="e#53103#53766#2" expanded="true" />
+            <element signature="e#54943#55606#2" expanded="true" />
+            <element signature="e#68906#69569#2" expanded="true" />
+            <element signature="e#70835#71498#2" expanded="true" />
+            <element signature="e#72587#73250#2" expanded="true" />
+            <element signature="e#74402#75065#2" expanded="true" />
+            <element signature="e#81489#82152#2" expanded="true" />
+            <element signature="e#83534#84197#2" expanded="true" />
+            <element signature="e#91908#92571#2" expanded="true" />
+            <element signature="e#129407#130070#2" expanded="true" />
+            <element signature="e#131592#132255#2" expanded="true" />
+            <element signature="e#212641#213304#2" expanded="true" />
+            <element signature="e#215013#215676#2" expanded="true" />
+            <element signature="e#221737#222400#2" expanded="true" />
+            <element signature="e#223451#224114#2" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

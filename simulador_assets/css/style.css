@@ -7118,6 +7118,7 @@ body.export #post_view .accordion .accordion-body.in {
     /* line 5996, C:/wamp64/www/siscon/app/sites/site2/stylesheets/style.css.scss */
     .simulador .nav-tabs > li > a {
         font-size: 10px !important;
+        padding: 10px 5px;
     }
 
     /* line 6000, C:/wamp64/www/siscon/app/sites/site2/stylesheets/style.css.scss */
