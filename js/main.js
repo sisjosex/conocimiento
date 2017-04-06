@@ -2,8 +2,8 @@
  * Defined vars
  */
 
-//var base_url = 'https://conocimiento.nuevatel.com/';
-var base_url = 'http://10.0.0.160:3000/';
+var base_url = API_URL;
+//var base_url = 'http://10.0.0.160:3000/';
 var session_time_out = 25;
 //base_url = 'http://10.0.0.7:4001/';
 var api_url = base_url + 'mobile_api/';
