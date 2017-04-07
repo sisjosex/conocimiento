@@ -3034,3 +3034,11 @@ form label.error{
   padding-bottom: 3px;
   padding-top: 3px;
 }
+
+
+.icon.icon-simulador {
+  background: url(../img/budget.svg) 0 0 no-repeat transparent !important;
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px !important;
+}
