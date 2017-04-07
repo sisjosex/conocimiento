@@ -1,6 +1,6 @@
 var extractos;
 
-simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service) {
+simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, $sce) {
 
     extractos = $scope;
 
@@ -107,7 +107,26 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service) 
 
             if (result.status == 'success') {
 
-                $scope.crm = result.data;
+                if ( result.message != '' ) {
+
+                    ngDialog.open({
+                        template: 'modalMessage.html',
+                        className: 'ngdialog-theme-default',
+                        controller: ['$scope', function ($scope) {
+                            $scope.title = 'Aviso';
+                            $scope.message = 'No se encontraron resultados.';
+
+                            $scope.cancel = function () {
+
+                                $scope.closeThisDialog();
+                            };
+                        }]
+                    });
+
+                } else {
+
+                    $scope.crm = result.data;
+                }
             }
 
         }, function () {

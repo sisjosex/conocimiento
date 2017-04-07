@@ -7031,6 +7031,17 @@ body.export #post_view .accordion .accordion-body.in {
     font-family: FontAwesome;
     color: #fff;
 }
+.simulador .icon-search:after {
+    content: "\f002";
+    display: block;
+    /* position: absolute; */
+    right: 9px;
+    top: 5px;
+    color: #000;
+    z-index: 2;
+    font-family: FontAwesome;
+    color: #fff;
+}
 /* line 5918, C:/wamp64/www/siscon/app/sites/site2/stylesheets/style.css.scss */
 .simulador .input-append {
     position: relative;
@@ -7524,3 +7535,9 @@ section#nav_left .btn_close {
         max-width: 142px; } }
 .my_breadcrumb ul li:last-child {
     background: none; }
+
+
+
+
+
+

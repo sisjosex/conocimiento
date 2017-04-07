@@ -75,11 +75,16 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input ng-blur="searchCRM()" ng-model="user.document_value"
-                                                                   autocomplete="false"
-                                                                   ng-disabled="user.document_type.id == ''" type="text"
-                                                                   class="form-control document_type"
-                                                                   placeholder="{{ user.document_type.name }}">
+                                                            <div class="input-append">
+                                                                <input ng-model="user.document_value"
+                                                                       autocomplete="false"
+                                                                       ng-disabled="user.document_type.id == ''"
+                                                                       type="text" class="form-control document_type"
+                                                                       placeholder="{{ user.document_type.name }}">
+              <span class="btn btn-primary add-on" ng-click="searchCRM()">
+                <i class="icon icon-search"></i>
+              </span>
+                                                            </div>
                                                         </div>
 
                                                         <div class="col-lg-12 warning-message"
@@ -350,11 +355,16 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input ng-blur="searchCRM()" ng-model="user.document_value"
-                                                                   autocomplete="false"
-                                                                   ng-disabled="user.document_type.id == ''" type="text"
-                                                                   class="form-control document_type"
-                                                                   placeholder="{{ user.document_type.name }}">
+                                                            <div class="input-append">
+                                                                <input ng-model="user.document_value"
+                                                                       autocomplete="false"
+                                                                       ng-disabled="user.document_type.id == ''"
+                                                                       type="text" class="form-control document_type"
+                                                                       placeholder="{{ user.document_type.name }}">
+              <span class="btn btn-primary add-on" ng-click="searchCRM()">
+                <i class="icon icon-search"></i>
+              </span>
+                                                            </div>
                                                         </div>
 
                                                         <div class="col-lg-12 warning-message"
@@ -625,11 +635,12 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input ng-blur="searchCRM()" ng-model="user.document_value"
-                                                                   autocomplete="false"
-                                                                   ng-disabled="user.document_type.id == ''" type="text"
-                                                                   class="form-control document_type"
-                                                                   placeholder="{{ user.document_type.name }}">
+                                                            <div class="input-append">
+                                                                <input ng-model="user.document_value" autocomplete="false" ng-disabled="user.document_type.id == ''" type="text" class="form-control document_type" placeholder="{{ user.document_type.name }}">
+              <span class="btn btn-primary add-on" ng-click="searchCRM()">
+                <i class="icon icon-search"></i>
+              </span>
+                                                            </div>
                                                         </div>
 
                                                         <div class="col-lg-12 warning-message"
@@ -931,11 +942,12 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input ng-blur="searchCRM()" ng-model="user.document_value"
-                                                                   autocomplete="false"
-                                                                   ng-disabled="user.document_type.id == ''" type="text"
-                                                                   class="form-control document_type"
-                                                                   placeholder="{{ user.document_type.name }}">
+                                                            <div class="input-append">
+                                                                <input ng-model="user.document_value" autocomplete="false" ng-disabled="user.document_type.id == ''" type="text" class="form-control document_type" placeholder="{{ user.document_type.name }}">
+              <span class="btn btn-primary add-on" ng-click="searchCRM()">
+                <i class="icon icon-search"></i>
+              </span>
+                                                            </div>
                                                         </div>
 
                                                         <div class="col-lg-12 warning-message"
@@ -1231,13 +1243,6 @@
     </div>
 
 </div>
-
-
-
-
-
-
-
 
 
 <div id="modalExtractos" style="display:none;">

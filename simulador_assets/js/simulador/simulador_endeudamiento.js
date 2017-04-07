@@ -1,5 +1,23 @@
 var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSanitize", "ngDialog", "services", "jkuri.datepicker"])
 
+    .config(function ($sceDelegateProvider) {
+
+        //$sceDelegateProvider.resourceUrlWhitelist(['^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?\(vimeo|youtube)\.com(/.*)?$', 'self']);
+
+        $sceDelegateProvider.resourceUrlWhitelist([
+            // Allow same origin resource loads.
+            'self',
+            'http://localhost:3000/*',
+            'http://10.0.0.160:3000/**',
+            'https://conocimiento.nuevatel.com/**',
+            // Allow loading from our assets domain.  Notice the difference between * and **.
+            'https://ssl.gstatic.com'
+        ]);
+
+        // The blacklist overrides the whitelist so the open redirect here is blocked.
+        $sceDelegateProvider.resourceUrlBlacklist([]);
+    })
+
     .run(['$templateCache', function ($templateCache) {
         $templateCache.put('modalMessage.html', $('#modalMessage').html());
     }])

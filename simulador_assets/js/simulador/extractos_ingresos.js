@@ -1,6 +1,6 @@
 var extractos_ingresos;
 
-simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, service) {
+simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, service, $sce) {
 
     extractos_ingresos = $scope;
 
@@ -104,7 +104,26 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
             if (result.status == 'success') {
 
-                $scope.crm = result.data;
+                if ( result.message != '' ) {
+
+                    ngDialog.open({
+                        template: 'modalMessage.html',
+                        className: 'ngdialog-theme-default',
+                        controller: ['$scope', function ($scope) {
+                            $scope.title = 'Aviso';
+                            $scope.message = 'No se encontraron resultados.';
+
+                            $scope.cancel = function () {
+
+                                $scope.closeThisDialog();
+                            };
+                        }]
+                    });
+
+                } else {
+
+                    $scope.crm = result.data;
+                }
             }
 
         }, function () {
