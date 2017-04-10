@@ -22,6 +22,20 @@ function onDeviceReady() {
     document.addEventListener("online", onOnline, false);
     document.addEventListener("offline", onOffline, false);
     init_app_global();
+
+    setTimeout(function(){
+
+        try {
+            navigator.splashscreen.hide();
+        } catch (error) {
+        }
+
+        try {
+
+            StatusBar.hide();
+
+        } catch (error){}
+    });
 }
 
 function onOffline() {
