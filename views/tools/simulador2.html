@@ -126,7 +126,7 @@
                                                 </form>
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 chart-area">
                                                 <div class="chart-container">
                                                     <canvas class="chart chart-doughnut" chart-data="data"
                                                             chart-labels="labels" chart-colors="colors"
@@ -180,6 +180,7 @@
                                         <div class="row col-centered has-scroll">
                                             <div class="col-lg-12">
                                                 <table class="simulador-table">
+                                                    <tbody>
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td>
                                                             <div class="number">{{ $index + 1 }}</div>
@@ -200,8 +201,7 @@
                                                                             ng-show="item2.tipo != ''">
                                                                             <td ng-repeat="column in plan_columns"
                                                                                 ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{
-                                                                                item2[column.id] }}
+                                                                                {{ item2[column.id] }}
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -261,6 +261,7 @@
                                                         <td></td>
                                                         <td class="total-row total">{{ user.total }} Bs</td>
                                                     </tr>
+                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
@@ -406,7 +407,7 @@
                                                 </form>
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 chart-area">
                                                 <div class="chart-container">
                                                     <canvas class="chart chart-doughnut" chart-data="data"
                                                             chart-labels="labels" chart-colors="colors"
@@ -636,7 +637,11 @@
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <div class="input-append">
-                                                                <input ng-model="user.document_value" autocomplete="false" ng-disabled="user.document_type.id == ''" type="text" class="form-control document_type" placeholder="{{ user.document_type.name }}">
+                                                                <input ng-model="user.document_value"
+                                                                       autocomplete="false"
+                                                                       ng-disabled="user.document_type.id == ''"
+                                                                       type="text" class="form-control document_type"
+                                                                       placeholder="{{ user.document_type.name }}">
               <span class="btn btn-primary add-on" ng-click="searchCRM()">
                 <i class="icon icon-search"></i>
               </span>
@@ -713,7 +718,7 @@
                                                 </form>
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 chart-area">
                                                 <div class="chart-container">
                                                     <canvas class="chart chart-doughnut" chart-data="data"
                                                             chart-labels="labels" chart-colors="colors"
@@ -943,7 +948,11 @@
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <div class="input-append">
-                                                                <input ng-model="user.document_value" autocomplete="false" ng-disabled="user.document_type.id == ''" type="text" class="form-control document_type" placeholder="{{ user.document_type.name }}">
+                                                                <input ng-model="user.document_value"
+                                                                       autocomplete="false"
+                                                                       ng-disabled="user.document_type.id == ''"
+                                                                       type="text" class="form-control document_type"
+                                                                       placeholder="{{ user.document_type.name }}">
               <span class="btn btn-primary add-on" ng-click="searchCRM()">
                 <i class="icon icon-search"></i>
               </span>
@@ -1029,7 +1038,7 @@
                                                 </form>
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 chart-area">
                                                 <div class="chart-container">
                                                     <canvas class="chart chart-doughnut" chart-data="data"
                                                             chart-labels="labels" chart-colors="colors"

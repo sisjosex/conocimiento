@@ -7537,6 +7537,20 @@ section#nav_left .btn_close {
     background: none; }
 
 
+@media all and (max-width: 980px) {
 
+    .simulador-table > tbody > tr > td {
+        display: block !important;
+    }
 
+    .chart-area {
+        width: 215px;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .chart-area .chart-container {
+        
+    }
+}
 
