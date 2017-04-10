@@ -7554,3 +7554,8 @@ section#nav_left .btn_close {
     }
 }
 
+
+
+.page {
+    -webkit-overflow-scrolling: touch;
+}

@@ -35,7 +35,7 @@ function onDeviceReady() {
             StatusBar.hide();
 
         } catch (error){}
-    });
+    }, 500);
 }
 
 function onOffline() {
