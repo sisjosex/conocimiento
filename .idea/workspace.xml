@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09452106-0e6b-42cc-a4a4-d3b4196fb8ac" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/css/style.css" afterPath="$PROJECT_DIR$/simulador_assets/css/style.css" />
     </list>
     <list id="d874e604-b592-48c7-a46f-f7b2a30b1134" name="ignore" comment="" />
@@ -100,8 +101,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7868339">
-              <caret line="7558" column="20" selection-start-line="7558" selection-start-column="20" selection-end-line="7558" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.7601881">
+              <caret line="7559" column="18" selection-start-line="7559" selection-start-column="18" selection-end-line="7559" selection-end-column="18" />
               <folding>
                 <element signature="e#11168#11831#2" expanded="true" />
                 <element signature="e#15350#16013#2" expanded="true" />
@@ -130,6 +131,16 @@
                 <element signature="e#221737#222400#2" expanded="true" />
                 <element signature="e#223451#224114#2" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="framework-fixes.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../../queplan/www/css/framework-fixes.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.961538">
+              <caret line="259" column="28" selection-start-line="256" selection-start-column="4" selection-end-line="259" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -175,7 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/tools/simulador_assets/simulador.css" />
         <option value="$PROJECT_DIR$/views/tools/simulador_assets/js/moment.js" />
         <option value="$PROJECT_DIR$/views/tools/simulador_assets/js/chart.min.js" />
         <option value="$PROJECT_DIR$/views/tools/simulador_assets/js/angular-chart.min.js" />
@@ -225,6 +235,7 @@
         <option value="$PROJECT_DIR$/../../../queplan/www/js/app.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/../../../queplan/www/css/framework-fixes.css" />
         <option value="$PROJECT_DIR$/simulador_assets/css/style.css" />
       </list>
     </option>
@@ -1250,6 +1261,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="87" selection-start-line="2" selection-start-column="87" selection-end-line="2" selection-end-column="87" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1274,6 +1286,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1297,14 +1310,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="4" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="53" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -1390,10 +1395,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../../queplan/www/css/framework-fixes.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.961538">
+          <caret line="259" column="28" selection-start-line="256" selection-start-column="4" selection-end-line="259" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="53" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7868339">
-          <caret line="7558" column="20" selection-start-line="7558" selection-start-column="20" selection-end-line="7558" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.7601881">
+          <caret line="7559" column="18" selection-start-line="7559" selection-start-column="18" selection-end-line="7559" selection-end-column="18" />
           <folding>
             <element signature="e#11168#11831#2" expanded="true" />
             <element signature="e#15350#16013#2" expanded="true" />

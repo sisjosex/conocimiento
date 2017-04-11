@@ -7557,5 +7557,7 @@ section#nav_left .btn_close {
 
 
 body, #box-content {
-    -webkit-overflow-scrolling: touch !important;
+    overflow: auto;
+    -webkit-overflow-scrolling: auto;
+    -ms-touch-action: pan-y;
 }
