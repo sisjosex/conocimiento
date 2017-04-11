@@ -9,7 +9,7 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
     $scope.document_types = [
         {id: '', name: 'Tipo de Documento'},
         {id: 'ci', name: 'Carnet de Identidad'},
-        {id: 'telefono', name: 'Teléfono'}
+        {id: 'nit', name: 'NIT'}
     ];
 
     $scope.user = {

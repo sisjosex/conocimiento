@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09452106-0e6b-42cc-a4a4-d3b4196fb8ac" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/services.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/services.js" />
     </list>
     <list id="d874e604-b592-48c7-a46f-f7b2a30b1134" name="ignore" comment="" />
     <ignored path="www.iws" />
@@ -39,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+              <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -49,17 +51,17 @@
         <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="64" column="27" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="32" />
+              <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="extractos.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="extractos.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33283132">
-              <caret line="109" column="50" selection-start-line="109" selection-start-column="50" selection-end-line="109" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -69,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
+              <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -118,6 +120,16 @@
                 <element signature="e#221737#222400#2" expanded="true" />
                 <element signature="e#223451#224114#2" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/services.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.46234939">
+              <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -198,7 +210,6 @@
         <option value="$PROJECT_DIR$/js/utils.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/requisitos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/simulador_endeudamiento.js" />
-        <option value="$PROJECT_DIR$/simulador_assets/js/simulador/services.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/views/layout/nav_left.html" />
         <option value="$PROJECT_DIR$/css/main.css" />
@@ -208,10 +219,11 @@
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/../../../queplan/www/css/framework-fixes.css" />
         <option value="$PROJECT_DIR$/simulador_assets/css/style.css" />
-        <option value="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" />
-        <option value="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" />
-        <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" />
+        <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" />
+        <option value="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" />
+        <option value="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" />
+        <option value="$PROJECT_DIR$/simulador_assets/js/simulador/services.js" />
       </list>
     </option>
   </component>
@@ -1374,14 +1386,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/services.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5135542">
-          <caret line="46" column="53" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/simulador_endeudamiento.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1390,10 +1394,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="106" column="32" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1401,23 +1421,15 @@
     <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+          <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js">
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="27" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33283132">
-          <caret line="109" column="50" selection-start-line="109" selection-start-column="50" selection-end-line="109" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.46234939">
+          <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
           <folding />
         </state>
       </provider>

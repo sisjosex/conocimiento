@@ -39,7 +39,17 @@ angular.module("services", []).factory("service", ["$http", "$q", function ($htt
 
         searchCRM: function (params, success, error) {
 
-            $http.jsonp(API_URL + 'searchCRM')
+            return $http({method: 'JSONP', url: API_URL + 'searchCRM', params: checkParams(params)}).then(function successCallback(response) {
+
+                success(response.data);
+
+            }, function errorCallback(response) {
+
+                error(response);
+
+            });
+
+            /*$http.jsonp( API_URL + 'searchCRM?' + $(params).stringify() )
                 .then(function successCallback(response) {
 
                     success(response.data);
@@ -48,7 +58,7 @@ angular.module("services", []).factory("service", ["$http", "$q", function ($htt
 
                     error(response);
 
-                });
+                });*/
         },
     };
 }]);

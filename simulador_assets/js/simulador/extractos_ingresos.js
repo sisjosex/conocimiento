@@ -9,7 +9,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
     $scope.document_types = [
         {id: '', name: 'Tipo de Documento'},
         {id: 'ci', name: 'Carnet de Identidad'},
-        {id: 'telefono', name: 'Teléfono'}
+        {id: 'nit', name: 'NIT'}
     ];
 
     var extractos_data = [];
