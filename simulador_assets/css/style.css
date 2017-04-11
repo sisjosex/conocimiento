@@ -7556,6 +7556,6 @@ section#nav_left .btn_close {
 
 
 
-body {
-    -webkit-overflow-scrolling: touch;
+body, #box-content {
+    -webkit-overflow-scrolling: touch !important;
 }
