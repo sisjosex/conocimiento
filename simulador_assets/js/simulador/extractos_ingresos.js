@@ -104,7 +104,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
             if (result.status == 'success') {
 
-                if ( result.message != '' ) {
+                if ( result.data.message == '' ) {
 
                     ngDialog.open({
                         template: 'modalMessage.html',

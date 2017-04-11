@@ -63,7 +63,7 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
 
             if (result.status == 'success') {
 
-                if ( result.message != '' ) {
+                if ( result.data.message == '' ) {
 
                     ngDialog.open({
                         template: 'modalMessage.html',
