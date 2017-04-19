@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09452106-0e6b-42cc-a4a4-d3b4196fb8ac" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main/tools.js" afterPath="$PROJECT_DIR$/js/main/tools.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/css/simulador.css" afterPath="$PROJECT_DIR$/simulador_assets/css/simulador.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/css/style.css" afterPath="$PROJECT_DIR$/simulador_assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/requisitos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/requisitos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/simulador_endeudamiento.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/simulador_endeudamiento.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tools/simulador2.html" afterPath="$PROJECT_DIR$/views/tools/simulador2.html" />
     </list>
     <list id="d874e604-b592-48c7-a46f-f7b2a30b1134" name="ignore" comment="" />
@@ -53,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plan_pagos.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plan_pagos.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3801105">
-              <caret line="381" column="42" selection-start-line="381" selection-start-column="42" selection-end-line="381" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="382" column="0" selection-start-line="382" selection-start-column="0" selection-end-line="382" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -86,8 +75,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.0">
-              <caret line="7545" column="17" selection-start-line="7545" selection-start-column="17" selection-end-line="7545" selection-end-column="17" />
+            <state vertical-scroll-proportion="-12.653846">
+              <caret line="7546" column="21" selection-start-line="7546" selection-start-column="21" selection-end-line="7546" selection-end-column="21" />
               <folding>
                 <element signature="e#11168#11831#2" expanded="true" />
                 <element signature="e#15350#16013#2" expanded="true" />
@@ -132,12 +121,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simulador2.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="simulador2.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/tools/simulador2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.807692">
-              <caret line="1305" column="39" selection-start-line="1305" selection-start-column="39" selection-end-line="1305" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.33333334">
+              <caret line="33" column="67" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -244,13 +234,13 @@
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/simulador_endeudamiento.js" />
         <option value="$PROJECT_DIR$/js/main/tools.js" />
         <option value="$PROJECT_DIR$/simulador_assets/css/style.css" />
-        <option value="$PROJECT_DIR$/views/tools/simulador2.html" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/requisitos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/css/simulador.css" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" />
+        <option value="$PROJECT_DIR$/views/tools/simulador2.html" />
       </list>
     </option>
   </component>
@@ -837,7 +827,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1519" height="1066" extended-state="1" />
+    <frame x="-8" y="0" width="1519" height="1066" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15522175" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1324,74 +1314,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.0">
-          <caret line="7545" column="17" selection-start-line="7545" selection-start-column="17" selection-end-line="7545" selection-end-column="17" />
-          <folding>
-            <element signature="e#11168#11831#2" expanded="true" />
-            <element signature="e#15350#16013#2" expanded="true" />
-            <element signature="e#17342#18005#2" expanded="true" />
-            <element signature="e#20004#20667#2" expanded="true" />
-            <element signature="e#22702#23365#2" expanded="true" />
-            <element signature="e#34889#35552#2" expanded="true" />
-            <element signature="e#36651#37314#2" expanded="true" />
-            <element signature="e#39308#39971#2" expanded="true" />
-            <element signature="e#41315#41978#2" expanded="true" />
-            <element signature="e#43025#43688#2" expanded="true" />
-            <element signature="e#50909#51572#2" expanded="true" />
-            <element signature="e#53103#53766#2" expanded="true" />
-            <element signature="e#54943#55606#2" expanded="true" />
-            <element signature="e#68906#69569#2" expanded="true" />
-            <element signature="e#70835#71498#2" expanded="true" />
-            <element signature="e#72587#73250#2" expanded="true" />
-            <element signature="e#74402#75065#2" expanded="true" />
-            <element signature="e#81489#82152#2" expanded="true" />
-            <element signature="e#83534#84197#2" expanded="true" />
-            <element signature="e#91908#92571#2" expanded="true" />
-            <element signature="e#129407#130070#2" expanded="true" />
-            <element signature="e#131592#132255#2" expanded="true" />
-            <element signature="e#212641#213304#2" expanded="true" />
-            <element signature="e#215013#215676#2" expanded="true" />
-            <element signature="e#221737#222400#2" expanded="true" />
-            <element signature="e#223451#224114#2" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.423077">
           <caret line="19" column="78" selection-start-line="19" selection-start-column="78" selection-end-line="19" selection-end-column="78" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/simulador2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.807692">
-          <caret line="1305" column="39" selection-start-line="1305" selection-start-column="39" selection-end-line="1305" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1438,9 +1366,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3801105">
-          <caret line="381" column="42" selection-start-line="381" selection-start-column="42" selection-end-line="381" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="382" column="0" selection-start-line="382" selection-start-column="0" selection-end-line="382" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.653846">
+          <caret line="7546" column="21" selection-start-line="7546" selection-start-column="21" selection-end-line="7546" selection-end-column="21" />
+          <folding>
+            <element signature="e#11168#11831#2" expanded="true" />
+            <element signature="e#15350#16013#2" expanded="true" />
+            <element signature="e#17342#18005#2" expanded="true" />
+            <element signature="e#20004#20667#2" expanded="true" />
+            <element signature="e#22702#23365#2" expanded="true" />
+            <element signature="e#34889#35552#2" expanded="true" />
+            <element signature="e#36651#37314#2" expanded="true" />
+            <element signature="e#39308#39971#2" expanded="true" />
+            <element signature="e#41315#41978#2" expanded="true" />
+            <element signature="e#43025#43688#2" expanded="true" />
+            <element signature="e#50909#51572#2" expanded="true" />
+            <element signature="e#53103#53766#2" expanded="true" />
+            <element signature="e#54943#55606#2" expanded="true" />
+            <element signature="e#68906#69569#2" expanded="true" />
+            <element signature="e#70835#71498#2" expanded="true" />
+            <element signature="e#72587#73250#2" expanded="true" />
+            <element signature="e#74402#75065#2" expanded="true" />
+            <element signature="e#81489#82152#2" expanded="true" />
+            <element signature="e#83534#84197#2" expanded="true" />
+            <element signature="e#91908#92571#2" expanded="true" />
+            <element signature="e#129407#130070#2" expanded="true" />
+            <element signature="e#131592#132255#2" expanded="true" />
+            <element signature="e#212641#213304#2" expanded="true" />
+            <element signature="e#215013#215676#2" expanded="true" />
+            <element signature="e#221737#222400#2" expanded="true" />
+            <element signature="e#223451#224114#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/tools/simulador2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="33" column="67" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
