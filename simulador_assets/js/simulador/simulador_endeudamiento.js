@@ -1,4 +1,4 @@
-var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSanitize", "ngDialog", "services", "jkuri.datepicker"])
+var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSanitize", "ngDialog", "services", "jkuri.datepicker", "googlechart"])
 
     .config(function ($sceDelegateProvider) {
 
@@ -44,15 +44,27 @@ var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSani
 
                     var rect = elem[0].getBoundingClientRect();
 
-                    console.log(rect);
+                    //var left = parseInt(rect.left) - parseInt($(self).outerWidth()) + parseInt(rect.width);
+                    var left = ( window.innerWidth - $(elem).find(".menu").outerWidth() ) / 2;
+                    var top  = parseInt(rect.height) + parseInt(rect.top);
 
-                    var left = parseInt(rect.left) - parseInt($(self).outerWidth()) + parseInt(rect.width);
-                    var top = parseInt(rect.height) + parseInt(rect.top);
+                    if (left + $(elem).find(".menu").outerWidth() >= $(elem).find(".menu").outerWidth()) {
 
-                    console.log($(elem).outerWidth());
-                    console.log(top + " - " + left);
+                        if ( left > parseInt(rect.left) + $(elem).outerWidth() ) {
 
-                    $(self).css({left: left, top: top});
+                            left = parseInt(rect.left);
+                        }
+
+                        $(self).css({left: left, top: top});
+
+                        if (window.outerWidth < left + $(elem).find(".menu").outerWidth()) {
+                            left = 0;
+                        }
+
+
+                    } else {
+                        $(self).css({right: 0, top: top});
+                    }
 
                     //$(elem).find(".menu").css({left:elem.pageX + window.scrollX, top:elem.pageY + window.scrollY});
                 });

@@ -26,6 +26,37 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
         calificable: false
     };
 
+    $scope.chart = {};
+    $scope.chart.type = "PieChart";
+    $scope.chart.options = {
+        title: '',
+        pieSliceText: 'value-and-percentage',
+        legend: {
+            position: 'labeled'
+        },
+        tooltip: {
+            ignoreBounds: true,
+            text: 'both'
+        }
+    };
+    $scope.chart.data = {"cols": [
+        {id: "t", label: "Topping", type: "string"},
+        {id: "s", label: "Slices", type: "number"}
+    ], "rows": [
+        {c: [
+            {v: "Endeudamiento"},
+            {v: 0}
+        ]},
+        {c: [
+            {v: "Monto a Pagar"},
+            {v: 0}
+        ]},
+        {c: [
+            {v: "Ingresos"},
+            {v: 0}
+        ]}
+    ]};
+
     $scope.labels = ["C. Endeudamiento", "Monto a Pagar", "Ingresos"];
     $scope.data = [0, 0, 0];
     $scope.colors = ["#7a68ae", "#c2d544", "#39c92f"];
@@ -89,21 +120,6 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
     };
 
 
-    if (angular_params.status == 'success') {
-
-        $scope.plan_columns = angular_params.plan_columns;
-        $scope.plans = angular_params.plans;
-        $scope.aditional_plans = angular_params.addons;
-
-        try {
-
-            $scope.selected_plan = $scope.plans[$scope.plans.length - 1];
-
-        } catch (error) {
-        }
-    }
-
-
     var updateChart = function (b) {
 
         var totalAmount = 0;
@@ -151,6 +167,25 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
         }
 
         $scope.data = [totalAdeudamiento, totalAmount, $scope.user.ingreso];
+
+
+        $scope.chart.data = {"cols": [
+            {id: "t", label: "Topping", type: "string"},
+            {id: "s", label: "Slices", type: "number"}
+        ], "rows": [
+            {c: [
+                {v: "Endeudamiento"},
+                {v: totalAdeudamiento}
+            ]},
+            {c: [
+                {v: "Monto a Pagar"},
+                {v: totalAmount}
+            ]},
+            {c: [
+                {v: "Ingresos"},
+                {v: $scope.user.ingreso}
+            ]}
+        ]};
 
 
         if (totalAdeudamiento >= totalAmount) {
@@ -355,4 +390,20 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
 
         $scope.user.document_type = item;
     };
+
+    if (angular_params.status == 'success') {
+
+        $scope.plan_columns = angular_params.plan_columns;
+        $scope.plans = angular_params.plans;
+        $scope.aditional_plans = angular_params.addons;
+
+        $scope.addPlan($scope.plans[0]);
+
+        try {
+
+            $scope.selected_plan = $scope.plans[$scope.plans.length - 1];
+
+        } catch (error) {
+        }
+    }
 });

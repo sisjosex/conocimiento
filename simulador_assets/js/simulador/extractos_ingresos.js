@@ -40,6 +40,37 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         tipo_cambio: 6.96
     };
 
+    $scope.chart = {};
+    $scope.chart.type = "PieChart";
+    $scope.chart.options = {
+        title: '',
+        pieSliceText: 'value-and-percentage',
+        legend: {
+            position: 'labeled'
+        },
+        tooltip: {
+            ignoreBounds: true,
+            text: 'both'
+        }
+    };
+    $scope.chart.data = {"cols": [
+        {id: "t", label: "Topping", type: "string"},
+        {id: "s", label: "Slices", type: "number"}
+    ], "rows": [
+        {c: [
+            {v: "Endeudamiento"},
+            {v: 0}
+        ]},
+        {c: [
+            {v: "Monto a Pagar"},
+            {v: 0}
+        ]},
+        {c: [
+            {v: "Ingresos"},
+            {v: 0}
+        ]}
+    ]};
+
     $scope.labels = ["C. Endeudamiento", "Monto a Pagar", "Ingresos"];
     $scope.data = [0, 0, 0];
     $scope.colors = ["#7a68ae", "#c2d544", "#39c92f"];
@@ -70,23 +101,6 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
     $scope.extractos = [];
 
-
-
-    if (angular_params.status == 'success') {
-
-        $scope.plan_columns = angular_params.plan_columns;
-        $scope.plans = angular_params.plans;
-        $scope.aditional_plans = angular_params.addons;
-        extractos_data = angular_params.extractos;
-        extractos_ingresos_data = angular_params.extractos_ingresos;
-
-        try {
-
-            $scope.selected_plan = $scope.plans[$scope.plans.length - 1];
-
-        } catch (error) {
-        }
-    }
 
 
     $scope.crm = {
@@ -147,6 +161,19 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                     $scope.fechaInicio = $scope.$parent.fechaInicio;
                     $scope.extractos = $scope.$parent.extractos;
+
+                    $scope.currency = [
+                        {
+                            id: 'bs',
+                            name: 'Bs'
+                        },
+                        {
+                            id: 'sus',
+                            name: '$us'
+                        }
+                    ];
+
+                    $scope.selected_currency =  $scope.currency[0];
 
                     $scope.changeFechaInicio = function() {
 
@@ -224,7 +251,15 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                         promedio = promedio / $scope.extractos.length;
 
-                        $scope.$parent.user.saldo_promedio_extracto = parseFloat((promedio / $scope.$parent.user.tipo_cambio).toFixed(2));
+                        if ( $scope.selected_currency.id == 'bs' ) {
+
+                            $scope.$parent.user.saldo_promedio_extracto = parseFloat((promedio / $scope.$parent.user.tipo_cambio).toFixed(2));
+
+                        } else {
+
+                            $scope.$parent.user.saldo_promedio_extracto = parseFloat((promedio).toFixed(2));
+                        }
+
                         $scope.$parent.extractos = $scope.extractos;
 
                         updateChart();
@@ -329,6 +364,25 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         }
 
         $scope.data = [$scope.user.saldo_promedio_extracto, totalAmount, $scope.user.ingreso];
+
+
+        $scope.chart.data = {"cols": [
+            {id: "t", label: "Topping", type: "string"},
+            {id: "s", label: "Slices", type: "number"}
+        ], "rows": [
+            {c: [
+                {v: "Saldo Promedio Extracto"},
+                {v: $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio}
+            ]},
+            {c: [
+                {v: "Monto a Pagar"},
+                {v: totalAmount}
+            ]},
+            {c: [
+                {v: "Ingresos"},
+                {v: $scope.user.ingreso}
+            ]}
+        ]};
 
 
         if (diferencia >= 0) {
@@ -460,38 +514,6 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         $scope.updateChart();
     };
 
-    $scope.addPlan = function (item) {
-
-        if (item.tipo == '') {
-
-            ngDialog.open({
-                template: 'modalMessage.html',
-                className: 'ngdialog-theme-default',
-                controller: ['$scope', function ($scope) {
-                    $scope.title = 'Aviso';
-                    $scope.message = 'Debe elegir un plan antes.';
-
-                    $scope.cancel = function () {
-
-                        $scope.closeThisDialog();
-                    };
-                }]
-            });
-
-        } else {
-
-            $scope.selected_plans.push({
-                plan: item,
-                quantity: 1,
-                aditionals: {}
-            });
-
-            $scope.selected_plan = $scope.plans[$scope.plans.length - 1];
-
-            $scope.updateChart();
-        }
-    };
-
     $scope.changePlan = function (index, item) {
 
         item.plan = $scope.plans[index];
@@ -584,5 +606,56 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         $scope.user.ciudad = city;
 
         updateChart();
+    };
+
+    $scope.addPlan = function (item) {
+
+        if (item.tipo == '') {
+
+            ngDialog.open({
+                template: 'modalMessage.html',
+                className: 'ngdialog-theme-default',
+                controller: ['$scope', function ($scope) {
+                    $scope.title = 'Aviso';
+                    $scope.message = 'Debe elegir un plan antes.';
+
+                    $scope.cancel = function () {
+
+                        $scope.closeThisDialog();
+                    };
+                }]
+            });
+
+        } else {
+
+            $scope.selected_plans.push({
+                plan: item,
+                quantity: 1,
+                aditionals: {}
+            });
+
+            $scope.selected_plan = $scope.plans[$scope.plans.length - 1];
+
+            $scope.updateChart();
+        }
+    };
+
+
+    if (angular_params.status == 'success') {
+
+        $scope.plan_columns = angular_params.plan_columns;
+        $scope.plans = angular_params.plans;
+        $scope.aditional_plans = angular_params.addons;
+        extractos_data = angular_params.extractos;
+        extractos_ingresos_data = angular_params.extractos_ingresos;
+
+        $scope.addPlan($scope.plans[0]);
+
+        try {
+
+            $scope.selected_plan = $scope.plans[$scope.plans.length - 1];
+
+        } catch (error) {
+        }
     }
 });

@@ -7544,7 +7544,7 @@ section#nav_left .btn_close {
     }
 
     .chart-area {
-        width: 215px;
+        width: 320px;
         text-align: center;
         display: inline-block;
     }
@@ -7560,4 +7560,15 @@ body, #box-content {
     overflow: auto;
     -webkit-overflow-scrolling: auto;
     -ms-touch-action: pan-y;
+}
+
+.simulador-table .last-row .total-row {
+    color: #c2d544;
+    font-weight:bold;
+    font-size:20px;
+    text-align: center;
+}
+
+.simulador .total-row {
+    text-align: center !important;
 }

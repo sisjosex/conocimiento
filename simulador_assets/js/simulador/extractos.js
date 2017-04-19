@@ -40,6 +40,37 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
         tipo_cambio: 6.96
     };
 
+    $scope.chart = {};
+    $scope.chart.type = "PieChart";
+    $scope.chart.options = {
+        title: '',
+        pieSliceText: 'value-and-percentage',
+        legend: {
+            position: 'labeled'
+        },
+        tooltip: {
+            ignoreBounds: true,
+            text: 'both'
+        }
+    };
+    $scope.chart.data = {"cols": [
+        {id: "t", label: "Topping", type: "string"},
+        {id: "s", label: "Slices", type: "number"}
+    ], "rows": [
+        {c: [
+            {v: "Endeudamiento"},
+            {v: 0}
+        ]},
+        {c: [
+            {v: "Monto a Pagar"},
+            {v: 0}
+        ]},
+        {c: [
+            {v: "Ingresos"},
+            {v: 0}
+        ]}
+    ]};
+
     $scope.labels = ["C. Endeudamiento", "Monto a Pagar", "Ingresos"];
     $scope.data = [0, 0, 0];
     $scope.colors = ["#7a68ae", "#c2d544", "#39c92f"];
@@ -61,7 +92,6 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
     $scope.selected_plans = [];
 
 
-
     $scope.fechaInicio = moment().format();
 
     // date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate()+i);
@@ -70,25 +100,6 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
     $scope.extractos = [];
 
-
-
-
-
-    if (angular_params.status == 'success') {
-
-        $scope.plan_columns = angular_params.plan_columns;
-        $scope.plans = angular_params.plans;
-        $scope.aditional_plans = angular_params.addons;
-        extractos_data = angular_params.extractos;
-        extractos_ingresos_data = angular_params.extractos_ingresos;
-
-        try {
-
-            $scope.selected_plan = $scope.plans[$scope.plans.length - 1];
-
-        } catch (error) {
-        }
-    }
 
 
 
@@ -107,7 +118,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
             if (result.status == 'success') {
 
-                if ( result.data.message == '' ) {
+                if (result.data.message == '') {
 
                     ngDialog.open({
                         template: 'modalMessage.html',
@@ -151,7 +162,20 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                     $scope.fechaInicio = $scope.$parent.fechaInicio;
                     $scope.extractos = $scope.$parent.extractos;
 
-                    $scope.changeFechaInicio = function() {
+                    $scope.currency = [
+                        {
+                            id: 'bs',
+                            name: 'Bs'
+                        },
+                        {
+                            id: 'sus',
+                            name: '$us'
+                        }
+                    ];
+
+                    $scope.selected_currency = $scope.currency[0];
+
+                    $scope.changeFechaInicio = function () {
 
                         var i = 62;
                         $scope.extractos = [];
@@ -159,10 +183,10 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                         console.log($scope.fechaInicio);
                         date = moment($scope.fechaInicio, "DD/MM/YYYY");
 
-                        for( var i = 0; i <= 61; i ++ ) {
+                        for (var i = 0; i <= 61; i++) {
 
                             date2 = moment($scope.fechaInicio, "DD/MM/YYYY").toDate();
-                            date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate()+i);
+                            date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
 
                             $scope.extractos.push({
                                 day: date.getDate() + ' / ' + (date.getMonth()) + ' / ' + date.getFullYear(),
@@ -173,18 +197,18 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                     };
 
 
-                    $scope.fillDate = function(index) {
+                    $scope.fillDate = function (index) {
 
-                        if( $scope.extractos.length == 0 ) {
+                        if ($scope.extractos.length == 0) {
 
                             var i = 62;
 
                             console.log($scope.fechaInicio);
 
-                            for( var i = 0; i <= 61; i ++ ) {
+                            for (var i = 0; i <= 61; i++) {
 
                                 date2 = new Date($scope.fechaInicio, "DD/MM/YYYY");
-                                date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate()+i);
+                                date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
 
                                 $scope.extractos.push({
                                     day: date.getDate() + ' / ' + date.getMonth() + ' / ' + date.getFullYear(),
@@ -205,11 +229,11 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                     $scope.fillDate();
 
-                    $scope.fillDates = function(index) {
+                    $scope.fillDates = function (index) {
 
                         var selectedValue = $scope.extractos[index].value;
 
-                        for(var i = index; i < $scope.extractos.length; i ++) {
+                        for (var i = index; i < $scope.extractos.length; i++) {
                             $scope.extractos[i].value = selectedValue;
                         }
                     };
@@ -217,7 +241,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                     $scope.confirmOption = function () {
 
                         var promedio = 0;
-                        for (var i = 0; i < $scope.extractos.length; i ++) {
+                        for (var i = 0; i < $scope.extractos.length; i++) {
                             if (isNaN($scope.extractos[i].value)) {
                                 $scope.extractos[i].value = 0;
                             }
@@ -227,7 +251,15 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                         promedio = promedio / $scope.extractos.length;
 
-                        $scope.$parent.user.saldo_promedio_extracto = parseFloat((promedio / $scope.$parent.user.tipo_cambio).toFixed(2));
+                        if ($scope.selected_currency.id == 'bs') {
+
+                            $scope.$parent.user.saldo_promedio_extracto = parseFloat((promedio / $scope.$parent.user.tipo_cambio).toFixed(2));
+
+                        } else {
+
+                            $scope.$parent.user.saldo_promedio_extracto = parseFloat((promedio).toFixed(2));
+                        }
+
                         $scope.$parent.extractos = $scope.extractos;
 
                         updateChart();
@@ -251,7 +283,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
         $scope.user.total_quantity = 0;
 
 
-        if ( $scope.user.autocalcular_tarifa_basica_mayor ) {
+        if ($scope.user.autocalcular_tarifa_basica_mayor) {
 
             $scope.user.tarifa_basica_mayor = 0;
         }
@@ -276,7 +308,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                 subtotal = subtotal + plan.aditionals[j].mensual;
             }
 
-            if ( $scope.user.autocalcular_tarifa_basica_mayor ) {
+            if ($scope.user.autocalcular_tarifa_basica_mayor) {
 
                 if ($scope.user.tarifa_basica_mayor == 0 || subtotal > $scope.user.tarifa_basica_mayor) {
                     $scope.user.tarifa_basica_mayor = subtotal;
@@ -307,6 +339,27 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
         }
 
         $scope.data = [$scope.user.saldo_promedio_extracto, totalAmount, $scope.user.ingreso];
+
+
+
+        $scope.chart.data = {"cols": [
+            {id: "t", label: "Topping", type: "string"},
+            {id: "s", label: "Slices", type: "number"}
+        ], "rows": [
+            {c: [
+                {v: "Endeudamiento"},
+                {v: $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio}
+            ]},
+            {c: [
+                {v: "Monto a Pagar"},
+                {v: totalAmount}
+            ]},
+            {c: [
+                {v: "Ingresos"},
+                {v: $scope.user.ingreso}
+            ]}
+        ]};
+
 
 
         diferencia = saldo_promedio_extracto - tarifaViva;
@@ -348,13 +401,13 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
         }
     };
 
-    $scope.findDollarsForBs = function(bs) {
+    $scope.findDollarsForBs = function (bs) {
 
         var dollars = 0;
 
-        for(var i in extractos_data) {
+        for (var i in extractos_data) {
 
-            if ( bs >= extractos_data[i].bs ) {
+            if (bs >= extractos_data[i].bs) {
 
                 return extractos_data[i].dolares;
             }
@@ -405,38 +458,6 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
         }
 
         $scope.updateChart();
-    };
-
-    $scope.addPlan = function (item) {
-
-        if (item.tipo == '') {
-
-            ngDialog.open({
-                template: 'modalMessage.html',
-                className: 'ngdialog-theme-default',
-                controller: ['$scope', function ($scope) {
-                    $scope.title = 'Aviso';
-                    $scope.message = 'Debe elegir un plan antes.';
-
-                    $scope.cancel = function () {
-
-                        $scope.closeThisDialog();
-                    };
-                }]
-            });
-
-        } else {
-
-            $scope.selected_plans.push({
-                plan: item,
-                quantity: 1,
-                aditionals: {}
-            });
-
-            $scope.selected_plan = $scope.plans[$scope.plans.length - 1];
-
-            $scope.updateChart();
-        }
     };
 
     $scope.changePlan = function (index, item) {
@@ -531,5 +552,58 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
         $scope.user.ciudad = city;
 
         updateChart();
+    }
+
+
+
+    $scope.addPlan = function (item) {
+
+        if (item.tipo == '') {
+
+            ngDialog.open({
+                template: 'modalMessage.html',
+                className: 'ngdialog-theme-default',
+                controller: ['$scope', function ($scope) {
+                    $scope.title = 'Aviso';
+                    $scope.message = 'Debe elegir un plan antes.';
+
+                    $scope.cancel = function () {
+
+                        $scope.closeThisDialog();
+                    };
+                }]
+            });
+
+        } else {
+
+            $scope.selected_plans.push({
+                plan: item,
+                quantity: 1,
+                aditionals: {}
+            });
+
+            $scope.selected_plan = $scope.plans[$scope.plans.length - 1];
+
+            $scope.updateChart();
+        }
+    };
+
+
+    if (angular_params.status == 'success') {
+
+        $scope.plan_columns = angular_params.plan_columns;
+        $scope.plans = angular_params.plans;
+        $scope.aditional_plans = angular_params.addons;
+        extractos_data = angular_params.extractos;
+        extractos_ingresos_data = angular_params.extractos_ingresos;
+
+        $scope.addPlan($scope.plans[0]);
+
+        try {
+
+            $scope.selected_plan = $scope.plans[$scope.plans.length - 1];
+
+        } catch (error) {
+        }
     }
 });
