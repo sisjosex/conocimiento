@@ -558,6 +558,11 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
     $scope.addPlan = function (item) {
 
+        if ( item == undefined ) {
+
+            item = $scope.plans[0];
+        }
+
         if (item.tipo == '') {
 
             ngDialog.open({

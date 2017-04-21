@@ -37,7 +37,8 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
         tooltip: {
             ignoreBounds: true,
             text: 'both'
-        }
+        },
+        width:'100%'
     };
     $scope.chart.data = {"cols": [
         {id: "t", label: "Topping", type: "string"},
@@ -278,6 +279,11 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
     };
 
     $scope.addPlan = function (item) {
+
+        if ( item == undefined ) {
+
+            item = $scope.plans[0];
+        }
 
         if (item.tipo == '') {
 

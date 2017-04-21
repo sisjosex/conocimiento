@@ -126,14 +126,10 @@
                                                 </form>
                                             </div>
 
-                                            <div class="col-md-12 chart-area">
+                                            <div class="col-sm-12 chart-area">
                                                 <div class="chart-container">
-                                                    <!--<canvas class="chart chart-doughnut" chart-data="data"-->
-                                                            <!--chart-labels="labels" chart-colors="colors"-->
-                                                            <!--chart-options="options"></canvas>-->
 
-
-                                                    <div google-chart chart="chart" style="height:auto; width:320px;"></div>
+                                                    <div google-chart chart="chart" style="width:100%; height:auto;"></div>
 
                                                     <div class="calificacion"
                                                          ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
@@ -145,40 +141,6 @@
 
                                         </div>
 
-
-                                        <div class="col-lg-8 col-centered">
-
-                                            <div class="form-group">
-                                                <div class="col-sm-6">
-                                                    <div class="dropdown right">
-                                                        <button class="button">{{ selected_plan.nombre }}</button>
-                                                        <div class="menu">
-                                                            <table>
-                                                                <tr>
-                                                                    <th ng-repeat="column in plan_columns">{{
-                                                                        column.name }}
-                                                                    </th>
-                                                                </tr>
-                                                                <tr class="sub-item" ng-repeat="item in plans"
-                                                                    ng-click="selectPlan(item)">
-                                                                    <td ng-repeat="column in plan_columns"
-                                                                        ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                        {{
-                                                                        item[column.id] }}
-                                                                    </td>
-                                                                    <!--menu-option-->
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6" style="text-align: left;">
-                                                    <button class="btn-s green" ng-click="addPlan(selected_plan)">Añadir
-                                                        Plan
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
 
                                         <div class="row col-centered has-scroll">
                                             <div class="col-lg-12">
@@ -267,6 +229,34 @@
                                                     </tr>
                                                     </tbody>
                                                 </table>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-12 col-centered">
+
+                                            <div class="form-group">
+                                                <!--<div class="col-sm-6">-->
+                                                <!--<div class="dropdown right">-->
+                                                <!--<button class="button">{{ selected_plan.nombre }}</button>-->
+                                                <!--<div class="menu">-->
+                                                <!--<table>-->
+                                                <!--<tr>-->
+                                                <!--<th ng-repeat="column in plan_columns">{{ column.name }}</th>-->
+                                                <!--</tr>-->
+                                                <!--<tr class="sub-item" ng-repeat="item in plans" ng-click="selectPlan(item)">-->
+                                                <!--<td ng-repeat="column in plan_columns" ng-class="{'menu-option': column.id == 'nombre'}">{{-->
+                                                <!--item[column.id] }}-->
+                                                <!--</td>-->
+                                                <!--&lt;!&ndash;menu-option&ndash;&gt;-->
+                                                <!--</tr>-->
+                                                <!--</table>-->
+                                                <!--</div>-->
+                                                <!--</div>-->
+                                                <!--</div>-->
+                                                <div class="col-sm-2">
+                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan</button>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -416,13 +406,10 @@
                                                 </form>
                                             </div>
 
-                                            <div class="col-md-4 chart-area">
+                                            <div class="col-sm-12 chart-area">
                                                 <div class="chart-container">
-                                                    <!--<canvas class="chart chart-doughnut" chart-data="data"-->
-                                                            <!--chart-labels="labels" chart-colors="colors"-->
-                                                            <!--chart-options="options"></canvas>-->
 
-                                                    <div google-chart chart="chart" style="height:auto; width:320px;"></div>
+                                                    <div google-chart chart="chart" style="width:100%; height:auto;"></div>
 
                                                     <div class="calificacion"
                                                          ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
@@ -434,40 +421,6 @@
 
                                         </div>
 
-
-                                        <div class="col-lg-8 col-centered">
-
-                                            <div class="form-group">
-                                                <div class="col-sm-6">
-                                                    <div class="dropdown right">
-                                                        <button class="button">{{ selected_plan.nombre }}</button>
-                                                        <div class="menu">
-                                                            <table>
-                                                                <tr>
-                                                                    <th ng-repeat="column in plan_columns">{{
-                                                                        column.name }}
-                                                                    </th>
-                                                                </tr>
-                                                                <tr class="sub-item" ng-repeat="item in plans"
-                                                                    ng-click="selectPlan(item)">
-                                                                    <td ng-repeat="column in plan_columns"
-                                                                        ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                        {{
-                                                                        item[column.id] }}
-                                                                    </td>
-                                                                    <!--menu-option-->
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6" style="text-align: left;">
-                                                    <button class="btn-s green" ng-click="addPlan(selected_plan)">Añadir
-                                                        Plan
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
 
                                         <div class="row col-centered has-scroll">
                                             <div class="col-lg-12">
@@ -555,6 +508,34 @@
                                                         <td class="total-row total">TOTAL: {{ user.total }} Bs</td>
                                                     </tr>
                                                 </table>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-12 col-centered">
+
+                                            <div class="form-group">
+                                                <!--<div class="col-sm-6">-->
+                                                <!--<div class="dropdown right">-->
+                                                <!--<button class="button">{{ selected_plan.nombre }}</button>-->
+                                                <!--<div class="menu">-->
+                                                <!--<table>-->
+                                                <!--<tr>-->
+                                                <!--<th ng-repeat="column in plan_columns">{{ column.name }}</th>-->
+                                                <!--</tr>-->
+                                                <!--<tr class="sub-item" ng-repeat="item in plans" ng-click="selectPlan(item)">-->
+                                                <!--<td ng-repeat="column in plan_columns" ng-class="{'menu-option': column.id == 'nombre'}">{{-->
+                                                <!--item[column.id] }}-->
+                                                <!--</td>-->
+                                                <!--&lt;!&ndash;menu-option&ndash;&gt;-->
+                                                <!--</tr>-->
+                                                <!--</table>-->
+                                                <!--</div>-->
+                                                <!--</div>-->
+                                                <!--</div>-->
+                                                <div class="col-sm-2">
+                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan</button>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -744,13 +725,10 @@
                                                 </form>
                                             </div>
 
-                                            <div class="col-md-4 chart-area">
+                                            <div class="col-sm-12 chart-area">
                                                 <div class="chart-container">
-                                                    <!--<canvas class="chart chart-doughnut" chart-data="data"-->
-                                                            <!--chart-labels="labels" chart-colors="colors"-->
-                                                            <!--chart-options="options"></canvas>-->
 
-                                                    <div google-chart chart="chart" style="height:auto; width:320px;"></div>
+                                                    <div google-chart chart="chart" style="width:100%; height:auto;"></div>
 
                                                     <div class="calificacion"
                                                          ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
@@ -762,40 +740,6 @@
 
                                         </div>
 
-
-                                        <div class="col-lg-8 col-centered">
-
-                                            <div class="form-group">
-                                                <div class="col-sm-6">
-                                                    <div class="dropdown right">
-                                                        <button class="button">{{ selected_plan.nombre }}</button>
-                                                        <div class="menu">
-                                                            <table>
-                                                                <tr>
-                                                                    <th ng-repeat="column in plan_columns">{{
-                                                                        column.name }}
-                                                                    </th>
-                                                                </tr>
-                                                                <tr class="sub-item" ng-repeat="item in plans"
-                                                                    ng-click="selectPlan(item)">
-                                                                    <td ng-repeat="column in plan_columns"
-                                                                        ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                        {{
-                                                                        item[column.id] }}
-                                                                    </td>
-                                                                    <!--menu-option-->
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6" style="text-align: left;">
-                                                    <button class="btn-s green" ng-click="addPlan(selected_plan)">Añadir
-                                                        Plan
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
 
                                         <div class="row col-centered has-scroll">
                                             <div class="col-lg-12">
@@ -883,6 +827,34 @@
                                                         <td class="total-row total">TOTAL: {{ user.total }} Bs</td>
                                                     </tr>
                                                 </table>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-12 col-centered">
+
+                                            <div class="form-group">
+                                                <!--<div class="col-sm-6">-->
+                                                <!--<div class="dropdown right">-->
+                                                <!--<button class="button">{{ selected_plan.nombre }}</button>-->
+                                                <!--<div class="menu">-->
+                                                <!--<table>-->
+                                                <!--<tr>-->
+                                                <!--<th ng-repeat="column in plan_columns">{{ column.name }}</th>-->
+                                                <!--</tr>-->
+                                                <!--<tr class="sub-item" ng-repeat="item in plans" ng-click="selectPlan(item)">-->
+                                                <!--<td ng-repeat="column in plan_columns" ng-class="{'menu-option': column.id == 'nombre'}">{{-->
+                                                <!--item[column.id] }}-->
+                                                <!--</td>-->
+                                                <!--&lt;!&ndash;menu-option&ndash;&gt;-->
+                                                <!--</tr>-->
+                                                <!--</table>-->
+                                                <!--</div>-->
+                                                <!--</div>-->
+                                                <!--</div>-->
+                                                <div class="col-sm-2">
+                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan</button>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -1081,13 +1053,10 @@
                                                 </form>
                                             </div>
 
-                                            <div class="col-md-4 chart-area">
+                                            <div class="col-sm-12 chart-area">
                                                 <div class="chart-container">
-                                                    <!--<canvas class="chart chart-doughnut" chart-data="data"-->
-                                                            <!--chart-labels="labels" chart-colors="colors"-->
-                                                            <!--chart-options="options"></canvas>-->
 
-                                                    <div google-chart chart="chart" style="height:auto; width:320px;"></div>
+                                                    <div google-chart chart="chart" style="width:100%; height:auto;"></div>
 
                                                     <div class="calificacion"
                                                          ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
@@ -1099,40 +1068,6 @@
 
                                         </div>
 
-
-                                        <div class="col-lg-8 col-centered">
-
-                                            <div class="form-group">
-                                                <div class="col-sm-6">
-                                                    <div class="dropdown right">
-                                                        <button class="button">{{ selected_plan.nombre }}</button>
-                                                        <div class="menu">
-                                                            <table>
-                                                                <tr>
-                                                                    <th ng-repeat="column in plan_columns">{{
-                                                                        column.name }}
-                                                                    </th>
-                                                                </tr>
-                                                                <tr class="sub-item" ng-repeat="item in plans"
-                                                                    ng-click="selectPlan(item)">
-                                                                    <td ng-repeat="column in plan_columns"
-                                                                        ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                        {{
-                                                                        item[column.id] }}
-                                                                    </td>
-                                                                    <!--menu-option-->
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6" style="text-align: left;">
-                                                    <button class="btn-s green" ng-click="addPlan(selected_plan)">Añadir
-                                                        Plan
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
 
                                         <div class="row col-centered has-scroll">
                                             <div class="col-lg-12">
@@ -1220,6 +1155,34 @@
                                                         <td class="total-row total">TOTAL: {{ user.total }} Bs</td>
                                                     </tr>
                                                 </table>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-12 col-centered">
+
+                                            <div class="form-group">
+                                                <!--<div class="col-sm-6">-->
+                                                <!--<div class="dropdown right">-->
+                                                <!--<button class="button">{{ selected_plan.nombre }}</button>-->
+                                                <!--<div class="menu">-->
+                                                <!--<table>-->
+                                                <!--<tr>-->
+                                                <!--<th ng-repeat="column in plan_columns">{{ column.name }}</th>-->
+                                                <!--</tr>-->
+                                                <!--<tr class="sub-item" ng-repeat="item in plans" ng-click="selectPlan(item)">-->
+                                                <!--<td ng-repeat="column in plan_columns" ng-class="{'menu-option': column.id == 'nombre'}">{{-->
+                                                <!--item[column.id] }}-->
+                                                <!--</td>-->
+                                                <!--&lt;!&ndash;menu-option&ndash;&gt;-->
+                                                <!--</tr>-->
+                                                <!--</table>-->
+                                                <!--</div>-->
+                                                <!--</div>-->
+                                                <!--</div>-->
+                                                <div class="col-sm-2">
+                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan</button>
+                                                </div>
                                             </div>
                                         </div>
 
