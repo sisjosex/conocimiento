@@ -7,15 +7,16 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
     $scope.collapse = true;
 
     $scope.document_types = [
-        {id: '', name: 'Tipo de Documento'},
+        //{id: '', name: 'Tipo de Documento'},
         {id: 'ci', name: 'Carnet de Identidad'},
-        {id: 'nit', name: 'NIT'}
+        {id: 'nit', name: 'NIT'},
+        {id: 'telefono', name: 'Teléfono'}
     ];
 
     $scope.user = {
         simulator: 'ingresos',
         subscriptor: false,
-        document_type: $scope.document_types[1],
+        document_type: $scope.document_types[0],
         document_value: '',
         ingreso: '',
         porcentaje: '',

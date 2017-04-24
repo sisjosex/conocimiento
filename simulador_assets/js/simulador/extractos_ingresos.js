@@ -7,9 +7,10 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
     $scope.collapse = true;
 
     $scope.document_types = [
-        {id: '', name: 'Tipo de Documento'},
+        //{id: '', name: 'Tipo de Documento'},
         {id: 'ci', name: 'Carnet de Identidad'},
-        {id: 'nit', name: 'NIT'}
+        {id: 'nit', name: 'NIT'},
+        {id: 'telefono', name: 'Teléfono'}
     ];
 
     var extractos_data = [];
@@ -23,7 +24,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
     $scope.user = {
         simulator: 'ingresos',
         subscriptor: false,
-        document_type: $scope.document_types[1],
+        document_type: $scope.document_types[0],
         document_value: '',
         ingreso: 0,
         porcentaje: 0,
@@ -93,7 +94,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
 
 
-    $scope.fechaInicio = moment().format();
+    $scope.fechaInicio = moment().subtract(62, "days").format();
 
     // date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate()+i);
     //
@@ -175,26 +176,42 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                     $scope.selected_currency =  $scope.currency[0];
 
-                    $scope.changeFechaInicio = function() {
+                    $scope.changeFechaInicio = function(date_test) {
 
-                        var i = 62;
+                        console.log(date_test);
+
                         $scope.extractos = [];
 
-                        console.log($scope.fechaInicio);
-                        date = moment($scope.fechaInicio, "DD/MM/YYYY");
 
-                        for( var i = 0; i <= 61; i ++ ) {
+                        for ( var i = 0; i <= 61; i ++ ) {
 
-                            date2 = moment($scope.fechaInicio, "DD/MM/YYYY").toDate();
-                            date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate()+i);
+                            if ( date_test == undefined ) {
+
+                                date2 = moment($scope.fechaInicio, "DD/MM/YYYY").toDate();
+
+                                date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate()+i);
+
+                            } else {
+
+                                date = new Date(date_test.getFullYear(), date_test.getMonth(), date_test.getDate()+i);
+                            }
 
                             $scope.extractos.push({
-                                day: date.getDate() + ' / ' + (date.getMonth()) + ' / ' + date.getFullYear(),
+                                day: date.getDate() + '/' + (date.getMonth()) + '/' + date.getFullYear(),
                                 date: date,
                                 value: ''
                             });
                         }
                     };
+
+                    setTimeout(function() {
+
+                        var date = new Date( $scope.fechaInicio );
+
+                        $scope.changeFechaInicio( date  );
+                        $scope.$digest();
+
+                    }, 500);
 
 
                     $scope.fillDate = function(index) {
@@ -261,6 +278,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
                         }
 
                         $scope.$parent.extractos = $scope.extractos;
+                        $scope.$parent.fechaInicio = $scope.fechaInicio;
 
                         updateChart();
 

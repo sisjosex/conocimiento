@@ -7137,6 +7137,10 @@ body.export #post_view .accordion .accordion-body.in {
         display: none;
     }
 
+    .table-detail-internal2.plan-table {
+        display: table;
+    }
+
     /* line 6004, C:/wamp64/www/siscon/app/sites/site2/stylesheets/style.css.scss */
     .nav > li > a {
         padding: 10px 5px;
