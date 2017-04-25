@@ -129,7 +129,8 @@
                                             <div class="col-sm-12 chart-area">
                                                 <div class="chart-container">
 
-                                                    <div google-chart chart="chart" style="width:100%; height:auto;"></div>
+                                                    <div google-chart chart="chart"
+                                                         style="width:100%; height:auto;"></div>
 
                                                     <div class="calificacion"
                                                          ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
@@ -255,7 +256,8 @@
                                                 <!--</div>-->
                                                 <!--</div>-->
                                                 <div class="col-sm-2">
-                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan</button>
+                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -274,8 +276,8 @@
                                             <div class="col-lg-11 col-md-12 col-centered collapser"
                                                  ng-class="{'collapsed': collapse}">
 
-                                                <table class="table-detail">
-                                                    <tr ng-repeat="plan in selected_plans track by $index">
+                                                <table class="table-detail" ng-repeat="plan in selected_plans track by $index">
+                                                    <tr>
                                                         <td colspan="2" class="table-border-right">
                                                             <table class="table-detail-internal1">
                                                                 <tr>
@@ -284,7 +286,8 @@
                                                                     </td>
                                                                 </tr>
 
-                                                                <tr ng-repeat="column in plan_columns" ng-show="column.id != 'name' && column.id != 'mensualidad'">
+                                                                <tr ng-repeat="column in plan_columns"
+                                                                    ng-show="column.id != 'name' && column.id != 'mensualidad'">
                                                                     <td class="plan-option" width="50%">
                                                                         {{ column.name }}
                                                                     </td>
@@ -293,8 +296,12 @@
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <td class="plan-option" width="50%">Tarifa del plan</td>
-                                                                    <td class="plan-title" width="50%">{{ totalRow(plan) }} Bs</td>
+                                                                    <td class="plan-option" width="50%">Tarifa del
+                                                                        plan
+                                                                    </td>
+                                                                    <td class="plan-title" width="50%">{{ totalRow(plan)
+                                                                        }} Bs
+                                                                    </td>
                                                                 </tr>
                                                             </table>
                                                         </td>
@@ -317,16 +324,35 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td>
-                                                            <table width="100%" class="table-detail-internal2 plan-table">
-                                                                <tr>
-                                                                    <td class="plan-option" width="50%">TOTAL</td>
-                                                                    <td class="plan-title plan-total" width="50%">{{ user.total }} Bs</td>
-                                                                </tr>
-                                                            </table>
+                                                        <td colspan="2">
+                                                            <div class="container-total">
+                                                                <div class="box-total">
+                                                                    <div class="box-title">{{ plan.plan.nombre }} X {{ plan.quantity }}</div>
+                                                                    <div class="box-value">{{ plan.plan.mensual }}</div>
+                                                                </div>
+                                                                <div class="box-total" ng-repeat="item in plan.aditionals">
+                                                                    <div class="box-title" ng-repeat="column in item.columns" ng-show="column.id == 'nombre'">{{ item.nombre
+                                                                        }}
+                                                                    </div>
+                                                                    <div class="box-value" ng-repeat="column in item.columns" ng-show="column.id == 'mensual'">{{
+                                                                        item[column.id] }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box-total">
+                                                                    <div class="box-title" align="right">Tarifa del plan</div>
+                                                                    <div class="box-value" align="right">{{ totalRow(plan) }} Bs</div>
+                                                                </div>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 </table>
+
+                                                <div class="container-total total" align="right">
+                                                    <div class="box-total">
+                                                        <div class="box-title" align="right">TOTAL</div>
+                                                        <div class="box-value" align="right">{{ user.total }} Bs</div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -420,7 +446,8 @@
                                             <div class="col-sm-12 chart-area">
                                                 <div class="chart-container">
 
-                                                    <div google-chart chart="chart" style="width:100%; height:auto;"></div>
+                                                    <div google-chart chart="chart"
+                                                         style="width:100%; height:auto;"></div>
 
                                                     <div class="calificacion"
                                                          ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
@@ -545,7 +572,8 @@
                                                 <!--</div>-->
                                                 <!--</div>-->
                                                 <div class="col-sm-2">
-                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan</button>
+                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -564,8 +592,8 @@
                                             <div class="col-lg-11 col-md-12 col-centered collapser"
                                                  ng-class="{'collapsed': collapse}">
 
-                                                <table class="table-detail">
-                                                    <tr ng-repeat="plan in selected_plans track by $index">
+                                                <table class="table-detail" ng-repeat="plan in selected_plans track by $index">
+                                                    <tr>
                                                         <td colspan="2" class="table-border-right">
                                                             <table class="table-detail-internal1">
                                                                 <tr>
@@ -574,7 +602,8 @@
                                                                     </td>
                                                                 </tr>
 
-                                                                <tr ng-repeat="column in plan_columns" ng-show="column.id != 'name' && column.id != 'mensualidad'">
+                                                                <tr ng-repeat="column in plan_columns"
+                                                                    ng-show="column.id != 'name' && column.id != 'mensualidad'">
                                                                     <td class="plan-option" width="50%">
                                                                         {{ column.name }}
                                                                     </td>
@@ -583,8 +612,12 @@
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <td class="plan-option" width="50%">Tarifa del plan</td>
-                                                                    <td class="plan-title" width="50%">{{ totalRow(plan) }} Bs</td>
+                                                                    <td class="plan-option" width="50%">Tarifa del
+                                                                        plan
+                                                                    </td>
+                                                                    <td class="plan-title" width="50%">{{ totalRow(plan)
+                                                                        }} Bs
+                                                                    </td>
                                                                 </tr>
                                                             </table>
                                                         </td>
@@ -607,16 +640,35 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td>
-                                                            <table width="100%" class="table-detail-internal2 plan-table">
-                                                                <tr>
-                                                                    <td class="plan-option" width="50%">TOTAL</td>
-                                                                    <td class="plan-title plan-total" width="50%">{{ user.total }} Bs</td>
-                                                                </tr>
-                                                            </table>
+                                                        <td colspan="2">
+                                                            <div class="container-total">
+                                                                <div class="box-total">
+                                                                    <div class="box-title">{{ plan.plan.nombre }} X {{ plan.quantity }}</div>
+                                                                    <div class="box-value">{{ plan.plan.mensual }}</div>
+                                                                </div>
+                                                                <div class="box-total" ng-repeat="item in plan.aditionals">
+                                                                    <div class="box-title" ng-repeat="column in item.columns" ng-show="column.id == 'nombre'">{{ item.nombre
+                                                                        }}
+                                                                    </div>
+                                                                    <div class="box-value" ng-repeat="column in item.columns" ng-show="column.id == 'mensual'">{{
+                                                                        item[column.id] }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box-total">
+                                                                    <div class="box-title" align="right">Tarifa del plan</div>
+                                                                    <div class="box-value" align="right">{{ totalRow(plan) }} Bs</div>
+                                                                </div>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 </table>
+
+                                                <div class="container-total total" align="right">
+                                                    <div class="box-total">
+                                                        <div class="box-title" align="right">TOTAL</div>
+                                                        <div class="box-value" align="right">{{ user.total }} Bs</div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -728,8 +780,10 @@
                                                         <div class="col-sm-6">
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input id="autocalcular_tarifa2" type="checkbox" ng-model="user.autocalcular_tarifa_basica_mayor">
-                                                            <label for="autocalcular_tarifa2">Autocalcular Tarifa Basica Mayor</label>
+                                                            <input id="autocalcular_tarifa2" type="checkbox"
+                                                                   ng-model="user.autocalcular_tarifa_basica_mayor">
+                                                            <label for="autocalcular_tarifa2">Autocalcular Tarifa Basica
+                                                                Mayor</label>
                                                         </div>
                                                     </div>
 
@@ -750,7 +804,8 @@
                                             <div class="col-sm-12 chart-area">
                                                 <div class="chart-container">
 
-                                                    <div google-chart chart="chart" style="width:100%; height:auto;"></div>
+                                                    <div google-chart chart="chart"
+                                                         style="width:100%; height:auto;"></div>
 
                                                     <div class="calificacion"
                                                          ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
@@ -875,7 +930,8 @@
                                                 <!--</div>-->
                                                 <!--</div>-->
                                                 <div class="col-sm-2">
-                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan</button>
+                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -894,8 +950,8 @@
                                             <div class="col-lg-11 col-md-12 col-centered collapser"
                                                  ng-class="{'collapsed': collapse}">
 
-                                                <table class="table-detail">
-                                                    <tr ng-repeat="plan in selected_plans track by $index">
+                                                <table class="table-detail" ng-repeat="plan in selected_plans track by $index">
+                                                    <tr>
                                                         <td colspan="2" class="table-border-right">
                                                             <table class="table-detail-internal1">
                                                                 <tr>
@@ -904,7 +960,8 @@
                                                                     </td>
                                                                 </tr>
 
-                                                                <tr ng-repeat="column in plan_columns" ng-show="column.id != 'name' && column.id != 'mensualidad'">
+                                                                <tr ng-repeat="column in plan_columns"
+                                                                    ng-show="column.id != 'name' && column.id != 'mensualidad'">
                                                                     <td class="plan-option" width="50%">
                                                                         {{ column.name }}
                                                                     </td>
@@ -913,8 +970,12 @@
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <td class="plan-option" width="50%">Tarifa del plan</td>
-                                                                    <td class="plan-title" width="50%">{{ totalRow(plan) }} Bs</td>
+                                                                    <td class="plan-option" width="50%">Tarifa del
+                                                                        plan
+                                                                    </td>
+                                                                    <td class="plan-title" width="50%">{{ totalRow(plan)
+                                                                        }} Bs
+                                                                    </td>
                                                                 </tr>
                                                             </table>
                                                         </td>
@@ -937,16 +998,35 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td>
-                                                            <table width="100%" class="table-detail-internal2 plan-table">
-                                                                <tr>
-                                                                    <td class="plan-option" width="50%">TOTAL</td>
-                                                                    <td class="plan-title plan-total" width="50%">{{ user.total }} Bs</td>
-                                                                </tr>
-                                                            </table>
+                                                        <td colspan="2">
+                                                            <div class="container-total">
+                                                                <div class="box-total">
+                                                                    <div class="box-title">{{ plan.plan.nombre }} X {{ plan.quantity }}</div>
+                                                                    <div class="box-value">{{ plan.plan.mensual }}</div>
+                                                                </div>
+                                                                <div class="box-total" ng-repeat="item in plan.aditionals">
+                                                                    <div class="box-title" ng-repeat="column in item.columns" ng-show="column.id == 'nombre'">{{ item.nombre
+                                                                        }}
+                                                                    </div>
+                                                                    <div class="box-value" ng-repeat="column in item.columns" ng-show="column.id == 'mensual'">{{
+                                                                        item[column.id] }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box-total">
+                                                                    <div class="box-title" align="right">Tarifa del plan</div>
+                                                                    <div class="box-value" align="right">{{ totalRow(plan) }} Bs</div>
+                                                                </div>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 </table>
+
+                                                <div class="container-total total" align="right">
+                                                    <div class="box-total">
+                                                        <div class="box-title" align="right">TOTAL</div>
+                                                        <div class="box-value" align="right">{{ user.total }} Bs</div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -1067,8 +1147,10 @@
                                                         <div class="col-sm-6">
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input id="autocalcular_tarifa1" type="checkbox" ng-model="user.autocalcular_tarifa_basica_mayor">
-                                                            <label for="autocalcular_tarifa1">Autocalcular Tarifa Basica Mayor</label>
+                                                            <input id="autocalcular_tarifa1" type="checkbox"
+                                                                   ng-model="user.autocalcular_tarifa_basica_mayor">
+                                                            <label for="autocalcular_tarifa1">Autocalcular Tarifa Basica
+                                                                Mayor</label>
                                                         </div>
                                                     </div>
 
@@ -1089,7 +1171,8 @@
                                             <div class="col-sm-12 chart-area">
                                                 <div class="chart-container">
 
-                                                    <div google-chart chart="chart" style="width:100%; height:auto;"></div>
+                                                    <div google-chart chart="chart"
+                                                         style="width:100%; height:auto;"></div>
 
                                                     <div class="calificacion"
                                                          ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
@@ -1214,7 +1297,8 @@
                                                 <!--</div>-->
                                                 <!--</div>-->
                                                 <div class="col-sm-2">
-                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan</button>
+                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -1233,8 +1317,8 @@
                                             <div class="col-lg-11 col-md-12 col-centered collapser"
                                                  ng-class="{'collapsed': collapse}">
 
-                                                <table class="table-detail">
-                                                    <tr ng-repeat="plan in selected_plans track by $index">
+                                                <table class="table-detail" ng-repeat="plan in selected_plans track by $index">
+                                                    <tr>
                                                         <td colspan="2" class="table-border-right">
                                                             <table class="table-detail-internal1">
                                                                 <tr>
@@ -1243,7 +1327,8 @@
                                                                     </td>
                                                                 </tr>
 
-                                                                <tr ng-repeat="column in plan_columns" ng-show="column.id != 'name' && column.id != 'mensualidad'">
+                                                                <tr ng-repeat="column in plan_columns"
+                                                                    ng-show="column.id != 'name' && column.id != 'mensualidad'">
                                                                     <td class="plan-option" width="50%">
                                                                         {{ column.name }}
                                                                     </td>
@@ -1252,8 +1337,12 @@
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <td class="plan-option" width="50%">Tarifa del plan</td>
-                                                                    <td class="plan-title" width="50%">{{ totalRow(plan) }} Bs</td>
+                                                                    <td class="plan-option" width="50%">Tarifa del
+                                                                        plan
+                                                                    </td>
+                                                                    <td class="plan-title" width="50%">{{ totalRow(plan)
+                                                                        }} Bs
+                                                                    </td>
                                                                 </tr>
                                                             </table>
                                                         </td>
@@ -1276,16 +1365,35 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td>
-                                                            <table width="100%" class="table-detail-internal2 plan-table">
-                                                                <tr>
-                                                                    <td class="plan-option" width="50%">TOTAL</td>
-                                                                    <td class="plan-title plan-total" width="50%">{{ user.total }} Bs</td>
-                                                                </tr>
-                                                            </table>
+                                                        <td colspan="2">
+                                                            <div class="container-total">
+                                                                <div class="box-total">
+                                                                    <div class="box-title">{{ plan.plan.nombre }} X {{ plan.quantity }}</div>
+                                                                    <div class="box-value">{{ plan.plan.mensual }}</div>
+                                                                </div>
+                                                                <div class="box-total" ng-repeat="item in plan.aditionals">
+                                                                    <div class="box-title" ng-repeat="column in item.columns" ng-show="column.id == 'nombre'">{{ item.nombre
+                                                                        }}
+                                                                    </div>
+                                                                    <div class="box-value" ng-repeat="column in item.columns" ng-show="column.id == 'mensual'">{{
+                                                                        item[column.id] }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="box-total">
+                                                                    <div class="box-title" align="right">Tarifa del plan</div>
+                                                                    <div class="box-value" align="right">{{ totalRow(plan) }} Bs</div>
+                                                                </div>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 </table>
+
+                                                <div class="container-total total" align="right">
+                                                    <div class="box-total">
+                                                        <div class="box-title" align="right">TOTAL</div>
+                                                        <div class="box-value" align="right">{{ user.total }} Bs</div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -1302,8 +1410,6 @@
 
                 </div>
             </div>
-
-
 
 
             <div ng-controller="RequisitosController">

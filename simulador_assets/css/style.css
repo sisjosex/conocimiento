@@ -7576,3 +7576,63 @@ body, #box-content {
 .simulador .total-row {
     text-align: center !important;
 }
+
+
+
+
+.addon-detail {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.plan-option.main {
+    font-size: 23px;
+    text-align: center;
+}
+
+.plan-table {
+    margin-bottom: 10px;
+}
+
+.plan-title.plan-total {
+    background: #c2d544;
+    color: #000;
+}
+
+
+.container-total {
+    display: table;
+    width: 100%;
+    min-width: 100%;
+}
+
+.box-total {
+    display: block;
+}
+
+.box-title {
+    padding: 10px;
+    font-weight: bold;
+    background: #8F86AA;
+    width: 100%;
+    color: #fff;
+}
+
+.box-value {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #c2d544;
+    width: 100%;
+}
+
+.container-total.total {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media all and (max-width: 980px) {
+    .table-detail-internal1 {
+        display: none;
+    }
+}

@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="09452106-0e6b-42cc-a4a4-d3b4196fb8ac" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/css/simulador.css" afterPath="$PROJECT_DIR$/simulador_assets/css/simulador.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/css/style.css" afterPath="$PROJECT_DIR$/simulador_assets/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tools/simulador2.html" afterPath="$PROJECT_DIR$/views/tools/simulador2.html" />
     </list>
     <list id="d874e604-b592-48c7-a46f-f7b2a30b1134" name="ignore" comment="" />
@@ -79,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.423077">
-              <caret line="7116" column="40" selection-start-line="7116" selection-start-column="40" selection-end-line="7116" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.70989764">
+              <caret line="7628" column="0" selection-start-line="7628" selection-start-column="0" selection-end-line="7628" selection-end-column="0" />
               <folding>
                 <element signature="e#11168#11831#2" expanded="true" />
                 <element signature="e#15350#16013#2" expanded="true" />
@@ -128,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simulador2.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="simulador2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/tools/simulador2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31257343">
-              <caret line="306" column="86" selection-start-line="306" selection-start-column="86" selection-end-line="306" selection-end-column="86" />
+            <state vertical-scroll-proportion="-7.0">
+              <caret line="286" column="69" selection-start-line="286" selection-start-column="69" selection-end-line="286" selection-end-column="69" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -242,8 +237,8 @@
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" />
-        <option value="$PROJECT_DIR$/simulador_assets/css/style.css" />
         <option value="$PROJECT_DIR$/views/tools/simulador2.html" />
+        <option value="$PROJECT_DIR$/simulador_assets/css/style.css" />
       </list>
     </option>
   </component>
@@ -1324,41 +1319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.423077">
-          <caret line="7116" column="40" selection-start-line="7116" selection-start-column="40" selection-end-line="7116" selection-end-column="40" />
-          <folding>
-            <element signature="e#11168#11831#2" expanded="true" />
-            <element signature="e#15350#16013#2" expanded="true" />
-            <element signature="e#17342#18005#2" expanded="true" />
-            <element signature="e#20004#20667#2" expanded="true" />
-            <element signature="e#22702#23365#2" expanded="true" />
-            <element signature="e#34889#35552#2" expanded="true" />
-            <element signature="e#36651#37314#2" expanded="true" />
-            <element signature="e#39308#39971#2" expanded="true" />
-            <element signature="e#41315#41978#2" expanded="true" />
-            <element signature="e#43025#43688#2" expanded="true" />
-            <element signature="e#50909#51572#2" expanded="true" />
-            <element signature="e#53103#53766#2" expanded="true" />
-            <element signature="e#54943#55606#2" expanded="true" />
-            <element signature="e#68906#69569#2" expanded="true" />
-            <element signature="e#70835#71498#2" expanded="true" />
-            <element signature="e#72587#73250#2" expanded="true" />
-            <element signature="e#74402#75065#2" expanded="true" />
-            <element signature="e#81489#82152#2" expanded="true" />
-            <element signature="e#83534#84197#2" expanded="true" />
-            <element signature="e#91908#92571#2" expanded="true" />
-            <element signature="e#129407#130070#2" expanded="true" />
-            <element signature="e#131592#132255#2" expanded="true" />
-            <element signature="e#212641#213304#2" expanded="true" />
-            <element signature="e#215013#215676#2" expanded="true" />
-            <element signature="e#221737#222400#2" expanded="true" />
-            <element signature="e#223451#224114#2" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1387,8 +1347,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/tools/simulador2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31257343">
-          <caret line="306" column="86" selection-start-line="306" selection-start-column="86" selection-end-line="306" selection-end-column="86" />
+        <state vertical-scroll-proportion="-7.0">
+          <caret line="286" column="69" selection-start-line="286" selection-start-column="69" selection-end-line="286" selection-end-column="69" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -1405,6 +1365,41 @@
             <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70989764">
+          <caret line="7628" column="0" selection-start-line="7628" selection-start-column="0" selection-end-line="7628" selection-end-column="0" />
+          <folding>
+            <element signature="e#11168#11831#2" expanded="true" />
+            <element signature="e#15350#16013#2" expanded="true" />
+            <element signature="e#17342#18005#2" expanded="true" />
+            <element signature="e#20004#20667#2" expanded="true" />
+            <element signature="e#22702#23365#2" expanded="true" />
+            <element signature="e#34889#35552#2" expanded="true" />
+            <element signature="e#36651#37314#2" expanded="true" />
+            <element signature="e#39308#39971#2" expanded="true" />
+            <element signature="e#41315#41978#2" expanded="true" />
+            <element signature="e#43025#43688#2" expanded="true" />
+            <element signature="e#50909#51572#2" expanded="true" />
+            <element signature="e#53103#53766#2" expanded="true" />
+            <element signature="e#54943#55606#2" expanded="true" />
+            <element signature="e#68906#69569#2" expanded="true" />
+            <element signature="e#70835#71498#2" expanded="true" />
+            <element signature="e#72587#73250#2" expanded="true" />
+            <element signature="e#74402#75065#2" expanded="true" />
+            <element signature="e#81489#82152#2" expanded="true" />
+            <element signature="e#83534#84197#2" expanded="true" />
+            <element signature="e#91908#92571#2" expanded="true" />
+            <element signature="e#129407#130070#2" expanded="true" />
+            <element signature="e#131592#132255#2" expanded="true" />
+            <element signature="e#212641#213304#2" expanded="true" />
+            <element signature="e#215013#215676#2" expanded="true" />
+            <element signature="e#221737#222400#2" expanded="true" />
+            <element signature="e#223451#224114#2" expanded="true" />
           </folding>
         </state>
       </provider>
