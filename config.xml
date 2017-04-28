@@ -66,7 +66,13 @@
     <!--<plugin spec="https://github.com/apache/cordova-plugin-media-capture.git" source="git" />-->
     <!--<plugin spec="https://github.com/apache/cordova-plugin-console.git" source="git" />-->
     <!--<plugin spec="https://github.com/apache/cordova-plugin-contacts.git" source="git" />-->
-    <plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />
+
+
+    <!--<plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" />-->
+
+    <plugin name="cordova-plugin-device" />
+
+
     <!--<plugin spec="https://github.com/apache/cordova-plugin-device-motion.git" source="git" />-->
     <plugin spec="https://github.com/apache/cordova-plugin-device-orientation.git" source="git" />
     <plugin spec="https://github.com/apache/cordova-plugin-dialogs.git" source="git" />
