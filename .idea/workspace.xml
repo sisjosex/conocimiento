@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09452106-0e6b-42cc-a4a4-d3b4196fb8ac" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main/tools.js" afterPath="$PROJECT_DIR$/js/main/tools.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/moment.js" afterPath="$PROJECT_DIR$/simulador_assets/js/moment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js" afterPath="$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tools/simulador2.html" afterPath="$PROJECT_DIR$/views/tools/simulador2.html" />
-    </list>
+    <list default="true" id="09452106-0e6b-42cc-a4a4-d3b4196fb8ac" name="Default" comment="" />
     <list id="d874e604-b592-48c7-a46f-f7b2a30b1134" name="ignore" comment="" />
     <ignored path="www.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -105,17 +99,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tools.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tools.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main/tools.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="425" column="55" selection-start-line="425" selection-start-column="55" selection-end-line="425" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.34495413">
+              <caret line="364" column="69" selection-start-line="364" selection-start-column="18" selection-end-line="364" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ngDatepicker.min.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ngDatepicker.min.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
@@ -1418,18 +1412,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main/tools.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="425" column="55" selection-start-line="425" selection-start-column="55" selection-end-line="425" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="204" selection-start-line="0" selection-start-column="204" selection-end-line="0" selection-end-column="204" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main/tools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34495413">
+          <caret line="364" column="69" selection-start-line="364" selection-start-column="18" selection-end-line="364" selection-end-column="69" />
           <folding />
         </state>
       </provider>

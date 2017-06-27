@@ -217,7 +217,8 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                                     date_test = moment(date_test, "DD/MM/YYYY").toDate();
 
-                                    date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
+                                    //date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
+                                    date = moment(date_test).subtract(Math.abs(i), 'days').toDate();
                                 }
 
                                 var dt = moment(date).format("dddd");
@@ -243,7 +244,8 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                                 } else {
 
-                                    date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
+                                    //date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
+                                    date = moment(date_test).subtract(Math.abs(i), 'days').toDate();
                                 }
 
                                 var dt = moment(date).format("dddd");
@@ -278,7 +280,9 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
                             for (var i = 0; i <= 61; i++) {
 
                                 date2 = new Date($scope.fechaInicio, "DD/MM/YYYY");
-                                date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
+                                //date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
+
+                                date = moment(date2).subtract(Math.abs(i), 'days').toDate();
 
                                 var dt = moment(date).format("dddd");
 
