@@ -362,6 +362,8 @@ App.View('ToolsLdi', {
 
 
 var angular_params;
+var month_start = moment().subtract(2, 'months').format('DD/MM/YYYY');
+var month_end = moment().subtract(1, 'months').endOf('month').format('DD/MM/YYYY');
 
 App.View('ToolsSimulador', {
     dom: $('#view_tools_simulador'),
@@ -420,6 +422,9 @@ App.View('ToolsSimulador', {
                             $.getScript("https://cdnjs.cloudflare.com/ajax/libs/angular-google-chart/1.0.0-beta.1/ng-google-chart.min.js", function () {
 
                                 $.getScript("simulador_assets/js/moment.js", function () {
+
+                                    moment.locale('es');
+
                                     $.getScript("simulador_assets/js/chart.min.js", function () {
                                         $.getScript("simulador_assets/js/angular-chart.min.js", function () {
                                             $.getScript("simulador_assets/js/angular-route.min.js", function () {

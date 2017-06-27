@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09452106-0e6b-42cc-a4a4-d3b4196fb8ac" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/css/simulador.css" afterPath="$PROJECT_DIR$/simulador_assets/css/simulador.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/css/style.css" afterPath="$PROJECT_DIR$/simulador_assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main/tools.js" afterPath="$PROJECT_DIR$/js/main/tools.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/moment.js" afterPath="$PROJECT_DIR$/simulador_assets/js/moment.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js" afterPath="$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simulador_assets/js/simulador/services.js" afterPath="$PROJECT_DIR$/simulador_assets/js/simulador/services.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tools/simulador2.html" afterPath="$PROJECT_DIR$/views/tools/simulador2.html" />
     </list>
     <list id="d874e604-b592-48c7-a46f-f7b2a30b1134" name="ignore" comment="" />
@@ -43,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+              <caret line="332" column="20" selection-start-line="332" selection-start-column="20" selection-end-line="332" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -53,26 +50,8 @@
         <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
+              <caret line="219" column="81" selection-start-line="219" selection-start-column="71" selection-end-line="219" selection-end-column="81" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="extractos_ingresos.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="273" column="59" selection-start-line="273" selection-start-column="59" selection-end-line="273" selection-end-column="59" />
-              <folding>
-                <marker date="1498574286061" expanded="true" signature="14503:15775" placeholder="{...}" />
-                <marker date="1498574286061" expanded="true" signature="14534:14610" placeholder="{...}" />
-                <marker date="1498574286061" expanded="true" signature="14616:14706" placeholder="{...}" />
-                <marker date="1498574286061" expanded="true" signature="15154:15617" placeholder="{...}" />
-                <marker date="1498574286061" expanded="true" signature="15239:15410" placeholder="{...}" />
-                <marker date="1498574286061" expanded="true" signature="15416:15606" placeholder="{...}" />
-                <marker date="1498574286061" expanded="true" signature="15623:15769" placeholder="{...}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -117,7 +96,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6538463">
+            <state vertical-scroll-proportion="32.576923">
               <caret line="68" column="69" selection-start-line="68" selection-start-column="69" selection-end-line="68" selection-end-column="69" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -130,17 +109,27 @@
         <entry file="file://$PROJECT_DIR$/js/main/tools.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="366" column="33" selection-start-line="366" selection-start-column="13" selection-end-line="366" selection-end-column="33" />
+              <caret line="425" column="55" selection-start-line="425" selection-start-column="55" selection-end-line="425" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.xml">
+      <file leaf-file-name="ngDatepicker.min.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.615385">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="204" selection-start-line="0" selection-start-column="204" selection-end-line="0" selection-end-column="204" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="moment.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/simulador_assets/js/moment.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4554" column="0" selection-start-line="4554" selection-start-column="0" selection-end-line="4554" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -149,21 +138,17 @@
       <file leaf-file-name="simulador2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/tools/simulador2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.581818">
-              <caret line="544" column="69" selection-start-line="544" selection-start-column="69" selection-end-line="544" selection-end-column="69" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
@@ -173,11 +158,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6256881">
-              <caret line="42" column="28" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -202,8 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/tools/simulador_assets/js/moment.js" />
-        <option value="$PROJECT_DIR$/views/tools/simulador_assets/js/chart.min.js" />
         <option value="$PROJECT_DIR$/views/tools/simulador_assets/js/angular-chart.min.js" />
         <option value="$PROJECT_DIR$/views/tools/simulador_assets/js/angular-route.min.js" />
         <option value="$PROJECT_DIR$/views/tools/simulador_assets/js/angular-sanitize.min.js" />
@@ -241,18 +224,20 @@
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="C:/queplan/www/css/framework-fixes.css" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/simulador_endeudamiento.js" />
-        <option value="$PROJECT_DIR$/js/main/tools.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/requisitos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" />
-        <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/css/style.css" />
         <option value="$PROJECT_DIR$/simulador_assets/css/simulador.css" />
-        <option value="$PROJECT_DIR$/views/tools/simulador2.html" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/services.js" />
+        <option value="$PROJECT_DIR$/views/tools/simulador2.html" />
+        <option value="$PROJECT_DIR$/simulador_assets/js/moment.js" />
+        <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" />
+        <option value="$PROJECT_DIR$/js/main/tools.js" />
+        <option value="$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js" />
       </list>
     </option>
   </component>
@@ -855,30 +840,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="187" column="59" selection-start-line="187" selection-start-column="59" selection-end-line="187" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="218" column="60" selection-start-line="218" selection-start-column="60" selection-end-line="218" selection-end-column="60" />
-          <folding>
-            <marker date="1498574286061" expanded="true" signature="14503:15775" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="14534:14610" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="14616:14706" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="15154:15617" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="15239:15410" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="15416:15606" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="15623:15769" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -941,14 +902,10 @@
             <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
@@ -996,14 +953,10 @@
             <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
@@ -1289,19 +1242,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="273" column="59" selection-start-line="273" selection-start-column="59" selection-end-line="273" selection-end-column="59" />
           <folding>
+            <marker date="1498574286061" expanded="true" signature="213:393" placeholder="[...]" />
+            <marker date="1498574286061" expanded="true" signature="484:568" placeholder="[...]" />
             <marker date="1498574286061" expanded="true" signature="14503:15775" placeholder="{...}" />
             <marker date="1498574286061" expanded="true" signature="14534:14610" placeholder="{...}" />
             <marker date="1498574286061" expanded="true" signature="14616:14706" placeholder="{...}" />
@@ -1309,6 +1256,50 @@
             <marker date="1498574286061" expanded="true" signature="15239:15410" placeholder="{...}" />
             <marker date="1498574286061" expanded="true" signature="15416:15606" placeholder="{...}" />
             <marker date="1498574286061" expanded="true" signature="15623:15769" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="15821:16043" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="15887:16012" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="15936:16002" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="16090:16339" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="16165:16308" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="16223:16298" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="16387:16637" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="16462:16606" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="16520:16596" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="16680:16732" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="16782:17065" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="16821:16874" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="16912:16965" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="17003:17059" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="17105:17140" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="17183:17228" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="17275:17438" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="17358:17401" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="17488:17568" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="17628:17915" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="17668:17733" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="17739:17878" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="17956:18379" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="18044:18282" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="18161:18203" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="18423:19305" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="18474:19297" placeholder="{&quot;template&quot;: 'modalConfirm.html'...}" />
+            <marker date="1498574286061" expanded="true" signature="18714:19283" placeholder="[...]" />
+            <marker date="1498574286061" expanded="true" signature="18743:19282" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="18935:19137" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="19188:19262" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="19349:19394" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="19441:19529" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="19574:19641" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="19681:20546" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="19717:19765" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="19796:20267" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="19825:20254" placeholder="{&quot;template&quot;: 'modalMessage.html'...}" />
+            <marker date="1498574286061" expanded="true" signature="19955:20240" placeholder="[...]" />
+            <marker date="1498574286061" expanded="true" signature="19984:20239" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="20146:20220" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="20273:20540" placeholder="{...}" />
+            <marker date="1498574286061" expanded="true" signature="20315:20418" placeholder="{&quot;quantity&quot;: 1...}" />
+            <marker date="1498574286061" expanded="true" signature="20932:21019" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -1317,14 +1308,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.615385">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1372,41 +1355,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6538463">
-          <caret line="68" column="69" selection-start-line="68" selection-start-column="69" selection-end-line="68" selection-end-column="69" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main/tools.js">
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="366" column="33" selection-start-line="366" selection-start-column="13" selection-end-line="366" selection-end-column="33" />
+          <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/tools/simulador2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.581818">
-          <caret line="544" column="69" selection-start-line="544" selection-start-column="69" selection-end-line="544" selection-end-column="69" />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
@@ -1415,10 +1384,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/services.js">
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6256881">
-          <caret line="42" column="28" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="332" column="20" selection-start-line="332" selection-start-column="20" selection-end-line="332" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="219" column="81" selection-start-line="219" selection-start-column="71" selection-end-line="219" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="32.576923">
+          <caret line="68" column="69" selection-start-line="68" selection-start-column="69" selection-end-line="68" selection-end-column="69" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/moment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4554" column="0" selection-start-line="4554" selection-start-column="0" selection-end-line="4554" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main/tools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="425" column="55" selection-start-line="425" selection-start-column="55" selection-end-line="425" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="204" selection-start-line="0" selection-start-column="204" selection-end-line="0" selection-end-column="204" />
           <folding />
         </state>
       </provider>

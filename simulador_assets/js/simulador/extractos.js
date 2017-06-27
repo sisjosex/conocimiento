@@ -217,7 +217,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                                 } else {
 
-                                    date_test = moment(date_test, "DD/MM/YYYY").toDate();
+                                        date_test = moment(date_test, "DD/MM/YYYY").toDate();
 
                                     date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
                                 }
