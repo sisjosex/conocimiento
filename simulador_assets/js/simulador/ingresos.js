@@ -24,7 +24,8 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
         califica: false,
         califica_icon: '',
         califica_text: '',
-        calificable: false
+        calificable: false,
+        totalAdeudamiento: ''
     };
 
     $scope.chart = {};
@@ -87,12 +88,16 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
 
     $scope.searchCRM = function () {
 
+        $('.pre_load3').show();
+
         service.searchCRM({
 
             document_type: $scope.user.document_type.id,
             document_value: $scope.user.document_value
 
         }, function (result) {
+
+            $('.pre_load3').hide();
 
             if (result.status == 'success') {
 
@@ -118,9 +123,9 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
                 }
             }
 
-        }, function (error) {
+        }, function () {
 
-            console.log(error);
+            $('.pre_load3').hide();
         });
     };
 
@@ -179,15 +184,15 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
             {id: "s", label: "Slices", type: "number"}
         ], "rows": [
             {c: [
-                {v: "Endeudamiento"},
+                {v: "Endeudamiento (" + totalAdeudamiento + ")"},
                 {v: totalAdeudamiento}
             ]},
             {c: [
-                {v: "Monto a Pagar"},
+                {v: "Monto a Pagar (" + totalAmount + ")"},
                 {v: totalAmount}
             ]},
             {c: [
-                {v: "Ingresos"},
+                {v: "Ingresos (" + $scope.user.ingreso + ")"},
                 {v: $scope.user.ingreso}
             ]}
         ]};
@@ -226,6 +231,8 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
             $scope.user.califica_icon = '';
             $scope.user.califica_text = '';
         }
+
+        $scope.user.totalAdeudamiento = totalAdeudamiento;
     };
 
     $scope.toggleCollapse = function () {

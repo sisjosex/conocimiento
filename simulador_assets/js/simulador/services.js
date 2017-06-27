@@ -39,7 +39,10 @@ angular.module("services", []).factory("service", ["$http", "$q", function ($htt
 
         searchCRM: function (params, success, error) {
 
-            return $http({method: 'JSONP', url: API_URL + 'searchCRM', params: checkParams(params)}).then(function successCallback(response) {
+            params = checkParams(params);
+            params['platform'] = 'mobile';
+
+            return $http({method: 'JSONP', url: API_URL + 'searchCRM', params: params}).then(function successCallback(response) {
 
                 success(response.data);
 

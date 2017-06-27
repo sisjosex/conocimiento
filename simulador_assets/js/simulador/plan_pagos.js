@@ -7,7 +7,7 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
     $scope.collapse = true;
 
     $scope.document_types = [
-        {id: '', name: 'Tipo de Documento'},
+        //{id: '', name: 'Tipo de Documento'},
         {id: 'ci', name: 'Carnet de Identidad'},
         {id: 'nit', name: 'NIT'},
         {id: 'telefono', name: 'Teléfono'}
@@ -85,12 +85,15 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
 
     $scope.searchCRM = function () {
 
+        $('.pre_load3').show();
         service.searchCRM({
 
             document_type: $scope.user.document_type.id,
             document_value: $scope.user.document_value
 
         }, function (result) {
+
+            $('.pre_load3').hide();
 
             if (result.status == 'success') {
 
@@ -117,6 +120,8 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
             }
 
         }, function () {
+
+            $('.pre_load3').hide();
         });
     };
 
@@ -175,18 +180,21 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
             {id: "s", label: "Slices", type: "number"}
         ], "rows": [
             {c: [
-                {v: "Endeudamiento"},
+                {v: "Endeudamiento (" + totalAdeudamiento + ")"},
                 {v: totalAdeudamiento}
             ]},
             {c: [
-                {v: "Monto a Pagar"},
+                {v: "Monto a Pagar (" + totalAmount + ")"},
                 {v: totalAmount}
             ]},
             {c: [
-                {v: "Ingresos"},
+                {v: "Ingresos (" + $scope.user.ingreso + ")"},
                 {v: $scope.user.ingreso}
             ]}
         ]};
+
+
+        $scope.user.totalAdeudamiento = totalAdeudamiento;
 
 
         if (totalAdeudamiento >= totalAmount) {

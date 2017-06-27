@@ -46,18 +46,15 @@
                                     <div>
                                         <div class="row col-centered">
 
-                                            <div class="col-md-8">
+                                            <div class="col-md-8 col-centered">
                                                 <form class="form-horizontal form-simulador">
 
                                                     <div class="form-group">
-                                                        <label for="" class="col-sm-6 control-label">Usuario
-                                                            subscriptor?</label>
+                                                        <label for="" class="col-sm-6 control-label">Usuario suscriptor?</label>
                                                         <div class="col-sm-6">
                                                             <div class="options">
-                                                                <span ng-class="{'active': user.subscriptor}"
-                                                                      ng-click="setSubscriptor(true)">Si</span>
-                                                                <span ng-class="{'active': !user.subscriptor}"
-                                                                      ng-click="setSubscriptor(false)">No</span>
+                                                                <span ng-class="{'active': user.subscriptor}" ng-click="setSubscriptor(true)">Si</span>
+                                                                <span ng-class="{'active': !user.subscriptor}" ng-click="setSubscriptor(false)">No</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -65,33 +62,25 @@
                                                     <div class="form-group" ng-show="user.subscriptor == true">
                                                         <div class="col-sm-6">
                                                             <div class="dropdown right">
-                                                                <button class="button">{{ user.document_type.name }}
-                                                                </button>
+                                                                <button class="button">{{ user.document_type.name }}</button>
                                                                 <ul class="menu">
                                                                     <li ng-repeat="item in document_types">
-                                                                        <a ng-click="changeDocument(item)" href="">{{
-                                                                            item.name }}</a></li>
+                                                                        <a ng-click="changeDocument(item)" href="">{{ item.name }}</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
+
                                                             <div class="input-append">
-                                                                <input ng-model="user.document_value"
-                                                                       autocomplete="false"
-                                                                       ng-disabled="user.document_type.id == ''"
-                                                                       type="text" class="form-control document_type"
-                                                                       placeholder="{{ user.document_type.name }}">
+                                                                <input ng-model="user.document_value" autocomplete="false" ng-disabled="user.document_type.id == ''" type="text" class="form-control document_type" placeholder="{{ user.document_type.name }}">
               <span class="btn btn-primary add-on" ng-click="searchCRM()">
                 <i class="icon icon-search"></i>
               </span>
                                                             </div>
+
                                                         </div>
 
-                                                        <div class="col-lg-12"
-                                                             ng-show="crm.message != ''">
-                                                            <!--<div class="col-lg-4">-->
-                                                            <!--<%= image_tag 'warning.png', width: 100, height: 'auto' %>-->
-                                                            <!--</div>-->
+                                                        <div class="col-lg-12" ng-show="crm.message != ''">
                                                             <div class="col-lg-12">
                                                                 <h1>{{ crm.title }}</h1>
                                                                 <p ng-bind-html="crm.message"></p>
@@ -114,39 +103,35 @@
                                                     <!--</div>-->
 
                                                     <div class="form-group">
-                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Ingreso
-                                                            Solicitante</label>
+                                                        <label for="" class="col-sm-6 control-label">Ingreso Solicitante (Bs.)</label>
                                                         <div class="col-sm-6">
-                                                            <input autocomplete="false" type="number"
-                                                                   ng-model="user.ingreso" class="form-control"
-                                                                   placeholder="0.00" ng-change="updateChart()">
+                                                            <input autocomplete="false" type="number" ng-model="user.ingreso" class="form-control" placeholder="0.00" ng-change="updateChart()">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group information-field">
+                                                        <label for="" class="col-sm-6 control-label">Capacidad Endeudamiento</label>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-info">{{ user.totalAdeudamiento }} Bs</div>
                                                         </div>
                                                     </div>
 
                                                 </form>
                                             </div>
 
-                                            <div class="col-sm-12 chart-area">
-                                                <div class="chart-container">
-
-                                                    <div google-chart chart="chart"
-                                                         style="width:100%; height:auto;"></div>
-
-                                                    <div class="calificacion"
-                                                         ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
-                                                        <div class="icon"></div>
-                                                        <h2>{{ user.califica_text }}</h2>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         </div>
 
+                                        <div class="col-md-4 col-centered">
+                                            <div class="calificacion" ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
+                                                <div class="icon"></div>
+                                                <h2>{{ user.califica_text }}</h2>
+                                            </div>
+                                        </div>
 
                                         <div class="row col-centered has-scroll">
                                             <div class="col-lg-12">
                                                 <table class="simulador-table">
-                                                    <tbody>
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td>
                                                             <div class="number">{{ $index + 1 }}</div>
@@ -158,16 +143,11 @@
                                                                 <div class="menu">
                                                                     <table>
                                                                         <tr>
-                                                                            <th ng-repeat="column in plan_columns">{{
-                                                                                column.name }}
-                                                                            </th>
+                                                                            <th ng-repeat="column in plan_columns">{{ column.name }}</th>
                                                                         </tr>
-                                                                        <tr class="sub-item" ng-repeat="item2 in plans"
-                                                                            ng-click="changePlan($index, plan)"
-                                                                            ng-show="item2.tipo != ''">
-                                                                            <td ng-repeat="column in plan_columns"
-                                                                                ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{ item2[column.id] }}
+                                                                        <tr class="sub-item" ng-repeat="item2 in plans" ng-click="changePlan($index, plan)" ng-show="item2.tipo != ''">
+                                                                            <td ng-repeat="column in plan_columns" ng-class="{'menu-option': column.id == 'nombre'}">{{
+                                                                                item2[column.id] }}
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -176,8 +156,7 @@
                                                         </td>
 
                                                         <td ng-repeat="aditional in aditional_plans">
-                                                            <div class="dropdown dropdown-toggle"
-                                                                 ng-class="{ 'active': (plan.aditionals[aditional.plan].nombre != 'Ninguno' && plan.aditionals[aditional.plan] != undefined) }">
+                                                            <div class="dropdown dropdown-toggle" ng-class="{ 'active': (plan.aditionals[aditional.plan].nombre != 'Ninguno' && plan.aditionals[aditional.plan] != undefined) }">
                                                                 <button class="button">
                                                                     <span class="title">{{ aditional.plan }}</span>
                                                                     <span class="value">{{ (plan.aditionals[aditional.plan].nombre != 'Ninguno') ? plan.aditionals[aditional.plan].nombre : '' }}</span>
@@ -185,15 +164,10 @@
                                                                 <div class="menu">
                                                                     <table>
                                                                         <tr>
-                                                                            <th ng-repeat="item in aditional.columns"
-                                                                                ng-bind-html="item.name"></th>
+                                                                            <th ng-repeat="item in aditional.columns" ng-bind-html="item.name"></th>
                                                                         </tr>
-                                                                        <tr ng-repeat="row in aditional.values"
-                                                                            class="sub-item"
-                                                                            ng-click="changeAddOn(plan, aditional, row)">
-                                                                            <td ng-repeat="column in aditional.columns"
-                                                                                ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{
+                                                                        <tr ng-repeat="row in aditional.values" class="sub-item" ng-click="changeAddOn(plan, aditional, row)">
+                                                                            <td ng-repeat="column in aditional.columns" ng-class="{'menu-option': column.id == 'nombre'}">{{
                                                                                 row[column.id] }}
                                                                             </td>
                                                                         </tr>
@@ -205,9 +179,7 @@
                                                         <td>
                                                             <div class="input">
                                                                 <div class="quantity-label">Cantidad</div>
-                                                                <input ng-model="plan.quantity" type="number"
-                                                                       class="quantity"
-                                                                       ng-change="reviewQuantity(plan)"/>
+                                                                <input ng-model="plan.quantity" type="number" class="quantity" ng-change="reviewQuantity(plan)"/>
                                                             </div>
                                                         </td>
 
@@ -218,23 +190,21 @@
                                                         </td>
 
                                                         <td>
-                                                            <i class="btn-x fa fa-trash-o"
-                                                               ng-click="removePlan($index)"></i>
+                                                            <i class="btn-x fa fa-trash-o" ng-click="removePlan($index)"></i>
                                                         </td>
                                                     </tr>
                                                     <tr class="last-row" ng-show="user.total > 0">
                                                         <td colspan="2"></td>
                                                         <td ng-repeat="aditional in aditional_plans"></td>
                                                         <td></td>
-                                                        <td class="total-row total">TOTAL {{ user.total }} Bs</td>
+                                                        <td class="total-row total">TOTAL: {{ user.total }} Bs</td>
                                                     </tr>
-                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
 
 
-                                        <div class="col-lg-12 col-centered">
+                                        <div class="row col-lg-12 col-centered">
 
                                             <div class="form-group">
                                                 <!--<div class="col-sm-6">-->
@@ -255,81 +225,69 @@
                                                 <!--</div>-->
                                                 <!--</div>-->
                                                 <!--</div>-->
-                                                <div class="col-sm-2">
-                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan
-                                                    </button>
+                                                <div class="col-sm-12">
+                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan</button>
                                                 </div>
                                             </div>
                                         </div>
 
+
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 chart-area col-centered">
+                                                <div class="chart-container">
+                                                    <!--<canvas class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="colors" chart-options="options"></canvas>-->
+                                                    <div google-chart chart="chart" style="width:100%; height:auto;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="row col-centered">
                                             <div class="col-lg-11 col-centered">
-                                                <h3 class="detalle_planes" ng-click="toggleCollapse()">Detalle Planes
-                                                    Elegidos
-                                                    <i class="detalle-icon-arrow"
-                                                       ng-class="{'collapsed': collapse}"></i></h3>
+                                                <h3 class="detalle_planes" ng-click="toggleCollapse()">Detalle Planes Elegidos
+                                                    <i class="detalle-icon-arrow" ng-class="{'collapsed': collapse}"></i></h3>
                                             </div>
                                         </div>
 
                                         <div class="row col-centered has-scroll">
 
-                                            <div class="col-lg-11 col-md-12 col-centered collapser"
-                                                 ng-class="{'collapsed': collapse}">
+                                            <div class="col-lg-11 col-md-12 col-centered collapser" ng-class="{'collapsed': collapse}">
 
-                                                <table class="table-detail" ng-repeat="plan in selected_plans track by $index">
-                                                    <tr>
-                                                        <td colspan="2" class="table-border-right">
-                                                            <table class="table-detail-internal1">
+                                                <table class="table-detail">
+                                                    <!--<tr ng-repeat="plan in selected_plans track by $index">
+                                                        <td>
+                                                            <table width="100%" class="table-detail-internal2 plan-table">
                                                                 <tr>
-                                                                    <td colspan="2" class="plan-title main">{{
-                                                                        plan.plan.nombre }} X {{ plan.quantity }}
+                                                                    <td colspan="2" class="plan-option main">{{ plan.plan.nombre }} <span class="red">x</span> {{
+                                                                        plan.quantity }}
                                                                     </td>
                                                                 </tr>
-
-                                                                <tr ng-repeat="column in plan_columns"
-                                                                    ng-show="column.id != 'name' && column.id != 'mensualidad'">
-                                                                    <td class="plan-option" width="50%">
-                                                                        {{ column.name }}
-                                                                    </td>
-                                                                    <td class="plan-title" width="50%"
-                                                                        ng-bind="plan.plan[column.id]"></td>
-                                                                </tr>
-
                                                                 <tr>
-                                                                    <td class="plan-option" width="50%">Tarifa del
-                                                                        plan
-                                                                    </td>
-                                                                    <td class="plan-title" width="50%">{{ totalRow(plan)
-                                                                        }} Bs
-                                                                    </td>
+                                                                    <td class="plan-option">Tarifa del plan</td>
+                                                                    <td class="plan-title plan-total">{{ totalRow(plan) }} Bs</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
                                                         <td>
-                                                            <table class="table-detail-internal2"
-                                                                   ng-repeat="item in plan.aditionals"
-                                                                   ng-show="item != null">
+                                                            <table class="table-detail-internal2 addon-detail" ng-repeat="item in plan.aditionals" ng-show="item != null">
                                                                 <tr>
-                                                                    <th ng-repeat="column in item.columns">{{
-                                                                        column.name }}
-                                                                    </th>
+                                                                    <th ng-repeat="column in item.columns" width="10%">{{ column.name }}</th>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td ng-repeat="column in item.columns">{{
-                                                                        item[column.id] }}
-                                                                    </td>
+                                                                    <td ng-repeat="column in item.columns" width="10%">{{ item[column.id] }}</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
-                                                    </tr>
+                                                    </tr>-->
 
-                                                    <tr>
+                                                    <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
                                                             <div class="container-total">
                                                                 <div class="box-total">
-                                                                    <div class="box-title">{{ plan.plan.nombre }} X {{ plan.quantity }}</div>
+                                                                    <div class="box-title">{{ plan.plan.nombre }} <span class="red">x</span> {{ plan.quantity }}</div>
                                                                     <div class="box-value">{{ plan.plan.mensual }}</div>
                                                                 </div>
+
                                                                 <div class="box-total" ng-repeat="item in plan.aditionals">
                                                                     <div class="box-title" ng-repeat="column in item.columns" ng-show="column.id == 'nombre'">{{ item.nombre
                                                                         }}
@@ -356,25 +314,24 @@
                                             </div>
 
                                         </div>
+
                                     </div>
+
                                 </div>
 
                                 <div class="tab-pane" id="plan-de-pagos" ng-controller="SimuladorPlanPagos">
                                     <div>
                                         <div class="row col-centered">
 
-                                            <div class="col-md-8">
+                                            <div class="col-md-8 col-centered">
                                                 <form class="form-horizontal form-simulador">
 
                                                     <div class="form-group">
-                                                        <label for="" class="col-sm-6 control-label">Usuario
-                                                            subscriptor?</label>
+                                                        <label for="" class="col-sm-6 control-label">Usuario suscriptor?</label>
                                                         <div class="col-sm-6">
                                                             <div class="options">
-                                                                <span ng-class="{'active': user.subscriptor}"
-                                                                      ng-click="setSubscriptor(true)">Si</span>
-                                                                <span ng-class="{'active': !user.subscriptor}"
-                                                                      ng-click="setSubscriptor(false)">No</span>
+                                                                <span ng-class="{'active': user.subscriptor}" ng-click="setSubscriptor(true)">Si</span>
+                                                                <span ng-class="{'active': !user.subscriptor}" ng-click="setSubscriptor(false)">No</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -382,30 +339,25 @@
                                                     <div class="form-group" ng-show="user.subscriptor == true">
                                                         <div class="col-sm-6">
                                                             <div class="dropdown right">
-                                                                <button class="button">{{ user.document_type.name }}
-                                                                </button>
+                                                                <button class="button">{{ user.document_type.name }}</button>
                                                                 <ul class="menu">
                                                                     <li ng-repeat="item in document_types">
-                                                                        <a ng-click="changeDocument(item)" href="">{{
-                                                                            item.name }}</a></li>
+                                                                        <a ng-click="changeDocument(item)" href="">{{ item.name }}</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
+
                                                             <div class="input-append">
-                                                                <input ng-model="user.document_value"
-                                                                       autocomplete="false"
-                                                                       ng-disabled="user.document_type.id == ''"
-                                                                       type="text" class="form-control document_type"
-                                                                       placeholder="{{ user.document_type.name }}">
+                                                                <input ng-model="user.document_value" autocomplete="false" ng-disabled="user.document_type.id == ''" type="text" class="form-control document_type" placeholder="{{ user.document_type.name }}">
               <span class="btn btn-primary add-on" ng-click="searchCRM()">
                 <i class="icon icon-search"></i>
               </span>
                                                             </div>
+
                                                         </div>
 
-                                                        <div class="col-lg-12"
-                                                             ng-show="crm.message != ''">
+                                                        <div class="col-lg-12" ng-show="crm.message != ''">
                                                             <!--<div class="col-lg-4">-->
                                                             <!--<%= image_tag 'warning.png', width: 100, height: 'auto' %>-->
                                                             <!--</div>-->
@@ -431,29 +383,27 @@
                                                     <!--</div>-->
 
                                                     <div class="form-group">
-                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Cuota
-                                                            promedio del préstamo Bs.</label>
+                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Cuota promedio del préstamo (Bs.)</label>
                                                         <div class="col-sm-6">
-                                                            <input autocomplete="false" type="number"
-                                                                   ng-model="user.ingreso" class="form-control"
-                                                                   placeholder="0.00" ng-change="updateChart()">
+                                                            <input autocomplete="false" type="number" ng-model="user.ingreso" class="form-control" placeholder="0.00" ng-change="updateChart()">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group information-field">
+                                                        <label for="capacidad_endeudamiento" class="col-sm-6 control-label">Capacidad Endeudamiento</label>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-info">{{ user.totalAdeudamiento }} Bs</div>
                                                         </div>
                                                     </div>
 
                                                 </form>
                                             </div>
 
-                                            <div class="col-sm-12 chart-area">
-                                                <div class="chart-container">
-
-                                                    <div google-chart chart="chart"
-                                                         style="width:100%; height:auto;"></div>
-
-                                                    <div class="calificacion"
-                                                         ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
-                                                        <div class="icon"></div>
-                                                        <h2>{{ user.califica_text }}</h2>
-                                                    </div>
+                                            <div class="col-md-4 col-centered">
+                                                <div class="calificacion" ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
+                                                    <div class="icon"></div>
+                                                    <h2>{{ user.califica_text }}</h2>
                                                 </div>
                                             </div>
 
@@ -474,16 +424,10 @@
                                                                 <div class="menu">
                                                                     <table>
                                                                         <tr>
-                                                                            <th ng-repeat="column in plan_columns">{{
-                                                                                column.name }}
-                                                                            </th>
+                                                                            <th ng-repeat="column in plan_columns">{{ column.name }}</th>
                                                                         </tr>
-                                                                        <tr class="sub-item" ng-repeat="item2 in plans"
-                                                                            ng-click="changePlan($index, plan)"
-                                                                            ng-show="item2.tipo != ''">
-                                                                            <td ng-repeat="column in plan_columns"
-                                                                                ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{
+                                                                        <tr class="sub-item" ng-repeat="item2 in plans" ng-click="changePlan($index, plan)" ng-show="item2.tipo != ''">
+                                                                            <td ng-repeat="column in plan_columns" ng-class="{'menu-option': column.id == 'nombre'}">{{
                                                                                 item2[column.id] }}
                                                                             </td>
                                                                         </tr>
@@ -493,8 +437,7 @@
                                                         </td>
 
                                                         <td ng-repeat="aditional in aditional_plans">
-                                                            <div class="dropdown dropdown-toggle"
-                                                                 ng-class="{ 'active': (plan.aditionals[aditional.plan].nombre != 'Ninguno' && plan.aditionals[aditional.plan] != undefined) }">
+                                                            <div class="dropdown dropdown-toggle" ng-class="{ 'active': (plan.aditionals[aditional.plan].nombre != 'Ninguno' && plan.aditionals[aditional.plan] != undefined) }">
                                                                 <button class="button">
                                                                     <span class="title">{{ aditional.plan }}</span>
                                                                     <span class="value">{{ (plan.aditionals[aditional.plan].nombre != 'Ninguno') ? plan.aditionals[aditional.plan].nombre : '' }}</span>
@@ -502,15 +445,10 @@
                                                                 <div class="menu">
                                                                     <table>
                                                                         <tr>
-                                                                            <th ng-repeat="item in aditional.columns"
-                                                                                ng-bind-html="item.name"></th>
+                                                                            <th ng-repeat="item in aditional.columns" ng-bind-html="item.name"></th>
                                                                         </tr>
-                                                                        <tr ng-repeat="row in aditional.values"
-                                                                            class="sub-item"
-                                                                            ng-click="changeAddOn(plan, aditional, row)">
-                                                                            <td ng-repeat="column in aditional.columns"
-                                                                                ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{
+                                                                        <tr ng-repeat="row in aditional.values" class="sub-item" ng-click="changeAddOn(plan, aditional, row)">
+                                                                            <td ng-repeat="column in aditional.columns" ng-class="{'menu-option': column.id == 'nombre'}">{{
                                                                                 row[column.id] }}
                                                                             </td>
                                                                         </tr>
@@ -522,9 +460,7 @@
                                                         <td>
                                                             <div class="input">
                                                                 <div class="quantity-label">Cantidad</div>
-                                                                <input ng-model="plan.quantity" type="number"
-                                                                       class="quantity"
-                                                                       ng-change="reviewQuantity(plan)"/>
+                                                                <input ng-model="plan.quantity" type="number" class="quantity" ng-change="reviewQuantity(plan)"/>
                                                             </div>
                                                         </td>
 
@@ -535,8 +471,7 @@
                                                         </td>
 
                                                         <td>
-                                                            <i class="btn-x fa fa-trash-o"
-                                                               ng-click="removePlan($index)"></i>
+                                                            <i class="btn-x fa fa-trash-o" ng-click="removePlan($index)"></i>
                                                         </td>
                                                     </tr>
                                                     <tr class="last-row" ng-show="user.total > 0">
@@ -550,7 +485,7 @@
                                         </div>
 
 
-                                        <div class="col-lg-12 col-centered">
+                                        <div class="row col-lg-12 col-centered">
 
                                             <div class="form-group">
                                                 <!--<div class="col-sm-6">-->
@@ -571,79 +506,66 @@
                                                 <!--</div>-->
                                                 <!--</div>-->
                                                 <!--</div>-->
-                                                <div class="col-sm-2">
-                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan
-                                                    </button>
+                                                <div class="col-sm-12">
+                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan</button>
                                                 </div>
                                             </div>
                                         </div>
 
+
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 chart-area col-centered">
+                                                <div class="chart-container">
+                                                    <!--<canvas class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="colors" chart-options="options"></canvas>-->
+                                                    <div google-chart chart="chart" style="width:100%; height:auto;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="row col-centered">
                                             <div class="col-lg-11 col-centered">
-                                                <h3 class="detalle_planes" ng-click="toggleCollapse()">Detalle Planes
-                                                    Elegidos
-                                                    <i class="detalle-icon-arrow"
-                                                       ng-class="{'collapsed': collapse}"></i></h3>
+                                                <h3 class="detalle_planes" ng-click="toggleCollapse()">Detalle Planes Elegidos
+                                                    <i class="detalle-icon-arrow" ng-class="{'collapsed': collapse}"></i></h3>
                                             </div>
                                         </div>
 
                                         <div class="row col-centered has-scroll">
 
-                                            <div class="col-lg-11 col-md-12 col-centered collapser"
-                                                 ng-class="{'collapsed': collapse}">
+                                            <div class="col-lg-11 col-md-12 col-centered collapser" ng-class="{'collapsed': collapse}">
 
-                                                <table class="table-detail" ng-repeat="plan in selected_plans track by $index">
-                                                    <tr>
-                                                        <td colspan="2" class="table-border-right">
-                                                            <table class="table-detail-internal1">
+                                                <table class="table-detail">
+                                                    <tr ng-repeat="plan in selected_plans track by $index">
+                                                        <td>
+                                                            <table width="100%" class="table-detail-internal2 plan-table">
                                                                 <tr>
-                                                                    <td colspan="2" class="plan-title main">{{
-                                                                        plan.plan.nombre }} X {{ plan.quantity }}
+                                                                    <td colspan="2" class="plan-option main">{{ plan.plan.nombre }} <span class="red">x</span> {{
+                                                                        plan.quantity }}
                                                                     </td>
                                                                 </tr>
-
-                                                                <tr ng-repeat="column in plan_columns"
-                                                                    ng-show="column.id != 'name' && column.id != 'mensualidad'">
-                                                                    <td class="plan-option" width="50%">
-                                                                        {{ column.name }}
-                                                                    </td>
-                                                                    <td class="plan-title" width="50%"
-                                                                        ng-bind="plan.plan[column.id]"></td>
-                                                                </tr>
-
                                                                 <tr>
-                                                                    <td class="plan-option" width="50%">Tarifa del
-                                                                        plan
-                                                                    </td>
-                                                                    <td class="plan-title" width="50%">{{ totalRow(plan)
-                                                                        }} Bs
-                                                                    </td>
+                                                                    <td class="plan-option">Tarifa del plan</td>
+                                                                    <td class="plan-title plan-total">{{ totalRow(plan) }} Bs</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
                                                         <td>
-                                                            <table class="table-detail-internal2"
-                                                                   ng-repeat="item in plan.aditionals"
-                                                                   ng-show="item != null">
+                                                            <table class="table-detail-internal2 addon-detail" ng-repeat="item in plan.aditionals" ng-show="item != null">
                                                                 <tr>
-                                                                    <th ng-repeat="column in item.columns">{{
-                                                                        column.name }}
-                                                                    </th>
+                                                                    <th ng-repeat="column in item.columns" width="10%">{{ column.name }}</th>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td ng-repeat="column in item.columns">{{
-                                                                        item[column.id] }}
-                                                                    </td>
+                                                                    <td ng-repeat="column in item.columns" width="10%">{{ item[column.id] }}</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
                                                     </tr>
 
-                                                    <tr>
+                                                    <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
                                                             <div class="container-total">
                                                                 <div class="box-total">
-                                                                    <div class="box-title">{{ plan.plan.nombre }} X {{ plan.quantity }}</div>
+                                                                    <div class="box-title">{{ plan.plan.nombre }} <span class="red">x</span> {{ plan.quantity }}</div>
                                                                     <div class="box-value">{{ plan.plan.mensual }}</div>
                                                                 </div>
                                                                 <div class="box-total" ng-repeat="item in plan.aditionals">
@@ -679,49 +601,42 @@
                                     <div>
                                         <div class="row col-centered">
 
-                                            <div class="col-md-8">
+                                            <div class="col-md-8 col-centered">
                                                 <form class="form-horizontal form-simulador">
 
                                                     <div class="form-group">
-                                                        <label for="" class="col-sm-6 control-label">Usuario
-                                                            subscriptor?</label>
+                                                        <label for="" class="col-sm-6 control-label">Usuario suscriptor?</label>
                                                         <div class="col-sm-6">
                                                             <div class="options">
-                                                                <span ng-class="{'active': user.subscriptor}"
-                                                                      ng-click="setSubscriptor(true)">Si</span>
-                                                                <span ng-class="{'active': !user.subscriptor}"
-                                                                      ng-click="setSubscriptor(false)">No</span>
+                                                                <span ng-class="{'active': user.subscriptor}" ng-click="setSubscriptor(true)">Si</span>
+                                                                <span ng-class="{'active': !user.subscriptor}" ng-click="setSubscriptor(false)">No</span>
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group" ng-show="user.subscriptor == true">
+
                                                         <div class="col-sm-6">
                                                             <div class="dropdown right">
-                                                                <button class="button">{{ user.document_type.name }}
-                                                                </button>
+                                                                <button class="button">{{ user.document_type.name }}</button>
                                                                 <ul class="menu">
                                                                     <li ng-repeat="item in document_types">
-                                                                        <a ng-click="changeDocument(item)" href="">{{
-                                                                            item.name }}</a></li>
+                                                                        <a ng-click="changeDocument(item)" href="">{{ item.name }}</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
+
                                                             <div class="input-append">
-                                                                <input ng-model="user.document_value"
-                                                                       autocomplete="false"
-                                                                       ng-disabled="user.document_type.id == ''"
-                                                                       type="text" class="form-control document_type"
-                                                                       placeholder="{{ user.document_type.name }}">
+                                                                <input ng-model="user.document_value" autocomplete="false" ng-disabled="user.document_type.id == ''" type="text" class="form-control document_type" placeholder="{{ user.document_type.name }}">
               <span class="btn btn-primary add-on" ng-click="searchCRM()">
                 <i class="icon icon-search"></i>
               </span>
                                                             </div>
+
                                                         </div>
 
-                                                        <div class="col-lg-12"
-                                                             ng-show="crm.message != ''">
+                                                        <div class="col-lg-12" ng-show="crm.message != ''">
                                                             <!--<div class="col-lg-4">-->
                                                             <!--<%= image_tag 'warning.png', width: 100, height: 'auto' %>-->
                                                             <!--</div>-->
@@ -729,6 +644,13 @@
                                                                 <h1>{{ crm.title }}</h1>
                                                                 <p ng-bind-html="crm.message"></p>
                                                             </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Tipo de Cambio</label>
+                                                        <div class="col-sm-6">
+                                                            <input autocomplete="false" type="number" step="0.01" ng-model="user.tipo_cambio" class="form-control" placeholder="0.00" ng-change="updateChart()">
                                                         </div>
                                                     </div>
 
@@ -747,14 +669,10 @@
                                                     <!--</div>-->
 
                                                     <div class="form-group">
-                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Saldo
-                                                            Promedio Extracto</label>
+                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Saldo Promedio Extracto ($us.)</label>
                                                         <div class="col-sm-6">
                                                             <div class="input-append">
-                                                                <input autocomplete="false" type="number"
-                                                                       ng-model="user.saldo_promedio_extracto"
-                                                                       class="form-control" placeholder="0.00"
-                                                                       ng-change="updateChart()">
+                                                                <input autocomplete="false" type="number" step="0.01" ng-model="user.saldo_promedio_extracto" class="form-control" placeholder="0.00" ng-change="updateChart()">
               <span class="btn btn-primary add-on" ng-click="showExtractos()">
                 <i class="icon icon-calendar"></i>
               </span>
@@ -769,8 +687,7 @@
                                                                 <button class="button">{{ user.ciudad.name }}</button>
                                                                 <ul class="menu">
                                                                     <li ng-repeat="item in cities">
-                                                                        <a ng-click="changeCiudad(item)" href="">{{
-                                                                            item.name }}</a></li>
+                                                                        <a ng-click="changeCiudad(item)" href="">{{ item.name }}</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -780,43 +697,37 @@
                                                         <div class="col-sm-6">
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input id="autocalcular_tarifa2" type="checkbox"
-                                                                   ng-model="user.autocalcular_tarifa_basica_mayor">
-                                                            <label for="autocalcular_tarifa2">Autocalcular Tarifa Basica
-                                                                Mayor</label>
+                                                            <input id="autocalcular_tarifa1" type="checkbox" ng-model="user.autocalcular_tarifa_basica_mayor">
+                                                            <label for="autocalcular_tarifa1">Autocalcular Tarifa Basica Mayor</label>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Tarifa
-                                                            Básica Mayor</label>
+                                                        <label for="" class="col-sm-6 control-label">Tarifa Básica Mayor (Bs.)</label>
                                                         <div class="col-sm-6">
-                                                            <input autocomplete="false" type="number"
-                                                                   ng-model="user.tarifa_basica_mayor"
-                                                                   class="form-control" placeholder="0.00"
-                                                                   ng-change="updateChart()">
+                                                            <input autocomplete="false" type="number" step="0.01" ng-model="user.tarifa_basica_mayor" class="form-control" placeholder="0.00" ng-change="updateChart()">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group information-field">
+                                                        <label for="" class="col-sm-6 control-label">Capacidad Endeudamiento</label>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-info">{{ user.totalAdeudamiento }} Bs</div>
                                                         </div>
                                                     </div>
 
                                                 </form>
                                             </div>
 
-                                            <div class="col-sm-12 chart-area">
-                                                <div class="chart-container">
-
-                                                    <div google-chart chart="chart"
-                                                         style="width:100%; height:auto;"></div>
-
-                                                    <div class="calificacion"
-                                                         ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
-                                                        <div class="icon"></div>
-                                                        <h2>{{ user.califica_text }}</h2>
-                                                    </div>
+                                            <div class="col-md-4 col-centered">
+                                                <div class="calificacion" ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
+                                                    <div class="icon"></div>
+                                                    <h2>{{ user.califica_text }}</h2>
                                                 </div>
                                             </div>
 
                                         </div>
-
 
                                         <div class="row col-centered has-scroll">
                                             <div class="col-lg-12">
@@ -832,16 +743,10 @@
                                                                 <div class="menu">
                                                                     <table>
                                                                         <tr>
-                                                                            <th ng-repeat="column in plan_columns">{{
-                                                                                column.name }}
-                                                                            </th>
+                                                                            <th ng-repeat="column in plan_columns">{{ column.name }}</th>
                                                                         </tr>
-                                                                        <tr class="sub-item" ng-repeat="item2 in plans"
-                                                                            ng-click="changePlan($index, plan)"
-                                                                            ng-show="item2.tipo != ''">
-                                                                            <td ng-repeat="column in plan_columns"
-                                                                                ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{
+                                                                        <tr class="sub-item" ng-repeat="item2 in plans" ng-click="changePlan($index, plan)" ng-show="item2.tipo != ''">
+                                                                            <td ng-repeat="column in plan_columns" ng-class="{'menu-option': column.id == 'nombre'}">{{
                                                                                 item2[column.id] }}
                                                                             </td>
                                                                         </tr>
@@ -851,8 +756,7 @@
                                                         </td>
 
                                                         <td ng-repeat="aditional in aditional_plans">
-                                                            <div class="dropdown dropdown-toggle"
-                                                                 ng-class="{ 'active': (plan.aditionals[aditional.plan].nombre != 'Ninguno' && plan.aditionals[aditional.plan] != undefined) }">
+                                                            <div class="dropdown dropdown-toggle" ng-class="{ 'active': (plan.aditionals[aditional.plan].nombre != 'Ninguno' && plan.aditionals[aditional.plan] != undefined) }">
                                                                 <button class="button">
                                                                     <span class="title">{{ aditional.plan }}</span>
                                                                     <span class="value">{{ (plan.aditionals[aditional.plan].nombre != 'Ninguno') ? plan.aditionals[aditional.plan].nombre : '' }}</span>
@@ -860,15 +764,10 @@
                                                                 <div class="menu">
                                                                     <table>
                                                                         <tr>
-                                                                            <th ng-repeat="item in aditional.columns"
-                                                                                ng-bind-html="item.name"></th>
+                                                                            <th ng-repeat="item in aditional.columns" ng-bind-html="item.name"></th>
                                                                         </tr>
-                                                                        <tr ng-repeat="row in aditional.values"
-                                                                            class="sub-item"
-                                                                            ng-click="changeAddOn(plan, aditional, row)">
-                                                                            <td ng-repeat="column in aditional.columns"
-                                                                                ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{
+                                                                        <tr ng-repeat="row in aditional.values" class="sub-item" ng-click="changeAddOn(plan, aditional, row)">
+                                                                            <td ng-repeat="column in aditional.columns" ng-class="{'menu-option': column.id == 'nombre'}">{{
                                                                                 row[column.id] }}
                                                                             </td>
                                                                         </tr>
@@ -880,9 +779,7 @@
                                                         <td>
                                                             <div class="input">
                                                                 <div class="quantity-label">Cantidad</div>
-                                                                <input ng-model="plan.quantity" type="number"
-                                                                       class="quantity"
-                                                                       ng-change="reviewQuantity(plan)"/>
+                                                                <input ng-model="plan.quantity" type="number" step="0.01" class="quantity" ng-change="reviewQuantity(plan)"/>
                                                             </div>
                                                         </td>
 
@@ -893,8 +790,7 @@
                                                         </td>
 
                                                         <td>
-                                                            <i class="btn-x fa fa-trash-o"
-                                                               ng-click="removePlan($index)"></i>
+                                                            <i class="btn-x fa fa-trash-o" ng-click="removePlan($index)"></i>
                                                         </td>
                                                     </tr>
                                                     <tr class="last-row" ng-show="user.total > 0">
@@ -908,7 +804,7 @@
                                         </div>
 
 
-                                        <div class="col-lg-12 col-centered">
+                                        <div class="row col-lg-12 col-centered">
 
                                             <div class="form-group">
                                                 <!--<div class="col-sm-6">-->
@@ -929,79 +825,67 @@
                                                 <!--</div>-->
                                                 <!--</div>-->
                                                 <!--</div>-->
-                                                <div class="col-sm-2">
-                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan
-                                                    </button>
+                                                <div class="col-sm-12">
+                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan</button>
                                                 </div>
                                             </div>
                                         </div>
 
+
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 chart-area col-centered">
+                                                <div class="chart-container">
+                                                    <!--<canvas class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="colors" chart-options="options"></canvas>-->
+                                                    <div google-chart chart="chart" style="width:100%; height:auto;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="row col-centered">
                                             <div class="col-lg-11 col-centered">
-                                                <h3 class="detalle_planes" ng-click="toggleCollapse()">Detalle Planes
-                                                    Elegidos
-                                                    <i class="detalle-icon-arrow"
-                                                       ng-class="{'collapsed': collapse}"></i></h3>
+                                                <h3 class="detalle_planes" ng-click="toggleCollapse()">Detalle Planes Elegidos
+                                                    <i class="detalle-icon-arrow" ng-class="{'collapsed': collapse}"></i></h3>
                                             </div>
                                         </div>
 
                                         <div class="row col-centered has-scroll">
 
-                                            <div class="col-lg-11 col-md-12 col-centered collapser"
-                                                 ng-class="{'collapsed': collapse}">
+                                            <div class="col-lg-11 col-md-12 col-centered collapser" ng-class="{'collapsed': collapse}">
 
-                                                <table class="table-detail" ng-repeat="plan in selected_plans track by $index">
-                                                    <tr>
-                                                        <td colspan="2" class="table-border-right">
-                                                            <table class="table-detail-internal1">
+                                                <table class="table-detail">
+                                                    <!--<tr ng-repeat="plan in selected_plans track by $index">
+                                                        <td>
+                                                            <table width="100%" class="table-detail-internal2 plan-table">
                                                                 <tr>
-                                                                    <td colspan="2" class="plan-title main">{{
-                                                                        plan.plan.nombre }} X {{ plan.quantity }}
+                                                                    <td colspan="2" class="plan-option main">{{ plan.plan.nombre }} <span class="red">x</span> {{
+                                                                        plan.quantity }}
                                                                     </td>
                                                                 </tr>
-
-                                                                <tr ng-repeat="column in plan_columns"
-                                                                    ng-show="column.id != 'name' && column.id != 'mensualidad'">
-                                                                    <td class="plan-option" width="50%">
-                                                                        {{ column.name }}
-                                                                    </td>
-                                                                    <td class="plan-title" width="50%"
-                                                                        ng-bind="plan.plan[column.id]"></td>
-                                                                </tr>
-
                                                                 <tr>
-                                                                    <td class="plan-option" width="50%">Tarifa del
-                                                                        plan
-                                                                    </td>
-                                                                    <td class="plan-title" width="50%">{{ totalRow(plan)
-                                                                        }} Bs
-                                                                    </td>
+                                                                    <td class="plan-option">Tarifa del plan</td>
+                                                                    <td class="plan-title plan-total">{{ totalRow(plan) }} Bs</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
                                                         <td>
-                                                            <table class="table-detail-internal2"
-                                                                   ng-repeat="item in plan.aditionals"
-                                                                   ng-show="item != null">
+                                                            <table class="table-detail-internal2 addon-detail" ng-repeat="item in plan.aditionals" ng-show="item != null">
                                                                 <tr>
-                                                                    <th ng-repeat="column in item.columns">{{
-                                                                        column.name }}
-                                                                    </th>
+                                                                    <th ng-repeat="column in item.columns" width="10%">{{ column.name }}</th>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td ng-repeat="column in item.columns">{{
-                                                                        item[column.id] }}
-                                                                    </td>
+                                                                    <td ng-repeat="column in item.columns" width="10%">{{ item[column.id] }}</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
                                                     </tr>
+                                                    -->
 
-                                                    <tr>
+                                                    <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
                                                             <div class="container-total">
                                                                 <div class="box-total">
-                                                                    <div class="box-title">{{ plan.plan.nombre }} X {{ plan.quantity }}</div>
+                                                                    <div class="box-title">{{ plan.plan.nombre }} <span class="red">x</span> {{ plan.quantity }}</div>
                                                                     <div class="box-value">{{ plan.plan.mensual }}</div>
                                                                 </div>
                                                                 <div class="box-total" ng-repeat="item in plan.aditionals">
@@ -1030,6 +914,7 @@
                                             </div>
 
                                         </div>
+
                                     </div>
                                 </div>
 
@@ -1037,18 +922,15 @@
                                     <div>
                                         <div class="row col-centered">
 
-                                            <div class="col-md-8">
+                                            <div class="col-md-8 col-centered">
                                                 <form class="form-horizontal form-simulador">
 
                                                     <div class="form-group">
-                                                        <label for="" class="col-sm-6 control-label">Usuario
-                                                            subscriptor?</label>
+                                                        <label for="" class="col-sm-6 control-label">Usuario suscriptor?</label>
                                                         <div class="col-sm-6">
                                                             <div class="options">
-                                                                <span ng-class="{'active': user.subscriptor}"
-                                                                      ng-click="setSubscriptor(true)">Si</span>
-                                                                <span ng-class="{'active': !user.subscriptor}"
-                                                                      ng-click="setSubscriptor(false)">No</span>
+                                                                <span ng-class="{'active': user.subscriptor}" ng-click="setSubscriptor(true)">Si</span>
+                                                                <span ng-class="{'active': !user.subscriptor}" ng-click="setSubscriptor(false)">No</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1056,30 +938,25 @@
                                                     <div class="form-group" ng-show="user.subscriptor == true">
                                                         <div class="col-sm-6">
                                                             <div class="dropdown right">
-                                                                <button class="button">{{ user.document_type.name }}
-                                                                </button>
+                                                                <button class="button">{{ user.document_type.name }}</button>
                                                                 <ul class="menu">
                                                                     <li ng-repeat="item in document_types">
-                                                                        <a ng-click="changeDocument(item)" href="">{{
-                                                                            item.name }}</a></li>
+                                                                        <a ng-click="changeDocument(item)" href="">{{ item.name }}</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
+
                                                             <div class="input-append">
-                                                                <input ng-model="user.document_value"
-                                                                       autocomplete="false"
-                                                                       ng-disabled="user.document_type.id == ''"
-                                                                       type="text" class="form-control document_type"
-                                                                       placeholder="{{ user.document_type.name }}">
+                                                                <input ng-model="user.document_value" autocomplete="false" ng-disabled="user.document_type.id == ''" type="text" class="form-control document_type" placeholder="{{ user.document_type.name }}">
               <span class="btn btn-primary add-on" ng-click="searchCRM()">
                 <i class="icon icon-search"></i>
               </span>
                                                             </div>
+
                                                         </div>
 
-                                                        <div class="col-lg-12"
-                                                             ng-show="crm.message != ''">
+                                                        <div class="col-lg-12" ng-show="crm.message != ''">
                                                             <!--<div class="col-lg-4">-->
                                                             <!--<%= image_tag 'warning.png', width: 100, height: 'auto' %>-->
                                                             <!--</div>-->
@@ -1087,6 +964,13 @@
                                                                 <h1>{{ crm.title }}</h1>
                                                                 <p ng-bind-html="crm.message"></p>
                                                             </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Tipo de Cambio</label>
+                                                        <div class="col-sm-6">
+                                                            <input autocomplete="false" type="number" step="0.01" ng-model="user.tipo_cambio" class="form-control" placeholder="0.00" ng-change="updateChart()">
                                                         </div>
                                                     </div>
 
@@ -1105,23 +989,26 @@
                                                     <!--</div>-->
 
                                                     <div class="form-group">
-                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Ingresos</label>
+                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Ingresos (Bs.)</label>
                                                         <div class="col-sm-6">
-                                                            <input autocomplete="false" type="number"
-                                                                   ng-model="user.ingresos" class="form-control"
-                                                                   placeholder="0.00" ng-change="updateChart()">
+                                                            <input autocomplete="false" type="number" step="0.01" ng-model="user.ingresos" class="form-control" placeholder="0.00" ng-change="updateChart()">
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Saldo
-                                                            Promedio Extracto</label>
+                                                        <div class="col-sm-6">
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <input id="autocalcular_tarifa2" type="checkbox" ng-model="user.autocalcular_tarifa_basica_mayor">
+                                                            <label for="autocalcular_tarifa2">Autocalcular Tarifa Basica Mayor</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Saldo Promedio Extracto ($us.)</label>
                                                         <div class="col-sm-6">
                                                             <div class="input-append">
-                                                                <input autocomplete="false" type="number"
-                                                                       ng-model="user.saldo_promedio_extracto"
-                                                                       class="form-control" placeholder="0.00"
-                                                                       ng-change="updateChart()">
+                                                                <input autocomplete="false" type="number" step="0.01" ng-model="user.saldo_promedio_extracto" class="form-control" placeholder="0.00" ng-change="updateChart()">
               <span class="btn btn-primary add-on" ng-click="showExtractos()">
                 <i class="icon icon-calendar"></i>
               </span>
@@ -1136,8 +1023,7 @@
                                                                 <button class="button">{{ user.ciudad.name }}</button>
                                                                 <ul class="menu">
                                                                     <li ng-repeat="item in cities">
-                                                                        <a ng-click="changeCiudad(item)" href="">{{
-                                                                            item.name }}</a></li>
+                                                                        <a ng-click="changeCiudad(item)" href="">{{ item.name }}</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -1147,38 +1033,33 @@
                                                         <div class="col-sm-6">
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <input id="autocalcular_tarifa1" type="checkbox"
-                                                                   ng-model="user.autocalcular_tarifa_basica_mayor">
-                                                            <label for="autocalcular_tarifa1">Autocalcular Tarifa Basica
-                                                                Mayor</label>
+                                                            <input id="autocalcular_tarifa1" type="checkbox" ng-model="user.autocalcular_tarifa_basica_mayor">
+                                                            <label for="autocalcular_tarifa1">Autocalcular Tarifa Basica Mayor</label>
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="ingreso_solicitante" class="col-sm-6 control-label">Tarifa
-                                                            Básica Mayor</label>
+                                                        <label for="" class="col-sm-6 control-label">Tarifa Básica Mayor (Bs.)</label>
                                                         <div class="col-sm-6">
-                                                            <input autocomplete="false" type="number"
-                                                                   ng-model="user.tarifa_basica_mayor"
-                                                                   class="form-control" placeholder="0.00"
-                                                                   ng-change="updateChart()">
+                                                            <input autocomplete="false" type="number" step="0.01" ng-model="user.tarifa_basica_mayor" class="form-control" placeholder="0.00" ng-change="updateChart()">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group information-field">
+                                                        <label for="" class="col-sm-6 control-label">Capacidad Endeudamiento</label>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-info">{{ user.totalAdeudamiento }} Bs</div>
                                                         </div>
                                                     </div>
 
                                                 </form>
                                             </div>
 
-                                            <div class="col-sm-12 chart-area">
-                                                <div class="chart-container">
-
-                                                    <div google-chart chart="chart"
-                                                         style="width:100%; height:auto;"></div>
-
-                                                    <div class="calificacion"
-                                                         ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
-                                                        <div class="icon"></div>
-                                                        <h2>{{ user.califica_text }}</h2>
-                                                    </div>
+                                            <div class="col-md-4 col-centered">
+                                                <div class="calificacion" ng-class="{'califica': user.califica == true && user.calificable == true, 'nocalifica': user.califica == false && user.calificable == true}">
+                                                    <div class="icon"></div>
+                                                    <h2>{{ user.califica_text }}</h2>
                                                 </div>
                                             </div>
 
@@ -1199,16 +1080,10 @@
                                                                 <div class="menu">
                                                                     <table>
                                                                         <tr>
-                                                                            <th ng-repeat="column in plan_columns">{{
-                                                                                column.name }}
-                                                                            </th>
+                                                                            <th ng-repeat="column in plan_columns">{{ column.name }}</th>
                                                                         </tr>
-                                                                        <tr class="sub-item" ng-repeat="item2 in plans"
-                                                                            ng-click="changePlan($index, plan)"
-                                                                            ng-show="item2.tipo != ''">
-                                                                            <td ng-repeat="column in plan_columns"
-                                                                                ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{
+                                                                        <tr class="sub-item" ng-repeat="item2 in plans" ng-click="changePlan($index, plan)" ng-show="item2.tipo != ''">
+                                                                            <td ng-repeat="column in plan_columns" ng-class="{'menu-option': column.id == 'nombre'}">{{
                                                                                 item2[column.id] }}
                                                                             </td>
                                                                         </tr>
@@ -1218,8 +1093,7 @@
                                                         </td>
 
                                                         <td ng-repeat="aditional in aditional_plans">
-                                                            <div class="dropdown dropdown-toggle"
-                                                                 ng-class="{ 'active': (plan.aditionals[aditional.plan].nombre != 'Ninguno' && plan.aditionals[aditional.plan] != undefined) }">
+                                                            <div class="dropdown dropdown-toggle" ng-class="{ 'active': (plan.aditionals[aditional.plan].nombre != 'Ninguno' && plan.aditionals[aditional.plan] != undefined) }">
                                                                 <button class="button">
                                                                     <span class="title">{{ aditional.plan }}</span>
                                                                     <span class="value">{{ (plan.aditionals[aditional.plan].nombre != 'Ninguno') ? plan.aditionals[aditional.plan].nombre : '' }}</span>
@@ -1227,15 +1101,10 @@
                                                                 <div class="menu">
                                                                     <table>
                                                                         <tr>
-                                                                            <th ng-repeat="item in aditional.columns"
-                                                                                ng-bind-html="item.name"></th>
+                                                                            <th ng-repeat="item in aditional.columns" ng-bind-html="item.name"></th>
                                                                         </tr>
-                                                                        <tr ng-repeat="row in aditional.values"
-                                                                            class="sub-item"
-                                                                            ng-click="changeAddOn(plan, aditional, row)">
-                                                                            <td ng-repeat="column in aditional.columns"
-                                                                                ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{
+                                                                        <tr ng-repeat="row in aditional.values" class="sub-item" ng-click="changeAddOn(plan, aditional, row)">
+                                                                            <td ng-repeat="column in aditional.columns" ng-class="{'menu-option': column.id == 'nombre'}">{{
                                                                                 row[column.id] }}
                                                                             </td>
                                                                         </tr>
@@ -1247,9 +1116,7 @@
                                                         <td>
                                                             <div class="input">
                                                                 <div class="quantity-label">Cantidad</div>
-                                                                <input ng-model="plan.quantity" type="number"
-                                                                       class="quantity"
-                                                                       ng-change="reviewQuantity(plan)"/>
+                                                                <input ng-model="plan.quantity" type="number" step="0.01" class="quantity" ng-change="reviewQuantity(plan)"/>
                                                             </div>
                                                         </td>
 
@@ -1260,8 +1127,7 @@
                                                         </td>
 
                                                         <td>
-                                                            <i class="btn-x fa fa-trash-o"
-                                                               ng-click="removePlan($index)"></i>
+                                                            <i class="btn-x fa fa-trash-o" ng-click="removePlan($index)"></i>
                                                         </td>
                                                     </tr>
                                                     <tr class="last-row" ng-show="user.total > 0">
@@ -1275,7 +1141,7 @@
                                         </div>
 
 
-                                        <div class="col-lg-12 col-centered">
+                                        <div class="row col-lg-12 col-centered">
 
                                             <div class="form-group">
                                                 <!--<div class="col-sm-6">-->
@@ -1296,79 +1162,66 @@
                                                 <!--</div>-->
                                                 <!--</div>-->
                                                 <!--</div>-->
-                                                <div class="col-sm-2">
-                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan
-                                                    </button>
+                                                <div class="col-sm-12">
+                                                    <button class="btn-s green" ng-click="addPlan()">Añadir Plan</button>
                                                 </div>
                                             </div>
                                         </div>
 
+
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 chart-area col-centered">
+                                                <div class="chart-container">
+                                                    <!--<canvas class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-colors="colors" chart-options="options"></canvas>-->
+                                                    <div google-chart chart="chart" style="width:100%; height:auto;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                         <div class="row col-centered">
                                             <div class="col-lg-11 col-centered">
-                                                <h3 class="detalle_planes" ng-click="toggleCollapse()">Detalle Planes
-                                                    Elegidos
-                                                    <i class="detalle-icon-arrow"
-                                                       ng-class="{'collapsed': collapse}"></i></h3>
+                                                <h3 class="detalle_planes" ng-click="toggleCollapse()">Detalle Planes Elegidos
+                                                    <i class="detalle-icon-arrow" ng-class="{'collapsed': collapse}"></i></h3>
                                             </div>
                                         </div>
 
                                         <div class="row col-centered has-scroll">
 
-                                            <div class="col-lg-11 col-md-12 col-centered collapser"
-                                                 ng-class="{'collapsed': collapse}">
+                                            <div class="col-lg-11 col-md-12 col-centered collapser" ng-class="{'collapsed': collapse}">
 
-                                                <table class="table-detail" ng-repeat="plan in selected_plans track by $index">
-                                                    <tr>
-                                                        <td colspan="2" class="table-border-right">
-                                                            <table class="table-detail-internal1">
+                                                <table class="table-detail">
+                                                    <!--<tr ng-repeat="plan in selected_plans track by $index">
+                                                        <td>
+                                                            <table width="100%" class="table-detail-internal2 plan-table">
                                                                 <tr>
-                                                                    <td colspan="2" class="plan-title main">{{
-                                                                        plan.plan.nombre }} X {{ plan.quantity }}
+                                                                    <td colspan="2" class="plan-option main">{{ plan.plan.nombre }} <span class="red">x</span> {{
+                                                                        plan.quantity }}
                                                                     </td>
                                                                 </tr>
-
-                                                                <tr ng-repeat="column in plan_columns"
-                                                                    ng-show="column.id != 'name' && column.id != 'mensualidad'">
-                                                                    <td class="plan-option" width="50%">
-                                                                        {{ column.name }}
-                                                                    </td>
-                                                                    <td class="plan-title" width="50%"
-                                                                        ng-bind="plan.plan[column.id]"></td>
-                                                                </tr>
-
                                                                 <tr>
-                                                                    <td class="plan-option" width="50%">Tarifa del
-                                                                        plan
-                                                                    </td>
-                                                                    <td class="plan-title" width="50%">{{ totalRow(plan)
-                                                                        }} Bs
-                                                                    </td>
+                                                                    <td class="plan-option">Tarifa del plan</td>
+                                                                    <td class="plan-title plan-total">{{ totalRow(plan) }} Bs</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
                                                         <td>
-                                                            <table class="table-detail-internal2"
-                                                                   ng-repeat="item in plan.aditionals"
-                                                                   ng-show="item != null">
+                                                            <table class="table-detail-internal2 addon-detail" ng-repeat="item in plan.aditionals" ng-show="item != null">
                                                                 <tr>
-                                                                    <th ng-repeat="column in item.columns">{{
-                                                                        column.name }}
-                                                                    </th>
+                                                                    <th ng-repeat="column in item.columns" width="10%">{{ column.name }}</th>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td ng-repeat="column in item.columns">{{
-                                                                        item[column.id] }}
-                                                                    </td>
+                                                                    <td ng-repeat="column in item.columns" width="10%">{{ item[column.id] }}</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
-                                                    </tr>
+                                                    </tr>-->
 
-                                                    <tr>
+                                                    <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
                                                             <div class="container-total">
                                                                 <div class="box-total">
-                                                                    <div class="box-title">{{ plan.plan.nombre }} X {{ plan.quantity }}</div>
+                                                                    <div class="box-title">{{ plan.plan.nombre }} <span class="red">x</span> {{ plan.quantity }}</div>
                                                                     <div class="box-value">{{ plan.plan.mensual }}</div>
                                                                 </div>
                                                                 <div class="box-total" ng-repeat="item in plan.aditionals">
@@ -1388,6 +1241,7 @@
                                                     </tr>
                                                 </table>
 
+
                                                 <div class="container-total total" align="right">
                                                     <div class="box-total">
                                                         <div class="box-title" align="right">TOTAL</div>
@@ -1397,7 +1251,9 @@
                                             </div>
 
                                         </div>
+
                                     </div>
+
                                 </div>
 
                             </div>

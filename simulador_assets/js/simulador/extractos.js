@@ -38,7 +38,8 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
         saldo_promedio_extracto: '',
         ciudad: $scope.cities[0],
         autocalcular_tarifa_basica_mayor: true,
-        tipo_cambio: 6.96
+        tipo_cambio: 6.96,
+        totalAdeudamiento: ''
     };
 
     $scope.chart = {};
@@ -93,7 +94,8 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
     $scope.selected_plans = [];
 
 
-    $scope.fechaInicio = moment().subtract(62, "days").format();
+    //$scope.fechaInicio = moment().subtract(62, "days").format();
+    $scope.fechaInicio = moment().format();
 
     // date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate()+i);
     //
@@ -110,6 +112,8 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
     $scope.searchCRM = function () {
 
+        $('.pre_load3').show();
+
         service.searchCRM({
 
             document_type: $scope.user.document_type.id,
@@ -117,9 +121,11 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
         }, function (result) {
 
+            $('.pre_load3').hide();
+
             if (result.status == 'success') {
 
-                if (result.data.message == '') {
+                if ( result.data.message == '' ) {
 
                     ngDialog.open({
                         template: 'modalMessage.html',
@@ -142,6 +148,8 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
             }
 
         }, function () {
+
+            $('.pre_load3').hide();
         });
     };
 
@@ -158,10 +166,24 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                 controller: ['$scope', function ($scope) {
                     $scope.title = 'Extractos';
-                    $scope.message = 'Calculo de extracto bancario de los 2 ultimos meses';
+                    $scope.message = 'Calculo de extracto bancario';
 
-                    $scope.fechaInicio = $scope.$parent.fechaInicio;
+                    $scope.fechaInicio =  $scope.$parent.fechaInicio;
+
                     $scope.extractos = $scope.$parent.extractos;
+
+                    $scope.date_type = [
+                        {
+                            id: '2_months',
+                            name: '2 Ultimos meses'
+                        },
+                        {
+                            id: '60_days',
+                            name: '60 Ultimos dias'
+                        }
+                    ];
+
+                    $scope.selected_date_type = '2_months';
 
                     $scope.currency = [
                         {
@@ -174,7 +196,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                         }
                     ];
 
-                    $scope.selected_currency = $scope.currency[0];
+                    $scope.selected_currency =  $scope.currency[0];
 
                     $scope.changeFechaInicio = function(date_test) {
 
@@ -183,25 +205,60 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                         $scope.extractos = [];
 
 
-                        for ( var i = 0; i <= 61; i ++ ) {
+                        if ($scope.selected_date_type == '60_days') {
 
-                            if ( date_test == undefined ) {
+                            for ( var i = 0; i >= -60; i -- ) {
 
-                                date2 = moment($scope.fechaInicio, "DD/MM/YYYY").toDate();
+                                if ( date_test == undefined ) {
 
-                                date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate()+i);
+                                    date2 = moment().toDate();
 
-                            } else {
+                                    date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
 
-                                date = new Date(date_test.getFullYear(), date_test.getMonth(), date_test.getDate()+i);
+                                } else {
+
+                                    date_test = moment(date_test, "DD/MM/YYYY").toDate();
+
+                                    date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
+                                }
+
+                                var dt = moment(date).format("dddd");
+
+                                $scope.extractos.push({
+                                    day: dt + " - " + date.getDate() + '/' + (date.getMonth()) + '/' + date.getFullYear(),
+                                    date: date,
+                                    value: ''
+                                });
                             }
 
-                            $scope.extractos.push({
-                                day: date.getDate() + '/' + (date.getMonth()) + '/' + date.getFullYear(),
-                                date: date,
-                                value: ''
-                            });
+                        } else if ($scope.selected_date_type == '2_months') {
+
+                            date_test = moment(month_end, "DD/MM/YYYY").toDate();
+
+                            for ( var i = 0; i >= -60; i -- ) {
+
+                                if ( date_test == undefined ) {
+
+                                    date2 = moment($scope.fechaInicio, "DD/MM/YYYY").toDate();
+
+                                    date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
+
+                                } else {
+
+                                    date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
+                                }
+
+                                var dt = moment(date).format("dddd");
+
+                                $scope.extractos.push({
+                                    day: dt + " - " + date.getDate() + '/' + (date.getMonth()) + '/' + date.getFullYear(),
+                                    date: date,
+                                    value: ''
+                                });
+                            }
                         }
+
+                        console.log($scope.selected_date_type + " - " + date_test);
                     };
 
                     setTimeout(function() {
@@ -227,8 +284,10 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                                 date2 = new Date($scope.fechaInicio, "DD/MM/YYYY");
                                 date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
 
+                                var dt = moment(date).format("dddd");
+
                                 $scope.extractos.push({
-                                    day: date.getDate() + ' / ' + date.getMonth() + ' / ' + date.getFullYear(),
+                                    day: dt + " - " + date.getDate() + ' / ' + date.getMonth() + 1 + ' / ' + date.getFullYear(),
                                     date: date,
                                     value: ''
                                 });
@@ -359,28 +418,28 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
         $scope.data = [$scope.user.saldo_promedio_extracto, totalAmount, $scope.user.ingreso];
 
 
-
         $scope.chart.data = {"cols": [
             {id: "t", label: "Topping", type: "string"},
             {id: "s", label: "Slices", type: "number"}
         ], "rows": [
             {c: [
-                {v: "Endeudamiento"},
+                {v: "Endeudamiento (" + $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio + ")"},
                 {v: $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio}
             ]},
             {c: [
-                {v: "Monto a Pagar"},
+                {v: "Monto a Pagar (" + totalAmount + ")"},
                 {v: totalAmount}
             ]},
             {c: [
-                {v: "Ingresos"},
+                {v: "Ingresos (" + $scope.user.ingreso + ")"},
                 {v: $scope.user.ingreso}
             ]}
         ]};
 
 
-
         diferencia = saldo_promedio_extracto - tarifaViva;
+
+        $scope.user.totalAdeudamiento = $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio;
 
         if (diferencia >= 0) {
 

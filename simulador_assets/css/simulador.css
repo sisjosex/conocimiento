@@ -211,3 +211,34 @@
     background: #c2d544;
     color: #000;
 }
+
+
+
+.table-title {
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.dialog-full th {
+    font-size: 10px;
+}
+
+.dialog-full .ngdialog-content {
+    overflow: scroll;
+}
+
+.information-field .input-info {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.box-title {
+    font-size: 13px;
+}
+
+
+td.marca {
+    background: yellow;
+}
