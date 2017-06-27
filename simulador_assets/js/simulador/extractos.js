@@ -213,7 +213,9 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                                     date2 = moment().toDate();
 
-                                    date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
+                                    //date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
+
+                                    date = moment(date2).subtract(Math.abs(i), 'days').toDate();
 
                                 } else {
 
@@ -242,7 +244,9 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                                     date2 = moment($scope.fechaInicio, "DD/MM/YYYY").toDate();
 
-                                    date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
+                                    //date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
+
+                                    date = moment(date2).subtract(Math.abs(i), 'days').toDate();
 
                                 } else {
 
