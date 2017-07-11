@@ -1,0 +1,32 @@
+﻿cordova create viva_mobile com.viva.home VivaMobile
+cd viva_mobile
+cordova platform add android
+cordova run android  or  cordova build android
+
+---------------------REQUIRED----------------------
+
+cordova plugin add cordova-plugin-whitelist
+cordova plugin add cordova-plugin-inappbrowser
+cordova plugin add org.apache.cordova.device
+cordova plugin add cordova-plugin-network-information
+
+cordova plugin add cordova-plugin-file-transfer     �
+cordova plugin add org.apache.cordova.file-transfer
+cordova plugin add com.hutchind.cordova.plugins.streamingmedia   
+
+
+//http://phonegap-plugins.com/plugins/nchutchind/streaming-media-cordova-plugin
+
+ http://stackoverflow.com/questions/12661031/how-to-hide-a-status-bar-in-ios
+
+
+Deploy android:
+sudo cordova build android --release
+(only first time)
+keytool -genkey -v -keystore android_app.keystore -alias myname -keyalg RSA -keysize 2048 -validity 10000
+alias: myname
+passs: 5292774
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore android_app.keystore /www/mobile/conocimiento/platforms/android/build/outputs/apk/android-release-unsigned.apk myname
+// locate zipalign
+/android-sdk-macosx/build-tools/23.0.2/zipalign -v 4 /www/mobile/conocimiento/platforms/android/build/outputs/apk/android-release-unsigned.apk viva.apk

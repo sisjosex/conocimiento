@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09452106-0e6b-42cc-a4a4-d3b4196fb8ac" name="Default" comment="" />
+    <list default="true" id="09452106-0e6b-42cc-a4a4-d3b4196fb8ac" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tools/simulador2.html" afterPath="$PROJECT_DIR$/views/tools/simulador2.html" />
+    </list>
     <list id="d874e604-b592-48c7-a46f-f7b2a30b1134" name="ignore" comment="" />
     <ignored path="www.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,113 +33,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ingresos.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="332" column="20" selection-start-line="332" selection-start-column="20" selection-end-line="332" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="extractos.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="219" column="81" selection-start-line="219" selection-start-column="71" selection-end-line="219" selection-end-column="81" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-31.423077">
-              <caret line="7676" column="0" selection-start-line="7676" selection-start-column="0" selection-end-line="7676" selection-end-column="0" />
-              <folding>
-                <element signature="e#11168#11831#2" expanded="true" />
-                <element signature="e#15350#16013#2" expanded="true" />
-                <element signature="e#17342#18005#2" expanded="true" />
-                <element signature="e#20004#20667#2" expanded="true" />
-                <element signature="e#22702#23365#2" expanded="true" />
-                <element signature="e#34889#35552#2" expanded="true" />
-                <element signature="e#36651#37314#2" expanded="true" />
-                <element signature="e#39308#39971#2" expanded="true" />
-                <element signature="e#41315#41978#2" expanded="true" />
-                <element signature="e#43025#43688#2" expanded="true" />
-                <element signature="e#50909#51572#2" expanded="true" />
-                <element signature="e#53103#53766#2" expanded="true" />
-                <element signature="e#54943#55606#2" expanded="true" />
-                <element signature="e#68906#69569#2" expanded="true" />
-                <element signature="e#70835#71498#2" expanded="true" />
-                <element signature="e#72587#73250#2" expanded="true" />
-                <element signature="e#74402#75065#2" expanded="true" />
-                <element signature="e#81489#82152#2" expanded="true" />
-                <element signature="e#83534#84197#2" expanded="true" />
-                <element signature="e#91908#92571#2" expanded="true" />
-                <element signature="e#129407#130070#2" expanded="true" />
-                <element signature="e#131592#132255#2" expanded="true" />
-                <element signature="e#212641#213304#2" expanded="true" />
-                <element signature="e#215013#215676#2" expanded="true" />
-                <element signature="e#221737#222400#2" expanded="true" />
-                <element signature="e#223451#224114#2" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="32.576923">
-              <caret line="68" column="69" selection-start-line="68" selection-start-column="69" selection-end-line="68" selection-end-column="69" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tools.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js/main/tools.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34495413">
-              <caret line="364" column="69" selection-start-line="364" selection-start-column="18" selection-end-line="364" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ngDatepicker.min.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="204" selection-start-line="0" selection-start-column="204" selection-end-line="0" selection-end-column="204" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="moment.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulador_assets/js/moment.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4554" column="0" selection-start-line="4554" selection-start-column="0" selection-end-line="4554" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="simulador2.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="simulador2.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/tools/simulador2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.4192496">
+              <caret line="1130" column="98" selection-start-line="1130" selection-start-column="98" selection-end-line="1130" selection-end-column="98" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -148,26 +51,6 @@
                 <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/services.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="simulador.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/simulador_assets/css/simulador.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-31.423077">
-              <caret line="243" column="1" selection-start-line="243" selection-start-column="1" selection-end-line="243" selection-end-column="1" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -221,17 +104,17 @@
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/requisitos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/plan_pagos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos_ingresos.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js" />
         <option value="$PROJECT_DIR$/simulador_assets/css/style.css" />
         <option value="$PROJECT_DIR$/simulador_assets/css/simulador.css" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/services.js" />
-        <option value="$PROJECT_DIR$/views/tools/simulador2.html" />
         <option value="$PROJECT_DIR$/simulador_assets/js/moment.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js" />
         <option value="$PROJECT_DIR$/js/main/tools.js" />
         <option value="$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/views/tools/simulador2.html" />
       </list>
     </option>
   </component>
@@ -275,8 +158,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -401,6 +282,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -745,11 +628,10 @@
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15522175" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24466951" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2636656" sideWeight="0.41791046" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2629834" sideWeight="0.41791046" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36685082" sideWeight="0.58208954" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32583067" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29764453" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -762,6 +644,7 @@
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25303867" sideWeight="0.58208954" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -893,7 +776,6 @@
           <caret line="286" column="69" selection-start-line="286" selection-start-column="69" selection-end-line="286" selection-end-column="69" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -912,7 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,7 +825,6 @@
           <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -1224,7 +1104,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1232,7 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1240,61 +1118,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="273" column="59" selection-start-line="273" selection-start-column="59" selection-end-line="273" selection-end-column="59" />
-          <folding>
-            <marker date="1498574286061" expanded="true" signature="213:393" placeholder="[...]" />
-            <marker date="1498574286061" expanded="true" signature="484:568" placeholder="[...]" />
-            <marker date="1498574286061" expanded="true" signature="14503:15775" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="14534:14610" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="14616:14706" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="15154:15617" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="15239:15410" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="15416:15606" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="15623:15769" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="15821:16043" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="15887:16012" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="15936:16002" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="16090:16339" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="16165:16308" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="16223:16298" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="16387:16637" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="16462:16606" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="16520:16596" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="16680:16732" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="16782:17065" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="16821:16874" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="16912:16965" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="17003:17059" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="17105:17140" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="17183:17228" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="17275:17438" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="17358:17401" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="17488:17568" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="17628:17915" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="17668:17733" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="17739:17878" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="17956:18379" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="18044:18282" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="18161:18203" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="18423:19305" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="18474:19297" placeholder="{&quot;template&quot;: 'modalConfirm.html'...}" />
-            <marker date="1498574286061" expanded="true" signature="18714:19283" placeholder="[...]" />
-            <marker date="1498574286061" expanded="true" signature="18743:19282" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="18935:19137" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="19188:19262" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="19349:19394" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="19441:19529" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="19574:19641" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="19681:20546" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="19717:19765" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="19796:20267" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="19825:20254" placeholder="{&quot;template&quot;: 'modalMessage.html'...}" />
-            <marker date="1498574286061" expanded="true" signature="19955:20240" placeholder="[...]" />
-            <marker date="1498574286061" expanded="true" signature="19984:20239" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="20146:20220" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="20273:20540" placeholder="{...}" />
-            <marker date="1498574286061" expanded="true" signature="20315:20418" placeholder="{&quot;quantity&quot;: 1...}" />
-            <marker date="1498574286061" expanded="true" signature="20932:21019" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1306,9 +1129,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/css/simulador.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="243" column="1" selection-start-line="243" selection-start-column="1" selection-end-line="243" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/services.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/moment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6651481">
+          <caret line="4517" column="26" selection-start-line="4517" selection-start-column="26" selection-end-line="4517" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="204" selection-start-line="0" selection-start-column="204" selection-end-line="0" selection-end-column="204" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main/tools.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.019362187">
+          <caret line="376" column="31" selection-start-line="376" selection-start-column="31" selection-end-line="376" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80046946">
+          <caret line="140" column="45" selection-start-line="140" selection-start-column="45" selection-end-line="140" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/simulador_assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.423077">
+        <state vertical-scroll-proportion="0.8802817">
           <caret line="7676" column="0" selection-start-line="7676" selection-start-column="0" selection-end-line="7676" selection-end-column="0" />
           <folding>
             <element signature="e#11168#11831#2" expanded="true" />
@@ -1341,29 +1214,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/css/simulador.css">
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.423077">
-          <caret line="243" column="1" selection-start-line="243" selection-start-column="1" selection-end-line="243" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.019362187">
+          <caret line="227" column="69" selection-start-line="227" selection-start-column="69" selection-end-line="227" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/services.js">
+    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="54" selection-start-line="39" selection-start-column="54" selection-end-line="39" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.019362187">
+          <caret line="332" column="20" selection-start-line="332" selection-start-column="20" selection-end-line="332" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/tools/simulador2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4192496">
+          <caret line="1130" column="98" selection-start-line="1130" selection-start-column="98" selection-end-line="1130" selection-end-column="98" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -1375,56 +1247,6 @@
             <element signature="n#style#0;n#div#4;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/ingresos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="332" column="20" selection-start-line="332" selection-start-column="20" selection-end-line="332" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/simulador/extractos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="219" column="81" selection-start-line="219" selection-start-column="71" selection-end-line="219" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="32.576923">
-          <caret line="68" column="69" selection-start-line="68" selection-start-column="69" selection-end-line="68" selection-end-column="69" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#9;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/moment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4554" column="0" selection-start-line="4554" selection-start-column="0" selection-end-line="4554" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/simulador_assets/js/ngDatepicker.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="204" selection-start-line="0" selection-start-column="204" selection-end-line="0" selection-end-column="204" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main/tools.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34495413">
-          <caret line="364" column="69" selection-start-line="364" selection-start-column="18" selection-end-line="364" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>

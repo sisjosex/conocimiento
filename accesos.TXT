@@ -1,0 +1,37 @@
+USERS WEB
+---------
+https://conocimiento.nuevatel.com/
+
+usuario: admin
+contrase�a: Adove70390768
+
+Usuario: jocamacho
+Password: Nuevatel2016
+ 
+Usuario: wvillca               
+Password: Wicalob007
+
+
+ACCESOS A VPN
+-------------
+
+https://secure.nuevatel.com/viva
+
+owperedo
+Skyl0g2016n3t
+
+
+ACCESO SSH:
+----------
+
+IP: 10.40.20.102
+
+Usuario ADM: root
+Password: Temporal22X
+
+Usuario APP: ptaprod
+Password: Nuevatel2014AA
+
+
+/var/www/siscon/
+touch tmp/restart.txt
