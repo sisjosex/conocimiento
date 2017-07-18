@@ -50,6 +50,7 @@ function onOnline() {
 }
 
 function init_app_global(){
+
     _init_app_global = true;
     if(typeof device != "undefined"){
         info_device = {
@@ -127,15 +128,32 @@ function init_app_global(){
     };
 
     // Show Error 500
+    var firstTime = true;
     window.show_error_500 = function(code){
-        var message = 'La aplicacion no pudo conectarse al servidor, posiblemente no esta conectado a una red movil o wifi.';
-        switch (parseInt(code)){
-            case 500:
-                message = 'Ocurrio un error en el servidor, contactese con el administrador'
-                break;
+
+        if (firstTime) {
+
+            window.location.href = 'index.html';
+
+            firstTime = false;
+
+            localStorage.removeItem('current_site');
+            localStorage.removeItem('current_user');
+            localStorage.removeItem('guid');
+            localStorage.removeItem('permissions_site');
+            localStorage.removeItem('session_expired');
+
+        } else {
+
+            var message = 'La aplicacion no pudo conectarse al servidor, posiblemente no esta conectado a una red movil o wifi.';
+            switch (parseInt(code)){
+                case 500:
+                    message = 'Ocurrio un error en el servidor, contactese con el administrador'
+                    break;
+            }
+            App.Home.route("error_500");
+            App.Error500.message(message);
         }
-        App.Home.route("error_500");
-        App.Error500.message(message);
     };
     // Show page message server
     window.show_message = function(message){
