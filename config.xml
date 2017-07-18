@@ -4,12 +4,12 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.viva.concimiento"
-        versionCode = "0.1.4"
-        android-versionCode="0.1.4"
-        version 	= "0.1.4">
+        versionCode = "0.1.5"
+        android-versionCode="0.1.5"
+        version 	= "0.1.5">
 
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
-        <string>104</string>
+        <string>105</string>
     </gap:config-file>
 
     <name>Sistema de Conocimiento</name>
@@ -23,7 +23,7 @@
     </author>
 
     <preference name="android-build-tool" value="gradle" />
-    <preference name="android-targetSdkVersion" value="21" />
+    <preference name="android-targetSdkVersion" value="23" />
     <preference name="android-minSdkVersion" value="21" />
 
     <!--
