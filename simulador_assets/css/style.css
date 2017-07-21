@@ -7674,3 +7674,7 @@ body, #box-content {
     background: #c2d544;
     color: #000;
 }
+
+.control-label-info {
+    color: #7a68ae;
+}
