@@ -231,7 +231,11 @@
 .information-field .input-info {
     font-size: 20px;
     font-weight: bold;
-    text-align: left;
+    text-align: center;
+}
+
+.simulador .options {
+    text-align: center;
 }
 
 .box-title {
@@ -241,4 +245,27 @@
 
 td.marca {
     background: yellow;
+}
+
+.table-detail-internal3 th {
+    background: #b4a9d5 !important;
+    color: #fff !important;
+    border: solid 1px #7a68ae;
+}
+
+.box-total2 {
+    display: table;
+    width: 100%;
+}
+
+.box-title2 {
+    display: table-cell;
+    width: 50%;
+    text-align: right;
+}
+
+.box-value2 {
+    display: table-cell;
+    width: 50%;
+    text-align: right;
 }

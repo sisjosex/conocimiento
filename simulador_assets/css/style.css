@@ -7624,6 +7624,7 @@ body, #box-content {
     font-weight: bold;
     background: #c2d544;
     width: 100%;
+    text-align: right;
 }
 
 .container-total.total {

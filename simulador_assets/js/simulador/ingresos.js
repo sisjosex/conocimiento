@@ -86,6 +86,20 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
         message: ''
     };
 
+
+    $scope.show_suscribers = {};
+    $scope.mostrarSuscriptor = function(group_id) {
+
+        console.log($scope.show_suscribers);
+
+        if ($scope.show_suscribers[group_id] == undefined) {
+
+            $scope.show_suscribers[group_id] = false;
+        }
+
+        $scope.show_suscribers[group_id] = !$scope.show_suscribers[group_id];
+    };
+
     $scope.searchCRM = function () {
 
         $('.pre_load3').show();

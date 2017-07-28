@@ -50,7 +50,8 @@
                                                 <form class="form-horizontal form-simulador">
 
                                                     <div class="form-group">
-                                                        <label for="" class="col-sm-6 control-label">Es cliente nuevo?</label>
+                                                        <label for="" class="col-sm-6 control-label">Es cliente
+                                                            nuevo?</label>
                                                         <div class="col-sm-6">
                                                             <div class="options">
                                                                 <span ng-class="{'active': user.subscriptor}"
@@ -91,7 +92,172 @@
                                                         <div class="col-lg-12" ng-show="crm.message != ''">
                                                             <div class="col-lg-12">
                                                                 <h1>{{ crm.title }}</h1>
-                                                                <p ng-bind-html="crm.message"></p>
+
+                                                                <div ng-repeat="group in crm.message">
+
+                                                                    <h5><b>Cliente ({{ group.id_cliente }}) {{
+                                                                        group.nombre_cliente }}</b></h5>
+                                                                    <h5><b>Carnet: {{ group.numero_documento }}</b></h5>
+
+                                                                    <div class="row"
+                                                                         ng-repeat="comunity in group.comunities">
+                                                                        <h5><b>Comunidad {{ comunity.id_grupo }}</b>
+                                                                        </h5>
+                                                                        <div class="col-lg-12">
+                                                                            <table width="100%"
+                                                                                   class="table-detail-internal2 plan-table">
+                                                                                <tr>
+                                                                                    <th align="left"
+                                                                                        class="plan-option"><b>Datos
+                                                                                        Comunidad</b></th>
+                                                                                    <td align="left">
+                                                                                        Tipo: {{ comunity.tipo_comunidad
+                                                                                        }} <br>
+                                                                                        Estado: {{ comunity.estado }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Ciudad
+                                                                                        Factura</b></th>
+                                                                                    <td align="left">{{
+                                                                                        comunity.ciudad_factura }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Cantidad
+                                                                                        de Lineas</b></th>
+                                                                                    <td align="left">{{
+                                                                                        comunity.cantidad_unidades }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Facturas
+                                                                                        Vigentes</b></th>
+                                                                                    <td align="left">{{
+                                                                                        comunity.facturas_vigentes }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Mora
+                                                                                        Ultimos 6 meses</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.mora_ultimos_6_meses
+                                                                                        }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Fecha
+                                                                                        ultima mora</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.fecha_ultima_mora }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Deuda
+                                                                                        Total (Bs)</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.deuda_total }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                            <p style="color:red"
+                                                                               ng-show="comunity.mora_message != '">
+                                                                                <b style="color:red"
+                                                                                   class="{{ comunity.mora_ultimos_6_meses_class }}">{{
+                                                                                    comunity.mora_message }}</b></p>
+                                                                        </div>
+
+
+                                                                        <h5 ng-show="comunity.suscribers.length > 0">
+                                                                            <a ng-click="mostrarSuscriptor(comunity.id_grupo)"><b>Suscriptores (Mostrar)</b></a>
+                                                                        </h5>
+
+                                                                        <div ng-show="show_suscribers[comunity.id_grupo] == true">
+
+                                                                            <div class="col-lg-12">
+                                                                                <table ng-repeat="suscriber in comunity.suscribers"
+                                                                                       width="100%"
+                                                                                       class="table-detail-internal3 addon-detail">
+
+                                                                                    <tr>
+                                                                                        <th colspan="2">
+                                                                                            {{
+                                                                                            suscriber.nombre_suscriptor
+                                                                                            }} <br>
+                                                                                            Linea: {{
+                                                                                            suscriber.identificador_unidad
+                                                                                            }}
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Estado Unidad</th>
+                                                                                        <td>{{ suscriber.estado }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Facturas Vigentes</th>
+                                                                                        <td>{{
+                                                                                            suscriber.facturas_vigentes
+                                                                                            }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Deuda Total</th>
+                                                                                        <td>{{ suscriber.deuda_total
+                                                                                            }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td align="left" colspan="2">
+                                                                                            <b>Plan Base:</b> {{
+                                                                                            suscriber.nombre_plan }}
+                                                                                            <br>
+                                                                                            <b>Datos:</b> {{
+                                                                                            suscriber.componente_datos
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_base_datos
+                                                                                            }}) <br>
+                                                                                            <b>Minutos:</b> {{
+                                                                                            suscriber.componente_minutos
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_componente_minutos
+                                                                                            }}) <br>
+                                                                                            <b>Credito:</b> {{
+                                                                                            suscriber.componente_credito
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_base_credito
+                                                                                            }}) <br>
+                                                                                            <b>Grupo Amigo:</b> {{
+                                                                                            suscriber.componente_grupo_amigo
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_basica_grupo_amigo
+                                                                                            }}) <br>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr height="15"></tr>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -325,35 +491,44 @@
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
                                                             <div class="container-total">
-                                                                <div class="box-total">
-                                                                    <div class="box-title">{{ plan.plan.nombre }} <span
-                                                                            class="red">x</span> {{ plan.quantity }}
-                                                                    </div>
-                                                                    <div class="box-value">{{ plan.plan.mensual }}</div>
-                                                                </div>
-
-                                                                <div class="box-total"
-                                                                     ng-repeat="item in plan.aditionals">
-                                                                    <div class="box-title"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'nombre'">{{ item.nombre
-                                                                        }}
-                                                                    </div>
-                                                                    <div class="box-value"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'mensual'">{{
-                                                                        item[column.id] }}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="box-total">
-                                                                    <div class="box-title" align="right">Tarifa del
-                                                                        plan
-                                                                    </div>
-                                                                    <div class="box-value" align="right">{{
-                                                                        totalRow(plan) }} Bs
+                                                                <div class="box-detail">
+                                                                    <div class="box-total box-total2">
+                                                                        <div class="box-title box-title2">{{
+                                                                            plan.plan.nombre }}
+                                                                        </div>
+                                                                        <div class="box-value box-value2">{{
+                                                                            plan.quantity }} Bs
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+                                                            <div class="box-detail">
+                                                                <div class="box-total box-total2"
+                                                                     ng-repeat="item in plan.aditionals">
+                                                                    <div class="box-title box-title2"
+                                                                         ng-repeat="column in item.columns"
+                                                                         ng-show="column.id == 'nombre'">{{
+                                                                        item.nombre
+                                                                        }}
+                                                                    </div>
+                                                                    <div class="box-value box-value2"
+                                                                         ng-repeat="column in item.columns"
+                                                                         ng-show="column.id == 'mensual'">{{
+                                                                        item[column.id] }} Bs
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="box-total">
+                                                                <!--<div class="box-title" align="right">Tarifa del-->
+                                                                <!--plan-->
+                                                                <!--</div>-->
+                                                                <div class="box-value" align="right">{{
+                                                                    totalRow(plan) }} Bs
+                                                                </div>
+                                                            </div>
+                                                            <br>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -380,7 +555,8 @@
                                                 <form class="form-horizontal form-simulador">
 
                                                     <div class="form-group">
-                                                        <label for="" class="col-sm-6 control-label">Es cliente nuevo?</label>
+                                                        <label for="" class="col-sm-6 control-label">Es cliente
+                                                            nuevo?</label>
                                                         <div class="col-sm-6">
                                                             <div class="options">
                                                                 <span ng-class="{'active': user.subscriptor}"
@@ -419,12 +595,174 @@
                                                         </div>
 
                                                         <div class="col-lg-12" ng-show="crm.message != ''">
-                                                            <!--<div class="col-lg-4">-->
-                                                            <!--<%= image_tag 'warning.png', width: 100, height: 'auto' %>-->
-                                                            <!--</div>-->
                                                             <div class="col-lg-12">
                                                                 <h1>{{ crm.title }}</h1>
-                                                                <p ng-bind-html="crm.message"></p>
+
+                                                                <div ng-repeat="group in crm.message">
+
+                                                                    <h5><b>Cliente ({{ group.id_cliente }}) {{
+                                                                        group.nombre_cliente }}</b></h5>
+                                                                    <h5><b>Carnet: {{ group.numero_documento }}</b></h5>
+
+                                                                    <div class="row"
+                                                                         ng-repeat="comunity in group.comunities">
+                                                                        <h5><b>Comunidad {{ comunity.id_grupo }}</b>
+                                                                        </h5>
+                                                                        <div class="col-lg-12">
+                                                                            <table width="100%"
+                                                                                   class="table-detail-internal2 plan-table">
+                                                                                <tr>
+                                                                                    <th align="left"
+                                                                                        class="plan-option"><b>Datos
+                                                                                        Comunidad</b></th>
+                                                                                    <td align="left">
+                                                                                        Tipo: {{ comunity.tipo_comunidad
+                                                                                        }} <br>
+                                                                                        Estado: {{ comunity.estado }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Ciudad
+                                                                                        Factura</b></th>
+                                                                                    <td align="left">{{
+                                                                                        comunity.ciudad_factura }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Cantidad
+                                                                                        de Lineas</b></th>
+                                                                                    <td align="left">{{
+                                                                                        comunity.cantidad_unidades }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Facturas
+                                                                                        Vigentes</b></th>
+                                                                                    <td align="left">{{
+                                                                                        comunity.facturas_vigentes }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Mora
+                                                                                        Ultimos 6 meses</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.mora_ultimos_6_meses
+                                                                                        }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Fecha
+                                                                                        ultima mora</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.fecha_ultima_mora }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Deuda
+                                                                                        Total (Bs)</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.deuda_total }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                            <p style="color:red"
+                                                                               ng-show="comunity.mora_message != '">
+                                                                                <b style="color:red"
+                                                                                   class="{{ comunity.mora_ultimos_6_meses_class }}">{{
+                                                                                    comunity.mora_message }}</b></p>
+                                                                        </div>
+
+
+                                                                        <h5 ng-show="comunity.suscribers.length > 0">
+                                                                            <a ng-click="mostrarSuscriptor(comunity.id_grupo)"><b>Suscriptores (Mostrar)</b></a>
+                                                                        </h5>
+
+                                                                        <div ng-show="show_suscribers[comunity.id_grupo] == true">
+
+                                                                            <div class="col-lg-12">
+                                                                                <table ng-repeat="suscriber in comunity.suscribers"
+                                                                                       width="100%"
+                                                                                       class="table-detail-internal3 addon-detail">
+
+                                                                                    <tr>
+                                                                                        <th colspan="2">
+                                                                                            {{
+                                                                                            suscriber.nombre_suscriptor
+                                                                                            }} <br>
+                                                                                            Linea: {{
+                                                                                            suscriber.identificador_unidad
+                                                                                            }}
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Estado Unidad</th>
+                                                                                        <td>{{ suscriber.estado }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Facturas Vigentes</th>
+                                                                                        <td>{{
+                                                                                            suscriber.facturas_vigentes
+                                                                                            }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Deuda Total</th>
+                                                                                        <td>{{ suscriber.deuda_total
+                                                                                            }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td align="left" colspan="2">
+                                                                                            <b>Plan Base:</b> {{
+                                                                                            suscriber.nombre_plan }}
+                                                                                            <br>
+                                                                                            <b>Datos:</b> {{
+                                                                                            suscriber.componente_datos
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_base_datos
+                                                                                            }}) <br>
+                                                                                            <b>Minutos:</b> {{
+                                                                                            suscriber.componente_minutos
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_componente_minutos
+                                                                                            }}) <br>
+                                                                                            <b>Credito:</b> {{
+                                                                                            suscriber.componente_credito
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_base_credito
+                                                                                            }}) <br>
+                                                                                            <b>Grupo Amigo:</b> {{
+                                                                                            suscriber.componente_grupo_amigo
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_basica_grupo_amigo
+                                                                                            }}) <br>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr height="15"></tr>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -631,7 +969,7 @@
                                                  ng-class="{'collapsed': collapse}">
 
                                                 <table class="table-detail">
-                                                    <tr ng-repeat="plan in selected_plans track by $index">
+                                                    <!--<tr ng-repeat="plan in selected_plans track by $index">
                                                         <td>
                                                             <table width="100%"
                                                                    class="table-detail-internal2 plan-table">
@@ -666,39 +1004,49 @@
                                                                 </tr>
                                                             </table>
                                                         </td>
-                                                    </tr>
+                                                    </tr>-->
 
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
                                                             <div class="container-total">
-                                                                <div class="box-total">
-                                                                    <div class="box-title">{{ plan.plan.nombre }} <span
-                                                                            class="red">x</span> {{ plan.quantity }}
-                                                                    </div>
-                                                                    <div class="box-value">{{ plan.plan.mensual }}</div>
-                                                                </div>
-                                                                <div class="box-total"
-                                                                     ng-repeat="item in plan.aditionals">
-                                                                    <div class="box-title"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'nombre'">{{ item.nombre
-                                                                        }}
-                                                                    </div>
-                                                                    <div class="box-value"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'mensual'">{{
-                                                                        item[column.id] }}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="box-total">
-                                                                    <div class="box-title" align="right">Tarifa del
-                                                                        plan
-                                                                    </div>
-                                                                    <div class="box-value" align="right">{{
-                                                                        totalRow(plan) }} Bs
+                                                                <div class="box-detail">
+                                                                    <div class="box-total box-total2">
+                                                                        <div class="box-title box-title2">{{
+                                                                            plan.plan.nombre }}
+                                                                        </div>
+                                                                        <div class="box-value box-value2">{{
+                                                                            plan.quantity }} Bs
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+                                                            <div class="box-detail">
+                                                                <div class="box-total box-total2"
+                                                                     ng-repeat="item in plan.aditionals">
+                                                                    <div class="box-title box-title2"
+                                                                         ng-repeat="column in item.columns"
+                                                                         ng-show="column.id == 'nombre'">{{
+                                                                        item.nombre
+                                                                        }}
+                                                                    </div>
+                                                                    <div class="box-value box-value2"
+                                                                         ng-repeat="column in item.columns"
+                                                                         ng-show="column.id == 'mensual'">{{
+                                                                        item[column.id] }} Bs
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="box-total">
+                                                                <!--<div class="box-title" align="right">Tarifa del-->
+                                                                <!--plan-->
+                                                                <!--</div>-->
+                                                                <div class="box-value" align="right">{{
+                                                                    totalRow(plan) }} Bs
+                                                                </div>
+                                                            </div>
+                                                            <br>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -723,7 +1071,8 @@
                                                 <form class="form-horizontal form-simulador">
 
                                                     <div class="form-group">
-                                                        <label for="" class="col-sm-6 control-label">Es cliente nuevo?</label>
+                                                        <label for="" class="col-sm-6 control-label">Es cliente
+                                                            nuevo?</label>
                                                         <div class="col-sm-6">
                                                             <div class="options">
                                                                 <span ng-class="{'active': user.subscriptor}"
@@ -763,12 +1112,174 @@
                                                         </div>
 
                                                         <div class="col-lg-12" ng-show="crm.message != ''">
-                                                            <!--<div class="col-lg-4">-->
-                                                            <!--<%= image_tag 'warning.png', width: 100, height: 'auto' %>-->
-                                                            <!--</div>-->
                                                             <div class="col-lg-12">
                                                                 <h1>{{ crm.title }}</h1>
-                                                                <p ng-bind-html="crm.message"></p>
+
+                                                                <div ng-repeat="group in crm.message">
+
+                                                                    <h5><b>Cliente ({{ group.id_cliente }}) {{
+                                                                        group.nombre_cliente }}</b></h5>
+                                                                    <h5><b>Carnet: {{ group.numero_documento }}</b></h5>
+
+                                                                    <div class="row"
+                                                                         ng-repeat="comunity in group.comunities">
+                                                                        <h5><b>Comunidad {{ comunity.id_grupo }}</b>
+                                                                        </h5>
+                                                                        <div class="col-lg-12">
+                                                                            <table width="100%"
+                                                                                   class="table-detail-internal2 plan-table">
+                                                                                <tr>
+                                                                                    <th align="left"
+                                                                                        class="plan-option"><b>Datos
+                                                                                        Comunidad</b></th>
+                                                                                    <td align="left">
+                                                                                        Tipo: {{ comunity.tipo_comunidad
+                                                                                        }} <br>
+                                                                                        Estado: {{ comunity.estado }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Ciudad
+                                                                                        Factura</b></th>
+                                                                                    <td align="left">{{
+                                                                                        comunity.ciudad_factura }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Cantidad
+                                                                                        de Lineas</b></th>
+                                                                                    <td align="left">{{
+                                                                                        comunity.cantidad_unidades }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Facturas
+                                                                                        Vigentes</b></th>
+                                                                                    <td align="left">{{
+                                                                                        comunity.facturas_vigentes }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Mora
+                                                                                        Ultimos 6 meses</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.mora_ultimos_6_meses
+                                                                                        }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Fecha
+                                                                                        ultima mora</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.fecha_ultima_mora }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Deuda
+                                                                                        Total (Bs)</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.deuda_total }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                            <p style="color:red"
+                                                                               ng-show="comunity.mora_message != '">
+                                                                                <b style="color:red"
+                                                                                   class="{{ comunity.mora_ultimos_6_meses_class }}">{{
+                                                                                    comunity.mora_message }}</b></p>
+                                                                        </div>
+
+
+                                                                        <h5 ng-show="comunity.suscribers.length > 0">
+                                                                            <a ng-click="mostrarSuscriptor(comunity.id_grupo)"><b>Suscriptores (Mostrar)</b></a>
+                                                                        </h5>
+
+                                                                        <div ng-show="show_suscribers[comunity.id_grupo] == true">
+
+                                                                            <div class="col-lg-12">
+                                                                                <table ng-repeat="suscriber in comunity.suscribers"
+                                                                                       width="100%"
+                                                                                       class="table-detail-internal3 addon-detail">
+
+                                                                                    <tr>
+                                                                                        <th colspan="2">
+                                                                                            {{
+                                                                                            suscriber.nombre_suscriptor
+                                                                                            }} <br>
+                                                                                            Linea: {{
+                                                                                            suscriber.identificador_unidad
+                                                                                            }}
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Estado Unidad</th>
+                                                                                        <td>{{ suscriber.estado }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Facturas Vigentes</th>
+                                                                                        <td>{{
+                                                                                            suscriber.facturas_vigentes
+                                                                                            }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Deuda Total</th>
+                                                                                        <td>{{ suscriber.deuda_total
+                                                                                            }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td align="left" colspan="2">
+                                                                                            <b>Plan Base:</b> {{
+                                                                                            suscriber.nombre_plan }}
+                                                                                            <br>
+                                                                                            <b>Datos:</b> {{
+                                                                                            suscriber.componente_datos
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_base_datos
+                                                                                            }}) <br>
+                                                                                            <b>Minutos:</b> {{
+                                                                                            suscriber.componente_minutos
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_componente_minutos
+                                                                                            }}) <br>
+                                                                                            <b>Credito:</b> {{
+                                                                                            suscriber.componente_credito
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_base_credito
+                                                                                            }}) <br>
+                                                                                            <b>Grupo Amigo:</b> {{
+                                                                                            suscriber.componente_grupo_amigo
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_basica_grupo_amigo
+                                                                                            }}) <br>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr height="15"></tr>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1055,34 +1566,44 @@
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
                                                             <div class="container-total">
-                                                                <div class="box-total">
-                                                                    <div class="box-title">{{ plan.plan.nombre }} <span
-                                                                            class="red">x</span> {{ plan.quantity }}
-                                                                    </div>
-                                                                    <div class="box-value">{{ plan.plan.mensual }}</div>
-                                                                </div>
-                                                                <div class="box-total"
-                                                                     ng-repeat="item in plan.aditionals">
-                                                                    <div class="box-title"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'nombre'">{{ item.nombre
-                                                                        }}
-                                                                    </div>
-                                                                    <div class="box-value"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'mensual'">{{
-                                                                        item[column.id] }}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="box-total">
-                                                                    <div class="box-title" align="right">Tarifa del
-                                                                        plan
-                                                                    </div>
-                                                                    <div class="box-value" align="right">{{
-                                                                        totalRow(plan) }} Bs
+                                                                <div class="box-detail">
+                                                                    <div class="box-total box-total2">
+                                                                        <div class="box-title box-title2">{{
+                                                                            plan.plan.nombre }}
+                                                                        </div>
+                                                                        <div class="box-value box-value2">{{
+                                                                            plan.quantity }} Bs
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+                                                            <div class="box-detail">
+                                                                <div class="box-total box-total2"
+                                                                     ng-repeat="item in plan.aditionals">
+                                                                    <div class="box-title box-title2"
+                                                                         ng-repeat="column in item.columns"
+                                                                         ng-show="column.id == 'nombre'">{{
+                                                                        item.nombre
+                                                                        }}
+                                                                    </div>
+                                                                    <div class="box-value box-value2"
+                                                                         ng-repeat="column in item.columns"
+                                                                         ng-show="column.id == 'mensual'">{{
+                                                                        item[column.id] }} Bs
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="box-total">
+                                                                <!--<div class="box-title" align="right">Tarifa del-->
+                                                                <!--plan-->
+                                                                <!--</div>-->
+                                                                <div class="box-value" align="right">{{
+                                                                    totalRow(plan) }} Bs
+                                                                </div>
+                                                            </div>
+                                                            <br>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -1108,7 +1629,8 @@
                                                 <form class="form-horizontal form-simulador">
 
                                                     <div class="form-group">
-                                                        <label for="" class="col-sm-6 control-label">Es cliente nuevo?</label>
+                                                        <label for="" class="col-sm-6 control-label">Es cliente
+                                                            nuevo?</label>
                                                         <div class="col-sm-6">
                                                             <div class="options">
                                                                 <span ng-class="{'active': user.subscriptor}"
@@ -1147,12 +1669,174 @@
                                                         </div>
 
                                                         <div class="col-lg-12" ng-show="crm.message != ''">
-                                                            <!--<div class="col-lg-4">-->
-                                                            <!--<%= image_tag 'warning.png', width: 100, height: 'auto' %>-->
-                                                            <!--</div>-->
                                                             <div class="col-lg-12">
                                                                 <h1>{{ crm.title }}</h1>
-                                                                <p ng-bind-html="crm.message"></p>
+
+                                                                <div ng-repeat="group in crm.message">
+
+                                                                    <h5><b>Cliente ({{ group.id_cliente }}) {{
+                                                                        group.nombre_cliente }}</b></h5>
+                                                                    <h5><b>Carnet: {{ group.numero_documento }}</b></h5>
+
+                                                                    <div class="row"
+                                                                         ng-repeat="comunity in group.comunities">
+                                                                        <h5><b>Comunidad {{ comunity.id_grupo }}</b>
+                                                                        </h5>
+                                                                        <div class="col-lg-12">
+                                                                            <table width="100%"
+                                                                                   class="table-detail-internal2 plan-table">
+                                                                                <tr>
+                                                                                    <th align="left"
+                                                                                        class="plan-option"><b>Datos
+                                                                                        Comunidad</b></th>
+                                                                                    <td align="left">
+                                                                                        Tipo: {{ comunity.tipo_comunidad
+                                                                                        }} <br>
+                                                                                        Estado: {{ comunity.estado }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Ciudad
+                                                                                        Factura</b></th>
+                                                                                    <td align="left">{{
+                                                                                        comunity.ciudad_factura }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Cantidad
+                                                                                        de Lineas</b></th>
+                                                                                    <td align="left">{{
+                                                                                        comunity.cantidad_unidades }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Facturas
+                                                                                        Vigentes</b></th>
+                                                                                    <td align="left">{{
+                                                                                        comunity.facturas_vigentes }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Mora
+                                                                                        Ultimos 6 meses</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.mora_ultimos_6_meses
+                                                                                        }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Fecha
+                                                                                        ultima mora</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.fecha_ultima_mora }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Deuda
+                                                                                        Total (Bs)</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.deuda_total }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                </tr>
+                                                                            </table>
+
+                                                                            <p style="color:red"
+                                                                               ng-show="comunity.mora_message != '">
+                                                                                <b style="color:red"
+                                                                                   class="{{ comunity.mora_ultimos_6_meses_class }}">{{
+                                                                                    comunity.mora_message }}</b></p>
+                                                                        </div>
+
+
+                                                                        <h5 ng-show="comunity.suscribers.length > 0">
+                                                                            <a ng-click="mostrarSuscriptor(comunity.id_grupo)"><b>Suscriptores (Mostrar)</b></a>
+                                                                        </h5>
+
+                                                                        <div ng-show="show_suscribers[comunity.id_grupo] == true">
+
+                                                                            <div class="col-lg-12">
+                                                                                <table ng-repeat="suscriber in comunity.suscribers"
+                                                                                       width="100%"
+                                                                                       class="table-detail-internal3 addon-detail">
+
+                                                                                    <tr>
+                                                                                        <th colspan="2">
+                                                                                            {{
+                                                                                            suscriber.nombre_suscriptor
+                                                                                            }} <br>
+                                                                                            Linea: {{
+                                                                                            suscriber.identificador_unidad
+                                                                                            }}
+                                                                                        </th>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Estado Unidad</th>
+                                                                                        <td>{{ suscriber.estado }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Facturas Vigentes</th>
+                                                                                        <td>{{
+                                                                                            suscriber.facturas_vigentes
+                                                                                            }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Deuda Total</th>
+                                                                                        <td>{{ suscriber.deuda_total
+                                                                                            }}
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td align="left" colspan="2">
+                                                                                            <b>Plan Base:</b> {{
+                                                                                            suscriber.nombre_plan }}
+                                                                                            <br>
+                                                                                            <b>Datos:</b> {{
+                                                                                            suscriber.componente_datos
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_base_datos
+                                                                                            }}) <br>
+                                                                                            <b>Minutos:</b> {{
+                                                                                            suscriber.componente_minutos
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_componente_minutos
+                                                                                            }}) <br>
+                                                                                            <b>Credito:</b> {{
+                                                                                            suscriber.componente_credito
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_base_credito
+                                                                                            }}) <br>
+                                                                                            <b>Grupo Amigo:</b> {{
+                                                                                            suscriber.componente_grupo_amigo
+                                                                                            }}
+                                                                                            ({{
+                                                                                            suscriber.tarifa_basica_grupo_amigo
+                                                                                            }}) <br>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr height="15"></tr>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1460,34 +2144,44 @@
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
                                                             <div class="container-total">
-                                                                <div class="box-total">
-                                                                    <div class="box-title">{{ plan.plan.nombre }} <span
-                                                                            class="red">x</span> {{ plan.quantity }}
-                                                                    </div>
-                                                                    <div class="box-value">{{ plan.plan.mensual }}</div>
-                                                                </div>
-                                                                <div class="box-total"
-                                                                     ng-repeat="item in plan.aditionals">
-                                                                    <div class="box-title"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'nombre'">{{ item.nombre
-                                                                        }}
-                                                                    </div>
-                                                                    <div class="box-value"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'mensual'">{{
-                                                                        item[column.id] }}
-                                                                    </div>
-                                                                </div>
-                                                                <div class="box-total">
-                                                                    <div class="box-title" align="right">Tarifa del
-                                                                        plan
-                                                                    </div>
-                                                                    <div class="box-value" align="right">{{
-                                                                        totalRow(plan) }} Bs
+                                                                <div class="box-detail">
+                                                                    <div class="box-total box-total2">
+                                                                        <div class="box-title box-title2">{{
+                                                                            plan.plan.nombre }}
+                                                                        </div>
+                                                                        <div class="box-value box-value2">{{
+                                                                            plan.quantity }} Bs
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+
+                                                            <div class="box-detail">
+                                                                <div class="box-total box-total2"
+                                                                     ng-repeat="item in plan.aditionals">
+                                                                    <div class="box-title box-title2"
+                                                                         ng-repeat="column in item.columns"
+                                                                         ng-show="column.id == 'nombre'">{{
+                                                                        item.nombre
+                                                                        }}
+                                                                    </div>
+                                                                    <div class="box-value box-value2"
+                                                                         ng-repeat="column in item.columns"
+                                                                         ng-show="column.id == 'mensual'">{{
+                                                                        item[column.id] }} Bs
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="box-total">
+                                                                <!--<div class="box-title" align="right">Tarifa del-->
+                                                                <!--plan-->
+                                                                <!--</div>-->
+                                                                <div class="box-value" align="right">{{
+                                                                    totalRow(plan) }} Bs
+                                                                </div>
+                                                            </div>
+                                                            <br>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -1619,4 +2313,3 @@
         </div>
     </div>
 </div>
-
