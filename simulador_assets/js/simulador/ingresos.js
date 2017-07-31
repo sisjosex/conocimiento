@@ -201,13 +201,13 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
                 {v: "Endeudamiento (" + totalAdeudamiento + ")"},
                 {v: totalAdeudamiento}
             ]},
-            {c: [
+            /*{c: [
                 {v: "Monto a Pagar (" + totalAmount + ")"},
                 {v: totalAmount}
-            ]},
+            ]},*/
             {c: [
-                {v: "Ingresos (" + $scope.user.ingreso + ")"},
-                {v: $scope.user.ingreso}
+                {v: "Ingresos (" + ($scope.user.ingreso) + ")"},
+                {v: ($scope.user.ingreso - totalAdeudamiento)}
             ]}
         ]};
 

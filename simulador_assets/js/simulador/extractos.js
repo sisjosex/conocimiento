@@ -440,29 +440,28 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
         $scope.data = [$scope.user.saldo_promedio_extracto, totalAmount, $scope.user.ingreso];
 
+        $scope.user.totalAdeudamiento = $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio;
 
         $scope.chart.data = {"cols": [
             {id: "t", label: "Topping", type: "string"},
             {id: "s", label: "Slices", type: "number"}
         ], "rows": [
             {c: [
-                {v: "Endeudamiento (" + $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio + ")"},
-                {v: $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio}
+                {v: "Endeudamiento (" + $scope.user.totalAdeudamiento + ")"},
+                {v: $scope.user.totalAdeudamiento * $scope.user.porcentaje  / 100}
             ]},
-            {c: [
+            /*{c: [
                 {v: "Monto a Pagar (" + totalAmount + ")"},
                 {v: totalAmount}
-            ]},
+            ]},*/
             {c: [
-                {v: "Ingresos (" + $scope.user.ingreso + ")"},
-                {v: $scope.user.ingreso}
+                {v: "Ingresos (" + $scope.user.totalAdeudamiento + ")"},
+                {v: ($scope.user.totalAdeudamiento)}
             ]}
         ]};
 
 
         diferencia = saldo_promedio_extracto - tarifaViva;
-
-        $scope.user.totalAdeudamiento = $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio;
 
         if (diferencia >= 0) {
 

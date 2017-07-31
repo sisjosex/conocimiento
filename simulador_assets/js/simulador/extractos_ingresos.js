@@ -459,7 +459,15 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         }
 
         $scope.data = [$scope.user.saldo_promedio_extracto, totalAmount, $scope.user.ingreso];
+        $scope.user.totalAdeudamiento = $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio;
 
+        total = promedioIngresos.cliente + promedioExtractos.cliente;
+
+
+        console.log("Ingresos SPE: " + promedioIngresos.cliente + " ,tarifaViva: " + promedioIngresos.nuevatel + " , Diferencia: " + promedioIngresos.diferencia);
+        console.log("extractos SPE: " + promedioExtractos.cliente + " ,tarifaViva: " + promedioExtractos.nuevatel + " , Diferencia: " + promedioExtractos.diferencia);
+
+        totalVerificar = promedioIngresos.diferencia + promedioExtractos.diferencia;
 
         $scope.chart.data = {
             "cols": [
@@ -468,26 +476,24 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
             ], "rows": [
                 {
                     c: [
-                        {v: "Saldo Promedio Extracto (" + $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio + ")"},
-                        {v: $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio}
+                        {v: "Endeudamiento (" + ($scope.user.totalAdeudamiento) + ")"},
+                        {v: ($scope.user.totalAdeudamiento)}
                     ]
                 },
+                /*{
+                 c: [
+                 {v: "Monto a Pagar (" + totalAmount + ")"},
+                 {v: totalAmount}
+                 ]
+                 },*/
                 {
                     c: [
-                        {v: "Monto a Pagar (" + totalAmount + ")"},
-                        {v: totalAmount}
-                    ]
-                },
-                {
-                    c: [
-                        {v: "Ingresos (" + $scope.user.ingreso + ")"},
-                        {v: $scope.user.ingreso}
+                        {v: "Ingresos (" + ($scope.user.totalAdeudamiento / $scope.user.porcentaje * 100) + ")"},
+                        {v: ($scope.user.totalAdeudamiento / $scope.user.porcentaje * 100)}
                     ]
                 }
             ]
         };
-
-        $scope.user.totalAdeudamiento = $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio;
 
         if (diferencia >= 0) {
 
@@ -497,11 +503,6 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
             $scope.colors = ["#ff0000", "#c2d544", "#39c92f"];
         }
-
-        console.log("Ingresos SPE: " + promedioIngresos.cliente + " ,tarifaViva: " + promedioIngresos.nuevatel + " , Diferencia: " + promedioIngresos.diferencia);
-        console.log("extractos SPE: " + promedioExtractos.cliente + " ,tarifaViva: " + promedioExtractos.nuevatel + " , Diferencia: " + promedioExtractos.diferencia);
-
-        totalVerificar = promedioIngresos.diferencia + promedioExtractos.diferencia;
 
         if (totalAmount > 0) {
 
