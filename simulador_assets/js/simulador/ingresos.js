@@ -25,7 +25,8 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
         califica_icon: '',
         califica_text: '',
         calificable: false,
-        totalAdeudamiento: ''
+        totalAdeudamiento: '',
+        tarifa_basica_mayor: ''
     };
 
     $scope.chart = {};
@@ -168,6 +169,10 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
                 subtotal = subtotal + plan.aditionals[j].mensual;
             }
 
+            if ($scope.user.tarifa_basica_mayor == 0 || subtotal > $scope.user.tarifa_basica_mayor) {
+                $scope.user.tarifa_basica_mayor = subtotal;
+            }
+
             subtotal = subtotal * parseInt(plan.quantity);
 
             totalAmount = totalAmount + subtotal;
@@ -256,19 +261,19 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
 
     $scope.calculateAdeudamiento = function () {
 
-        if ($scope.user.total == 0) {
+        if ($scope.user.tarifa_basica_mayor == 0) {
 
             $scope.user.porcentaje = 0;
 
-        } else if ($scope.user.total <= 140) {
+        } else if ($scope.user.tarifa_basica_mayor <= 140) {
 
             $scope.user.porcentaje = 8;
 
-        } else if ($scope.user.total > 140 && $scope.user.total <= 259) {
+        } else if ($scope.user.tarifa_basica_mayor > 140 && $scope.user.tarifa_basica_mayor <= 259) {
 
             $scope.user.porcentaje = 9;
 
-        } else if ($scope.user.total > 259 && $scope.user.total <= 399) {
+        } else if ($scope.user.tarifa_basica_mayor > 259 && $scope.user.tarifa_basica_mayor <= 399) {
 
             $scope.user.porcentaje = 10;
 
@@ -345,8 +350,6 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
     };
 
     $scope.changeAddOn = function (plan, aditional, row) {
-
-        console.log(row);
 
         if (row.nombre == 'Ninguno') {
 

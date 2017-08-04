@@ -24,7 +24,9 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
         califica: false,
         califica_icon: '',
         califica_text: '',
-        calificable: false
+        calificable: false,
+        totalAdeudamiento: '',
+        tarifa_basica_mayor: ''
     };
 
     $scope.chart = {};
@@ -163,6 +165,10 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
                 }
 
                 subtotal = subtotal + plan.aditionals[j].mensual;
+            }
+
+            if ($scope.user.tarifa_basica_mayor == 0 || subtotal > $scope.user.tarifa_basica_mayor) {
+                $scope.user.tarifa_basica_mayor = subtotal;
             }
 
             subtotal = subtotal * parseInt(plan.quantity);
