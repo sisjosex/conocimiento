@@ -147,6 +147,8 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
 
         var totalAmount = 0;
 
+        $scope.user.tarifa_basica_mayor = 0;
+
         for (var i in $scope.selected_plans) {
 
             var plan = $scope.selected_plans[i];
@@ -167,7 +169,7 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
                 subtotal = subtotal + plan.aditionals[j].mensual;
             }
 
-            if ($scope.user.tarifa_basica_mayor == 0 || subtotal > $scope.user.tarifa_basica_mayor) {
+            if ( ($scope.user.tarifa_basica_mayor == 0 || subtotal > $scope.user.tarifa_basica_mayor) && parseInt(plan.quantity)> 0 ) {
                 $scope.user.tarifa_basica_mayor = subtotal;
             }
 

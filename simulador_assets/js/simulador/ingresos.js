@@ -149,6 +149,8 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
 
         var totalAmount = 0;
 
+        $scope.user.tarifa_basica_mayor = 0;
+
         for (var i in $scope.selected_plans) {
 
             var plan = $scope.selected_plans[i];
@@ -169,7 +171,7 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
                 subtotal = subtotal + plan.aditionals[j].mensual;
             }
 
-            if ($scope.user.tarifa_basica_mayor == 0 || subtotal > $scope.user.tarifa_basica_mayor) {
+            if ( ($scope.user.tarifa_basica_mayor == 0 || subtotal > $scope.user.tarifa_basica_mayor) && parseInt(plan.quantity)> 0) {
                 $scope.user.tarifa_basica_mayor = subtotal;
             }
 
@@ -207,9 +209,9 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
                 {v: totalAdeudamiento}
             ]},
             /*{c: [
-                {v: "Monto a Pagar (" + totalAmount + ")"},
-                {v: totalAmount}
-            ]},*/
+             {v: "Monto a Pagar (" + totalAmount + ")"},
+             {v: totalAmount}
+             ]},*/
             {c: [
                 {v: "Ingresos (" + ($scope.user.ingreso) + ")"},
                 {v: ($scope.user.ingreso - totalAdeudamiento)}

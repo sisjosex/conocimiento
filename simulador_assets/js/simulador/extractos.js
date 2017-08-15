@@ -410,7 +410,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
             if ($scope.user.autocalcular_tarifa_basica_mayor) {
 
-                if ($scope.user.tarifa_basica_mayor == 0 || subtotal > $scope.user.tarifa_basica_mayor) {
+                if ( ($scope.user.tarifa_basica_mayor == 0 || subtotal > $scope.user.tarifa_basica_mayor) && parseInt(plan.quantity)> 0) {
                     $scope.user.tarifa_basica_mayor = subtotal;
                 }
             }
