@@ -26,7 +26,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         subscriptor: false,
         document_type: $scope.document_types[0],
         document_value: '',
-        ingreso: 0,
+        ingreso: '',
         porcentaje: 0,
         total: 0,
         califica: false,
@@ -39,7 +39,21 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         ciudad: $scope.cities[0],
         autocalcular_tarifa_basica_mayor: true,
         tipo_cambio: 6.96,
-        totalAdeudamiento: ''
+        totalAdeudamiento: '',
+        promedioIngresos: {
+            cliente: '',
+            nuevatel: '',
+            diferencia: ''
+        },
+
+        promedioExtractos: {
+            cliente: '',
+            nuevatel: '',
+            diferencia: ''
+        },
+        totalCliente: '',
+        totalNuevatel: '',
+        totalDiferencia: ''
     };
 
     $scope.chart = {};
@@ -213,6 +227,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                     $scope.changeFechaInicio = function (date_test) {
 
+
                         console.log(date_test);
 
                         $scope.extractos = [];
@@ -240,7 +255,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
                                 var dt = moment(date).format("dddd");
 
                                 $scope.extractos.push({
-                                    day: dt + " - " + date.getDate() + '/' + (date.getMonth()) + '/' + date.getFullYear(),
+                                    day: dt + " - " + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
                                     date: date,
                                     value: ''
                                 });
@@ -268,7 +283,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
                                 var dt = moment(date).format("dddd");
 
                                 $scope.extractos.push({
-                                    day: dt + " - " + date.getDate() + '/' + (date.getMonth()) + '/' + date.getFullYear(),
+                                    day: dt + " - " + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
                                     date: date,
                                     value: ''
                                 });
@@ -304,7 +319,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
                                 var dt = moment(date).format("dddd");
 
                                 $scope.extractos.push({
-                                    day: dt + " - " + date.getDate() + ' / ' + date.getMonth() + 1 + ' / ' + date.getFullYear(),
+                                    day: dt + " - " + date.getDate() + ' / ' + date.getMonth() + ' / ' + date.getFullYear(),
                                     date: date,
                                     value: ''
                                 });
@@ -403,16 +418,22 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
                 subtotal = subtotal + plan.aditionals[j].mensual;
             }
 
-            if ( $scope.user.autocalcular_tarifa_basica_mayor ) {
+            if ($scope.user.autocalcular_tarifa_basica_mayor) {
 
-                if ( ($scope.user.tarifa_basica_mayor == 0 || subtotal > $scope.user.tarifa_basica_mayor) && parseInt(plan.quantity)> 0 ) {
+                if (($scope.user.tarifa_basica_mayor == 0 || subtotal > $scope.user.tarifa_basica_mayor) && parseInt(plan.quantity) > 0) {
                     $scope.user.tarifa_basica_mayor = subtotal;
                 }
             }
-
-            subtotal = subtotal * parseInt(plan.quantity);
-
-            $scope.user.total_quantity += plan.quantity;
+            
+            if ( plan.quantity != undefined ) {
+            
+                subtotal = subtotal * parseInt(plan.quantity);
+                $scope.user.total_quantity += plan.quantity;
+                
+            } else {
+                
+                subtotal = 0;
+            }
 
             totalAmount = totalAmount + subtotal;
         }
@@ -425,13 +446,13 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         var saldo_promedio_extracto = $scope.user.saldo_promedio_extracto;
         var diferencia = 0;
 
-        var promedioIngresos = {
-            cliente: $scope.user.ingresos / $scope.user.tipo_cambio,
+        $scope.user.promedioIngresos = {
+            cliente: isNaN($scope.user.ingresos / $scope.user.tipo_cambio) ? 0 : parseFloat(($scope.user.ingresos / $scope.user.tipo_cambio).toFixed(1)),
             nuevatel: 0,
             diferencia: 0
         };
 
-        var promedioExtractos = {
+        $scope.user.promedioExtractos = {
             cliente: $scope.user.saldo_promedio_extracto,
             nuevatel: 0,
             diferencia: 0
@@ -444,30 +465,35 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
             dollars = $scope.findIngresosForBs($scope.user.tarifa_basica_mayor);
 
             //promedioIngresos.nuevatel = dollars + dollars * 0.15 * ($scope.user.total_quantity - 1);
-            promedioIngresos.nuevatel = (dollars + dollars * 0.15 * ($scope.user.total_quantity - 1)) * $scope.user.porcentaje;
+            $scope.user.promedioIngresos.nuevatel = (dollars + dollars * 0.15 * ($scope.user.total_quantity - 1)) * $scope.user.porcentaje;
 
-            promedioIngresos.diferencia = promedioIngresos.cliente - promedioIngresos.nuevatel;
+            $scope.user.promedioIngresos.diferencia = parseFloat(($scope.user.promedioIngresos.cliente - $scope.user.promedioIngresos.nuevatel).toFixed(1));
         }
 
         if ($scope.user.porcentaje > 0 && $scope.user.saldo_promedio_extracto > 0 && $scope.user.total_quantity > 0) {
 
             dollars = $scope.findExtractosForBs($scope.user.tarifa_basica_mayor);
 
-            promedioExtractos.nuevatel = (dollars + dollars * 0.15 * ($scope.user.total_quantity - 1)) * $scope.user.porcentaje;
+            $scope.user.promedioExtractos.nuevatel = (dollars + dollars * 0.15 * ($scope.user.total_quantity - 1)) * $scope.user.porcentaje;
 
-            promedioExtractos.diferencia = promedioExtractos.cliente - promedioExtractos.nuevatel;
+            $scope.user.promedioExtractos.diferencia = $scope.user.promedioExtractos.cliente - $scope.user.promedioExtractos.nuevatel;
         }
 
         $scope.data = [$scope.user.saldo_promedio_extracto, totalAmount, $scope.user.ingreso];
         $scope.user.totalAdeudamiento = $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio;
 
-        total = promedioIngresos.cliente + promedioExtractos.cliente;
+        total = $scope.user.promedioIngresos.cliente + $scope.user.promedioExtractos.cliente;
 
 
-        console.log("Ingresos SPE: " + promedioIngresos.cliente + " ,tarifaViva: " + promedioIngresos.nuevatel + " , Diferencia: " + promedioIngresos.diferencia);
-        console.log("extractos SPE: " + promedioExtractos.cliente + " ,tarifaViva: " + promedioExtractos.nuevatel + " , Diferencia: " + promedioExtractos.diferencia);
+        console.log("Ingresos SPE: " + $scope.user.promedioIngresos.cliente + " ,tarifaViva: " + $scope.user.promedioIngresos.nuevatel + " , Diferencia: " + $scope.user.promedioIngresos.diferencia);
+        console.log("extractos SPE: " + $scope.user.promedioExtractos.cliente + " ,tarifaViva: " + $scope.user.promedioExtractos.nuevatel + " , Diferencia: " + $scope.user.promedioExtractos.diferencia);
 
-        totalVerificar = promedioIngresos.diferencia + promedioExtractos.diferencia;
+        totalVerificar = $scope.user.promedioIngresos.diferencia + $scope.user.promedioExtractos.diferencia;
+
+        $scope.user.totalCliente = isNaN(total) ? 0 : parseFloat(total).toFixed(1);
+        $scope.user.totalNuevatel = $scope.user.promedioIngresos.nuevatel + $scope.user.promedioExtractos.nuevatel;
+        $scope.user.totalDiferencia = totalVerificar.toFixed(1);
+
 
         $scope.chart.data = {
             "cols": [
@@ -530,28 +556,28 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         }
     };
 
-    $scope.findDollarsForBs = function(bs) {
+    //$scope.findDollarsForBs = function (bs) {
+    //
+    //    var dollars = 0;
+    //
+    //    for (var i in extractos_data) {
+    //
+    //        if (bs <= extractos_data[i].bs) {
+    //
+    //            return extractos_data[i].dolares;
+    //        }
+    //    }
+    //
+    //    return dollars;
+    //};
+
+    $scope.findIngresosForBs = function (bs) {
 
         var dollars = 0;
 
-        for(var i in extractos_data) {
+        for (var i in extractos_ingresos_data) {
 
-            if ( bs >= extractos_data[i].bs ) {
-
-                return extractos_data[i].dolares;
-            }
-        }
-
-        return dollars;
-    };
-
-    $scope.findIngresosForBs = function(bs) {
-
-        var dollars = 0;
-
-        for(var i in extractos_ingresos_data) {
-
-            if ( bs >= extractos_ingresos_data[i].bs ) {
+            if (bs <= extractos_ingresos_data[i].bs) {
 
                 return extractos_ingresos_data[i].ingreso;
             }
@@ -560,13 +586,13 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         return dollars;
     };
 
-    $scope.findExtractosForBs = function(bs) {
+    $scope.findExtractosForBs = function (bs) {
 
         var dollars = 0;
 
-        for(var i in extractos_ingresos_data) {
+        for (var i in extractos_ingresos_data) {
 
-            if ( bs >= extractos_ingresos_data[i].bs ) {
+            if (bs <= extractos_ingresos_data[i].bs) {
 
                 return extractos_ingresos_data[i].extracto;
             }
@@ -613,7 +639,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
         } else {
 
-            plan.quantity = 1;
+            //plan.quantity = 1;
         }
 
         $scope.updateChart();
@@ -657,7 +683,11 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
             totalAmount = totalAmount + plan.aditionals[j].mensual;
         }
 
-        totalAmount = totalAmount * parseInt(plan.quantity);
+        if ( plan.quantity != undefined ) {
+            totalAmount = totalAmount * parseInt(plan.quantity);
+        } else {
+            totalAmount = 0;
+        }
 
         return totalAmount;
     };

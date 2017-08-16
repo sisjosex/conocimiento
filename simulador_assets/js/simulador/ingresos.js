@@ -175,7 +175,11 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
                 $scope.user.tarifa_basica_mayor = subtotal;
             }
 
-            subtotal = subtotal * parseInt(plan.quantity);
+            if ( plan.quantity != undefined ) {
+                subtotal = subtotal * parseInt(plan.quantity);
+            } else {
+                subtotal = 0;
+            }
 
             totalAmount = totalAmount + subtotal;
         }
@@ -209,9 +213,9 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
                 {v: totalAdeudamiento}
             ]},
             /*{c: [
-             {v: "Monto a Pagar (" + totalAmount + ")"},
-             {v: totalAmount}
-             ]},*/
+                {v: "Monto a Pagar (" + totalAmount + ")"},
+                {v: totalAmount}
+            ]},*/
             {c: [
                 {v: "Ingresos (" + ($scope.user.ingreso) + ")"},
                 {v: ($scope.user.ingreso - totalAdeudamiento)}
@@ -228,7 +232,7 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
             $scope.colors = ["#ff0000", "#c2d544", "#39c92f"];
         }
 
-        if (totalAmount > 0 && totalAdeudamiento > 0) {
+        if (totalAmount > 0 && totalAdeudamiento > 0 && $scope.user.tarifa_basica_mayor) {
 
             $scope.user.calificable = true;
 
@@ -301,7 +305,7 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
 
         } else {
 
-            plan.quantity = 1;
+            //plan.quantity = 1;
         }
 
         $scope.updateChart();
@@ -382,7 +386,11 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
             totalAmount = totalAmount + plan.aditionals[j].mensual;
         }
 
-        totalAmount = totalAmount * parseInt(plan.quantity);
+        if ( plan.quantity != undefined ) {
+            totalAmount = totalAmount * parseInt(plan.quantity);
+        } else {
+            totalAmount = 0;
+        }
 
         return totalAmount;
     };

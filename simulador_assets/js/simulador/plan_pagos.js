@@ -173,7 +173,12 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
                 $scope.user.tarifa_basica_mayor = subtotal;
             }
 
-            subtotal = subtotal * parseInt(plan.quantity);
+            if ( plan.quantity != undefined ) {
+                subtotal = subtotal * parseInt(plan.quantity);
+            } else {
+                subtotal = 0;
+            }
+            
 
             totalAmount = totalAmount + subtotal;
         }
@@ -296,7 +301,7 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
 
         } else {
 
-            plan.quantity = 1;
+            //plan.quantity = 1;
         }
 
         $scope.updateChart();
@@ -379,7 +384,11 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
             totalAmount = totalAmount + plan.aditionals[j].mensual;
         }
 
-        totalAmount = totalAmount * parseInt(plan.quantity);
+        if ( plan.quantity != undefined ) {
+            totalAmount = totalAmount * parseInt(plan.quantity);
+        } else {
+            totalAmount = 0;
+        }
 
         return totalAmount;
     };

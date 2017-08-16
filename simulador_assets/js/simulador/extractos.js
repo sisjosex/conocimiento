@@ -39,7 +39,9 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
         ciudad: $scope.cities[0],
         autocalcular_tarifa_basica_mayor: true,
         tipo_cambio: 6.96,
-        totalAdeudamiento: ''
+        totalAdeudamiento: '',
+        tarifaViva: '',
+        diferencia: ''
     };
 
     $scope.chart = {};
@@ -234,7 +236,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                                 } else {
 
-                                        date_test = moment(date_test, "DD/MM/YYYY").toDate();
+                                    date_test = moment(date_test, "DD/MM/YYYY").toDate();
 
                                     //date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
                                     date = moment(date_test).subtract(Math.abs(i), 'days').toDate();
@@ -243,7 +245,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                                 var dt = moment(date).format("dddd");
 
                                 $scope.extractos.push({
-                                    day: dt + " - " + date.getDate() + '/' + (date.getMonth()) + '/' + date.getFullYear(),
+                                    day: dt + " - " + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
                                     date: date,
                                     value: ''
                                 });
@@ -271,8 +273,10 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                                 var dt = moment(date).format("dddd");
 
+
+
                                 $scope.extractos.push({
-                                    day: dt + " - " + date.getDate() + '/' + (date.getMonth()) + '/' + date.getFullYear(),
+                                    day: dt + " - " + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
                                     date: date,
                                     value: ''
                                 });
@@ -292,15 +296,14 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                     }, 500);
 
 
-                    $scope.fillDate = function (index) {
 
-                        if ($scope.extractos.length == 0) {
+                    $scope.fillDate = function(index) {
+
+                        if( $scope.extractos.length == 0 ) {
 
                             var i = 62;
 
-                            console.log($scope.fechaInicio);
-
-                            for (var i = 0; i <= 61; i++) {
+                            for( var i = 0; i <= 61; i ++ ) {
 
                                 date2 = new Date($scope.fechaInicio, "DD/MM/YYYY");
                                 //date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate()+i);
@@ -310,7 +313,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                                 var dt = moment(date).format("dddd");
 
                                 $scope.extractos.push({
-                                    day: dt + " - " + date.getDate() + ' / ' + date.getMonth() + 1 + ' / ' + date.getFullYear(),
+                                    day: dt + " - " + date.getDate() + ' / ' + date.getMonth() + ' / ' + date.getFullYear(),
                                     date: date,
                                     value: ''
                                 });
@@ -328,11 +331,11 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                     $scope.fillDate();
 
-                    $scope.fillDates = function (index) {
+                    $scope.fillDates = function(index) {
 
                         var selectedValue = $scope.extractos[index].value;
 
-                        for (var i = index; i < $scope.extractos.length; i++) {
+                        for(var i = index; i < $scope.extractos.length; i ++) {
                             $scope.extractos[i].value = selectedValue;
                         }
                     };
@@ -340,7 +343,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                     $scope.confirmOption = function () {
 
                         var promedio = 0;
-                        for (var i = 0; i < $scope.extractos.length; i++) {
+                        for (var i = 0; i < $scope.extractos.length; i ++) {
                             if (isNaN($scope.extractos[i].value)) {
                                 $scope.extractos[i].value = 0;
                             }
@@ -350,7 +353,8 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                         promedio = promedio / $scope.extractos.length;
 
-                        if ($scope.selected_currency.id == 'bs') {
+
+                        if ( $scope.selected_currency.id == 'bs' ) {
 
                             $scope.$parent.user.saldo_promedio_extracto = parseFloat((promedio / $scope.$parent.user.tipo_cambio).toFixed(2));
 
@@ -383,7 +387,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
         $scope.user.total_quantity = 0;
 
 
-        if ($scope.user.autocalcular_tarifa_basica_mayor) {
+        if ( $scope.user.autocalcular_tarifa_basica_mayor ) {
 
             $scope.user.tarifa_basica_mayor = 0;
         }
@@ -408,16 +412,22 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                 subtotal = subtotal + plan.aditionals[j].mensual;
             }
 
-            if ($scope.user.autocalcular_tarifa_basica_mayor) {
+            if ( $scope.user.autocalcular_tarifa_basica_mayor ) {
 
                 if ( ($scope.user.tarifa_basica_mayor == 0 || subtotal > $scope.user.tarifa_basica_mayor) && parseInt(plan.quantity)> 0) {
                     $scope.user.tarifa_basica_mayor = subtotal;
                 }
             }
 
-            subtotal = subtotal * parseInt(plan.quantity);
-
-            $scope.user.total_quantity += plan.quantity;
+            if ( plan.quantity != undefined ) {
+            
+                subtotal = subtotal * parseInt(plan.quantity);
+                $scope.user.total_quantity += plan.quantity;
+                
+            } else {
+                
+                subtotal = 0;
+            }
 
             totalAmount = totalAmount + subtotal;
         }
@@ -476,6 +486,9 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
         if (totalAmount > 0 && tarifaViva > 0) {
 
+            $scope.user.tarifaViva = tarifaViva;
+            $scope.user.diferencia = diferencia;
+
             $scope.user.calificable = true;
 
             if (diferencia >= 0) {
@@ -493,6 +506,9 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
         } else {
 
+            $scope.user.tarifaViva = '';
+            $scope.user.diferencia = '';
+
             $scope.user.calificable = false;
 
             $scope.user.califica_icon = '';
@@ -500,13 +516,15 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
         }
     };
 
-    $scope.findDollarsForBs = function (bs) {
+    $scope.findDollarsForBs = function(bs) {
+
+        console.log(extractos_data);
 
         var dollars = 0;
 
-        for (var i in extractos_data) {
+        for(var i in extractos_data) {
 
-            if (bs >= extractos_data[i].bs) {
+            if ( bs <= extractos_data[i].bs ) {
 
                 return extractos_data[i].dolares;
             }
@@ -553,7 +571,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
         } else {
 
-            plan.quantity = 1;
+            //plan.quantity = 1;
         }
 
         $scope.updateChart();
@@ -597,7 +615,11 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
             totalAmount = totalAmount + plan.aditionals[j].mensual;
         }
 
-        totalAmount = totalAmount * parseInt(plan.quantity);
+        if ( plan.quantity != undefined ) {
+            totalAmount = totalAmount * parseInt(plan.quantity);
+        } else {
+            totalAmount = 0;
+        }
 
         return totalAmount;
     };
