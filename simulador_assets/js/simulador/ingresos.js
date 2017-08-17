@@ -26,7 +26,8 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
         califica_text: '',
         calificable: false,
         totalAdeudamiento: '',
-        tarifa_basica_mayor: ''
+        tarifa_basica_mayor: '',
+        flexibilidad_adicional: 10
     };
 
     $scope.chart = {};
@@ -199,6 +200,10 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
         if ($scope.user.porcentaje > 0 && $scope.user.ingreso > 0) {
 
             totalAdeudamiento = $scope.user.ingreso * ($scope.user.porcentaje / 100);
+
+            try {
+                totalAdeudamiento = totalAdeudamiento + totalAdeudamiento * $scope.user.flexibilidad_adicional/100
+            } catch(error) {}
         }
 
         $scope.data = [totalAdeudamiento, totalAmount, $scope.user.ingreso];

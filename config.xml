@@ -4,9 +4,9 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.viva.concimiento"
-        versionCode = "0.2.3"
-        android-versionCode="0.2.3"
-        version 	= "0.2.3">
+        versionCode = "0.2.4"
+        android-versionCode="0.2.4"
+        version 	= "0.2.4">
 
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
         <string>123</string>
