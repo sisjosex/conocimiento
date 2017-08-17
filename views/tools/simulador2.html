@@ -111,8 +111,7 @@
                                                                                         Comunidad</b></th>
                                                                                     <td align="left">
                                                                                         Tipo: {{ comunity.tipo_comunidad
-                                                                                        }} <br>
-                                                                                        Estado: {{ comunity.estado }}
+                                                                                        }}
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -134,7 +133,7 @@
                                                                                 <tr>
                                                                                     <th align="right"
                                                                                         class="plan-option"><b>Facturas
-                                                                                        Vigentes</b></th>
+                                                                                        Pendientes</b></th>
                                                                                     <td align="left">{{
                                                                                         comunity.facturas_vigentes }}
                                                                                     </td>
@@ -146,6 +145,15 @@
                                                                                     <td align="left"
                                                                                         class="{{ comunity.mora_ultimos_6_meses_class }}">
                                                                                         {{ comunity.mora_ultimos_6_meses
+                                                                                        }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Estado</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.estado
                                                                                         }}
                                                                                     </td>
                                                                                 </tr>
@@ -206,7 +214,7 @@
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <th>Facturas Vigentes</th>
+                                                                                        <th>Facturas Pendientes</th>
                                                                                         <td>{{
                                                                                             suscriber.facturas_vigentes
                                                                                             }}
@@ -615,8 +623,7 @@
                                                                                         Comunidad</b></th>
                                                                                     <td align="left">
                                                                                         Tipo: {{ comunity.tipo_comunidad
-                                                                                        }} <br>
-                                                                                        Estado: {{ comunity.estado }}
+                                                                                        }}
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -638,7 +645,7 @@
                                                                                 <tr>
                                                                                     <th align="right"
                                                                                         class="plan-option"><b>Facturas
-                                                                                        Vigentes</b></th>
+                                                                                        Pendientes</b></th>
                                                                                     <td align="left">{{
                                                                                         comunity.facturas_vigentes }}
                                                                                     </td>
@@ -650,6 +657,15 @@
                                                                                     <td align="left"
                                                                                         class="{{ comunity.mora_ultimos_6_meses_class }}">
                                                                                         {{ comunity.mora_ultimos_6_meses
+                                                                                        }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Estado</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.estado
                                                                                         }}
                                                                                     </td>
                                                                                 </tr>
@@ -710,7 +726,7 @@
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <th>Facturas Vigentes</th>
+                                                                                        <th>Facturas Pendientes</th>
                                                                                         <td>{{
                                                                                             suscriber.facturas_vigentes
                                                                                             }}
@@ -1131,8 +1147,7 @@
                                                                                         Comunidad</b></th>
                                                                                     <td align="left">
                                                                                         Tipo: {{ comunity.tipo_comunidad
-                                                                                        }} <br>
-                                                                                        Estado: {{ comunity.estado }}
+                                                                                        }}
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -1154,7 +1169,7 @@
                                                                                 <tr>
                                                                                     <th align="right"
                                                                                         class="plan-option"><b>Facturas
-                                                                                        Vigentes</b></th>
+                                                                                        Pendientes</b></th>
                                                                                     <td align="left">{{
                                                                                         comunity.facturas_vigentes }}
                                                                                     </td>
@@ -1166,6 +1181,15 @@
                                                                                     <td align="left"
                                                                                         class="{{ comunity.mora_ultimos_6_meses_class }}">
                                                                                         {{ comunity.mora_ultimos_6_meses
+                                                                                        }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Estado</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.estado
                                                                                         }}
                                                                                     </td>
                                                                                 </tr>
@@ -1226,7 +1250,7 @@
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <th>Facturas Vigentes</th>
+                                                                                        <th>Facturas Pendientes</th>
                                                                                         <td>{{
                                                                                             suscriber.facturas_vigentes
                                                                                             }}
@@ -1358,20 +1382,39 @@
                                                     </div>
 
 
-                                                    <div class="form-group information-field">
-                                                        <label for="" class="col-sm-6 control-label control-label-info">Capacidad
-                                                            Endeudamiento</label>
-                                                        <div class="col-sm-6">
-                                                            <div class="input-info">{{ user.totalAdeudamiento }} Bs
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <!--<div class="form-group information-field">-->
+                                                        <!--<label for="" class="col-sm-6 control-label control-label-info">Capacidad-->
+                                                            <!--Endeudamiento</label>-->
+                                                        <!--<div class="col-sm-6">-->
+                                                            <!--<div class="input-info">{{ user.totalAdeudamiento }} Bs-->
+                                                            <!--</div>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+
+                                                    <!--<div class="form-group information-field">-->
+                                                        <!--<label for="" class="col-sm-6 control-label control-label-info">Porcentaje</label>-->
+                                                        <!--<div class="col-sm-6">-->
+                                                            <!--<div class="input-info">{{ user.porcentaje }} %-->
+                                                            <!--</div>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
 
                                                     <div class="form-group information-field">
-                                                        <label for="" class="col-sm-6 control-label control-label-info">Porcentaje</label>
-                                                        <div class="col-sm-6">
-                                                            <div class="input-info">{{ user.porcentaje }} %
-                                                            </div>
+                                                        <div class="col-sm-12">
+                                                            <table class="table-resume-simulator table-detail-internal2 plan-table">
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>Cliente</th>
+                                                                    <th>Nuevatel</th>
+                                                                    <th>Diferencia</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Promedio Extracto</th>
+                                                                    <td>$us <span class="lila">{{ user.saldo_promedio_extracto }}</span></td>
+                                                                    <td>$us <span class="lila">{{ user.tarifaViva }}</span></td>
+                                                                    <td>$us <span class="lila">{{ user.diferencia }}</span></td>
+                                                                </tr>
+                                                            </table>
                                                         </div>
                                                     </div>
 
@@ -1687,8 +1730,7 @@
                                                                                         Comunidad</b></th>
                                                                                     <td align="left">
                                                                                         Tipo: {{ comunity.tipo_comunidad
-                                                                                        }} <br>
-                                                                                        Estado: {{ comunity.estado }}
+                                                                                        }}
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -1710,7 +1752,7 @@
                                                                                 <tr>
                                                                                     <th align="right"
                                                                                         class="plan-option"><b>Facturas
-                                                                                        Vigentes</b></th>
+                                                                                        Pendientes</b></th>
                                                                                     <td align="left">{{
                                                                                         comunity.facturas_vigentes }}
                                                                                     </td>
@@ -1722,6 +1764,15 @@
                                                                                     <td align="left"
                                                                                         class="{{ comunity.mora_ultimos_6_meses_class }}">
                                                                                         {{ comunity.mora_ultimos_6_meses
+                                                                                        }}
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th align="right"
+                                                                                        class="plan-option"><b>Estado</b></th>
+                                                                                    <td align="left"
+                                                                                        class="{{ comunity.mora_ultimos_6_meses_class }}">
+                                                                                        {{ comunity.estado
                                                                                         }}
                                                                                     </td>
                                                                                 </tr>
@@ -1782,7 +1833,7 @@
                                                                                         </td>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <th>Facturas Vigentes</th>
+                                                                                        <th>Facturas Pendientes</th>
                                                                                         <td>{{
                                                                                             suscriber.facturas_vigentes
                                                                                             }}
@@ -1935,20 +1986,51 @@
                                                     </div>
 
 
-                                                    <div class="form-group information-field">
-                                                        <label for="" class="col-sm-6 control-label control-label-info">Capacidad
-                                                            Endeudamiento</label>
-                                                        <div class="col-sm-6">
-                                                            <div class="input-info">{{ user.totalAdeudamiento }} Bs
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <!--<div class="form-group information-field">-->
+                                                        <!--<label for="" class="col-sm-6 control-label control-label-info">Capacidad-->
+                                                            <!--Endeudamiento</label>-->
+                                                        <!--<div class="col-sm-6">-->
+                                                            <!--<div class="input-info">{{ user.totalAdeudamiento }} Bs-->
+                                                            <!--</div>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+
+                                                    <!--<div class="form-group information-field">-->
+                                                        <!--<label for="" class="col-sm-6 control-label control-label-info">Porcentaje</label>-->
+                                                        <!--<div class="col-sm-6">-->
+                                                            <!--<div class="input-info">{{ user.porcentaje }} %-->
+                                                            <!--</div>-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
 
                                                     <div class="form-group information-field">
-                                                        <label for="" class="col-sm-6 control-label control-label-info">Porcentaje</label>
-                                                        <div class="col-sm-6">
-                                                            <div class="input-info">{{ user.porcentaje }} %
-                                                            </div>
+                                                        <div class="col-sm-12">
+                                                            <table class="table-resume-simulator table-detail-internal2 plan-table">
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>Cliente</th>
+                                                                    <th>Nuevatel</th>
+                                                                    <th>Diferencia</th>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Promedio Ingresos</th>
+                                                                    <td>$us <span class="lila">{{ user.promedioIngresos.cliente }}</span></td>
+                                                                    <td>$us <span class="lila">{{ user.promedioIngresos.nuevatel }}</span></td>
+                                                                    <td>$us <span class="lila">{{ user.promedioIngresos.diferencia }}</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>Promedio Extractos</th>
+                                                                    <td>$us <span class="lila">{{ user.promedioExtractos.cliente }}</span></td>
+                                                                    <td>$us <span class="lila">{{ user.promedioExtractos.nuevatel }}</span></td>
+                                                                    <td>$us <span class="lila">{{ user.promedioExtractos.diferencia }}</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>TOTAL</th>
+                                                                    <td>$us <span class="lila">{{ user.totalCliente }}</span></td>
+                                                                    <td>$us <span class="lila">{{ user.totalNuevatel }}</span></td>
+                                                                    <td>$us <span class="lila">{{ user.totalDiferencia }}</span></td>
+                                                                </tr>
+                                                            </table>
                                                         </div>
                                                     </div>
 

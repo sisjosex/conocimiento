@@ -18,7 +18,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
     $scope.cities = [
         {id: 1, name: 'Eje Troncal'},
-        {id: 1, name: 'Fuera del Eje'}
+        {id: 2, name: 'Fuera del Eje'}
     ];
 
     $scope.user = {
@@ -354,7 +354,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
                                 $scope.extractos[i].value = 0;
                             }
 
-                            promedio += parseFloat($scope.extractos[i].value);
+                            promedio += isNaN(parseFloat($scope.extractos[i].value)) ? 0 : parseFloat($scope.extractos[i].value);
                         }
 
                         promedio = promedio / $scope.extractos.length;
@@ -393,7 +393,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         $scope.user.total_quantity = 0;
 
 
-        if ( $scope.user.autocalcular_tarifa_basica_mayor ) {
+        if ($scope.user.autocalcular_tarifa_basica_mayor) {
 
             $scope.user.tarifa_basica_mayor = 0;
         }
@@ -468,6 +468,9 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
             $scope.user.promedioIngresos.nuevatel = (dollars + dollars * 0.15 * ($scope.user.total_quantity - 1)) * $scope.user.porcentaje;
 
             $scope.user.promedioIngresos.diferencia = parseFloat(($scope.user.promedioIngresos.cliente - $scope.user.promedioIngresos.nuevatel).toFixed(1));
+
+            $scope.user.promedioIngresos.nuevatel = parseFloat(parseFloat($scope.user.promedioIngresos.nuevatel).toFixed(1));
+            $scope.user.promedioIngresos.diferencia = parseFloat(parseFloat($scope.user.promedioIngresos.diferencia).toFixed(1));
         }
 
         if ($scope.user.porcentaje > 0 && $scope.user.saldo_promedio_extracto > 0 && $scope.user.total_quantity > 0) {
@@ -477,6 +480,9 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
             $scope.user.promedioExtractos.nuevatel = (dollars + dollars * 0.15 * ($scope.user.total_quantity - 1)) * $scope.user.porcentaje;
 
             $scope.user.promedioExtractos.diferencia = $scope.user.promedioExtractos.cliente - $scope.user.promedioExtractos.nuevatel;
+
+            $scope.user.promedioExtractos.nuevatel = parseFloat(parseFloat($scope.user.promedioExtractos.nuevatel).toFixed(1));
+            $scope.user.promedioExtractos.diferencia = parseFloat(parseFloat($scope.user.promedioExtractos.diferencia).toFixed(1));
         }
 
         $scope.data = [$scope.user.saldo_promedio_extracto, totalAmount, $scope.user.ingreso];
@@ -493,6 +499,10 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         $scope.user.totalCliente = isNaN(total) ? 0 : parseFloat(total).toFixed(1);
         $scope.user.totalNuevatel = $scope.user.promedioIngresos.nuevatel + $scope.user.promedioExtractos.nuevatel;
         $scope.user.totalDiferencia = totalVerificar.toFixed(1);
+
+        $scope.user.totalCliente = parseFloat(parseFloat($scope.user.totalCliente).toFixed(1));
+        $scope.user.totalNuevatel = parseFloat(parseFloat($scope.user.totalNuevatel).toFixed(1));
+        $scope.user.totalDiferencia = parseFloat(parseFloat($scope.user.totalDiferencia).toFixed(1));
 
 
         $scope.chart.data = {

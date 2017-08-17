@@ -18,7 +18,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
     $scope.cities = [
         {id: 1, name: 'Eje Troncal'},
-        {id: 1, name: 'Fuera del Eje'}
+        {id: 2, name: 'Fuera del Eje'}
     ];
 
     $scope.user = {
@@ -348,7 +348,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
                                 $scope.extractos[i].value = 0;
                             }
 
-                            promedio += parseFloat($scope.extractos[i].value);
+                            promedio += isNaN(parseFloat($scope.extractos[i].value)) ? 0 : parseFloat($scope.extractos[i].value);
                         }
 
                         promedio = promedio / $scope.extractos.length;
@@ -448,6 +448,8 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
             tarifaViva = (dollars + dollars * 0.15 * ($scope.user.total_quantity - 1)) * $scope.user.porcentaje;
         }
 
+        tarifaViva = parseFloat(parseFloat(tarifaViva).toFixed(1));
+
         $scope.data = [$scope.user.saldo_promedio_extracto, totalAmount, $scope.user.ingreso];
 
         $scope.user.totalAdeudamiento = $scope.user.saldo_promedio_extracto * $scope.user.tipo_cambio;
@@ -472,6 +474,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
 
         diferencia = saldo_promedio_extracto - tarifaViva;
+        diferencia = parseFloat(parseFloat(diferencia).toFixed(1));
 
         if (diferencia >= 0) {
 
