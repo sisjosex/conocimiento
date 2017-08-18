@@ -127,7 +127,9 @@
                                                                                         class="plan-option"><b>Cantidad
                                                                                         de Lineas</b></th>
                                                                                     <td align="left">{{
-                                                                                        comunity.cantidad_unidades }}
+                                                                                        comunity.cantidad_unidades }}<h5 ng-show="comunity.suscribers.length > 0">
+                                                                                            <a ng-click="mostrarSuscriptor(comunity.id_grupo)"><b>Suscriptores (Mostrar)</b></a>
+                                                                                        </h5>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -185,11 +187,6 @@
                                                                                    class="{{ comunity.mora_ultimos_6_meses_class }}">{{
                                                                                     comunity.mora_message }}</b></p>
                                                                         </div>
-
-
-                                                                        <h5 ng-show="comunity.suscribers.length > 0">
-                                                                            <a ng-click="mostrarSuscriptor(comunity.id_grupo)"><b>Suscriptores (Mostrar)</b></a>
-                                                                        </h5>
 
                                                                         <div ng-show="show_suscribers[comunity.id_grupo] == true">
 
@@ -647,7 +644,9 @@
                                                                                         class="plan-option"><b>Cantidad
                                                                                         de Lineas</b></th>
                                                                                     <td align="left">{{
-                                                                                        comunity.cantidad_unidades }}
+                                                                                        comunity.cantidad_unidades }}<h5 ng-show="comunity.suscribers.length > 0">
+                                                                                            <a ng-click="mostrarSuscriptor(comunity.id_grupo)"><b>Suscriptores (Mostrar)</b></a>
+                                                                                        </h5>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -706,11 +705,6 @@
                                                                                     comunity.mora_message }}</b></p>
                                                                         </div>
 
-
-                                                                        <h5 ng-show="comunity.suscribers.length > 0">
-                                                                            <a ng-click="mostrarSuscriptor(comunity.id_grupo)"><b>Suscriptores (Mostrar)</b></a>
-                                                                        </h5>
-
                                                                         <div ng-show="show_suscribers[comunity.id_grupo] == true">
 
                                                                             <div class="col-lg-12">
@@ -725,7 +719,7 @@
                                                                                             }} <br>
                                                                                             Linea: {{
                                                                                             suscriber.identificador_unidad
-                                                                                            }}
+                                                                                            }} <span class="lila" ng-show="suscriber.requisitos != ''">LINEA SIN REQUISITOS</span>
                                                                                         </th>
                                                                                     </tr>
                                                                                     <tr>
@@ -1171,7 +1165,9 @@
                                                                                         class="plan-option"><b>Cantidad
                                                                                         de Lineas</b></th>
                                                                                     <td align="left">{{
-                                                                                        comunity.cantidad_unidades }}
+                                                                                        comunity.cantidad_unidades }}<h5 ng-show="comunity.suscribers.length > 0">
+                                                                                            <a ng-click="mostrarSuscriptor(comunity.id_grupo)"><b>Suscriptores (Mostrar)</b></a>
+                                                                                        </h5>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -1230,11 +1226,6 @@
                                                                                     comunity.mora_message }}</b></p>
                                                                         </div>
 
-
-                                                                        <h5 ng-show="comunity.suscribers.length > 0">
-                                                                            <a ng-click="mostrarSuscriptor(comunity.id_grupo)"><b>Suscriptores (Mostrar)</b></a>
-                                                                        </h5>
-
                                                                         <div ng-show="show_suscribers[comunity.id_grupo] == true">
 
                                                                             <div class="col-lg-12">
@@ -1249,7 +1240,7 @@
                                                                                             }} <br>
                                                                                             Linea: {{
                                                                                             suscriber.identificador_unidad
-                                                                                            }}
+                                                                                            }} <span class="lila" ng-show="suscriber.requisitos != ''">LINEA SIN REQUISITOS</span>
                                                                                         </th>
                                                                                     </tr>
                                                                                     <tr>
@@ -1754,7 +1745,9 @@
                                                                                         class="plan-option"><b>Cantidad
                                                                                         de Lineas</b></th>
                                                                                     <td align="left">{{
-                                                                                        comunity.cantidad_unidades }}
+                                                                                        comunity.cantidad_unidades }}<h5 ng-show="comunity.suscribers.length > 0">
+                                                                                            <a ng-click="mostrarSuscriptor(comunity.id_grupo)"><b>Suscriptores (Mostrar)</b></a>
+                                                                                        </h5>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
@@ -1813,11 +1806,6 @@
                                                                                     comunity.mora_message }}</b></p>
                                                                         </div>
 
-
-                                                                        <h5 ng-show="comunity.suscribers.length > 0">
-                                                                            <a ng-click="mostrarSuscriptor(comunity.id_grupo)"><b>Suscriptores (Mostrar)</b></a>
-                                                                        </h5>
-
                                                                         <div ng-show="show_suscribers[comunity.id_grupo] == true">
 
                                                                             <div class="col-lg-12">
@@ -1832,7 +1820,7 @@
                                                                                             }} <br>
                                                                                             Linea: {{
                                                                                             suscriber.identificador_unidad
-                                                                                            }}
+                                                                                            }} <span class="lila" ng-show="suscriber.requisitos != ''">LINEA SIN REQUISITOS</span>
                                                                                         </th>
                                                                                     </tr>
                                                                                     <tr>
