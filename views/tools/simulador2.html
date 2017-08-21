@@ -2316,6 +2316,11 @@
                         ng-change="changeFechaInicio()"></select>
             </div>
 
+            <div class="form-group">
+                <label>Seleccione Orden</label>
+                <select ng-options="item.id as item.name for item in order_types" ng-model="selected_order" ng-change="changeOrder()"></select>
+            </div>
+
             <div id="datetimepicker2" class="input-append" ng-show="selected_date_type=='60_days'">
 
                 <ng-datepicker ng-model="fechaInicio" format="DD/MM/YYYY" view-format="DD/MM/YYYY"

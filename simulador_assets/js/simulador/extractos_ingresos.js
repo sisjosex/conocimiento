@@ -16,10 +16,54 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
     var extractos_data = [];
     var extractos_ingresos_data = [];
 
+    $scope.firstTime = true;
+
+    $scope.order_types = [
+        {
+            id: 'desc',
+            name: 'Descendente'
+        },
+        {
+            id: 'asc',
+            name: 'Ascendente'
+        }
+    ];
+
+    $scope.selected_order = 'desc';
+
+    $scope.date_type = [
+        {
+            id: '2_months',
+            name: '2 Ultimos meses'
+        },
+        {
+            id: '60_days',
+            name: '60 Ultimos dias'
+        }
+    ];
+
+    $scope.selected_date_type = '2_months';
+
+    $scope.currency = [
+        {
+            id: 'bs',
+            name: 'Bs'
+        },
+        {
+            id: 'sus',
+            name: '$us'
+        }
+    ];
+
+    $scope.selected_currency = $scope.currency[0];
+
     $scope.cities = [
         {id: 1, name: 'Eje Troncal'},
         {id: 2, name: 'Fuera del Eje'}
     ];
+
+
+    
 
     $scope.user = {
         simulator: 'ingresos',
@@ -199,34 +243,24 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                     $scope.extractos = $scope.$parent.extractos;
 
-                    $scope.date_type = [
-                        {
-                            id: '2_months',
-                            name: '2 Ultimos meses'
-                        },
-                        {
-                            id: '60_days',
-                            name: '60 Ultimos dias'
-                        }
-                    ];
+                    $scope.date_type = $scope.$parent.date_type;
 
-                    $scope.selected_date_type = '2_months';
+                    $scope.selected_date_type = $scope.$parent.selected_date_type;
 
-                    $scope.currency = [
-                        {
-                            id: 'bs',
-                            name: 'Bs'
-                        },
-                        {
-                            id: 'sus',
-                            name: '$us'
-                        }
-                    ];
+                    $scope.currency = $scope.$parent.currency;
 
-                    $scope.selected_currency = $scope.currency[0];
+                    $scope.selected_currency = $scope.$parent.selected_currency;
+
+                    $scope.order_types = $scope.$parent.order_types;
+
+                    $scope.selected_order = $scope.$parent.selected_order;
+
+                    $scope.changeOrder = function() {
+
+                        $scope.changeFechaInicio($scope.fechaInicio);
+                    };
 
                     $scope.changeFechaInicio = function (date_test) {
-
 
                         console.log(date_test);
 
@@ -235,58 +269,124 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                         if ($scope.selected_date_type == '60_days') {
 
-                            for (var i = 0; i >= -60; i--) {
+                            if ( $scope.selected_order == 'asc' ) {
 
-                                if (date_test == undefined) {
+                                for (var i = 60; i >= 0; i--) {
 
-                                    date2 = moment().toDate();
+                                    if (date_test == undefined) {
 
-                                    //date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
-                                    date = moment(date2).subtract(Math.abs(i), 'days').toDate();
+                                        date2 = moment().toDate();
 
-                                } else {
+                                        date = moment(date2).subtract(Math.abs(i), 'days').toDate();
 
-                                    date_test = moment(date_test, "DD/MM/YYYY").toDate();
+                                    } else {
 
-                                    //date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
-                                    date = moment(date_test).subtract(Math.abs(i), 'days').toDate();
+                                        date_test = moment(date_test, "DD/MM/YYYY").toDate();
+                                        date = moment(date_test).subtract(Math.abs(i), 'days').toDate();
+                                    }
+
+                                    var dt = moment(date).format("dddd");
+
+                                    $scope.extractos.push({
+                                        day: dt + " - " + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
+                                        date: date,
+                                        value: ''
+                                    });
                                 }
 
-                                var dt = moment(date).format("dddd");
+                            } else {
 
-                                $scope.extractos.push({
-                                    day: dt + " - " + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
-                                    date: date,
-                                    value: ''
-                                });
+                                for (var i = 0; i >= -60; i--) {
+
+                                    if (date_test == undefined) {
+
+                                        date2 = moment().toDate();
+
+                                        //date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
+
+                                        date = moment(date2).subtract(Math.abs(i), 'days').toDate();
+
+                                    } else {
+
+                                        date_test = moment(date_test, "DD/MM/YYYY").toDate();
+
+                                        //date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
+                                        date = moment(date_test).subtract(Math.abs(i), 'days').toDate();
+                                    }
+
+                                    var dt = moment(date).format("dddd");
+
+                                    $scope.extractos.push({
+                                        day: dt + " - " + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
+                                        date: date,
+                                        value: ''
+                                    });
+                                }
                             }
+
 
                         } else if ($scope.selected_date_type == '2_months') {
 
-                            date_test = moment(month_end, "DD/MM/YYYY").toDate();
+                            if ( $scope.selected_order == 'asc' )
+                            {
 
-                            for (var i = 0; i >= -60; i--) {
+                                date_test = moment(month_end, "DD/MM/YYYY").toDate();
 
-                                if (date_test == undefined) {
+                                for (var i = 60; i >= 0; i--) {
 
-                                    date2 = moment($scope.fechaInicio, "DD/MM/YYYY").toDate();
+                                    if (date_test == undefined) {
 
-                                    //date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
-                                    date = moment(date2).subtract(Math.abs(i), 'days').toDate();
+                                        date2 = moment($scope.fechaInicio, "DD/MM/YYYY").toDate();
 
-                                } else {
+                                        //date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
 
-                                    //date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
-                                    date = moment(date_test).subtract(Math.abs(i), 'days').toDate();
+                                        date = moment(date2).subtract(Math.abs(i), 'days').toDate();
+
+                                    } else {
+
+                                        //date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
+                                        date = moment(date_test).subtract(Math.abs(i), 'days').toDate();
+                                    }
+
+                                    var dt = moment(date).format("dddd");
+
+
+                                    $scope.extractos.push({
+                                        day: dt + " - " + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
+                                        date: date,
+                                        value: ''
+                                    });
                                 }
 
-                                var dt = moment(date).format("dddd");
+                            } else {
 
-                                $scope.extractos.push({
-                                    day: dt + " - " + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
-                                    date: date,
-                                    value: ''
-                                });
+                                date_test = moment(month_end, "DD/MM/YYYY").toDate();
+
+                                for (var i = 0; i >= -60; i--) {
+
+                                    if (date_test == undefined) {
+
+                                        date2 = moment($scope.fechaInicio, "DD/MM/YYYY").toDate();
+
+                                        //date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
+
+                                        date = moment(date2).subtract(Math.abs(i), 'days').toDate();
+
+                                    } else {
+
+                                        //date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
+                                        date = moment(date_test).subtract(Math.abs(i), 'days').toDate();
+                                    }
+
+                                    var dt = moment(date).format("dddd");
+
+
+                                    $scope.extractos.push({
+                                        day: dt + " - " + date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear(),
+                                        date: date,
+                                        value: ''
+                                    });
+                                }
                             }
                         }
 
@@ -297,8 +397,12 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                         var date = new Date($scope.fechaInicio);
 
-                        $scope.changeFechaInicio(date);
-                        $scope.$digest();
+                        if ($scope.extractos.length == 0) {
+                            $scope.changeFechaInicio(date);
+                            $scope.$digest();
+                        } else {
+                            $scope.$digest();
+                        }
 
                     }, 500);
 
@@ -311,8 +415,16 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                             for (var i = 0; i <= 61; i++) {
 
-                                date2 = new Date($scope.fechaInicio, "DD/MM/YYYY");
-                                //date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate() + i);
+                                if ($scope.$parent.firstTime) {
+
+                                    date2 = new Date($scope.fechaInicio);
+
+                                } else {
+
+                                    //date2 = new Date($scope.fechaInicio, "DD/MM/YYYY");
+                                    date2 = new Date($scope.fechaInicio);
+                                }
+                                //date = new Date(date2.getFullYear(), date2.getMonth() + 1, date2.getDate()+i);
 
                                 date = moment(date2).subtract(Math.abs(i), 'days').toDate();
 
@@ -325,6 +437,8 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
                                 });
                             }
                         }
+
+                        $scope.$parent.firstTime = false;
 
                         if (index == undefined) {
 
@@ -363,14 +477,44 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
                         if ($scope.selected_currency.id == 'bs') {
 
                             $scope.$parent.user.saldo_promedio_extracto = parseFloat((promedio / $scope.$parent.user.tipo_cambio).toFixed(2));
+                            $scope.$parent.selected_currency = $scope.currency[0];
 
                         } else {
 
                             $scope.$parent.user.saldo_promedio_extracto = parseFloat((promedio).toFixed(2));
+                            $scope.$parent.selected_currency = $scope.currency[1];
                         }
+
+                        console.log($scope.fechaInicio);
 
                         $scope.$parent.extractos = $scope.extractos;
                         $scope.$parent.fechaInicio = $scope.fechaInicio;
+                        $scope.$parent.selected_date_type = $scope.selected_date_type;
+                        $scope.$parent.selected_currency = $scope.selected_currency;
+
+                        $scope.$parent.selected_order = $scope.selected_order;
+
+                        var dateSplit = [];
+
+                        try {
+
+                            dateSplit = $scope.fechaInicio.split('/');
+
+                        } catch (error) {
+
+                            dateSplit = [];
+                        }
+
+
+                        if (dateSplit.length == 3) {
+
+                            $scope.$parent.fechaInicio = dateSplit[1] + '/' + dateSplit[0] + '/' + dateSplit[2];
+
+                        } else {
+                            dateSplit = new Date($scope.fechaInicio);
+                            //$scope.$parent.fechaInicio = dateSplit.getDate() + '/' + (dateSplit.getMonth() + 1) + '/' + dateSplit.getFullYear();
+                            $scope.$parent.fechaInicio = dateSplit;
+                        }
 
                         updateChart();
 
@@ -424,14 +568,14 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
                     $scope.user.tarifa_basica_mayor = subtotal;
                 }
             }
-            
-            if ( plan.quantity != undefined ) {
-            
+
+            if (plan.quantity != undefined) {
+
                 subtotal = subtotal * parseInt(plan.quantity);
                 $scope.user.total_quantity += plan.quantity;
-                
+
             } else {
-                
+
                 subtotal = 0;
             }
 
@@ -693,7 +837,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
             totalAmount = totalAmount + plan.aditionals[j].mensual;
         }
 
-        if ( plan.quantity != undefined ) {
+        if (plan.quantity != undefined) {
             totalAmount = totalAmount * parseInt(plan.quantity);
         } else {
             totalAmount = 0;
