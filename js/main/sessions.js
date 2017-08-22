@@ -24,6 +24,15 @@ App.View('Login', {
             get_route('home', false, true);
         }else{
             setTimeout(function(){
+
+
+                if ( localStorage.getItem("remember_password") ) {
+
+                    that.username(localStorage.getItem("username"));
+                    that.password(localStorage.getItem("password"));
+                }
+
+
                 that.dom.find('#form-login input:checkbox').not('.rendered').addClass('rendered').simpleCheckbox();
                 $('#view_login').show();
                 $('#box-content').hide();
@@ -36,6 +45,19 @@ App.View('Login', {
     submit_form: function(){
         var that = this;
         var login_ad = that.dom.find('#login_ad').attr('checked') != "checked";
+
+        var remember_password = that.dom.find('#remember_password').attr('checked') == "checked";
+
+        if ( remember_password ) {
+            localStorage.setItem("remember_password", true);
+            localStorage.setItem("username", this.username);
+            localStorage.setItem("password", this.password);
+        } else {
+            localStorage.setItem("remember_password", false);
+            localStorage.setItem("username", '');
+            localStorage.setItem("password", '');
+        }
+
         preload3();
         api( get_params('login', {username: this.username(), password: this.password(), login_ad: login_ad, info_device: info_device}), function( res ) {
             if(res.error){
