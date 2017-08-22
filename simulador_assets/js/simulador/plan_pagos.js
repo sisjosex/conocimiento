@@ -85,6 +85,53 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
         message: ''
     };
 
+    $scope.resetParams = function() {
+
+        $scope.extractos = [];
+        $scope.firstTime = true;
+
+        $scope.user = {
+            simulator: 'ingresos',
+            subscriptor: false,
+            document_type: $scope.document_types[0],
+            document_value: '',
+            ingreso: '',
+            porcentaje: 0,
+            total: 0,
+            califica: false,
+            califica_icon: '',
+            califica_text: '',
+            calificable: false,
+            totalAdeudamiento: '',
+            tarifa_basica_mayor: ''
+        };
+
+        $scope.selected_plan = '';
+        $scope.selected_plans = [];
+
+        $scope.crm = {
+            title: '',
+            message: ''
+        };
+
+        $scope.addPlan();
+    };
+
+    $scope.searchCRMbyKey = function($event) {
+
+        if ($event.charCode == 13) {
+
+            $scope.searchCRM();
+        }
+    };
+
+    $scope.searchCRMbyKey = function($event) {
+
+        if ($event.charCode == 13) {
+
+            $scope.searchCRM();
+        }
+    };
 
     $scope.show_suscribers = {};
     $scope.mostrarSuscriptor = function(group_id) {

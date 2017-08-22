@@ -26,8 +26,7 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
         califica_text: '',
         calificable: false,
         totalAdeudamiento: '',
-        tarifa_basica_mayor: '',
-        flexibilidad_adicional: 10
+        tarifa_basica_mayor: ''
     };
 
     $scope.chart = {};
@@ -88,6 +87,45 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
         message: ''
     };
 
+    $scope.resetParams = function() {
+
+        $scope.extractos = [];
+        $scope.firstTime = true;
+
+        $scope.user = {
+            simulator: 'ingresos',
+            subscriptor: false,
+            document_type: $scope.document_types[0],
+            document_value: '',
+            ingresos: '',
+            porcentaje: 0,
+            total: 0,
+            califica: false,
+            califica_icon: '',
+            califica_text: '',
+            calificable: false,
+            totalAdeudamiento: '',
+            tarifa_basica_mayor: ''
+        };
+
+        $scope.selected_plan = '';
+        $scope.selected_plans = [];
+
+        $scope.crm = {
+            title: '',
+            message: ''
+        };
+
+        $scope.addPlan();
+    };
+
+    $scope.searchCRMbyKey = function($event) {
+
+        if ($event.charCode == 13) {
+
+            $scope.searchCRM();
+        }
+    };
 
     $scope.show_suscribers = {};
     $scope.mostrarSuscriptor = function(group_id) {
@@ -200,10 +238,6 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
         if ($scope.user.porcentaje > 0 && $scope.user.ingreso > 0) {
 
             totalAdeudamiento = $scope.user.ingreso * ($scope.user.porcentaje / 100);
-
-            try {
-                totalAdeudamiento = totalAdeudamiento + totalAdeudamiento * $scope.user.flexibilidad_adicional/100
-            } catch(error) {}
         }
 
         $scope.data = [totalAdeudamiento, totalAmount, $scope.user.ingreso];

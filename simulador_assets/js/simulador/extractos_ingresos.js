@@ -167,6 +167,60 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
     };
 
 
+    $scope.resetParams = function () {
+
+        $scope.extractos = [];
+        $scope.firstTime = true;
+
+        $scope.user.simulator = 'ingresos';
+        $scope.user.subscriptor = false;
+        $scope.user.document_type = $scope.document_types[0];
+        $scope.user.document_value = '';
+        $scope.user.ingresos = '';
+        $scope.user.porcentaje = 0;
+        $scope.user.total = 0;
+        $scope.user.califica = false;
+        $scope.user.califica_icon = '';
+        $scope.user.califica_text = '';
+        $scope.user.calificable = false;
+        $scope.user.total_quantity = 0;
+        $scope.user.tarifa_basica_mayor = '';
+        $scope.user.saldo_promedio_extracto = '';
+        $scope.user.ciudad = $scope.cities[0];
+        $scope.user.autocalcular_tarifa_basica_mayor = true;
+        $scope.user.tipo_cambio = 6.96;
+        $scope.user.totalAdeudamiento = '';
+        $scope.user.promedioIngresos = {
+            cliente: '',
+            nuevatel: '',
+            diferencia: ''
+        };
+        $scope.userpromedioExtractos = {
+            cliente: '',
+            nuevatel: '',
+            diferencia: ''
+        };
+
+        $scope.selected_plan = '';
+        $scope.selected_plans = [];
+
+        $scope.crm = {
+            title: '',
+            message: ''
+        };
+
+        $scope.addPlan();
+    };
+
+
+    $scope.searchCRMbyKey = function ($event) {
+
+        if ($event.charCode == 13) {
+
+            $scope.searchCRM();
+        }
+    };
+
     $scope.show_suscribers = {};
     $scope.mostrarSuscriptor = function(group_id) {
 

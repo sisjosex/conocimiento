@@ -270,3 +270,21 @@ td.marca {
     width: 50%;
     text-align: right;
 }
+
+
+.container-form-simulator {
+    position: relative;
+}
+
+.reset-section {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #7a68ae;
+}
+
+.reset-section:hover {
+    color: #8f86aa;
+    cursor: pointer;
+}
