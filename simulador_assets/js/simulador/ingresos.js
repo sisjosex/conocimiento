@@ -1,23 +1,17 @@
 var ingresos;
 
-simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $sce) {
+simulator.controller('SimuladorIngresos', function ($scope, $rootScope, ngDialog, service, $sce) {
 
     ingresos = $scope;
 
     $scope.collapse = true;
 
-    $scope.document_types = [
-        //{id: '', name: 'Tipo de Documento'},
-        {id: 'ci', name: 'Carnet de Identidad'},
-        {id: 'nit', name: 'NIT'},
-        {id: 'telefono', name: 'Línea'}
-    ];
+
 
     $scope.user = {
         simulator: 'ingresos',
-        subscriptor: false,
+        subscriptor: $rootScope.subscriptor,
         document_type: $scope.document_types[0],
-        document_value: '',
         ingreso: '',
         porcentaje: '',
         total: '',
@@ -28,6 +22,7 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
         totalAdeudamiento: '',
         tarifa_basica_mayor: ''
     };
+
 
     $scope.chart = {};
     $scope.chart.type = "PieChart";
@@ -61,6 +56,7 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
         ]}
     ]};
 
+
     $scope.labels = ["C. Endeudamiento", "Monto a Pagar", "Ingresos"];
     $scope.data = [0, 0, 0];
     $scope.colors = ["#7a68ae", "#c2d544", "#39c92f"];
@@ -81,22 +77,17 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
     $scope.selected_plan = '';
     $scope.selected_plans = [];
 
-
-    $scope.crm = {
-        title: '',
-        message: ''
-    };
-
     $scope.resetParams = function() {
 
         $scope.extractos = [];
         $scope.firstTime = true;
 
+        $rootScope.subscriptor = false;
+
         $scope.user = {
             simulator: 'ingresos',
-            subscriptor: false,
-            document_type: $scope.document_types[0],
-            document_value: '',
+            subscriptor: $rootScope.subscriptor,
+            document_type: $rootScope.document_types[0],
             ingresos: '',
             porcentaje: 0,
             total: 0,
@@ -108,23 +99,17 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
             tarifa_basica_mayor: ''
         };
 
+        $rootScope.document_value2 = '';
+
         $scope.selected_plan = '';
         $scope.selected_plans = [];
 
-        $scope.crm = {
+        $rootScope.crm = {
             title: '',
             message: ''
         };
 
         $scope.addPlan();
-    };
-
-    $scope.searchCRMbyKey = function($event) {
-
-        if ($event.charCode == 13) {
-
-            $scope.searchCRM();
-        }
     };
 
     $scope.show_suscribers = {};
@@ -140,14 +125,22 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
         $scope.show_suscribers[group_id] = !$scope.show_suscribers[group_id];
     };
 
+    $scope.searchCRMbyKey = function($event) {
+
+        if ($event.charCode == 13) {
+
+            $scope.searchCRM();
+        }
+    };
+
     $scope.searchCRM = function () {
 
         $('.pre_load3').show();
 
         service.searchCRM({
 
-            document_type: $scope.user.document_type.id,
-            document_value: $scope.user.document_value
+            document_type: $rootScope.document_type.id,
+            document_value: $scope.document_value2
 
         }, function (result) {
 
@@ -173,7 +166,7 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
 
                 } else {
 
-                    $scope.crm = result.data;
+                    $rootScope.crm = result.data;
                 }
             }
 
@@ -468,14 +461,14 @@ simulator.controller('SimuladorIngresos', function ($scope, ngDialog, service, $
 
     $scope.setSubscriptor = function (b) {
 
-        $scope.user.subscriptor = b;
+        $scope.user.subscriptor = $rootScope.subscriptor = b;
     };
 
     $scope.changeDocument = function (item) {
 
         $('.document_type').focus();
 
-        $scope.user.document_type = item;
+        $rootScope.document_type = item;
     };
 
     if (angular_params.status == 'success') {

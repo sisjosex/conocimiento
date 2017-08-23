@@ -1,17 +1,12 @@
 var extractos_ingresos;
 
-simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, service, $sce) {
+simulator.controller('SimuladorExtractosIngresos', function ($scope, $rootScope, ngDialog, service, $sce) {
 
     extractos_ingresos = $scope;
 
     $scope.collapse = true;
 
-    $scope.document_types = [
-        //{id: '', name: 'Tipo de Documento'},
-        {id: 'ci', name: 'Carnet de Identidad'},
-        {id: 'nit', name: 'NIT'},
-        {id: 'telefono', name: 'Línea'}
-    ];
+    
 
     var extractos_data = [];
     var extractos_ingresos_data = [];
@@ -63,13 +58,10 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
     ];
 
 
-    
-
     $scope.user = {
         simulator: 'ingresos',
         subscriptor: false,
         document_type: $scope.document_types[0],
-        document_value: '',
         ingreso: '',
         porcentaje: 0,
         total: 0,
@@ -162,20 +154,17 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
     $scope.extractos = [];
 
 
-    $scope.crm = {
-        message: ''
-    };
-
-
     $scope.resetParams = function () {
 
         $scope.extractos = [];
         $scope.firstTime = true;
+        
+        $rootScope.subscriptor = false;
 
         $scope.user.simulator = 'ingresos';
         $scope.user.subscriptor = false;
         $scope.user.document_type = $scope.document_types[0];
-        $scope.user.document_value = '';
+        $rootScope.document_value = '';
         $scope.user.ingresos = '';
         $scope.user.porcentaje = 0;
         $scope.user.total = 0;
@@ -200,11 +189,13 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
             nuevatel: '',
             diferencia: ''
         };
+        
+        $rootScope.document_value2 = '';
 
         $scope.selected_plan = '';
         $scope.selected_plans = [];
 
-        $scope.crm = {
+        $rootScope.crm = {
             title: '',
             message: ''
         };
@@ -222,7 +213,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
     };
 
     $scope.show_suscribers = {};
-    $scope.mostrarSuscriptor = function(group_id) {
+    $scope.mostrarSuscriptor = function (group_id) {
 
         console.log($scope.show_suscribers);
 
@@ -234,15 +225,14 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
         $scope.show_suscribers[group_id] = !$scope.show_suscribers[group_id];
     };
 
-
     $scope.searchCRM = function () {
 
         $('.pre_load3').show();
 
         service.searchCRM({
 
-            document_type: $scope.user.document_type.id,
-            document_value: $scope.user.document_value
+            document_type: $rootScope.document_type.id,
+            document_value: $scope.document_value2
 
         }, function (result) {
 
@@ -268,7 +258,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                 } else {
 
-                    $scope.crm = result.data;
+                    $rootScope.crm = result.data;
                 }
             }
 
@@ -309,7 +299,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                     $scope.selected_order = $scope.$parent.selected_order;
 
-                    $scope.changeOrder = function() {
+                    $scope.changeOrder = function () {
 
                         $scope.changeFechaInicio($scope.fechaInicio);
                     };
@@ -323,7 +313,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                         if ($scope.selected_date_type == '60_days') {
 
-                            if ( $scope.selected_order == 'asc' ) {
+                            if ($scope.selected_order == 'asc') {
 
                                 for (var i = 60; i >= 0; i--) {
 
@@ -381,8 +371,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
                         } else if ($scope.selected_date_type == '2_months') {
 
-                            if ( $scope.selected_order == 'asc' )
-                            {
+                            if ($scope.selected_order == 'asc') {
 
                                 date_test = moment(month_end, "DD/MM/YYYY").toDate();
 
@@ -934,14 +923,14 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, ngDialog, s
 
     $scope.setSubscriptor = function (b) {
 
-        $scope.user.subscriptor = b;
+        $scope.user.subscriptor = $rootScope.subscriptor = b;
     };
 
     $scope.changeDocument = function (item) {
 
         $('.document_type').focus();
 
-        $scope.user.document_type = item;
+        $rootScope.document_type = item;
     };
 
     $scope.changeCiudad = function (city) {

@@ -1,6 +1,6 @@
 var extractos;
 
-simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, $sce) {
+simulator.controller('SimuladorExtractos', function ($scope, $rootScope, ngDialog, service, $sce) {
 
     extractos = $scope;
 
@@ -148,21 +148,17 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
     $scope.extractos = [];
 
 
-    $scope.crm = {
-        message: ''
-    };
-
-
     $scope.resetParams = function () {
 
         $scope.extractos = [];
         $scope.firstTime = true;
 
+        $rootScope.subscriptor = false;
 
         $scope.user.simulator = 'ingresos';
         $scope.user.subscriptor = false;
         $scope.user.document_type = $scope.document_types[0];
-        $scope.user.document_value = '';
+        $rootScope.document_value2 = '';
         $scope.user.ingreso = '';
         $scope.user.porcentaje = 0;
         $scope.user.total = 0;
@@ -179,11 +175,13 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
         $scope.user.totalAdeudamiento = '';
         $scope.user.tarifaViva = '';
         $scope.user.diferencia = '';
+        
+        $rootScope.document_value2 = '';
 
         $scope.selected_plan = '';
         $scope.selected_plans = [];
 
-        $scope.crm = {
+        $rootScope.crm = {
             title: '',
             message: ''
         };
@@ -225,8 +223,8 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
         service.searchCRM({
 
-            document_type: $scope.user.document_type.id,
-            document_value: $scope.user.document_value
+            document_type: $rootScope.document_type.id,
+            document_value: $scope.document_value2
 
         }, function (result) {
 
@@ -252,7 +250,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                 } else {
 
-                    $scope.crm = result.data;
+                    $rootScope.crm = result.data;
                 }
             }
 
@@ -293,7 +291,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                     $scope.selected_order = $scope.$parent.selected_order;
 
-                    $scope.changeOrder = function() {
+                    $scope.changeOrder = function () {
 
                         $scope.changeFechaInicio($scope.fechaInicio);
                     };
@@ -307,7 +305,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                         if ($scope.selected_date_type == '60_days') {
 
-                            if ( $scope.selected_order == 'asc' ) {
+                            if ($scope.selected_order == 'asc') {
 
                                 for (var i = 60; i >= 0; i--) {
 
@@ -365,8 +363,7 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
                         } else if ($scope.selected_date_type == '2_months') {
 
-                            if ( $scope.selected_order == 'asc' )
-                            {
+                            if ($scope.selected_order == 'asc') {
 
                                 date_test = moment(month_end, "DD/MM/YYYY").toDate();
 
@@ -849,14 +846,14 @@ simulator.controller('SimuladorExtractos', function ($scope, ngDialog, service, 
 
     $scope.setSubscriptor = function (b) {
 
-        $scope.user.subscriptor = b;
+        $scope.user.subscriptor = $rootScope.subscriptor = b;
     };
 
     $scope.changeDocument = function (item) {
 
         $('.document_type').focus();
 
-        $scope.user.document_type = item;
+        $rootScope.document_type = item;
     };
 
     $scope.changeCiudad = function (city) {

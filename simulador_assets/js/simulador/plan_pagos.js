@@ -1,23 +1,15 @@
 var plan_pagos;
 
-simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, $sce) {
+simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialog, service, $sce) {
 
     plan_pagos = $scope;
 
     $scope.collapse = true;
 
-    $scope.document_types = [
-        //{id: '', name: 'Tipo de Documento'},
-        {id: 'ci', name: 'Carnet de Identidad'},
-        {id: 'nit', name: 'NIT'},
-        {id: 'telefono', name: 'Línea'}
-    ];
-
     $scope.user = {
         simulator: 'ingresos',
-        subscriptor: false,
-        document_type: $scope.document_types[0],
-        document_value: '',
+        subscriptor: $rootScope.subscriptor,
+        document_type: $rootScope.document_types[0],
         ingreso: '',
         porcentaje: '',
         total: '',
@@ -80,11 +72,6 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
     $scope.selected_plan = '';
     $scope.selected_plans = [];
 
-
-    $scope.crm = {
-        message: ''
-    };
-
     $scope.resetParams = function() {
 
         $scope.extractos = [];
@@ -92,9 +79,8 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
 
         $scope.user = {
             simulator: 'ingresos',
-            subscriptor: false,
-            document_type: $scope.document_types[0],
-            document_value: '',
+            subscriptor: $rootScope.subscriptor,
+            document_type: $rootScope.document_types[0],
             ingreso: '',
             porcentaje: 0,
             total: 0,
@@ -106,23 +92,17 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
             tarifa_basica_mayor: ''
         };
 
+        $rootScope.document_value = '';
+
         $scope.selected_plan = '';
         $scope.selected_plans = [];
 
-        $scope.crm = {
+        $rootScope.crm = {
             title: '',
             message: ''
         };
 
         $scope.addPlan();
-    };
-
-    $scope.searchCRMbyKey = function($event) {
-
-        if ($event.charCode == 13) {
-
-            $scope.searchCRM();
-        }
     };
 
     $scope.searchCRMbyKey = function($event) {
@@ -152,8 +132,8 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
         $('.pre_load3').show();
         service.searchCRM({
 
-            document_type: $scope.user.document_type.id,
-            document_value: $scope.user.document_value
+            document_type: $rootScope.document_type.id,
+            document_value: $scope.document_value2
 
         }, function (result) {
 
@@ -179,7 +159,7 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
 
                 } else {
 
-                    $scope.crm = result.data;
+                    $rootScope.crm = result.data;
                 }
             }
 
@@ -269,7 +249,7 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
         ]};
 
 
-        $scope.user.totalAdeudamiento = totalAdeudamiento;
+        $scope.user.totalAdeudamiento = parseFloat(parseFloat(totalAdeudamiento).toFixed(2));
 
 
         if (totalAdeudamiento >= totalAmount) {
@@ -474,14 +454,14 @@ simulator.controller('SimuladorPlanPagos', function ($scope, ngDialog, service, 
 
     $scope.setSubscriptor = function (b) {
 
-        $scope.user.subscriptor = b;
+        $scope.user.subscriptor = $rootScope.subscriptor = b;
     };
 
     $scope.changeDocument = function (item) {
 
         $('.document_type').focus();
 
-        $scope.user.document_type = item;
+        $rootScope.document_type = item;
     };
 
     if (angular_params.status == 'success') {
