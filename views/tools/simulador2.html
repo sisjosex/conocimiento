@@ -98,10 +98,38 @@
                                                                 <h1>{{ crm.title }}</h1>
 
                                                                 <div ng-repeat="group in crm.message">
+                                                                    <div class="resume-container">
+                                                                        <div class="col-lg-12">
+                                                                            <table width="100%"
+                                                                                   class="table-detail-internal2 plan-table">
+                                                                                <tr>
+                                                                                    <th style="text-align:center"
+                                                                                        class="plan-option"><b>Cliente</b></th>
+                                                                                    <th style="text-align:center"
+                                                                                        class="plan-option"><b>Comunidades</b></th>
+                                                                                </tr>
 
-                                                                    <h5><b>Cliente ({{ group.id_cliente }}) {{
-                                                                        group.nombre_cliente }}</b></h5>
-                                                                    <h5><b>Carnet: {{ group.numero_documento }}</b></h5>
+                                                                                <tr>
+                                                                                    <td valign="top">{{ group.nombre_cliente }} (CI: {{ group.numero_documento }})</td>
+                                                                                    <td style="border:none;">
+                                                                                        <table width="100%">
+                                                                                            <tr ng-repeat="comunity in group.comunities">
+                                                                                                <td>{{ comunity.id_grupo }}</td>
+                                                                                                <td>{{ comunity.cantidad_unidades }} Lineas</td>
+                                                                                            </tr>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div ng-repeat="group in crm.message">
+
+                                                                    <!--<h5><b>Cliente ({{ group.id_cliente }}) {{-->
+                                                                    <!--group.nombre_cliente }}</b></h5>-->
+                                                                    <!--<h5><b>Carnet: {{ group.numero_documento }}</b></h5>-->
 
                                                                     <div class="row"
                                                                          ng-repeat="comunity in group.comunities">
@@ -612,10 +640,38 @@
                                                                 <h1>{{ crm.title }}</h1>
 
                                                                 <div ng-repeat="group in crm.message">
+                                                                    <div class="resume-container">
+                                                                        <div class="col-lg-12">
+                                                                            <table width="100%"
+                                                                                   class="table-detail-internal2 plan-table">
+                                                                                <tr>
+                                                                                    <th style="text-align:center"
+                                                                                        class="plan-option"><b>Cliente</b></th>
+                                                                                    <th style="text-align:center"
+                                                                                        class="plan-option"><b>Comunidades</b></th>
+                                                                                </tr>
 
-                                                                    <h5><b>Cliente ({{ group.id_cliente }}) {{
-                                                                        group.nombre_cliente }}</b></h5>
-                                                                    <h5><b>Carnet: {{ group.numero_documento }}</b></h5>
+                                                                                <tr>
+                                                                                    <td valign="top">{{ group.nombre_cliente }} (CI: {{ group.numero_documento }})</td>
+                                                                                    <td style="border:none;">
+                                                                                        <table width="100%">
+                                                                                            <tr ng-repeat="comunity in group.comunities">
+                                                                                                <td>{{ comunity.id_grupo }}</td>
+                                                                                                <td>{{ comunity.cantidad_unidades }} Lineas</td>
+                                                                                            </tr>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div ng-repeat="group in crm.message">
+
+                                                                    <!--<h5><b>Cliente ({{ group.id_cliente }}) {{-->
+                                                                    <!--group.nombre_cliente }}</b></h5>-->
+                                                                    <!--<h5><b>Carnet: {{ group.numero_documento }}</b></h5>-->
 
                                                                     <div class="row"
                                                                          ng-repeat="comunity in group.comunities">
@@ -1138,10 +1194,38 @@
                                                                 <h1>{{ crm.title }}</h1>
 
                                                                 <div ng-repeat="group in crm.message">
+                                                                    <div class="resume-container">
+                                                                        <div class="col-lg-12">
+                                                                            <table width="100%"
+                                                                                   class="table-detail-internal2 plan-table">
+                                                                                <tr>
+                                                                                    <th style="text-align:center"
+                                                                                        class="plan-option"><b>Cliente</b></th>
+                                                                                    <th style="text-align:center"
+                                                                                        class="plan-option"><b>Comunidades</b></th>
+                                                                                </tr>
 
-                                                                    <h5><b>Cliente ({{ group.id_cliente }}) {{
-                                                                        group.nombre_cliente }}</b></h5>
-                                                                    <h5><b>Carnet: {{ group.numero_documento }}</b></h5>
+                                                                                <tr>
+                                                                                    <td valign="top">{{ group.nombre_cliente }} (CI: {{ group.numero_documento }})</td>
+                                                                                    <td style="border:none;">
+                                                                                        <table width="100%">
+                                                                                            <tr ng-repeat="comunity in group.comunities">
+                                                                                                <td>{{ comunity.id_grupo }}</td>
+                                                                                                <td>{{ comunity.cantidad_unidades }} Lineas</td>
+                                                                                            </tr>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div ng-repeat="group in crm.message">
+
+                                                                    <!--<h5><b>Cliente ({{ group.id_cliente }}) {{-->
+                                                                    <!--group.nombre_cliente }}</b></h5>-->
+                                                                    <!--<h5><b>Carnet: {{ group.numero_documento }}</b></h5>-->
 
                                                                     <div class="row"
                                                                          ng-repeat="comunity in group.comunities">
@@ -1723,10 +1807,38 @@
                                                                 <h1>{{ crm.title }}</h1>
 
                                                                 <div ng-repeat="group in crm.message">
+                                                                    <div class="resume-container">
+                                                                        <div class="col-lg-12">
+                                                                            <table width="100%"
+                                                                                   class="table-detail-internal2 plan-table">
+                                                                                <tr>
+                                                                                    <th style="text-align:center"
+                                                                                        class="plan-option"><b>Cliente</b></th>
+                                                                                    <th style="text-align:center"
+                                                                                        class="plan-option"><b>Comunidades</b></th>
+                                                                                </tr>
 
-                                                                    <h5><b>Cliente ({{ group.id_cliente }}) {{
-                                                                        group.nombre_cliente }}</b></h5>
-                                                                    <h5><b>Carnet: {{ group.numero_documento }}</b></h5>
+                                                                                <tr>
+                                                                                    <td valign="top">{{ group.nombre_cliente }} (CI: {{ group.numero_documento }})</td>
+                                                                                    <td style="border:none;">
+                                                                                        <table width="100%">
+                                                                                            <tr ng-repeat="comunity in group.comunities">
+                                                                                                <td>{{ comunity.id_grupo }}</td>
+                                                                                                <td>{{ comunity.cantidad_unidades }} Lineas</td>
+                                                                                            </tr>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div ng-repeat="group in crm.message">
+
+                                                                    <!--<h5><b>Cliente ({{ group.id_cliente }}) {{-->
+                                                                    <!--group.nombre_cliente }}</b></h5>-->
+                                                                    <!--<h5><b>Carnet: {{ group.numero_documento }}</b></h5>-->
 
                                                                     <div class="row"
                                                                          ng-repeat="comunity in group.comunities">
