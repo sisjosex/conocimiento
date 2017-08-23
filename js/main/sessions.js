@@ -49,10 +49,13 @@ App.View('Login', {
         var remember_password = that.dom.find('#remember_password').attr('checked') == "checked";
 
         if ( remember_password ) {
+
             localStorage.setItem("remember_password", true);
             localStorage.setItem("username", this.username);
             localStorage.setItem("password", this.password);
+
         } else {
+
             localStorage.setItem("remember_password", false);
             localStorage.setItem("username", '');
             localStorage.setItem("password", '');
