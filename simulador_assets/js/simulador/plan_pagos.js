@@ -6,6 +6,12 @@ simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialo
 
     $scope.collapse = true;
 
+    $scope.promedio = {
+        mes1: '',
+        mes2: '',
+        mes3: ''
+    };
+
     $scope.user = {
         simulator: 'ingresos',
         subscriptor: $rootScope.subscriptor,
@@ -126,6 +132,68 @@ simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialo
         $scope.show_suscribers[group_id] = !$scope.show_suscribers[group_id];
     };
 
+    $scope.searchPlanDePagos = function() {
+
+        var dialog = ngDialog.open(
+            {
+                template: 'modalPlanDePagos.html',
+                className: 'ngdialog-theme-default',
+                closeByDocument: false,
+                closeByEscape: false,
+                scope: $scope,
+
+                controller: ['$scope', function ($scope) {
+                    $scope.title = 'Promedio';
+                    $scope.message = 'Calculo promedio';
+
+                    $scope.promedio = 0;
+
+                    $scope.data = $scope.$parent.promedio;
+
+                    $scope.calculate = function() {
+
+                        var mes1 = isNaN($scope.data.mes1) ? 0 : $scope.data.mes1;
+                        var mes2 = isNaN($scope.data.mes2) ? 0 : $scope.data.mes2;
+                        var mes3 = isNaN($scope.data.mes3) ? 0 : $scope.data.mes3;
+
+                        var suma = mes1 + mes2 + mes3;
+
+                        $scope.promedio = suma > 0 ? suma / 3 : 0;
+
+                        $scope.promedio = parseFloat( parseFloat($scope.promedio).toFixed(2) );
+                    };
+
+                    $scope.calculate();
+
+                    $scope.confirmOption = function () {
+
+                        var mes1 = isNaN($scope.data.mes1) ? 0 : $scope.data.mes1;
+                        var mes2 = isNaN($scope.data.mes2) ? 0 : $scope.data.mes2;
+                        var mes3 = isNaN($scope.data.mes3) ? 0 : $scope.data.mes3;
+
+                        var suma = mes1 + mes2 + mes3;
+
+                        $scope.promedio = suma > 0 ? suma / 3 : 0;
+
+                        $scope.promedio = parseFloat( parseFloat($scope.promedio).toFixed(2) );
+
+                        $scope.$parent.user.ingreso = $scope.promedio;
+
+                        $scope.$parent.promedio = $scope.data;
+
+                        updateChart();
+
+                        $scope.closeThisDialog();
+                    };
+
+                    $scope.cancel = function () {
+
+                        $scope.closeThisDialog();
+                    };
+
+                }]
+            });
+    };
 
     $scope.searchCRM = function () {
 
@@ -243,7 +311,7 @@ simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialo
                 {v: totalAmount}
             ]},*/
             {c: [
-                {v: "Ingresos (" + $scope.user.ingreso + ")"},
+                {v: "Ingresos (" + ($scope.user.ingreso - totalAdeudamiento) + ")"},
                 {v: ($scope.user.ingreso - totalAdeudamiento)}
             ]}
         ]};

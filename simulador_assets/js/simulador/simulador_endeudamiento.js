@@ -1,6 +1,6 @@
 var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSanitize", "ngDialog", "services", "jkuri.datepicker", "googlechart"])
-
-    .config(function ($sceDelegateProvider) {
+    
+    .config(function ($rootScope, ngDialog, service, $sceDelegateProvider) {
 
         //$sceDelegateProvider.resourceUrlWhitelist(['^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?\(vimeo|youtube)\.com(/.*)?$', 'self']);
 
@@ -30,6 +30,27 @@ var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSani
         $templateCache.put('modalExtractos.html', $('#modalExtractos').html());
     }])
 
+    .run(function($rootScope, ngDialog, service){
+
+        $rootScope.crm = {
+            title: '',
+            message: ''
+        };
+
+        $rootScope.subscriptor = false;
+
+        $rootScope.document_types = [
+            //{id: '', name: 'Tipo de Documento'},
+            {id: 'ci', name: 'Carnet de Identidad'},
+            {id: 'nit', name: 'NIT'},
+            {id: 'telefono', name: 'Linea'}
+        ];
+
+        $rootScope.document_type = $rootScope.document_types[0];
+
+        $rootScope.document_value2 = '';
+    })
+
     .directive('dropdown', function ($document, $window) {
         return {
             restrict: "C",
@@ -37,36 +58,38 @@ var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSani
 
                 elem.bind('click', function () {
 
-                    elem.toggleClass('dropdown-active');
-                    elem.addClass('active-recent');
+                    //setTimeout(function() {
 
-                    var self = $(elem).find(".menu");
+                        elem.toggleClass('dropdown-active');
+                        elem.addClass('active-recent');
 
-                    var rect = elem[0].getBoundingClientRect();
+                        var self = $(elem).find(".menu");
 
-                    //var left = parseInt(rect.left) - parseInt($(self).outerWidth()) + parseInt(rect.width);
-                    var left = ( window.innerWidth - $(elem).find(".menu").outerWidth() ) / 2;
-                    var top  = parseInt(rect.height) + parseInt(rect.top);
+                        var rect = elem[0].getBoundingClientRect();
 
-                    if (left + $(elem).find(".menu").outerWidth() >= $(elem).find(".menu").outerWidth()) {
+                        //var left = parseInt(rect.left) - parseInt($(self).outerWidth()) + parseInt(rect.width);
+                        var left = ( window.innerWidth - $(elem).find(".menu").outerWidth() ) / 2;
+                        var top  = parseInt(rect.height) + parseInt(rect.top);
 
-                        if ( left > parseInt(rect.left) + $(elem).outerWidth() ) {
+                        if (left + $(elem).find(".menu").outerWidth() >= $(elem).find(".menu").outerWidth()) {
 
-                            left = parseInt(rect.left);
+                            if ( left > parseInt(rect.left) + $(elem).outerWidth() ) {
+
+                                left = parseInt(rect.left);
+                            }
+
+                            $(self).css({left: left, top: top});
+
+                            if (window.outerWidth < left + $(elem).find(".menu").outerWidth()) {
+                                left = 0;
+                            }
+
+
+                        } else {
+                            $(self).css({right: 0, top: top});
                         }
 
-                        $(self).css({left: left, top: top});
-
-                        if (window.outerWidth < left + $(elem).find(".menu").outerWidth()) {
-                            left = 0;
-                        }
-
-
-                    } else {
-                        $(self).css({right: 0, top: top});
-                    }
-
-                    //$(elem).find(".menu").css({left:elem.pageX + window.scrollX, top:elem.pageY + window.scrollY});
+                    //}, 100);
                 });
 
                 $document.bind('click', function () {
@@ -92,3 +115,13 @@ var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSani
             }
         }
     });
+
+
+$(document).bind('keypress', function () {
+    setTimeout(function(){
+        $('.dropdown-active').removeClass('dropdown-active');
+    }, 0);
+
+
+    //$(elem).find(".menu").css({left:elem.pageX + window.scrollX, top:elem.pageY + window.scrollY});
+});

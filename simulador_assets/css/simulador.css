@@ -288,3 +288,17 @@ td.marca {
     color: #8f86aa;
     cursor: pointer;
 }
+
+.resumen-table th {
+    background: #c2d544 !important;
+}
+
+.simulador .resumen-table .plan-option, .resumen-table th {
+    background: #c2d544 !important;
+}
+
+@media all and (max-width: 1024px) {
+    .simulador .input-append {
+        width: 80%;
+    }
+}

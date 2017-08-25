@@ -37,7 +37,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, $rootScope,
         }
     ];
 
-    $scope.selected_date_type = '2_months';
+    $scope.selected_date_type = '60_days';
 
     $scope.currency = [
         {
@@ -718,6 +718,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, $rootScope,
             ]
         };
 
+
         if (diferencia >= 0) {
 
             $scope.colors = ["#7a68ae", "#c2d544", "#39c92f"];
@@ -727,7 +728,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, $rootScope,
             $scope.colors = ["#ff0000", "#c2d544", "#39c92f"];
         }
 
-        if (totalAmount > 0) {
+        if ( $scope.user.totalCliente > 0 && $scope.user.totalNuevatel > 0 ) {
 
             $scope.user.calificable = true;
 
@@ -750,6 +751,10 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, $rootScope,
 
             $scope.user.califica_icon = '';
             $scope.user.califica_text = '';
+        }
+
+        if ( $scope.user.tarifa_basica_mayor == 0 ) {
+            $scope.user.tarifa_basica_mayor = '';
         }
     };
 

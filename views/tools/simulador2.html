@@ -93,7 +93,7 @@
 
                                                         </div>
 
-                                                        <div class="col-lg-12" ng-show="crm.message != ''">
+                                                        <div class="col-lg-12" ng-show="crm.message != ''" style="padding-top: 45px;;">
                                                             <div class="col-lg-12">
                                                                 <h1>{{ crm.title }}</h1>
 
@@ -101,12 +101,12 @@
                                                                     <div class="resume-container">
                                                                         <div class="col-lg-12">
                                                                             <table width="100%"
-                                                                                   class="table-detail-internal2 plan-table">
+                                                                                   class="table-detail-internal2 plan-table resumen-table">
                                                                                 <tr>
                                                                                     <th style="text-align:center"
                                                                                         class="plan-option"><b>Cliente</b></th>
                                                                                     <th style="text-align:center"
-                                                                                        class="plan-option"><b>Comunidades</b></th>
+                                                                                        class="plan-option"><b>Comunidades ({{ group.comunities.length }})</b></th>
                                                                                 </tr>
 
                                                                                 <tr>
@@ -635,7 +635,7 @@
 
                                                         </div>
 
-                                                        <div class="col-lg-12" ng-show="crm.message != ''">
+                                                        <div class="col-lg-12" ng-show="crm.message != ''" style="padding-top: 45px;">
                                                             <div class="col-lg-12">
                                                                 <h1>{{ crm.title }}</h1>
 
@@ -643,12 +643,12 @@
                                                                     <div class="resume-container">
                                                                         <div class="col-lg-12">
                                                                             <table width="100%"
-                                                                                   class="table-detail-internal2 plan-table">
+                                                                                   class="table-detail-internal2 plan-table resumen-table">
                                                                                 <tr>
                                                                                     <th style="text-align:center"
                                                                                         class="plan-option"><b>Cliente</b></th>
                                                                                     <th style="text-align:center"
-                                                                                        class="plan-option"><b>Comunidades</b></th>
+                                                                                        class="plan-option"><b>Comunidades ({{ group.comunities.length }})</b></th>
                                                                                 </tr>
 
                                                                                 <tr>
@@ -1189,7 +1189,7 @@
 
                                                         </div>
 
-                                                        <div class="col-lg-12" ng-show="crm.message != ''">
+                                                        <div class="col-lg-12" ng-show="crm.message != ''" style="padding-top: 45px;">
                                                             <div class="col-lg-12">
                                                                 <h1>{{ crm.title }}</h1>
 
@@ -1197,12 +1197,12 @@
                                                                     <div class="resume-container">
                                                                         <div class="col-lg-12">
                                                                             <table width="100%"
-                                                                                   class="table-detail-internal2 plan-table">
+                                                                                   class="table-detail-internal2 plan-table resumen-table">
                                                                                 <tr>
                                                                                     <th style="text-align:center"
                                                                                         class="plan-option"><b>Cliente</b></th>
                                                                                     <th style="text-align:center"
-                                                                                        class="plan-option"><b>Comunidades</b></th>
+                                                                                        class="plan-option"><b>Comunidades ({{ group.comunities.length }})</b></th>
                                                                                 </tr>
 
                                                                                 <tr>
@@ -1802,7 +1802,7 @@
 
                                                         </div>
 
-                                                        <div class="col-lg-12" ng-show="crm.message != ''">
+                                                        <div class="col-lg-12" ng-show="crm.message != ''" style="padding-top: 45px;">
                                                             <div class="col-lg-12">
                                                                 <h1>{{ crm.title }}</h1>
 
@@ -1810,12 +1810,12 @@
                                                                     <div class="resume-container">
                                                                         <div class="col-lg-12">
                                                                             <table width="100%"
-                                                                                   class="table-detail-internal2 plan-table">
+                                                                                   class="table-detail-internal2 plan-table resumen-table">
                                                                                 <tr>
                                                                                     <th style="text-align:center"
                                                                                         class="plan-option"><b>Cliente</b></th>
                                                                                     <th style="text-align:center"
-                                                                                        class="plan-option"><b>Comunidades</b></th>
+                                                                                        class="plan-option"><b>Comunidades ({{ group.comunities.length }})</b></th>
                                                                                 </tr>
 
                                                                                 <tr>
@@ -2468,6 +2468,48 @@
                     <td>
                         <input type="number" class="form-control" placeholder="0.00" ng-model="date.value"
                                ng-change="fillDates($index)">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-lg-12" style="text-align: center;">
+            <button ng-click="confirmOption()" class="btn btn-primary">OK</button>
+            <button ng-click="cancel()" class="btn btn-secondary">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="modalPlanDePagos" style="display:none;">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>{{ title }}</h1>
+            <!--<p>{{ message }}</p>-->
+
+            <div class="form-group">
+                <label>Ingrese datos para los 3 primeros meses</label>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <table width="100%">
+                <tr>
+                    <td><label for="">Mes 1</label></td>
+                    <td>
+                        <input type="number" class="form-control" placeholder="0.00" ng-model="data.mes1">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Mes 2</label></td>
+                    <td>
+                        <input type="number" class="form-control" placeholder="0.00" ng-model="data.mes2">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Mes 3</label></td>
+                    <td>
+                        <input type="number" class="form-control" placeholder="0.00" ng-model="data.mes3">
                     </td>
                 </tr>
             </table>

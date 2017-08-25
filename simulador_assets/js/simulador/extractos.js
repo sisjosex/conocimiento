@@ -42,7 +42,7 @@ simulator.controller('SimuladorExtractos', function ($scope, $rootScope, ngDialo
         }
     ];
 
-    $scope.selected_date_type = '2_months';
+    $scope.selected_date_type = '60_days';
 
     $scope.currency = [
         {
@@ -701,6 +701,10 @@ simulator.controller('SimuladorExtractos', function ($scope, $rootScope, ngDialo
 
             $scope.user.califica_icon = '';
             $scope.user.califica_text = '';
+        }
+
+        if ( $scope.user.tarifa_basica_mayor == 0 ) {
+            $scope.user.tarifa_basica_mayor = '';
         }
     };
 
