@@ -150,22 +150,29 @@ simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialo
 
                     $scope.data = $scope.$parent.promedio;
 
-                    $scope.calculate = function() {
+                    $scope.calculate = function(mes) {
 
-                        var mes1 = isNaN($scope.data.mes1) ? 0 : $scope.data.mes1;
-                        var mes2 = isNaN($scope.data.mes2) ? 0 : $scope.data.mes2;
-                        var mes3 = isNaN($scope.data.mes3) ? 0 : $scope.data.mes3;
-
-                        var suma = mes1 + mes2 + mes3;
-
-                        $scope.promedio = suma > 0 ? suma / 3 : 0;
-
-                        $scope.promedio = parseFloat( parseFloat($scope.promedio).toFixed(2) );
-                    };
-
-                    $scope.calculate();
-
-                    $scope.confirmOption = function () {
+                        if (mes == 1) {
+                            $scope.data.mes2 = $scope.data['mes' + mes];
+                            $scope.data.mes3 = $scope.data['mes' + mes];
+                            $scope.data.mes4 = $scope.data['mes' + mes];
+                            $scope.data.mes5 = $scope.data['mes' + mes];
+                            $scope.data.mes6 = $scope.data['mes' + mes];
+                        } else if (mes == 2) {
+                            $scope.data.mes3 = $scope.data['mes' + mes];
+                            $scope.data.mes4 = $scope.data['mes' + mes];
+                            $scope.data.mes5 = $scope.data['mes' + mes];
+                            $scope.data.mes6 = $scope.data['mes' + mes];
+                        } else if (mes == 3) {
+                            $scope.data.mes4 = $scope.data['mes' + mes];
+                            $scope.data.mes5 = $scope.data['mes' + mes];
+                            $scope.data.mes6 = $scope.data['mes' + mes];
+                        } else if (mes == 4) {
+                            $scope.data.mes5 = $scope.data['mes' + mes];
+                            $scope.data.mes6 = $scope.data['mes' + mes];
+                        } else if (mes == 5) {
+                            $scope.data.mes6 = $scope.data['mes' + mes];
+                        }
 
                         var mes1 = isNaN($scope.data.mes1) ? 0 : $scope.data.mes1;
                         var mes2 = isNaN($scope.data.mes2) ? 0 : $scope.data.mes2;
@@ -180,6 +187,13 @@ simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialo
                         $scope.$parent.user.ingreso = $scope.promedio;
 
                         $scope.$parent.promedio = $scope.data;
+                    };
+
+                    $scope.calculate();
+
+                    $scope.confirmOption = function () {
+
+                        $scope.calculate();
 
                         updateChart();
 

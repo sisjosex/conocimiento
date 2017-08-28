@@ -1,6 +1,6 @@
 var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSanitize", "ngDialog", "services", "jkuri.datepicker", "googlechart"])
     
-    .config(function ($rootScope, ngDialog, service, $sceDelegateProvider) {
+    .config(function ($sceDelegateProvider) {
 
         //$sceDelegateProvider.resourceUrlWhitelist(['^(?:http(?:s)?:\/\/)?(?:[^\.]+\.)?\(vimeo|youtube)\.com(/.*)?$', 'self']);
 
@@ -30,7 +30,18 @@ var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSani
         $templateCache.put('modalExtractos.html', $('#modalExtractos').html());
     }])
 
-    .run(function($rootScope, ngDialog, service){
+    .run(['$templateCache', function ($templateCache) {
+        $templateCache.put('modalPlanDePagos.html', $('#modalPlanDePagos').html());
+    }])
+
+    .run(['$templateCache', function ($templateCache) {
+        $templateCache.put('modalRemesas.html', $('#modalRemesas').html());
+    }])
+
+    .run(['$templateCache', function ($templateCache) {
+        $templateCache.put('modalIVA.html', $('#modalIVA').html());
+    }])
+    .run(function($rootScope){
 
         $rootScope.crm = {
             title: '',
@@ -51,11 +62,13 @@ var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSani
         $rootScope.document_value2 = '';
     })
 
+    
+
     .directive('dropdown', function ($document, $window) {
         return {
             restrict: "C",
             link: function (scope, elem, attr) {
-
+                
                 elem.bind('click', function () {
 
                     //setTimeout(function() {
@@ -70,6 +83,8 @@ var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSani
                         //var left = parseInt(rect.left) - parseInt($(self).outerWidth()) + parseInt(rect.width);
                         var left = ( window.innerWidth - $(elem).find(".menu").outerWidth() ) / 2;
                         var top  = parseInt(rect.height) + parseInt(rect.top);
+
+                    if ( window.innerWidth >= 1024 ) {
 
                         if (left + $(elem).find(".menu").outerWidth() >= $(elem).find(".menu").outerWidth()) {
 
@@ -87,7 +102,14 @@ var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSani
 
                         } else {
                             $(self).css({right: 0, top: top});
+
+
                         }
+
+                    } else {
+
+                        $(self).css({left: 10, top: top});
+                    }
 
                     //}, 100);
                 });
@@ -104,10 +126,18 @@ var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSani
 
                 $(window).bind('scroll', function () {
 
-                    if (!elem.hasClass('active-recent')) {
-                        elem.removeClass('dropdown-active');
-                    }
-                    elem.removeClass('active-recent');
+                    // if (!elem.hasClass('active-recent')) {
+                    //     elem.removeClass('dropdown-active');
+                    // }
+                    // elem.removeClass('active-recent');
+
+                    var self = $(elem).find(".menu");
+
+                    var rect = elem[0].getBoundingClientRect();
+
+                    var top  = parseInt(rect.height) + parseInt(rect.top);
+
+                    $(self).css({top: top});
 
                     //$(elem).find(".menu").css({left:elem.pageX + window.scrollX, top:elem.pageY + window.scrollY});
                 });

@@ -574,7 +574,7 @@ simulator.controller('SimuladorExtractos', function ($scope, $rootScope, ngDialo
 
         if ($scope.user.autocalcular_tarifa_basica_mayor) {
 
-            $scope.user.tarifa_basica_mayor = 0;
+            $scope.user.tarifa_basica_mayor = '';
         }
 
         for (var i in $scope.selected_plans) {

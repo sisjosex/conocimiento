@@ -18,10 +18,7 @@ simulator.controller('SimuladorIngresos', function ($scope, $rootScope, ngDialog
     $scope.iva = {
         mes1: '',
         mes2: '',
-        mes3: '',
-        mes4: '',
-        mes5: '',
-        mes6: ''
+        mes3: ''
     };
 
     $scope.user = {
@@ -171,7 +168,7 @@ simulator.controller('SimuladorIngresos', function ($scope, $rootScope, ngDialog
                     $scope.promedio = 0;
                     $scope.total;
 
-                    $scope.data = porcentaje != undefined ? $scope.$parent.remesas : $scope.$parent.iva;
+                    $scope.data = porcentaje != undefined ? $scope.$parent.iva : $scope.$parent.remesas;
 
                     $scope.resetParams = function() {
                         $scope.data = {
@@ -184,18 +181,60 @@ simulator.controller('SimuladorIngresos', function ($scope, $rootScope, ngDialog
                         }
                     };
 
-                    $scope.calculate = function() {
+                    $scope.calculate = function(mes) {
 
-                        var mes1 = isNaN($scope.data.mes1) ? 0 : $scope.data.mes1;
-                        var mes2 = isNaN($scope.data.mes2) ? 0 : $scope.data.mes2;
-                        var mes3 = isNaN($scope.data.mes3) ? 0 : $scope.data.mes3;
-                        var mes4 = isNaN($scope.data.mes4) ? 0 : $scope.data.mes4;
-                        var mes5 = isNaN($scope.data.mes5) ? 0 : $scope.data.mes5;
-                        var mes6 = isNaN($scope.data.mes6) ? 0 : $scope.data.mes6;
+                        if ( porcentaje != undefined ) {
 
-                        var suma = mes1 + mes2 + mes3 + mes4 + mes5 + mes6;
+                            if (mes == 1) {
+                                $scope.data.mes2 = $scope.data['mes' + mes];
+                                $scope.data.mes3 = $scope.data['mes' + mes];
+                            } else if (mes == 2) {
+                                $scope.data.mes3 = $scope.data['mes' + mes];
+                            }
 
-                        $scope.promedio = suma > 0 ? suma / 6 : 0;
+                            var mes1 = isNaN($scope.data.mes1) ? 0 : $scope.data.mes1;
+                            var mes2 = isNaN($scope.data.mes2) ? 0 : $scope.data.mes2;
+                            var mes3 = isNaN($scope.data.mes3) ? 0 : $scope.data.mes3;
+
+                            var suma = mes1 + mes2 + mes3;
+
+                            $scope.promedio = suma > 0 ? suma / 3 : 0;
+
+                        } else {
+
+                            if (mes == 1) {
+                                $scope.data.mes2 = $scope.data['mes' + mes];
+                                $scope.data.mes3 = $scope.data['mes' + mes];
+                                $scope.data.mes4 = $scope.data['mes' + mes];
+                                $scope.data.mes5 = $scope.data['mes' + mes];
+                                $scope.data.mes6 = $scope.data['mes' + mes];
+                            } else if (mes == 2) {
+                                $scope.data.mes3 = $scope.data['mes' + mes];
+                                $scope.data.mes4 = $scope.data['mes' + mes];
+                                $scope.data.mes5 = $scope.data['mes' + mes];
+                                $scope.data.mes6 = $scope.data['mes' + mes];
+                            } else if (mes == 3) {
+                                $scope.data.mes4 = $scope.data['mes' + mes];
+                                $scope.data.mes5 = $scope.data['mes' + mes];
+                                $scope.data.mes6 = $scope.data['mes' + mes];
+                            } else if (mes == 4) {
+                                $scope.data.mes5 = $scope.data['mes' + mes];
+                                $scope.data.mes6 = $scope.data['mes' + mes];
+                            } else if (mes == 5) {
+                                $scope.data.mes6 = $scope.data['mes' + mes];
+                            }
+
+                            var mes1 = isNaN($scope.data.mes1) ? 0 : $scope.data.mes1;
+                            var mes2 = isNaN($scope.data.mes2) ? 0 : $scope.data.mes2;
+                            var mes3 = isNaN($scope.data.mes3) ? 0 : $scope.data.mes3;
+                            var mes4 = isNaN($scope.data.mes4) ? 0 : $scope.data.mes4;
+                            var mes5 = isNaN($scope.data.mes5) ? 0 : $scope.data.mes5;
+                            var mes6 = isNaN($scope.data.mes6) ? 0 : $scope.data.mes6;
+
+                            var suma = mes1 + mes2 + mes3 + mes4 + mes5 + mes6;
+
+                            $scope.promedio = suma > 0 ? suma / 6 : 0;
+                        }
 
                         $scope.total = $scope.promedio;
 
@@ -211,30 +250,20 @@ simulator.controller('SimuladorIngresos', function ($scope, $rootScope, ngDialog
 
                     $scope.confirmOption = function () {
 
-                        var mes1 = isNaN($scope.data.mes1) ? 0 : $scope.data.mes1;
-                        var mes2 = isNaN($scope.data.mes2) ? 0 : $scope.data.mes2;
-                        var mes3 = isNaN($scope.data.mes3) ? 0 : $scope.data.mes3;
-                        var mes4 = isNaN($scope.data.mes4) ? 0 : $scope.data.mes4;
-                        var mes5 = isNaN($scope.data.mes5) ? 0 : $scope.data.mes5;
-                        var mes6 = isNaN($scope.data.mes6) ? 0 : $scope.data.mes6;
-
-                        var suma = mes1 + mes2 + mes3 + mes4 + mes5 + mes6;
-
-                        $scope.promedio = suma > 0 ? suma / 6 : 0;
-
-                        $scope.total = $scope.promedio;
-
-                        $scope.total = parseFloat( parseFloat($scope.total).toFixed(2) );
-
-                        if ( porcentaje != undefined) {
-                            $scope.promedio = $scope.promedio * porcentaje;
-                        }
-
-                        $scope.promedio = parseFloat( parseFloat($scope.promedio).toFixed(2) );
+                        $scope.calculate();
 
                         $scope.$parent.user.ingreso = $scope.promedio;
 
-                        $scope.$parent.remesas = $scope.data;
+
+
+                        if (porcentaje != undefined) {
+
+                            $scope.$parent.iva = $scope.data;
+
+                        } else {
+
+                            $scope.$parent.remesas = $scope.data;
+                        }
 
                         updateChart();
 
