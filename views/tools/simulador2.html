@@ -505,7 +505,7 @@
                                                  ng-class="{'collapsed': collapse}">
 
                                                 <table class="table-detail">
-                                                    <!--<tr ng-repeat="plan in selected_plans track by $index">
+                                                    <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td>
                                                             <table width="100%" class="table-detail-internal2 plan-table">
                                                                 <tr>
@@ -516,6 +516,18 @@
                                                                 <tr>
                                                                     <td class="plan-option">Tarifa del plan</td>
                                                                     <td class="plan-title plan-total">{{ totalRow(plan) }} Bs</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="plan-option">MB</td>
+                                                                    <td class="plan-title plan-total">{{ totalMB(plan) }} MBs</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="plan-option">Crédito</td>
+                                                                    <td class="plan-title plan-total">{{ totalCredito(plan) }} Bs</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="plan-option">Minutos</td>
+                                                                    <td class="plan-title plan-total">{{ totalMinutos(plan) }} Minutos</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
@@ -529,7 +541,7 @@
                                                                 </tr>
                                                             </table>
                                                         </td>
-                                                    </tr>-->
+                                                    </tr>
 
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
@@ -1053,7 +1065,7 @@
                                                  ng-class="{'collapsed': collapse}">
 
                                                 <table class="table-detail">
-                                                    <!--<tr ng-repeat="plan in selected_plans track by $index">
+                                                    <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td>
                                                             <table width="100%"
                                                                    class="table-detail-internal2 plan-table">
@@ -1066,9 +1078,19 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="plan-option">Tarifa del plan</td>
-                                                                    <td class="plan-title plan-total">{{ totalRow(plan)
-                                                                        }} Bs
-                                                                    </td>
+                                                                    <td class="plan-title plan-total">{{ totalRow(plan) }} Bs</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="plan-option">MB</td>
+                                                                    <td class="plan-title plan-total">{{ totalMB(plan) }} MBs</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="plan-option">Crédito</td>
+                                                                    <td class="plan-title plan-total">{{ totalCredito(plan) }} Bs</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="plan-option">Minutos</td>
+                                                                    <td class="plan-title plan-total">{{ totalMinutos(plan) }} Minutos</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
@@ -1088,7 +1110,7 @@
                                                                 </tr>
                                                             </table>
                                                         </td>
-                                                    </tr>-->
+                                                    </tr>
 
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
@@ -1676,7 +1698,7 @@
                                                  ng-class="{'collapsed': collapse}">
 
                                                 <table class="table-detail">
-                                                    <!--<tr ng-repeat="plan in selected_plans track by $index">
+                                                    <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td>
                                                             <table width="100%" class="table-detail-internal2 plan-table">
                                                                 <tr>
@@ -1687,6 +1709,18 @@
                                                                 <tr>
                                                                     <td class="plan-option">Tarifa del plan</td>
                                                                     <td class="plan-title plan-total">{{ totalRow(plan) }} Bs</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="plan-option">MB</td>
+                                                                    <td class="plan-title plan-total">{{ totalMB(plan) }} MBs</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="plan-option">Crédito</td>
+                                                                    <td class="plan-title plan-total">{{ totalCredito(plan) }} Bs</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="plan-option">Minutos</td>
+                                                                    <td class="plan-title plan-total">{{ totalMinutos(plan) }} Minutos</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
@@ -1701,7 +1735,7 @@
                                                             </table>
                                                         </td>
                                                     </tr>
-                                                    -->
+
 
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
@@ -2323,7 +2357,7 @@
                                                  ng-class="{'collapsed': collapse}">
 
                                                 <table class="table-detail">
-                                                    <!--<tr ng-repeat="plan in selected_plans track by $index">
+                                                    <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td>
                                                             <table width="100%" class="table-detail-internal2 plan-table">
                                                                 <tr>
@@ -2334,6 +2368,18 @@
                                                                 <tr>
                                                                     <td class="plan-option">Tarifa del plan</td>
                                                                     <td class="plan-title plan-total">{{ totalRow(plan) }} Bs</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="plan-option">MB</td>
+                                                                    <td class="plan-title plan-total">{{ totalMB(plan) }} MBs</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="plan-option">Crédito</td>
+                                                                    <td class="plan-title plan-total">{{ totalCredito(plan) }} Bs</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="plan-option">Minutos</td>
+                                                                    <td class="plan-title plan-total">{{ totalMinutos(plan) }} Minutos</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
@@ -2347,7 +2393,7 @@
                                                                 </tr>
                                                             </table>
                                                         </td>
-                                                    </tr>-->
+                                                    </tr>
 
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">

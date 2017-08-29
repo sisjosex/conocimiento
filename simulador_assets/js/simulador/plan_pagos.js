@@ -502,6 +502,81 @@ simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialo
         return totalAmount;
     };
 
+    $scope.totalMB = function (plan) {
+
+        var totalAmount = 0;
+
+        for (var j in plan.aditionals) {
+
+            if (plan.aditionals[j] != undefined && plan.aditionals[j].mb != undefined) {
+
+                totalAmount += parseInt(plan.aditionals[j].mb);
+
+            } else {
+
+                continue;
+            }
+        }
+
+        if ( plan.quantity != undefined ) {
+            totalAmount = totalAmount * parseInt(plan.quantity);
+        } else {
+            totalAmount = 0;
+        }
+
+        return totalAmount;
+    };
+
+    $scope.totalMinutos = function(plan) {
+
+        var totalAmount = 0;
+
+        for (var j in plan.aditionals) {
+
+            if (plan.aditionals[j] != undefined && plan.aditionals[j]['minutos-bs'] != undefined) {
+
+                totalAmount += parseInt(plan.aditionals[j]['minutos-bs']);
+
+            } else {
+
+                continue;
+            }
+        }
+
+        if ( plan.quantity != undefined ) {
+            totalAmount = totalAmount * parseInt(plan.quantity);
+        } else {
+            totalAmount = 0;
+        }
+
+        return totalAmount;
+    };
+
+    $scope.totalCredito = function(plan) {
+
+        var totalAmount = 0;
+
+        for (var j in plan.aditionals) {
+
+            if (plan.aditionals[j] != undefined && plan.aditionals[j].crdito != undefined) {
+
+                totalAmount += parseInt(plan.aditionals[j].crdito);
+
+            } else {
+
+                continue;
+            }
+        }
+
+        if ( plan.quantity != undefined ) {
+            totalAmount = totalAmount * parseInt(plan.quantity);
+        } else {
+            totalAmount = 0;
+        }
+
+        return totalAmount;
+    };
+
     $scope.removePlan = function (index) {
 
         var dialog = ngDialog.open(
