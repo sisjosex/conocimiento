@@ -897,12 +897,22 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, $rootScope,
     $scope.totalMB = function (plan) {
 
         var totalAmount = 0;
+        var esIlimitado = false;
+
+        totalAmount = isNaN(parseInt(plan.plan.mb)) ? 0 : parseInt(plan.plan.mb);
 
         for (var j in plan.aditionals) {
 
             if (plan.aditionals[j] != undefined && plan.aditionals[j].mb != undefined) {
 
-                totalAmount += parseInt(plan.aditionals[j].mb);
+                if ( isNaN(parseInt(plan.aditionals[j].mb)) ) {
+
+                    esIlimitado = true;
+
+                } else {
+
+                    totalAmount += parseInt(plan.aditionals[j].mb);
+                }
 
             } else {
 
@@ -914,6 +924,12 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, $rootScope,
             totalAmount = totalAmount * parseInt(plan.quantity);
         } else {
             totalAmount = 0;
+        }
+
+        if ( esIlimitado ) {
+            totalAmount = totalAmount + ' MBs + ilimitado nocturno de 1 a 7:59 todos los dias del mes';
+        } else {
+            totalAmount = totalAmount + ' MBs';
         }
 
         return totalAmount;
@@ -947,6 +963,8 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, $rootScope,
     $scope.totalCredito = function(plan) {
 
         var totalAmount = 0;
+
+        totalAmount = isNaN(parseInt(plan.plan.credito)) ? 0 : parseInt(plan.plan.credito);
 
         for (var j in plan.aditionals) {
 

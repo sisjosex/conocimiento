@@ -76,7 +76,7 @@ angular.module("services", []).factory("service", ["$http", "$q", function ($htt
 
 function checkParams(params) {
 
-    params['platform'] = 'mobile';
+    //params['platform'] = 'mobile';
 
     return params;
 }
