@@ -474,7 +474,7 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, $rootScope,
                                 var dt = moment(date).format("dddd");
 
                                 $scope.extractos.push({
-                                    day: dt + " - " + date.getDate() + ' / ' + date.getMonth() + ' / ' + date.getFullYear(),
+                                    day: dt + " - " + date.getDate() + ' / ' + (date.getMonth() + 1) + ' / ' + date.getFullYear(),
                                     date: date,
                                     value: ''
                                 });
