@@ -108,7 +108,7 @@ var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSani
 
                     } else {
 
-                        $(self).css({left: 10, top: top});
+                        //$(self).css({left: 10, top: top});
                     }
 
                     //}, 100);
@@ -131,13 +131,16 @@ var simulator = angular.module('simuladorEndeudamientoApp', ["chart.js", "ngSani
                     // }
                     // elem.removeClass('active-recent');
 
-                    var self = $(elem).find(".menu");
+                    if ( window.innerWidth >= 1024 ) {
 
-                    var rect = elem[0].getBoundingClientRect();
+                        var self = $(elem).find(".menu");
 
-                    var top  = parseInt(rect.height) + parseInt(rect.top);
+                        var rect = elem[0].getBoundingClientRect();
 
-                    $(self).css({top: top});
+                        var top = parseInt(rect.height) + parseInt(rect.top);
+
+                        $(self).css({top: top});
+                    }
 
                     //$(elem).find(".menu").css({left:elem.pageX + window.scrollX, top:elem.pageY + window.scrollY});
                 });

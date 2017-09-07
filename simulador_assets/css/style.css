@@ -7679,3 +7679,24 @@ body, #box-content {
 .control-label-info {
     color: #7a68ae;
 }
+
+@media all and (max-width: 1024px) {
+    .simulador .input-append {
+        width: 80%;
+    }
+
+    .simulador .dropdown.dropdown-active ul, .simulador .dropdown.dropdown-active .menu {
+
+    }
+
+    .simulador .dropdown ul, .simulador .dropdown .menu {
+        top: 0px !important;
+        left: 0px !important;
+        bottom: 0px !important;
+        right: 0px !important;
+        overflow: auto;
+        position:fixed;
+        z-index: 999999;
+    }
+}
+
