@@ -374,16 +374,10 @@
                                                                 <div class="menu">
                                                                     <table>
                                                                         <tr>
-                                                                            <th ng-repeat="column in plan_columns">{{
-                                                                                column.name }}
-                                                                            </th>
+                                                                            <th ng-repeat="column in plan_columns">{{ column.name }}</th>
                                                                         </tr>
-                                                                        <tr class="sub-item" ng-repeat="item2 in plans"
-                                                                            ng-click="changePlan($index, plan)"
-                                                                            ng-show="item2.tipo != ''">
-                                                                            <td ng-repeat="column in plan_columns"
-                                                                                ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{
+                                                                        <tr class="sub-item" ng-repeat="item2 in plans" ng-click="changePlan($index, plan)" ng-show="item2.tipo != ''">
+                                                                            <td ng-repeat="column in plan_columns" ng-class="{'menu-option': column.id == 'nombre'}">{{
                                                                                 item2[column.id] }}
                                                                             </td>
                                                                         </tr>
@@ -501,8 +495,7 @@
 
                                         <div class="row col-centered has-scroll">
 
-                                            <div class="col-lg-11 col-md-12 col-centered collapser"
-                                                 ng-class="{'collapsed': collapse}">
+                                            <div class="col-lg-11 col-md-12 col-centered collapser" ng-class="{'collapsed': collapse}">
 
                                                 <table class="table-detail">
                                                     <tr ng-repeat="plan in selected_plans track by $index">
@@ -513,6 +506,14 @@
                                                                         plan.quantity }}
                                                                     </td>
                                                                 </tr>
+                                                                <% @plan_columns.each do |column| %>
+                                                                <% if column[:id] != 'nombre' %>
+                                                                <tr>
+                                                                    <td width="50%" class="plan-option"><%= column[:name] %></td>
+                                                                    <td width="50%" class="plan-title" ng-bind="plan.plan['<%= column[:id] %>']"></td>
+                                                                </tr>
+                                                                <% end %>
+                                                                <% end %>
                                                                 <tr>
                                                                     <td class="plan-option">TOTAL MB</td>
                                                                     <td class="plan-title plan-total">{{ totalMB(plan) }}</td>
@@ -546,44 +547,24 @@
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
                                                             <div class="container-total">
-                                                                <div class="box-detail">
-                                                                    <div class="box-total box-total2">
-                                                                        <div class="box-title box-title2">{{
-                                                                            plan.plan.nombre }}
-                                                                        </div>
-                                                                        <div class="box-value box-value2">{{
-                                                                            plan.quantity }} Bs
-                                                                        </div>
-                                                                    </div>
+                                                                <div class="box-total">
+                                                                    <div class="box-title">{{ plan.plan.nombre }} <span class="red">x</span> {{ plan.quantity }}</div>
+                                                                    <div class="box-value">{{ plan.plan.mensual }}</div>
                                                                 </div>
-                                                            </div>
 
-                                                            <div class="box-detail">
-                                                                <div class="box-total box-total2"
-                                                                     ng-repeat="item in plan.aditionals">
-                                                                    <div class="box-title box-title2"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'nombre'">{{
-                                                                        item.nombre
+                                                                <div class="box-total" ng-repeat="item in plan.aditionals">
+                                                                    <div class="box-title" ng-repeat="column in item.columns" ng-show="column.id == 'nombre'">{{ item.nombre
                                                                         }}
                                                                     </div>
-                                                                    <div class="box-value box-value2"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'mensual'">{{
-                                                                        item[column.id] }} Bs
+                                                                    <div class="box-value" ng-repeat="column in item.columns" ng-show="column.id == 'mensual'">{{
+                                                                        item[column.id] }}
                                                                     </div>
                                                                 </div>
-                                                            </div>
-
-                                                            <div class="box-total">
-                                                                <!--<div class="box-title" align="right">Tarifa del-->
-                                                                <!--plan-->
-                                                                <!--</div>-->
-                                                                <div class="box-value" align="right">{{
-                                                                    totalRow(plan) }} Bs
+                                                                <div class="box-total">
+                                                                    <div class="box-title" align="right">Tarifa del plan</div>
+                                                                    <div class="box-value" align="right">{{ totalRow(plan) }} Bs</div>
                                                                 </div>
                                                             </div>
-                                                            <br>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -906,6 +887,24 @@
                                                         </div>
                                                     </div>
 
+
+                                                    <div class="form-group">
+                                                        <div class="col-sm-6">
+                                                        </div>
+                                                        <div class="col-sm-6" style="text-align: center;">
+                                                            <input id="conyugue" type="checkbox" ng-model="user.conyugue" ng-change="updateChart()">
+                                                            <label for="conyugue">Tiene conyugue?</label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group information-field">
+                                                        <label class="col-sm-6 control-label control-label-info">Descuento</label>
+                                                        <div class="col-sm-6">
+
+                                                            <div class="input-info">{{ user.descuento }} %</div>
+                                                        </div>
+                                                    </div>
+
                                                 </form>
                                             </div>
 
@@ -934,16 +933,10 @@
                                                                 <div class="menu">
                                                                     <table>
                                                                         <tr>
-                                                                            <th ng-repeat="column in plan_columns">{{
-                                                                                column.name }}
-                                                                            </th>
+                                                                            <th ng-repeat="column in plan_columns">{{ column.name }}</th>
                                                                         </tr>
-                                                                        <tr class="sub-item" ng-repeat="item2 in plans"
-                                                                            ng-click="changePlan($index, plan)"
-                                                                            ng-show="item2.tipo != ''">
-                                                                            <td ng-repeat="column in plan_columns"
-                                                                                ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{
+                                                                        <tr class="sub-item" ng-repeat="item2 in plans" ng-click="changePlan($index, plan)" ng-show="item2.tipo != ''">
+                                                                            <td ng-repeat="column in plan_columns" ng-class="{'menu-option': column.id == 'nombre'}">{{
                                                                                 item2[column.id] }}
                                                                             </td>
                                                                         </tr>
@@ -1061,21 +1054,25 @@
 
                                         <div class="row col-centered has-scroll">
 
-                                            <div class="col-lg-11 col-md-12 col-centered collapser"
-                                                 ng-class="{'collapsed': collapse}">
+                                            <div class="col-lg-11 col-md-12 col-centered collapser" ng-class="{'collapsed': collapse}">
 
                                                 <table class="table-detail">
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td>
-                                                            <table width="100%"
-                                                                   class="table-detail-internal2 plan-table">
+                                                            <table width="100%" class="table-detail-internal2 plan-table">
                                                                 <tr>
-                                                                    <td colspan="2" class="plan-option main">{{
-                                                                        plan.plan.nombre }} <span class="red">x</span>
-                                                                        {{
+                                                                    <td colspan="2" class="plan-option main">{{ plan.plan.nombre }} <span class="red">x</span> {{
                                                                         plan.quantity }}
                                                                     </td>
                                                                 </tr>
+                                                                <% @plan_columns.each do |column| %>
+                                                                <% if column[:id] != 'nombre' %>
+                                                                <tr>
+                                                                    <td width="50%" class="plan-option"><%= column[:name] %></td>
+                                                                    <td width="50%" class="plan-title" ng-bind="plan.plan['<%= column[:id] %>']"></td>
+                                                                </tr>
+                                                                <% end %>
+                                                                <% end %>
                                                                 <tr>
                                                                     <td class="plan-option">TOTAL MB</td>
                                                                     <td class="plan-title plan-total">{{ totalMB(plan) }}</td>
@@ -1095,18 +1092,12 @@
                                                             </table>
                                                         </td>
                                                         <td>
-                                                            <table class="table-detail-internal2 addon-detail"
-                                                                   ng-repeat="item in plan.aditionals"
-                                                                   ng-show="item != null">
+                                                            <table class="table-detail-internal2 addon-detail" ng-repeat="item in plan.aditionals" ng-show="item != null">
                                                                 <tr>
-                                                                    <th ng-repeat="column in item.columns" width="10%">
-                                                                        {{ column.name }}
-                                                                    </th>
+                                                                    <th ng-repeat="column in item.columns" width="10%">{{ column.name }}</th>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td ng-repeat="column in item.columns" width="10%">
-                                                                        {{ item[column.id] }}
-                                                                    </td>
+                                                                    <td ng-repeat="column in item.columns" width="10%">{{ item[column.id] }}</td>
                                                                 </tr>
                                                             </table>
                                                         </td>
@@ -1115,44 +1106,24 @@
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
                                                             <div class="container-total">
-                                                                <div class="box-detail">
-                                                                    <div class="box-total box-total2">
-                                                                        <div class="box-title box-title2">{{
-                                                                            plan.plan.nombre }}
-                                                                        </div>
-                                                                        <div class="box-value box-value2">{{
-                                                                            plan.quantity }} Bs
-                                                                        </div>
-                                                                    </div>
+                                                                <div class="box-total">
+                                                                    <div class="box-title">{{ plan.plan.nombre }} <span class="red">x</span> {{ plan.quantity }}</div>
+                                                                    <div class="box-value">{{ plan.plan.mensual }}</div>
                                                                 </div>
-                                                            </div>
 
-                                                            <div class="box-detail">
-                                                                <div class="box-total box-total2"
-                                                                     ng-repeat="item in plan.aditionals">
-                                                                    <div class="box-title box-title2"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'nombre'">{{
-                                                                        item.nombre
+                                                                <div class="box-total" ng-repeat="item in plan.aditionals">
+                                                                    <div class="box-title" ng-repeat="column in item.columns" ng-show="column.id == 'nombre'">{{ item.nombre
                                                                         }}
                                                                     </div>
-                                                                    <div class="box-value box-value2"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'mensual'">{{
-                                                                        item[column.id] }} Bs
+                                                                    <div class="box-value" ng-repeat="column in item.columns" ng-show="column.id == 'mensual'">{{
+                                                                        item[column.id] }}
                                                                     </div>
                                                                 </div>
-                                                            </div>
-
-                                                            <div class="box-total">
-                                                                <!--<div class="box-title" align="right">Tarifa del-->
-                                                                <!--plan-->
-                                                                <!--</div>-->
-                                                                <div class="box-value" align="right">{{
-                                                                    totalRow(plan) }} Bs
+                                                                <div class="box-total">
+                                                                    <div class="box-title" align="right">Tarifa del plan</div>
+                                                                    <div class="box-value" align="right">{{ totalRow(plan) }} Bs</div>
                                                                 </div>
                                                             </div>
-                                                            <br>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -1567,16 +1538,10 @@
                                                                 <div class="menu">
                                                                     <table>
                                                                         <tr>
-                                                                            <th ng-repeat="column in plan_columns">{{
-                                                                                column.name }}
-                                                                            </th>
+                                                                            <th ng-repeat="column in plan_columns">{{ column.name }}</th>
                                                                         </tr>
-                                                                        <tr class="sub-item" ng-repeat="item2 in plans"
-                                                                            ng-click="changePlan($index, plan)"
-                                                                            ng-show="item2.tipo != ''">
-                                                                            <td ng-repeat="column in plan_columns"
-                                                                                ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{
+                                                                        <tr class="sub-item" ng-repeat="item2 in plans" ng-click="changePlan($index, plan)" ng-show="item2.tipo != ''">
+                                                                            <td ng-repeat="column in plan_columns" ng-class="{'menu-option': column.id == 'nombre'}">{{
                                                                                 item2[column.id] }}
                                                                             </td>
                                                                         </tr>
@@ -1694,8 +1659,7 @@
 
                                         <div class="row col-centered has-scroll">
 
-                                            <div class="col-lg-11 col-md-12 col-centered collapser"
-                                                 ng-class="{'collapsed': collapse}">
+                                            <div class="col-lg-11 col-md-12 col-centered collapser" ng-class="{'collapsed': collapse}">
 
                                                 <table class="table-detail">
                                                     <tr ng-repeat="plan in selected_plans track by $index">
@@ -1706,6 +1670,14 @@
                                                                         plan.quantity }}
                                                                     </td>
                                                                 </tr>
+                                                                <% @plan_columns.each do |column| %>
+                                                                <% if column[:id] != 'nombre' %>
+                                                                <tr>
+                                                                    <td width="50%" class="plan-option"><%= column[:name] %></td>
+                                                                    <td width="50%" class="plan-title" ng-bind="plan.plan['<%= column[:id] %>']"></td>
+                                                                </tr>
+                                                                <% end %>
+                                                                <% end %>
                                                                 <tr>
                                                                     <td class="plan-option">TOTAL MB</td>
                                                                     <td class="plan-title plan-total">{{ totalMB(plan) }}</td>
@@ -1736,48 +1708,27 @@
                                                         </td>
                                                     </tr>
 
-
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
                                                             <div class="container-total">
-                                                                <div class="box-detail">
-                                                                    <div class="box-total box-total2">
-                                                                        <div class="box-title box-title2">{{
-                                                                            plan.plan.nombre }}
-                                                                        </div>
-                                                                        <div class="box-value box-value2">{{
-                                                                            plan.quantity }} Bs
-                                                                        </div>
-                                                                    </div>
+                                                                <div class="box-total">
+                                                                    <div class="box-title">{{ plan.plan.nombre }} <span class="red">x</span> {{ plan.quantity }}</div>
+                                                                    <div class="box-value">{{ plan.plan.mensual }}</div>
                                                                 </div>
-                                                            </div>
 
-                                                            <div class="box-detail">
-                                                                <div class="box-total box-total2"
-                                                                     ng-repeat="item in plan.aditionals">
-                                                                    <div class="box-title box-title2"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'nombre'">{{
-                                                                        item.nombre
+                                                                <div class="box-total" ng-repeat="item in plan.aditionals">
+                                                                    <div class="box-title" ng-repeat="column in item.columns" ng-show="column.id == 'nombre'">{{ item.nombre
                                                                         }}
                                                                     </div>
-                                                                    <div class="box-value box-value2"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'mensual'">{{
-                                                                        item[column.id] }} Bs
+                                                                    <div class="box-value" ng-repeat="column in item.columns" ng-show="column.id == 'mensual'">{{
+                                                                        item[column.id] }}
                                                                     </div>
                                                                 </div>
-                                                            </div>
-
-                                                            <div class="box-total">
-                                                                <!--<div class="box-title" align="right">Tarifa del-->
-                                                                <!--plan-->
-                                                                <!--</div>-->
-                                                                <div class="box-value" align="right">{{
-                                                                    totalRow(plan) }} Bs
+                                                                <div class="box-total">
+                                                                    <div class="box-title" align="right">Tarifa del plan</div>
+                                                                    <div class="box-value" align="right">{{ totalRow(plan) }} Bs</div>
                                                                 </div>
                                                             </div>
-                                                            <br>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -2226,16 +2177,10 @@
                                                                 <div class="menu">
                                                                     <table>
                                                                         <tr>
-                                                                            <th ng-repeat="column in plan_columns">{{
-                                                                                column.name }}
-                                                                            </th>
+                                                                            <th ng-repeat="column in plan_columns">{{ column.name }}</th>
                                                                         </tr>
-                                                                        <tr class="sub-item" ng-repeat="item2 in plans"
-                                                                            ng-click="changePlan($index, plan)"
-                                                                            ng-show="item2.tipo != ''">
-                                                                            <td ng-repeat="column in plan_columns"
-                                                                                ng-class="{'menu-option': column.id == 'nombre'}">
-                                                                                {{
+                                                                        <tr class="sub-item" ng-repeat="item2 in plans" ng-click="changePlan($index, plan)" ng-show="item2.tipo != ''">
+                                                                            <td ng-repeat="column in plan_columns" ng-class="{'menu-option': column.id == 'nombre'}">{{
                                                                                 item2[column.id] }}
                                                                             </td>
                                                                         </tr>
@@ -2398,48 +2343,27 @@
                                                     <tr ng-repeat="plan in selected_plans track by $index">
                                                         <td colspan="2">
                                                             <div class="container-total">
-                                                                <div class="box-detail">
-                                                                    <div class="box-total box-total2">
-                                                                        <div class="box-title box-title2">{{
-                                                                            plan.plan.nombre }}
-                                                                        </div>
-                                                                        <div class="box-value box-value2">{{
-                                                                            plan.quantity }} Bs
-                                                                        </div>
-                                                                    </div>
+                                                                <div class="box-total">
+                                                                    <div class="box-title">{{ plan.plan.nombre }} <span class="red">x</span> {{ plan.quantity }}</div>
+                                                                    <div class="box-value">{{ plan.plan.mensual }}</div>
                                                                 </div>
-                                                            </div>
 
-                                                            <div class="box-detail">
-                                                                <div class="box-total box-total2"
-                                                                     ng-repeat="item in plan.aditionals">
-                                                                    <div class="box-title box-title2"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'nombre'">{{
-                                                                        item.nombre
+                                                                <div class="box-total" ng-repeat="item in plan.aditionals">
+                                                                    <div class="box-title" ng-repeat="column in item.columns" ng-show="column.id == 'nombre'">{{ item.nombre
                                                                         }}
                                                                     </div>
-                                                                    <div class="box-value box-value2"
-                                                                         ng-repeat="column in item.columns"
-                                                                         ng-show="column.id == 'mensual'">{{
-                                                                        item[column.id] }} Bs
+                                                                    <div class="box-value" ng-repeat="column in item.columns" ng-show="column.id == 'mensual'">{{
+                                                                        item[column.id] }}
                                                                     </div>
                                                                 </div>
-                                                            </div>
-
-                                                            <div class="box-total">
-                                                                <!--<div class="box-title" align="right">Tarifa del-->
-                                                                <!--plan-->
-                                                                <!--</div>-->
-                                                                <div class="box-value" align="right">{{
-                                                                    totalRow(plan) }} Bs
+                                                                <div class="box-total">
+                                                                    <div class="box-title" align="right">Tarifa del plan</div>
+                                                                    <div class="box-value" align="right">{{ totalRow(plan) }} Bs</div>
                                                                 </div>
                                                             </div>
-                                                            <br>
                                                         </td>
                                                     </tr>
                                                 </table>
-
 
                                                 <div class="container-total total" align="right">
                                                     <div class="box-total">

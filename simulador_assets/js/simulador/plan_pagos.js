@@ -24,7 +24,9 @@ simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialo
         califica_text: '',
         calificable: false,
         totalAdeudamiento: '',
-        tarifa_basica_mayor: ''
+        tarifa_basica_mayor: '',
+        descuento: 0,
+        conyugue: false
     };
 
     $scope.chart = {};
@@ -95,7 +97,9 @@ simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialo
             califica_text: '',
             calificable: false,
             totalAdeudamiento: '',
-            tarifa_basica_mayor: ''
+            tarifa_basica_mayor: '',
+            descuento: 0,
+            conyugue: false
         };
 
         $rootScope.document_value = '';
@@ -287,7 +291,7 @@ simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialo
             } else {
                 subtotal = 0;
             }
-            
+
 
             totalAmount = totalAmount + subtotal;
         }
@@ -300,16 +304,29 @@ simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialo
 
         $scope.user.total = totalAmount;
 
+        var ingreso = 0;
+
+        if ($scope.user.conyugue) {
+
+            ingreso = $scope.user.ingreso * 0.5;
+            $scope.user.descuento = '50';
+
+        } else {
+
+            ingreso = $scope.user.ingreso;
+            $scope.user.descuento = '0';
+        }
+
         $scope.calculateAdeudamiento();
 
         var totalAdeudamiento = 0;
 
-        if ($scope.user.porcentaje > 0 && $scope.user.ingreso > 0) {
+        if ($scope.user.porcentaje > 0 && ingreso > 0) {
 
-            totalAdeudamiento = $scope.user.ingreso * ($scope.user.porcentaje / 100);
+            totalAdeudamiento = ingreso * ($scope.user.porcentaje / 100);
         }
 
-        $scope.data = [totalAdeudamiento, totalAmount, $scope.user.ingreso];
+        $scope.data = [totalAdeudamiento, totalAmount, ingreso];
 
 
         $scope.chart.data = {"cols": [
@@ -321,12 +338,12 @@ simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialo
                 {v: totalAdeudamiento}
             ]},
             /*{c: [
-                {v: "Monto a Pagar (" + totalAmount + ")"},
-                {v: totalAmount}
-            ]},*/
+             {v: "Monto a Pagar (" + totalAmount + ")"},
+             {v: totalAmount}
+             ]},*/
             {c: [
-                {v: "Ingresos (" + ($scope.user.ingreso - totalAdeudamiento) + ")"},
-                {v: ($scope.user.ingreso - totalAdeudamiento)}
+                {v: "Ingresos (" + (ingreso - totalAdeudamiento) + ")"},
+                {v: (ingreso - totalAdeudamiento)}
             ]}
         ]};
 
@@ -376,15 +393,26 @@ simulator.controller('SimuladorPlanPagos', function ($scope, $rootScope, ngDialo
 
     $scope.calculateAdeudamiento = function () {
 
+        var ingreso = 0;
+
+        if ($scope.user.conyugue) {
+
+            ingreso = $scope.user.ingreso * 0.5;
+
+        } else {
+
+            ingreso = $scope.user.ingreso;
+        }
+
         if ($scope.user.total == 0) {
 
             $scope.user.porcentaje = 0;
 
-        } else if ($scope.user.ingreso <= 1000) {
+        } else if (ingreso <= 1000) {
 
             $scope.user.porcentaje = 10;
 
-        } else if ($scope.user.ingreso > 1000 && $scope.user.ingreso <= 3000) {
+        } else if (ingreso > 1000 && ingreso <= 3000) {
 
             $scope.user.porcentaje = 15;
 
