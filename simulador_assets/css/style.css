@@ -6908,7 +6908,7 @@ body.export #post_view .accordion .accordion-body.in {
     -o-transition: all 200ms linear;
     -ms-transition: all 200ms linear;
     transition: all 200ms linear;
-    overflow: hidden;
+    overflow-x: auto;
     height: auto;
 }
 /* line 5802, C:/wamp64/www/siscon/app/sites/site2/stylesheets/style.css.scss */
@@ -7134,7 +7134,7 @@ body.export #post_view .accordion .accordion-body.in {
 
     /* line 6000, C:/wamp64/www/siscon/app/sites/site2/stylesheets/style.css.scss */
     .table-detail-internal2 {
-        display: none;
+        /*display: none;*/
     }
 
     .table-detail-internal2.plan-table {
@@ -7698,5 +7698,8 @@ body, #box-content {
         position:fixed;
         z-index: 999999;
     }
-}
 
+    .has-scroll {
+        overflow: auto;
+    }
+}

@@ -506,14 +506,10 @@
                                                                         plan.quantity }}
                                                                     </td>
                                                                 </tr>
-                                                                <% @plan_columns.each do |column| %>
-                                                                <% if column[:id] != 'nombre' %>
-                                                                <tr>
-                                                                    <td width="50%" class="plan-option"><%= column[:name] %></td>
-                                                                    <td width="50%" class="plan-title" ng-bind="plan.plan['<%= column[:id] %>']"></td>
+                                                                <tr ng-repeat="column in plan_columns">
+                                                                    <td class="plan-option">{{ column.name }}</td>
+                                                                    <td class="plan-title plan-total">{{ plan.plan[column.id] }}</td>
                                                                 </tr>
-                                                                <% end %>
-                                                                <% end %>
                                                                 <tr>
                                                                     <td class="plan-option">TOTAL MB</td>
                                                                     <td class="plan-title plan-total">{{ totalMB(plan) }}</td>
@@ -1065,14 +1061,10 @@
                                                                         plan.quantity }}
                                                                     </td>
                                                                 </tr>
-                                                                <% @plan_columns.each do |column| %>
-                                                                <% if column[:id] != 'nombre' %>
-                                                                <tr>
-                                                                    <td width="50%" class="plan-option"><%= column[:name] %></td>
-                                                                    <td width="50%" class="plan-title" ng-bind="plan.plan['<%= column[:id] %>']"></td>
+                                                                <tr ng-repeat="column in plan_columns">
+                                                                    <td class="plan-option">{{ column.name }}</td>
+                                                                    <td class="plan-title plan-total">{{ plan.plan[column.id] }}</td>
                                                                 </tr>
-                                                                <% end %>
-                                                                <% end %>
                                                                 <tr>
                                                                     <td class="plan-option">TOTAL MB</td>
                                                                     <td class="plan-title plan-total">{{ totalMB(plan) }}</td>
@@ -1670,14 +1662,10 @@
                                                                         plan.quantity }}
                                                                     </td>
                                                                 </tr>
-                                                                <% @plan_columns.each do |column| %>
-                                                                <% if column[:id] != 'nombre' %>
-                                                                <tr>
-                                                                    <td width="50%" class="plan-option"><%= column[:name] %></td>
-                                                                    <td width="50%" class="plan-title" ng-bind="plan.plan['<%= column[:id] %>']"></td>
+                                                                <tr ng-repeat="column in plan_columns">
+                                                                    <td class="plan-option">{{ column.name }}</td>
+                                                                    <td class="plan-title plan-total">{{ plan.plan[column.id] }}</td>
                                                                 </tr>
-                                                                <% end %>
-                                                                <% end %>
                                                                 <tr>
                                                                     <td class="plan-option">TOTAL MB</td>
                                                                     <td class="plan-title plan-total">{{ totalMB(plan) }}</td>
@@ -2309,6 +2297,10 @@
                                                                     <td colspan="2" class="plan-option main">{{ plan.plan.nombre }} <span class="red">x</span> {{
                                                                         plan.quantity }}
                                                                     </td>
+                                                                </tr>
+                                                                <tr ng-repeat="column in plan_columns">
+                                                                    <td class="plan-option">{{ column.name }}</td>
+                                                                    <td class="plan-title plan-total">{{ plan.plan[column.id] }}</td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="plan-option">TOTAL MB</td>
