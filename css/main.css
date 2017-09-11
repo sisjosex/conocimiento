@@ -472,7 +472,8 @@ section#nav_left {
   position: fixed;
   width: 320px;
   z-index: 102;
-  background: url("../img/tr_02.png");
+  /*background: url("../img/tr_02.png");*/
+  background: #bfd730;
   -ms-transform: translate(-380px, 0px);
   -webkit-transform: translate(-380px, 0px);
   transform: translate(-380px, 0px);
