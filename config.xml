@@ -9,7 +9,7 @@
         version 	= "0.3.8">
 
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
-        <string>137</string>
+        <string>138</string>
     </gap:config-file>
 
     <name>Sistema de Conocimiento</name>
