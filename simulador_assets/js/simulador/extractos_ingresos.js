@@ -325,7 +325,9 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, $rootScope,
 
                                     } else {
 
-                                        date_test = moment(date_test, "DD/MM/YYYY").toDate();
+                                        //date_test = moment(date_test, "DD/MM/YYYY").toDate();
+                                        date_test = moment(new Date(date_test), "DD/MM/YYYY").toDate();
+
                                         date = moment(date_test).subtract(Math.abs(i), 'days').toDate();
                                     }
 
@@ -352,7 +354,8 @@ simulator.controller('SimuladorExtractosIngresos', function ($scope, $rootScope,
 
                                     } else {
 
-                                        date_test = moment(date_test, "DD/MM/YYYY").toDate();
+                                        //date_test = moment(date_test, "DD/MM/YYYY").toDate();
+                                        date_test = moment(new Date(date_test), "DD/MM/YYYY").toDate();
 
                                         //date = new Date(date_test.getFullYear(), date_test.getMonth() + 1, date_test.getDate() + i - 1);
                                         date = moment(date_test).subtract(Math.abs(i), 'days').toDate();
