@@ -3043,3 +3043,12 @@ form label.error{
   height: 30px;
   background-size: 30px 30px !important;
 }
+
+
+.group_tools .icon {
+  margin: 0 auto !important;
+}
+
+.group_tools > a {
+  vertical-align: top !important;
+}

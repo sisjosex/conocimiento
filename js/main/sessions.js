@@ -72,7 +72,7 @@ App.View('Login', {
                 current_user(res.current_user)
                 permissions_site(res.permissions_site);
                 if(res.init_presentation){
-                    get_route('presentation', false, true);
+                    get_route('home', false, true);
                 }else{
                     get_route('home', false, true);
                 }

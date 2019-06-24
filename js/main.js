@@ -50,7 +50,6 @@ function onOnline() {
 }
 
 function init_app_global(){
-
     _init_app_global = true;
     if(typeof device != "undefined"){
         info_device = {
