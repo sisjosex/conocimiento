@@ -1396,25 +1396,25 @@
             _managePreventDefault: function managePreventDefault(keyName, $e) {
                 var preventDefault;
                 switch (keyName) {
-                  case "up":
-                  case "down":
-                    preventDefault = !withModifier($e);
-                    break;
+                    case "up":
+                    case "down":
+                        preventDefault = !withModifier($e);
+                        break;
 
-                  default:
-                    preventDefault = false;
+                    default:
+                        preventDefault = false;
                 }
                 preventDefault && $e.preventDefault();
             },
             _shouldTrigger: function shouldTrigger(keyName, $e) {
                 var trigger;
                 switch (keyName) {
-                  case "tab":
-                    trigger = !withModifier($e);
-                    break;
+                    case "tab":
+                        trigger = !withModifier($e);
+                        break;
 
-                  default:
-                    trigger = true;
+                    default:
+                        trigger = true;
                 }
                 return trigger;
             },
@@ -1580,7 +1580,7 @@
             www.mixin(this);
             this.highlight = !!o.highlight;
             this.name = o.name || nameGenerator();
-            this.limit = o.limit || 10;
+            this.limit = o.limit || 5;
             this.displayFn = getDisplayFn(o.display || o.displayKey);
             this.templates = getTemplates(o.templates, this.displayFn);
             this.source = o.source.__ttAdapter ? o.source.__ttAdapter() : o.source;
