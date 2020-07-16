@@ -710,7 +710,7 @@ App.View('Search', {
                     if(page > 1) preload_scroll();
                     var startTime = new Date();
                     var startMsec = startTime.getTime();
-                    api(get_params('search2', $.extend({page: page, server_status: true}, params_data)), function( res ) {
+                    api(get_params('search', $.extend({page: page, server_status: true}, params_data)), function( res ) {
                         if(page == 1){
                             // time response
                             startTime = new Date();
